@@ -1,14 +1,12 @@
 <template>
-  <div ref="bd">
+  <div>
     <t-header :t="'登 录 中 心'"></t-header>
-    <div class="ui">
+    <div>
       <span class="iconfont icon-yonghutouxiang"></span>
     </div>
-    <van-cell-group ref="input">
+    <van-cell-group>
       <van-field
         v-model="username"
-        @focus="put"
-        @blur="blu"
         required
         clearable
         label="用户名"
@@ -68,13 +66,7 @@ export default {
     });
   },
   methods: {
-    put() {
-      this.$refs.input.className = "put";
-      // this.f=true
-    },
-    blu() {
-      this.$refs.input.className = "";
-    },
+   
     sub() {
       this.load = true;
       let userinfo = {};
