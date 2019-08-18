@@ -66,7 +66,6 @@ export default {
     });
   },
   methods: {
-   
     sub() {
       this.load = true;
       let userinfo = {};
