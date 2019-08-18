@@ -1,0 +1,19 @@
+@function pm($px){
+	@return $px*320/$dw/20 + rem;
+}
+@mixin bg-img($url) {
+	background: url($url + "@2x.png") no-repeat;
+	background-size: cover;
+  @media (-webkit-min-device-pixel-ratio:3),(min-device-pixel-ratio:3){
+  	background: url($url + "@3x.png") no-repeat cover;
+			background-size: cover;
+	}
+}
+.clf::after{
+	content: "";
+	clear: both;
+	visibility: hidden;
+	display: block;
+	height: 0;
+}
+$dw:750;
