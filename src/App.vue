@@ -12,6 +12,27 @@ import HomeFooter from "./components/footer/footerbar";
 export default {
   components: {
     HomeFooter
+  },
+  mounted() {
+    setInterval(() => {
+      if (sessionStorage.getItem("islogoin") == "true") {
+        window.start++;
+        if (window.start >= window.time) {
+          this.$dialog
+            .alert({
+              title: "登录超时提醒",
+              message:
+                "由于您长时间未进行任何操作,为确保您的账户安全请重新登录!"
+            })
+            .then(() => {
+              sessionStorage.clear();
+            });
+        }
+      }
+    }, 1000);
+    window.addEventListener("touchstart", () => {
+      window.start = 0;
+    });
   }
 };
 </script>

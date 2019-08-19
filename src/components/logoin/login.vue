@@ -1,36 +1,36 @@
 <template>
   <div>
     <t-header :t="'登 录 中 心'"></t-header>
-    <div>
+    <div class="tx">
       <span class="iconfont icon-yonghutouxiang"></span>
     </div>
-    <van-cell-group>
-      <van-field
-        v-model="username"
-        required
-        clearable
-        label="用户名"
-        placeholder="请输入用户名"
-      />
-      <van-field
-        v-model="password"
-        @focus="put"
-        @blur="blu"
-        type="password"
-        label="密码"
-        placeholder="请输入密码"
-        required
-      />
-      <div class="sub">
-        <van-button :loading="load" @click="sub" square type="primary"
-          >登 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 录</van-button
-        >
-      </div>
-    </van-cell-group>
-    <van-cell-group class="fog">
-      <router-link to="/registry">新用户注册</router-link>
-      <span>忘记密码?</span>
-    </van-cell-group>
+    <div class="dl">
+      <van-cell-group>
+        <van-field
+          v-model="username"
+          required
+          clearable
+          label="用户名"
+          placeholder="请输入用户名"
+        />
+        <van-field
+          v-model="password"
+          type="password"
+          label="密码"
+          placeholder="请输入密码"
+          required
+        />
+        <div class="sub">
+          <van-button :loading="load" @click="sub" square type="primary"
+            >登 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 录</van-button
+          >
+        </div>
+      </van-cell-group>
+      <van-cell-group class="fog">
+        <router-link to="/registry">新用户注册</router-link>
+        <span>忘记密码?</span>
+      </van-cell-group>
+    </div>
   </div>
 </template>
 
@@ -72,6 +72,8 @@ export default {
       userinfo.username = this.username;
       userinfo.password = this.password;
       this.axios.post("/fuser", userinfo).then(x => {
+        console.log(x);
+
         if (x.data.msg == "ok") {
           console.log(x.data);
           sessionStorage.setItem("token", x.data.token);
@@ -81,10 +83,18 @@ export default {
             "setuserinfo",
             JSON.parse(sessionStorage.getItem("userinfo"))
           );
+
+          this.$notify({
+            message: "登录成功!跳转...",
+            duration: 500,
+            background: "green"
+          });
           setTimeout(() => {
             this.load = false;
             this.$router.push("/");
           }, 500);
+
+          setInterval(() => {}, 1000);
         } else {
           this.$notify({
             message: "用户名或密码错误",
@@ -102,6 +112,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.tx {
+  text-align: center;
+  padding: 10px;
+}
+.dl {
+  // margin: 80px auto;
+}
 .put {
   position: absolute;
   bottom: 50px;
@@ -127,7 +144,7 @@ export default {
   padding: 50px 0;
 }
 .iconfont {
-  font-size: 80px;
+  font-size: 40px;
 }
 .van-button {
   width: 200px;

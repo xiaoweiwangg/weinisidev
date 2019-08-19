@@ -7,8 +7,8 @@
       </div>
       <div class="msg">
         <div class="name">
-          <span class="sum">账 &nbsp;&nbsp;号:</span>
-          <span>{{ userinfo.name }}</span>
+          <span class="sum"> 账 &nbsp;&nbsp;号:</span>
+          <span class="nm">{{ userinfo.name }}</span>
         </div>
         <div class="bl">
           <span class="sum">代&nbsp;&nbsp; 理:</span>
@@ -87,6 +87,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.nm {
+  color: rebeccapurple;
+}
 .dl {
   color: gold;
   font-size: 21px;
@@ -133,6 +136,7 @@ export default {
   }
   .sum {
     font-weight: bold;
+    display: inline-block;
   }
   .item {
     text-align: center;
