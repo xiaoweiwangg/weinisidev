@@ -1,22 +1,27 @@
 <template>
   <div>
-    <t-header :t="'新 用 户 注 册'"></t-header>
-    <div class="ui">
-      <span class="iconfont icon-yonghutouxiang"></span>
-    </div>
+    <t-header :l="true" :t="'新 用 户 注 册'"></t-header>
     <van-cell-group>
       <van-field
         v-model.trim="username"
         required
         clearable
+        :error-message="nem"
         label="用户名"
         right-icon="question-o"
         placeholder="请输入用户名"
         @click-right-icon="$toast('question')"
       />
       <van-field v-model.trim="password" type="password" label="密码" placeholder="请输入密码" required />
-      <van-field v-model.trim="repassword" type="password" label="密码" placeholder="请确认密码" required />
-      <van-field v-model.trim="phone" label="手机号"  placeholder="请输入手机号" :error-message="pem" />
+      <van-field
+        v-model.trim="repassword"
+        type="password"
+        label="密码"
+        placeholder="请确认密码"
+        required
+        :error-message="pwem"
+      />
+      <van-field v-model.trim="phone" label="手机号" placeholder="请输入手机号" :error-message="pem" />
       <div class="sub">
         <van-button
           :loading="load"
@@ -53,22 +58,24 @@ export default {
       password: "",
       repassword: "",
       phone: "",
-      pem:""
+      pem: "",
+      nem: "",
+      pwem: ""
     };
   },
   mounted() {},
   methods: {
     sub() {
+      if (this.username.length < 8) {
+        this.nem = "用户名不能少于8位";
+        return;
+      }
       if (this.password != this.repassword) {
-        this.$notify({
-          title:"错误",
-          message:"两次输入密码不一致",
-          background:"#000"
-        })
+        this.pwem = "两次输入密码不一致";
         return;
       }
       if (!/^1[3456789]\d{9}$/.test(this.phone)) {
-        this.pem="手机号格式错误"
+        this.pem = "手机号格式错误";
         return;
       }
       let userinfo = {};

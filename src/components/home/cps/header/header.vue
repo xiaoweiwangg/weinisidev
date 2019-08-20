@@ -1,16 +1,21 @@
 <template>
   <div>
-    <n-bar :title="t || '购 彩 大 厅'" fiexd />
+    <n-bar :left-arrow="l" :title="t || '购 彩 大 厅'" fiexd @click-left="onClickLeft"/>
   </div>
 </template>
 
 <script>
 import { NavBar } from "vant";
 export default {
-  props: ["t"],
+  props: ["t","l"],
   name: "HHeader",
   components: {
     NBar: NavBar
+  },
+  methods:{
+    onClickLeft(){
+      this.$router.go(-1)
+    }
   }
 };
 </script>

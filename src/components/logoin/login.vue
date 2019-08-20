@@ -1,6 +1,6 @@
 <template>
   <div>
-    <t-header :t="'登 录 中 心'"></t-header>
+    <t-header :l="true" :t="'登 录 中 心'"></t-header>
     <div class="tx">
       <span class="iconfont icon-yonghutouxiang"></span>
     </div>

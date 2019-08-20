@@ -2,22 +2,31 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
-// import "./assets/base/hotcss"
 import "./assets/icon/iconfont.css";
 import "./assets/base/reset.css";
-import fast from "fastclick";
-import axios from "axios";
-import vaxios from "vue-axios";
-import { Notify } from "vant";
 import { log } from "util";
-//全局消息组件
-Vue.use(Notify);
 
-Vue.use(vaxios, axios);
+//移动端延迟300毫秒解决
+import fast from "fastclick";
 fast.attach(document.body);
-Vue.config.productionTip = false;
 
 //全局弹出层组件
+import { Notify } from "vant";
+Vue.use(Notify);
+
+//全局头部组件
+import { NavBar } from 'vant';
+Vue.use(NavBar);
+
+//axios组件
+import axios from "axios";
+import vaxios from "vue-axios";
+Vue.use(vaxios, axios);
+
+//vue生产环境标识
+Vue.config.productionTip = false;
+
+//全局弹出消息组件
 import { Dialog } from "vant";
 Vue.use(Dialog);
 
