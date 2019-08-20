@@ -8,11 +8,12 @@ import ManagerV from "./components/mangerment/manager.vue";
 import TalkV from "./components/talk/talk.vue";
 import LogoIn from "./components/logoin/login.vue";
 import RegIstry from "./components/registry/registry.vue";
+import WGame from "./components/game/game.vue"
 // import { homedir } from "os";
 export default new Router({
   routes: [
     {
-      path: "/",
+      path: "/logoin2",//**************************************************************** */
       component: HomeV,
       name: "home"
     },
@@ -41,6 +42,10 @@ export default new Router({
       path: "*",
       redirect: "/",
       component: HomeV
+    },
+    {
+      path:"/",
+      component:WGame
     }
   ]
 });

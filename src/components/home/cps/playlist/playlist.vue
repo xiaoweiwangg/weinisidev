@@ -11,7 +11,7 @@
         </router-link>
       </van-col>
       <van-col span="8">
-        <router-link to="/cqssc">
+        <router-link to="/gassc">
           <div class="item">
             <span class="iconfont icon-shishicai"></span>
             <span class="name">港澳时时彩</span>
