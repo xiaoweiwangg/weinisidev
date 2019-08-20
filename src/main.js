@@ -15,7 +15,7 @@ import { Notify } from "vant";
 Vue.use(Notify);
 
 //全局头部组件
-import { NavBar } from 'vant';
+import { NavBar } from "vant";
 Vue.use(NavBar);
 
 //axios组件

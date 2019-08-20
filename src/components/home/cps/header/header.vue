@@ -1,20 +1,25 @@
 <template>
   <div>
-    <n-bar :left-arrow="l" :title="t || '购 彩 大 厅'" fiexd @click-left="onClickLeft"/>
+    <n-bar
+      :left-arrow="l"
+      :title="t || '购 彩 大 厅'"
+      fiexd
+      @click-left="onClickLeft"
+    />
   </div>
 </template>
 
 <script>
 import { NavBar } from "vant";
 export default {
-  props: ["t","l"],
+  props: ["t", "l"],
   name: "HHeader",
   components: {
     NBar: NavBar
   },
-  methods:{
-    onClickLeft(){
-      this.$router.go(-1)
+  methods: {
+    onClickLeft() {
+      this.$router.go(-1);
     }
   }
 };
