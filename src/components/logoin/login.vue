@@ -26,10 +26,10 @@
           >
         </div>
       </van-cell-group>
-      <van-cell-group class="fog">
+      <div class="fog">
         <router-link to="/registry">新用户注册</router-link>
         <span>忘记密码?</span>
-      </van-cell-group>
+      </div>
     </div>
   </div>
 </template>
@@ -144,7 +144,7 @@ export default {
   padding: 50px 0;
 }
 .iconfont {
-  font-size: 40px;
+  font-size: 60px;
 }
 .van-button {
   width: 200px;

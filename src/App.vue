@@ -26,6 +26,7 @@ export default {
             })
             .then(() => {
               sessionStorage.clear();
+              this.$router.push("/logoin")
             });
         }
       }
