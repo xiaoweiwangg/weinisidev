@@ -14,6 +14,10 @@ fast.attach(document.body);
 import { Notify } from "vant";
 Vue.use(Notify);
 
+//全局button组件
+import { Button } from 'vant';
+Vue.use(Button);
+
 //全局头部组件
 import { NavBar } from "vant";
 Vue.use(NavBar);
@@ -31,7 +35,7 @@ import { Dialog } from "vant";
 Vue.use(Dialog);
 
 //初始用户操作坐标值
-window.time = 60 * 1;
+window.time = 60 * 15;
 window.start = 0;
 
 //axios 拦截请求头

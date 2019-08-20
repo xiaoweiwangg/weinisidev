@@ -8,9 +8,7 @@
         clearable
         :error-message="nem"
         label="用户名"
-        right-icon="question-o"
-        placeholder="请输入用户名"
-        @click-right-icon="$toast('question')"
+x        placeholder="请输入用户名"
       />
       <van-field
         v-model.trim="password"

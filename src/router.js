@@ -13,7 +13,7 @@ import WGame from "./components/game/game.vue"
 export default new Router({
   routes: [
     {
-      path: "/logoin2",//**************************************************************** */
+      path: "/",
       component: HomeV,
       name: "home"
     },
@@ -44,8 +44,8 @@ export default new Router({
       component: HomeV
     },
     {
-      path:"/",
-      component:WGame
+      path: "/gassc",
+      component: WGame,
     }
   ]
 });

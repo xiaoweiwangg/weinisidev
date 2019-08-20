@@ -8,7 +8,6 @@
         ><span class="iconfont icon-custom-service"></span> 客服</van-col
       >
       <van-col span="6"><span class="iconfont icon-miji"></span> 秘籍</van-col>
-      <van-col span="6"><span class="iconfont icon-jilu"></span> 长龙</van-col>
     </van-row>
   </div>
 </template>
@@ -35,6 +34,7 @@ export default {
   justify-content: space-around;
   .iconfont {
     font-size: 20px;
+    width: 70px;
   }
   .icon-liaotian,
   .icon-miji {
