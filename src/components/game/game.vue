@@ -1,31 +1,37 @@
 <template>
     <div>
 
-        <div class="controlgame">
-56546546541646584
+        <s-game @update="up"></s-game>
+        <div class="kjdeg">
+
         </div>
-        sadfadfasdfasdfasdf
-    <component :is="'BaseLottor'"></component>
+    <component :is="'yx'" :playgame="playname"></component>
     </div>
 </template>
 
 <script>
+import SGame from "./base/selgame/select"
 import BaseLottor from "./base/pos/pos"
     export default {
         name:"WGame",
         components:{
-            BaseLottor
+          "yx":  BaseLottor,
+          SGame
+        },
+        data(){
+            return {
+                playname:""
+            }
+        },
+        methods:{
+            up(x){
+               console.log(x);
+               this.playname=x
+            }
         }
     }
 </script>
 
 <style lang="scss" scoped>
-.controlgame{
-    height: 50px;
-    background-color: #110e0e;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-}
+
 </style>

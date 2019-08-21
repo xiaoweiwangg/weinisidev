@@ -32,12 +32,14 @@
 <style lang="scss" scoped>
 .child{
     li{
-        height: 30px;
-        width: 30px;
+        height: 40px;
+        width:40px;
         border: 2px solid #ccc;
         border-radius: 50%;
-        line-height: 30px;
+        line-height: 40px;
         text-align: center;
+        font-size: 20px;
+        margin:5px 10px;
     }
     .act{
         background-color: red;
