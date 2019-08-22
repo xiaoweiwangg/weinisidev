@@ -125,6 +125,7 @@ ul {
       width: 35px;
       min-height: 100px;
       line-height: 50px;
+      min-width: 30px;
       text-align: center;
       font-size: 20px;
       background-color: gold;
@@ -136,6 +137,7 @@ ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    padding: 0 20px;
   }
   .btn {
     display: flex;

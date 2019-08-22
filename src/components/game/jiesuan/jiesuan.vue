@@ -116,34 +116,167 @@ export default {
           if (x.length == 3) {
             if (x[0].length > 0 && x[1].length > 0 && x[2].length > 0) {
               let n = x[0].length * x[1].length * x[2].length;
-              // for (let a = 0; a < 10; a++) {
-              //   for (let b = 0; b < 10; b++) {
-              //     for (let c = 0; c < 10; c++) {
-              //       n=a*b*c
-              //     }
-              //   }
-              // }
+
               this.num = n;
               return n;
             }
           }
         }
       } //end-----------------
-      if (this.name.includes("组六")) {
+      function loop(x) {
+        let res = 0;
+        for (let i = 0; i <= x; i++) {
+          res += i;
+        }
+        return res;
+      }
+      if (this.name.includes("三") && this.name.includes("组六")) {
         if (x[0].length >= 3) {
           let n = x[0].length - 2;
           let ct = 0;
-          console.log(n);
-          
-          for (let i = 0; i < n; i++) {
-            for (let t = 0; t < i; t++) {
-              ct += t+i
-            }
+          let dic = _.range(0, n + 1);
+          for (let i = 0; i < dic.length; i++) {
+            ct += loop(dic[i]);
           }
           this.num = ct;
           return ct;
         }
-      }
+      } //end***************
+      if (this.name.includes("三") && this.name.includes("跨度")) {
+        if (x[0].length > 0) {
+          let ls = [];
+          let n = "";
+          for (let i = 0; i < x[0].length; i++) {
+            for (let a = 0; a < 10; a++) {
+              for (let b = 0; b < 10; b++) {
+                for (let c = 0; c < 10; c++) {
+                  if (Math.max(a, b, c) - Math.min(a, b, c) == x[0][i]) {
+                    n = a + "" + b + c;
+                    ls.push(n);
+                  }
+                }
+              }
+            }
+          }
+          this.num = ls.length;
+          return ls.length;
+        }
+      } //ende-------------------------
+      if (this.name.includes("二") && this.name.includes("不定位包胆")) {
+        if (x[0].length >= 1) {
+          this.num = x[0].length * 9;
+          return x[0].length * 9;
+        }
+      } //-------------------
+      if (this.name.includes("一码不定位")) {
+        if (x[0].length >= 1) {
+          this.num = x[0].length;
+          return x[0].length;
+        }
+      } //-------------------
+      if (this.name.includes("二码不定位")) {
+        if ((x.length = 1)) {
+          if (x[0].length > 0) {
+            let n = 0;
+            for (let i = 0; i < x[0].length; i++) {
+              n += i;
+            }
+            this.num = n;
+            return n;
+          }
+        }
+      } //-------------------
+      if (this.name.includes("三码不定位")) {
+        if (x[0].length >= 3) {
+          let n = x[0].length - 2;
+          let ct = 0;
+          let dic = _.range(0, n + 1);
+          for (let i = 0; i < dic.length; i++) {
+            ct += loop(dic[i]);
+          }
+          this.num = ct;
+          return ct;
+        }
+      } //-------------------
+      if (this.name.includes("三") && this.name.includes("组三")) {
+        if ((x.length = 1)) {
+          if (x[0].length > 0) {
+            let n = 0;
+            for (let i = 0; i < x[0].length; i++) {
+              n += i;
+            }
+            this.num = n * 2;
+            return n * 2;
+          }
+        }
+      } //end-------------------------
+      if (this.name.includes("三") && this.name.includes("直选和值")) {
+        if (x[0].length > 0) {
+          let ls = [];
+          let n = "";
+          for (let i = 0; i < x[0].length; i++) {
+            for (let a = 0; a < 10; a++) {
+              for (let b = 0; b < 10; b++) {
+                for (let c = 0; c < 10; c++) {
+                  if (a + b + c == x[0][i]) {
+                    n = a + "" + b + c;
+                    ls.push(n);
+                  }
+                }
+              }
+            }
+          }
+          this.num = ls.length;
+          return ls.length;
+        }
+      } //end-----------------------
+      if (this.name.includes("三") && this.name.includes("组选和值")) {
+        if (x[0].length > 0) {
+          let ls = [];
+          let tip = [];
+          let n = "";
+          for (let a = 0; a < 10; a++) {
+            for (let b = 0; b < 10; b++) {
+              for (let c = 0; c < 10; c++) {
+                tip.push([a, b, c].sort((d, e) => d - e).join(""));
+                tip = _.uniq(tip);
+              }
+            }
+          }
+          for (let i = 0; i < x[0].length; i++) {
+            tip.forEach(el => {
+              if (el[0] * 1 + el[1] * 1 + el[2] * 1 == x[0][i]) {
+                ls.push(el);
+              }
+            });
+          }
+          this.num = ls.length;
+          return ls.length;
+        }
+      } //end-----------------------
+      if (this.name.includes("五") && this.name.includes("复式")) {
+        if (this.name.includes("直选")) {
+          if (x.length == 5) {
+            if (x[0].length > 0 && x[1].length > 0 && x[2].length > 0&& x[3].length > 0&& x[4].length > 0) {
+              let n = x[0].length * x[1].length * x[2].length* x[3].length* x[4].length;
+              this.num = n;
+              return n;
+            }
+          }
+        }
+      } //end-----------------
+      if (this.name.includes("四") && this.name.includes("复式")) {
+        if (this.name.includes("直选")) {
+          if (x.length == 4) {
+            if (x[0].length > 0 && x[1].length > 0 && x[2].length > 0&& x[3].length > 0) {
+              let n = x[0].length * x[1].length * x[2].length* x[3].length
+              this.num = n;
+              return n;
+            }
+          }
+        }
+      } //end-----------------
+
     }
   }
 };

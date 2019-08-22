@@ -16,7 +16,7 @@ export default {
   methods: {
     chek(cont) {
       if (this.list.indexOf(cont) >= 0) {
-        //*--------------->=0是重点
+        //*--------------- >=0是重点
         return true;
       }
     },
@@ -24,7 +24,9 @@ export default {
       this.$emit("up", this.cont, this.pos);
     }
   },
-  watch: {}
+  watch: {
+    
+  }
 };
 </script>
 
@@ -38,7 +40,7 @@ export default {
     line-height: 40px;
     text-align: center;
     font-size: 20px;
-    margin: 5px 10px;
+    margin: .1rem;
   }
   .act {
     background-color: red;

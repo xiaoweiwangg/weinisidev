@@ -3,7 +3,7 @@
     <t-header :l="true" :t="'新 用 户 注 册'"></t-header>
     <van-cell-group>
       <van-field
-        v-model.trim="username"
+        v-model.trim="name"
         required
         clearable
         :error-message="nem"
@@ -60,7 +60,7 @@ export default {
     return {
       show: false,
       load: false,
-      username: "",
+      name: "",
       password: "",
       repassword: "",
       phone: "",
@@ -72,7 +72,7 @@ export default {
   mounted() {},
   methods: {
     sub() {
-      if (this.username.length < 8) {
+      if (this.name.length < 8) {
         this.nem = "用户名不能少于8位";
         return;
       }
@@ -85,7 +85,7 @@ export default {
         return;
       }
       let userinfo = {};
-      userinfo.username = this.username;
+      userinfo.name = this.name;
       userinfo.password = this.password;
       userinfo.phone = this.phone;
       this.axios.post("/inuser", userinfo).then(x => {
