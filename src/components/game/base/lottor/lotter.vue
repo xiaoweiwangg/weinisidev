@@ -21,7 +21,6 @@ export default {
       }
     },
     up() {
-      console.log(this.list);
       this.$emit("up", this.cont, this.pos);
     }
   },

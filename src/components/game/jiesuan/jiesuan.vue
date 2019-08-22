@@ -40,113 +40,108 @@ export default {
   },
   methods: {
     suanfa(x) {
+      // 1星算法
       if (this.name.includes("一星")) {
         let n = 0;
-        x.map(a => {
-          a.map(b => {
-            if (b >= 0) {
-              n++;
-            }
+        if (x.length > 0) {
+          x.map(i => {
+            i.map(c => {
+              if (c >= 0) {
+                n++;
+              }
+            });
           });
-        });
-        this.num = n;
-        return n;
-      }
-      if (this.name.includes("二") && this.name.includes("直选")&&!this.name.includes("和值")&&!this.name.includes("跨度")) {
-        let n = 0;
-        if (x[0].length > 1 && x[1].length > 0) {
-          n = x[0].length * x[1].length;
           this.num = n;
           return n;
         }
-      }
-      if (this.name.includes("二") && this.name.includes("直选")&&this.name.includes("和值")) {
-        let n = 0;
-        let ls=[]
-        x[0].map(a=>{
-            for(let i=0;i<10;i++){
-                for(let k=0;k<10;k++){
-                    if(i+k==a){
-                        ls.push(i+""+k)
-                    }
-                }
+      } //--end
+      //前二后二直选组选复式
+      if (this.name.includes("二") && this.name.includes("复式")) {
+        if (this.name.includes("直选")) {
+          let n = 0;
+          if (x.length == 2) {
+            if (x[0].length > 0 && x[1].length > 0) {
+              n = x[0].length * x[1].length;
+              this.num = n;
+              return n;
             }
-        })
-        this.num=ls.length
-        return ls.length
-      }
-      if (this.name.includes("二") && this.name.includes("直选")&&this.name.includes("跨度")) {
-        let ls=[]
-        x[0].map(a=>{
-            for(let i=0;i<10;i++){
-                for(let k=0;k<10;k++){
-                    if(i-k==a){
-                    ls.push(i+""+k)
-                    }
-                }
-            }
-        })
-        console.log(ls);
-        this.num=ls.length
-        return ls.length
-      }
-      if (this.name.includes("二") && this.name.includes("组选")&&!this.name.includes("和值")) {
-        let n = 0;
-        if (x[0].length > 0) {
-          for (let i = 0; i < x[0].length; i++) {
-            n += i;
           }
-          this.num = n;
-          return n;
+        } else {
+          if ((x.length = 1)) {
+            if (x[0].length > 0) {
+              let n = 0;
+              for (let i = 0; i < x[0].length; i++) {
+                n += i;
+              }
+              this.num = n;
+              return n;
+            }
+          }
         }
-      }
-      if (
-        this.name.includes("三") &&
-        this.name.includes("直选") &&
-        !this.name.includes("和值")
-      ) {
-        let n = 0;
-        if (x[0].length > 0 && x[1].length > 0 && x[2].length > 0) {
-          n = x[0].length * x[1].length * x[2].length;
-          this.num = n;
-          return n;
-        }
-      }
-      if (
-        this.name.includes("三") &&
-        this.name.includes("组选") &&
-        !this.name.includes("和值")
-      ) {
-        let n = 0;
-        if (x[0].length > 0 && x[1].length > 0 && x[2].length > 0) {
-          n = x[0].length * x[1].length * x[2].length;
-          this.num = n;
-          return n;
-        }
-      }
-      if (
-        this.name.includes("三") &&
-        this.name.includes("直选") &&
-        this.name.includes("和")
-      ) {
+      } //end----------
+      if (this.name.includes("二") && this.name.includes("直选和值")) {
         let n = 0;
         let ls = [];
-        let hz = _.range(0, 28);
-        if (x[0].length > 0) {
-          x[0].map(a => {
-            console.log(a);
-            for (let i = 0; i < 10; i++) {
-              for (let s = 0; s < 10; s++) {
-                for (let g = 0; g < 10; g++) {
-                  if (i + g + s == a) {
-                    ls.push(i + "" + s + "" + g);
-                  }
-                }
+        let hz = _.range(0, 19);
+        for (let a = 0; a < x[0].length; a++) {
+          for (let i = 0; i < 10; i++) {
+            for (let k = 0; k < 10; k++) {
+              if (i + k == x[0][a]) {
+                ls.push(i + "" + k);
               }
             }
-          });
-          this.num = ls.length;
-          return ls.length;
+          }
+        }
+        this.num = ls.length;
+        return ls.length;
+      } //end------------------------
+      if (this.name.includes("二") && this.name.includes("直选跨度")) {
+        let n = 0;
+        let ls = [];
+        let hz = _.range(0, 19);
+        for (let a = 0; a < x[0].length; a++) {
+          for (let i = 0; i < 10; i++) {
+            for (let k = 0; k < 10; k++) {
+              if (Math.abs(i - k) == x[0][a]) {
+                ls.push(i + "" + k);
+              }
+            }
+          }
+        }
+        this.num = ls.length;
+        return ls.length;
+      } //end-------------------------------
+      if (this.name.includes("三") && this.name.includes("复式")) {
+        if (this.name.includes("直选")) {
+          if (x.length == 3) {
+            if (x[0].length > 0 && x[1].length > 0 && x[2].length > 0) {
+              let n = x[0].length * x[1].length * x[2].length;
+              // for (let a = 0; a < 10; a++) {
+              //   for (let b = 0; b < 10; b++) {
+              //     for (let c = 0; c < 10; c++) {
+              //       n=a*b*c
+              //     }
+              //   }
+              // }
+              this.num = n;
+              return n;
+            }
+          }
+        }
+      } //end-----------------
+      if (this.name.includes("组六")) {
+        if (x[0].length >= 3) {
+          let n = x[0].length - 2;
+          let ct = 0;
+          console.log(n);
+          
+          for (let i = 0; i < n; i++) {
+            for (let t = 0; t < i; t++) {
+              ct += t+i
+            }
+          }
+          this.num = ct;
+          return ct;
         }
       }
     }
