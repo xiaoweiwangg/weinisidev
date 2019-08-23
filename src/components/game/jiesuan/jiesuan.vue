@@ -1,5 +1,5 @@
 <template>
-  <div class="js" v-show="num>0">
+  <div class="js" v-show="isshow">
     <div class="det">
       <van-button type="info">
         合计:&nbsp;{{add}}&nbsp;注
@@ -15,11 +15,13 @@
 
 <script>
 import _ from "underscore";
+import { log } from 'util';
 export default {
-  props: ["dt", "name"],
+  props: ["dt", "name","cl"],
   name: "JSuan",
   data() {
     return {
+      isshow:true,
       num: 0,
       sprice: 2,
       huilv: 1
@@ -28,6 +30,12 @@ export default {
   watch: {
     name: function() {
       this.num = 0;
+      console.log("切换了");
+      this.isshow=false
+      
+    },
+    dt:function(x){
+      this.isshow=true
     }
   },
   computed: {
@@ -38,12 +46,20 @@ export default {
       return this.suanfa(this.dt);
     }
   },
+  mounted(){
+    console.log(this.cl);
+    
+  },
   methods: {
+      show(){
+         this.isshow=true
+       },
     suanfa(x) {
       // 1星算法
       if (this.name.includes("一星")) {
         let n = 0;
         if (x.length > 0) {
+          this.show()
           x.map(i => {
             i.map(c => {
               if (c >= 0) {
@@ -276,7 +292,15 @@ export default {
           }
         }
       } //end-----------------
-
+      if (this.name.includes("单式")) {
+        console.log(x);
+        if(x[0].length==0&&x[0].length==0){
+          this.num=0
+          return 0
+        }
+        this.num=x.length
+        return x.length
+      } //end----------------
     }
   }
 };

@@ -2,8 +2,8 @@
   <div>
     <s-game @update="up" :gamelist="gamelist" @gl="gl"></s-game>
     <div class="kjdeg"></div>
-    <component @submi="submi" :is="cur" :num="num" :namelist="namelist" :gamelist="gamelist"></component>
-    <j-suan :dt="dt" :name="name" ></j-suan>
+    <component :name="name" @submi="submi" :is="cur" :num="num" :namelist="namelist" :gamelist="gamelist"></component>
+    <j-suan :dt="dt" :name="name" :cl="cl"></j-suan>
   </div>
 </template>
 
@@ -22,12 +22,13 @@ export default {
   },
   data() {
     return {
+      cl:"no",
       num:10,
       cur:"BaseLottor",
       gamelist: null,
       namelist: null,
       dt:null,
-      name:""
+      name:"",
     };
   },
   methods: {
@@ -36,15 +37,12 @@ export default {
     },
     gl(){
       this.gamelist=[[],[],[],[],[],[]]
+      this.cl="cl"
     },
     up(x) {
       this.name=x
       this.num=10
-      if(x.includes("单式")){
-        this.cur="GD"
-      } else{
-        this.cur="BaseLottor"
-      }
+      
       if(x.includes("一")){
         this.gamelist=[[],[],[],[],[]]
         this.namelist=["万位","千位","百位","十位","个位"]
@@ -102,6 +100,13 @@ export default {
       if(x.includes("不定位")){
         this.gamelist=[[]];
         this.namelist=["不定位"]
+      }
+      if(x.includes("单式")){
+        this.gamelist=[]
+        this.namelist=[]
+        this.cur="GD"
+      } else{
+        this.cur="BaseLottor"
       }
     }
   }
