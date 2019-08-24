@@ -92,10 +92,7 @@ export default {
 
 <style lang="scss" scoped>
 .ds {
-  position: absolute;
-  top: 70px;
-  left: 0;
-  right: 0;
+  margin-top: 5px;
   .cont {
     text-align: center;
     align-items: center;

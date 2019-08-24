@@ -1,41 +1,44 @@
 <template>
   <div class="js" v-show="isshow">
-    <div class="det">
+    <div class="det" @click="detshow">
       <van-button type="info">
-        合计:&nbsp;{{add}}&nbsp;注
+        投注篮合计:&nbsp;{{add}}&nbsp;注
         <span class="iconfont icon-sanjiaoxing1"></span>
       </van-button>
-      <van-button type="warning">{{count}} 元</van-button>
+      <van-button type="warning">{{num * huilv * sprice}} 元</van-button>
     </div>
     <div class="sub">
       <van-button type="danger">立即下注</van-button>
     </div>
+    <van-dialog v-model="sh" :title="name" show-cancel-button>
+      <div class="car">{{numcar}}</div>
+    </van-dialog>
   </div>
 </template>
 
 <script>
 import _ from "underscore";
-import { log } from 'util';
+import { log } from "util";
 export default {
-  props: ["dt", "name","cl"],
+  props: ["dt", "name", "cl"],
   name: "JSuan",
   data() {
     return {
-      isshow:true,
+      sh: false,
+      isshow: true,
       num: 0,
       sprice: 2,
-      huilv: 1
+      huilv: 1,
+      numcar: ""
     };
   },
   watch: {
     name: function() {
       this.num = 0;
-      console.log("切换了");
-      this.isshow=false
-      
+      this.isshow = false;
     },
-    dt:function(x){
-      this.isshow=true
+    dt: function(x) {
+      this.isshow = true;
     }
   },
   computed: {
@@ -46,27 +49,31 @@ export default {
       return this.suanfa(this.dt);
     }
   },
-  mounted(){
-    console.log(this.cl);
-    
-  },
+  mounted() {},
   methods: {
-      show(){
-         this.isshow=true
-       },
+    detshow() {
+      this.$dialog;
+      this.sh = true;
+    },
+    show() {
+      this.isshow = true;
+    },
     suanfa(x) {
       // 1星算法
+
       if (this.name.includes("一星")) {
         let n = 0;
         if (x.length > 0) {
-          this.show()
+          this.show();
           x.map(i => {
             i.map(c => {
               if (c >= 0) {
                 n++;
               }
             });
+            i.join("");
           });
+          this.numcar = x.join("__|");
           this.num = n;
           return n;
         }
@@ -77,6 +84,13 @@ export default {
           let n = 0;
           if (x.length == 2) {
             if (x[0].length > 0 && x[1].length > 0) {
+              let s = "";
+              for (let tv = 0; tv < x[0].length; tv++) {
+                for (let t = 0; t < x[1].length; t++) {
+                  s += x[0][tv] + "" + x[1][t] + "\r\n";
+                }
+              }
+              this.numcar = s;
               n = x[0].length * x[1].length;
               this.num = n;
               return n;
@@ -86,9 +100,20 @@ export default {
           if ((x.length = 1)) {
             if (x[0].length > 0) {
               let n = 0;
+              let sec = x[0];
+              let s = "";
+              let tel = [];
               for (let i = 0; i < x[0].length; i++) {
                 n += i;
+                for (let v = 0; v < sec.length; v++) {
+                  if (x[0][i] !== sec[v]) {
+                    tel.push([x[0][i], sec[v]].sort((a, b) => a - b).join(""));
+                  }
+                }
               }
+              tel = _.uniq(tel);
+              s += tel.join("\r\n");
+              this.numcar = s;
               this.num = n;
               return n;
             }
@@ -108,8 +133,28 @@ export default {
             }
           }
         }
+        this.numcar = ls.join("\r\n");
         this.num = ls.length;
         return ls.length;
+      } //end------------------------
+      if (this.name.includes("二") && this.name.includes("组选和值")) {
+        let n = 0;
+        let ls = [];
+        let it = [];
+        let hz = _.range(0, 19);
+        for (let a = 0; a < x[0].length; a++) {
+          for (let i = 0; i < 10; i++) {
+            for (let k = 0; k < 10; k++) {
+              if (i + k == x[0][a]) {
+                it.push([i, k].sort((a, b) => a - b).join(""));
+                ls.push(i + "" + k);
+              }
+            }
+          }
+        }
+        this.numcar = _.uniq(it).join("\r\n");
+        this.num = _.uniq(it).length;
+        return _.uniq(it).length;
       } //end------------------------
       if (this.name.includes("二") && this.name.includes("直选跨度")) {
         let n = 0;
@@ -124,15 +169,24 @@ export default {
             }
           }
         }
+        this.numcar = ls.join("\r\n");
         this.num = ls.length;
         return ls.length;
       } //end-------------------------------
       if (this.name.includes("三") && this.name.includes("复式")) {
         if (this.name.includes("直选")) {
           if (x.length == 3) {
+            let ls = [];
+            for (let tv = 0; tv < x[0].length; tv++) {
+              for (let t = 0; t < x[1].length; t++) {
+                for (let tc = 0; tc < x[2].length; tc++) {
+                  ls.push([x[0][tv], x[1][t], x[2][tc]].join(""));
+                }
+              }
+            }
+            this.numcar = ls.join("\r\n");
             if (x[0].length > 0 && x[1].length > 0 && x[2].length > 0) {
               let n = x[0].length * x[1].length * x[2].length;
-
               this.num = n;
               return n;
             }
@@ -154,6 +208,36 @@ export default {
           for (let i = 0; i < dic.length; i++) {
             ct += loop(dic[i]);
           }
+          this.numcar = "";
+          //------------
+          let ls = [];
+          for (let a = 0; a < 10; a++) {
+            for (let b = 0; b < 10; b++) {
+              for (let c = 0; c < 10; c++) {
+                if (
+                  a != b &&
+                  a != c &&
+                  b != c &&
+                  (b != a) & (c != a) &&
+                  c != b
+                ) {
+                  ls.push([a, b, c].sort((a, b) => a - b).join(""));
+                }
+              }
+            }
+          }
+          console.log(x[0].join(""));
+          let ty = [];
+          _.uniq(ls).map(t => {
+            if (
+              x[0].join("").includes(t[0]) &&
+              x[0].join("").includes(t[1]) &&
+              x[0].join("").includes(t[2])
+            ) {
+              ty.push(t);
+            }
+          });
+          this.numcar = ty.join("\r\n");
           this.num = ct;
           return ct;
         }
@@ -174,18 +258,31 @@ export default {
               }
             }
           }
+          this.numcar = ls.join("\r\n");
           this.num = ls.length;
           return ls.length;
         }
       } //ende-------------------------
       if (this.name.includes("二") && this.name.includes("不定位包胆")) {
-        if (x[0].length >= 1) {
+        if (x[0].length > 0) {
+          let ls = [];
+          x[0].map(c => {
+            for (var i = 0; i < 10; i++) {
+              for (var ic = 0; ic < 10; ic++) {
+                if (i == c && c != ic) {
+                  ls.push([i, ic].join(""));
+                }
+              }
+            }
+          });
+          this.numcar = ls.join("\r\n");
           this.num = x[0].length * 9;
           return x[0].length * 9;
         }
       } //-------------------
       if (this.name.includes("一码不定位")) {
         if (x[0].length >= 1) {
+          this.numcar = x[0].join("\r\n");
           this.num = x[0].length;
           return x[0].length;
         }
@@ -197,6 +294,7 @@ export default {
             for (let i = 0; i < x[0].length; i++) {
               n += i;
             }
+            this.numcar = x[0].join("\r\n");
             this.num = n;
             return n;
           }
@@ -210,13 +308,31 @@ export default {
           for (let i = 0; i < dic.length; i++) {
             ct += loop(dic[i]);
           }
+          this.numcar = x[0].join("\r\n");
           this.num = ct;
           return ct;
         }
       } //-------------------
       if (this.name.includes("三") && this.name.includes("组三")) {
         if ((x.length = 1)) {
-          if (x[0].length > 0) {
+          if (x[0].length > 1) {
+            let sec = x[0];
+            let s = "";
+            let tel = [];
+            for (let i = 0; i < x[0].length; i++) {
+              n += i;
+              for (let v = 0; v < sec.length; v++) {
+                if (x[0][i] !== sec[v]) {
+                  tel.push(
+                    [x[0][i], sec[v], x[0][i]].sort((a, b) => a - b).join("")
+                  );
+                }
+              }
+            }
+            tel = _.uniq(tel);
+            s += tel.join("\r\n");
+            this.numcar = s;
+            //-----------
             let n = 0;
             for (let i = 0; i < x[0].length; i++) {
               n += i;
@@ -242,6 +358,7 @@ export default {
               }
             }
           }
+          this.numcar = ls.join("\r\n");
           this.num = ls.length;
           return ls.length;
         }
@@ -266,6 +383,7 @@ export default {
               }
             });
           }
+          this.numcar = ls.join("\r\n");
           this.num = ls.length;
           return ls.length;
         }
@@ -273,8 +391,35 @@ export default {
       if (this.name.includes("五") && this.name.includes("复式")) {
         if (this.name.includes("直选")) {
           if (x.length == 5) {
-            if (x[0].length > 0 && x[1].length > 0 && x[2].length > 0&& x[3].length > 0&& x[4].length > 0) {
-              let n = x[0].length * x[1].length * x[2].length* x[3].length* x[4].length;
+            let ls = [];
+            if (
+              x[0].length > 0 &&
+              x[1].length > 0 &&
+              x[2].length > 0 &&
+              x[3].length > 0 &&
+              x[4].length > 0
+            ) {
+              let n =
+                x[0].length *
+                x[1].length *
+                x[2].length *
+                x[3].length *
+                x[4].length;
+              let ls = [];
+              for (var a = 0; a < x[0].length; a++) {
+                for (var b = 0; b < x[1].length; b++) {
+                  for (var c = 0; c < x[2].length; c++) {
+                    for (var d = 0; d < x[3].length; d++) {
+                      for (var e = 0; e < x[4].length; e++) {
+                        ls.push(
+                          [x[0][a], x[1][b], x[2][c], x[3][d], x[4][e]].join("")
+                        );
+                      }
+                    }
+                  }
+                }
+              }
+              this.numcar = ls.join("\r\n");
               this.num = n;
               return n;
             }
@@ -284,8 +429,24 @@ export default {
       if (this.name.includes("四") && this.name.includes("复式")) {
         if (this.name.includes("直选")) {
           if (x.length == 4) {
-            if (x[0].length > 0 && x[1].length > 0 && x[2].length > 0&& x[3].length > 0) {
-              let n = x[0].length * x[1].length * x[2].length* x[3].length
+            if (
+              x[0].length > 0 &&
+              x[1].length > 0 &&
+              x[2].length > 0 &&
+              x[3].length > 0
+            ) {
+              let ls = [];
+              for (var a = 0; a < x[0].length; a++) {
+                for (var b = 0; b < x[1].length; b++) {
+                  for (var c = 0; c < x[2].length; c++) {
+                    for (var d = 0; d < x[3].length; d++) {
+                      ls.push([x[0][a], x[1][b], x[2][c], x[3][d]].join(""));
+                    }
+                  }
+                }
+              }
+              this.numcar = ls.join("\r\n");
+              let n = x[0].length * x[1].length * x[2].length * x[3].length;
               this.num = n;
               return n;
             }
@@ -293,13 +454,13 @@ export default {
         }
       } //end-----------------
       if (this.name.includes("单式")) {
-        console.log(x);
-        if(x[0].length==0&&x[0].length==0){
-          this.num=0
-          return 0
+        if (x[0].length == 0 && x[0].length == 0) {
+          this.num = 0;
+          return 0;
         }
-        this.num=x.length
-        return x.length
+        this.numcar = x.join("\r\n");
+        this.num = x.length;
+        return x.length;
       } //end----------------
     }
   }
@@ -307,6 +468,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.car {
+  height: 100px;
+  width: 300px;
+  overflow: auto;
+  padding: 30px;
+}
 .js {
   position: fixed;
   bottom: 60px;

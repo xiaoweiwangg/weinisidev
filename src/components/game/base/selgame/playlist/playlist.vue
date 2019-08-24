@@ -18,6 +18,7 @@
         <div class="lslist">
           <van-button
             :class="{ isz: isz(index, t) }"
+            :disabled="isz(index,t)"
             type="warning"
             plain
             v-for="(i, t) in item.list"

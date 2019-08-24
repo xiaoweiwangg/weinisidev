@@ -8,7 +8,7 @@ import ManagerV from "./components/mangerment/manager.vue";
 import TalkV from "./components/talk/talk.vue";
 import LogoIn from "./components/logoin/login.vue";
 import RegIstry from "./components/registry/registry.vue";
-import WGame from "./components/game/game.vue"
+import WGame from "./components/game/game.vue";
 // import { homedir } from "os";
 export default new Router({
   routes: [
@@ -45,7 +45,11 @@ export default new Router({
     },
     {
       path: "/gassc",
-      component: WGame,
+      component: WGame
+    },
+    {
+      path: "/cqssc",
+      component: WGame
     }
   ]
 });

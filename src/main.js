@@ -4,7 +4,7 @@ import router from "./router";
 import store from "./store";
 import "./assets/icon/iconfont.css";
 import "./assets/base/reset.css";
-import { log } from "util";
+//vue-socket 模块
 
 //移动端延迟300毫秒解决
 import fast from "fastclick";
@@ -15,9 +15,11 @@ import { Notify } from "vant";
 Vue.use(Notify);
 
 //全局button组件
-import { Button } from 'vant';
+import { Button } from "vant";
 Vue.use(Button);
-
+//全局倒计时模块
+import { CountDown } from "vant";
+Vue.use(CountDown);
 //全局头部组件
 import { NavBar } from "vant";
 Vue.use(NavBar);
