@@ -4,15 +4,15 @@
     <div class="kjdet">
       <div class="kjnum">
         <div class="datenum">
-          <span></span>
-          <span>开奖结果</span>
+          <span>{{playdate}}</span>
+          <span>开奖</span>
         </div>
-        <div class="de"></div>
+        <div class="de">{{playnum}}</div>
       </div>
       <div class="djs">
         <div class="datenum">
-          <span></span>
-          <span>投注截止</span>
+          <span>0{{next}}</span>
+          <span class="qi">期投注截止</span>
         </div>
         <div class="det">
           <van-count-down :time="time" />
@@ -39,7 +39,18 @@ import GD from "./danshi/danshi";
 import JSuan from "./jiesuan/jiesuan";
 export default {
   name: "WGame",
-  
+  mounted() {
+    this.$socket.emit("login", {
+      username:JSON.parse(sessionStorage.getItem("userinfo")).name,
+      password: "password"
+    });
+    //接收服务端的信息
+    this.sockets.subscribe("relogin", data => {
+      this.next=parseInt(data.msg.playdate)+1
+      this.playdate=data.msg.playdate
+      this.playnum=data.msg.playnum
+    });
+  },
   components: {
     BaseLottor,
     SGame,
@@ -48,6 +59,9 @@ export default {
   },
   data() {
     return {
+      next:"",
+      playdate:"",
+      playnum:"",
       time: 1000 * 60,
       cl: "no",
       num: 10,
@@ -141,6 +155,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.qi{
+  font-size: 20px;
+}
+.de{
+  text-align: center;
+  color: red;
+  font-size: 31px;
+  letter-spacing: 10px;
+}
 .det {
   text-align: center;
   .van-count-down {

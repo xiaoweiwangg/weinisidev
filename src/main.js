@@ -5,7 +5,16 @@ import store from "./store";
 import "./assets/icon/iconfont.css";
 import "./assets/base/reset.css";
 //vue-socket 模块
+import VueSocketIO from "vue-socket.io";
 
+Vue.use(
+  new VueSocketIO({
+    debug: true,
+    // 服务器端地址
+    connection: "http://localhost:8090",
+    vuex: {}
+  })
+);
 //移动端延迟300毫秒解决
 import fast from "fastclick";
 fast.attach(document.body);

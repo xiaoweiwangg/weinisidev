@@ -226,7 +226,6 @@ export default {
               }
             }
           }
-          console.log(x[0].join(""));
           let ty = [];
           _.uniq(ls).map(t => {
             if (
