@@ -116,9 +116,7 @@ export default {
   text-align: center;
   padding: 10px;
 }
-.dl {
-  // margin: 80px auto;
-}
+
 .put {
   position: absolute;
   bottom: 50px;

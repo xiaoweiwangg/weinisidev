@@ -107,7 +107,7 @@ export default {
 
 <style lang="scss" scoped>
 .pos{
-  padding-bottom: 30px;
+  padding-bottom: 74px;
 }
 .act {
   background-color: red;

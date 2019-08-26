@@ -1,11 +1,18 @@
 <template>
-  <div class="js" v-show="isshow">
-    <div class="det" @click="detshow">
-      <van-button type="info">
+  <div class="js" v-show="isshow&&num>0">
+    <div class="type" v-show="istype">
+      <van-button type="info">模式:</van-button>
+      <van-button type="danger">元</van-button>
+      <van-button type="danger">角</van-button>
+      <van-button type="danger">分</van-button>
+      <van-stepper v-model="ratel" input-width="40px" button-size="44px" />
+    </div>
+    <div class="det">
+      <van-button type="info" @click="detshow">
         投注篮合计:&nbsp;{{add}}&nbsp;注
         <span class="iconfont icon-sanjiaoxing1"></span>
       </van-button>
-      <van-button type="warning">{{num * huilv * sprice}} 元</van-button>
+      <van-button type="warning">{{num * huilv * sprice*ratel}} 元</van-button>
     </div>
     <div class="sub">
       <van-button type="danger">立即下注</van-button>
@@ -18,12 +25,18 @@
 
 <script>
 import _ from "underscore";
+import { Stepper } from 'vant';
 import { log } from "util";
 export default {
   props: ["dt", "name", "cl"],
   name: "JSuan",
+  components:{
+    [Stepper.name]:Stepper
+  },
   data() {
     return {
+      ratel:1,
+      istype:true,
       sh: false,
       isshow: true,
       num: 0,
@@ -467,6 +480,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.type{
+  position: absolute;
+  bottom: 44px;
+  left: 0;
+  right:0;
+  display: flex;
+  background-color: #f1f3f5;
+}
+.van-stepper{
+  .van-stepper__plus,.van-stepper__minus{
+    width: 50px;
+    height: 44px;
+    background-color: green;
+  }
+}
 .car {
   height: 100px;
   width: 300px;

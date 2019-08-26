@@ -4,18 +4,21 @@
     <div class="kjdet">
       <div class="kjnum">
         <div class="datenum">
-          <span>{{playdate}}</span>
+          <span class>{{playdate}}</span>
           <span>开奖</span>
         </div>
-        <div class="de">{{playnum}}</div>
+        <ul class="de">
+          <li v-for="(i,s) in playnum" :key="s">{{i}}</li>
+        </ul>
       </div>
       <div class="djs">
         <div class="datenum">
           <span>0{{next}}</span>
-          <span class="qi">期投注截止</span>
+          <span class="qi">期截止</span>
         </div>
         <div class="det">
-          <van-count-down :time="time" />
+          <van-count-down @finish="log" :time="time" />
+          <div class="zhezhao" v-show="dj">开奖中......</div>
         </div>
       </div>
     </div>
@@ -33,24 +36,34 @@
 </template>
 
 <script>
+import m from "moment";
 import SGame from "./base/selgame/select";
 import BaseLottor from "./base/pos/pos";
 import GD from "./danshi/danshi";
 import JSuan from "./jiesuan/jiesuan";
+import { clearInterval } from "timers";
 export default {
   name: "WGame",
   mounted() {
-    this.$socket.emit("login", {
-      username:JSON.parse(sessionStorage.getItem("userinfo")).name,
-      password: "password"
-    });
-    //接收服务端的信息
-    this.sockets.subscribe("relogin", data => {
-      this.next=parseInt(data.msg.playdate)+1
-      this.playdate=data.msg.playdate
-      this.playnum=data.msg.playnum
+    this.$nextTick(() => {
+      this.$socket.emit("login", {
+        username: JSON.parse(sessionStorage.getItem("userinfo")).name
+      });
+      this.sockets.subscribe("timer", data => {
+        this.time = ((5 - (data.m % 5)) * 60 - data.s) * 1000;
+      });
+      //接收服务端的信息
+      this.sockets.subscribe("relogin", data => {
+        this.next = parseInt(data.msg.playdate) + 1;
+        this.playdate = data.msg.playdate;
+        this.playnum = data.msg.playnum;
+        this.dj = false;
+        window.clearInterval(this.int);
+        this.int = null;
+      });
     });
   },
+  watch: {},
   components: {
     BaseLottor,
     SGame,
@@ -59,9 +72,24 @@ export default {
   },
   data() {
     return {
-      next:"",
-      playdate:"",
-      playnum:"",
+      dic: [
+        "00000",
+        "11111",
+        "22222",
+        "33333",
+        "44444",
+        "55555",
+        "66666",
+        "77777",
+        "88888",
+        "99999"
+      ],
+      q: 0,
+      int: null,
+      dj: false,
+      next: "",
+      playdate: "",
+      playnum: "",
       time: 1000 * 60,
       cl: "no",
       num: 10,
@@ -73,8 +101,21 @@ export default {
     };
   },
   methods: {
+    animate() {
+      this.int = setInterval(() => {
+        this.q++;
+        if (this.q % 10 == 0) {
+          this.q = 0;
+        }
+        this.playnum = this.dic[this.q];
+      }, 200);
+    },
     submi(x) {
       this.dt = x;
+    },
+    log() {
+      this.dj = true;
+      this.animate();
     },
     gl() {
       this.gamelist = [[], [], [], [], [], []];
@@ -155,20 +196,38 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.qi{
-  font-size: 20px;
-}
-.de{
+.zhezhao {
+  position: absolute;
+  height: 85%;
+  width: 100%;
+  font-size: 30px;
   text-align: center;
-  color: red;
-  font-size: 31px;
-  letter-spacing: 10px;
+  letter-spacing: 5px;
+  top: 0;
+  line-height: 170%;
+  background-color: #9b9b9b;
+}
+.de {
+  display: flex;
+  justify-content: space-around;
+  li {
+    height: 32px;
+    width: 32px;
+    border: 1px solid rgb(250, 51, 1);
+    text-align: center;
+    line-height: 32px;
+    border-radius: 50%;
+    color: red;
+    font-size: 28px;
+  }
 }
 .det {
   text-align: center;
+  position: relative;
   .van-count-down {
-    text-align: center;
-    font-size: 25px;
+    font-size: 29px;
+    line-height: 52px;
+    transform: translateX(18%);
   }
 }
 .van-count-down {
