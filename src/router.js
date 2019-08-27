@@ -44,11 +44,28 @@ export default new Router({
       component: HomeV
     },
     {
+      name: "gassc",
       path: "/gassc",
       component: WGame
     },
     {
+      name: "cqssc",
       path: "/cqssc",
+      component: WGame
+    },
+    {
+      name: "tjssc",
+      path: "/tjssc",
+      component: WGame
+    },
+    {
+      name: "xjssc",
+      path: "/xjssc",
+      component: WGame
+    },
+    {
+      name: "fc3d",
+      path: "/fc3d",
       component: WGame
     }
   ]

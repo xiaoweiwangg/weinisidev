@@ -121,7 +121,6 @@ ul {
   .lot {
     display: flex;
     .wei {
-      flex:1;
       width: 35px;
       min-height: 100px;
       line-height: 50px;

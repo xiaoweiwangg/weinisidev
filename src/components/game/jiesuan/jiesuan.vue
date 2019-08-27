@@ -2,9 +2,9 @@
   <div class="js" v-show="isshow&&num>0">
     <div class="type" v-show="istype">
       <van-button type="info">模式:</van-button>
-      <van-button type="danger">元</van-button>
-      <van-button type="danger">角</van-button>
-      <van-button type="danger">分</van-button>
+      <van-button  plain hairline type="primary" color="#07c160">元</van-button>
+      <van-button  plain hairline type="primary" color="#07c160">角</van-button>
+      <van-button  plain hairline type="primary" color="#07c160">分</van-button>
       <van-stepper v-model="ratel" input-width="40px" button-size="44px" />
     </div>
     <div class="det">

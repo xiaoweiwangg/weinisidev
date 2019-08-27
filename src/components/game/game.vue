@@ -4,7 +4,7 @@
     <div class="kjdet">
       <div class="kjnum">
         <div class="datenum">
-          <span class>{{playdate}}</span>
+          <span class>{{playdate}}期</span>
           <span>开奖</span>
         </div>
         <ul class="de">
@@ -12,13 +12,13 @@
         </ul>
       </div>
       <div class="djs">
-        <div class="datenum">
-          <span>0{{next}}</span>
+        <div class="datenum m">
+          <span>{{next}}</span>
           <span class="qi">期截止</span>
         </div>
         <div class="det">
           <van-count-down @finish="log" :time="time" />
-          <div class="zhezhao" v-show="dj">开奖中......</div>
+          <div class="zhezhao" v-show="dj">正在开奖中</div>
         </div>
       </div>
     </div>
@@ -36,7 +36,6 @@
 </template>
 
 <script>
-import m from "moment";
 import SGame from "./base/selgame/select";
 import BaseLottor from "./base/pos/pos";
 import GD from "./danshi/danshi";
@@ -45,17 +44,22 @@ import { clearInterval } from "timers";
 export default {
   name: "WGame",
   mounted() {
+    
+    this.t = parseInt(this.$route.params.t);
+    this.n = this.$route.params.n;
     this.$nextTick(() => {
-      this.$socket.emit("login", {
-        username: JSON.parse(sessionStorage.getItem("userinfo")).name
+      
+      this.$socket.emit(this.n, {
+        username: JSON.parse(sessionStorage.getItem("userinfo")).name,
+        name: this.$route.params.n ,
+        time:this.$route.params.t,
       });
       this.sockets.subscribe("timer", data => {
-        this.time = ((5 - (data.m % 5)) * 60 - data.s) * 1000;
+        this.time = ((this.t - (data.m % this.t)) * 60 - data.s) * 1000;
       });
-      //接收服务端的信息
-      this.sockets.subscribe("relogin", data => {
+      this.sockets.subscribe(this.n, data => {
         this.next = parseInt(data.msg.playdate) + 1;
-        this.playdate = data.msg.playdate;
+        this.playdate = parseInt(data.msg.playdate);
         this.playnum = data.msg.playnum;
         this.dj = false;
         window.clearInterval(this.int);
@@ -63,7 +67,13 @@ export default {
       });
     });
   },
-  watch: {},
+  watch: {
+    t: function(x) {
+      if (!x) {
+        this.$router.push("/");
+      }
+    }
+  },
   components: {
     BaseLottor,
     SGame,
@@ -72,6 +82,8 @@ export default {
   },
   data() {
     return {
+      t: 5,
+      n:"",
       dic: [
         "00000",
         "11111",
@@ -108,7 +120,8 @@ export default {
           this.q = 0;
         }
         this.playnum = this.dic[this.q];
-      }, 200);
+      }, 20);
+        this.playdate+=1
     },
     submi(x) {
       this.dt = x;
@@ -126,14 +139,31 @@ export default {
       this.num = 10;
 
       if (x.includes("一")) {
+        console.log(this.n);
+        
+        if(this.$route.params.max==3){
+        this.gamelist = [ [], [], []];
+        this.namelist = [ "百位", "十位", "个位"];
+        return 
+        }
         this.gamelist = [[], [], [], [], []];
         this.namelist = ["万位", "千位", "百位", "十位", "个位"];
       }
       if (x.includes("前二")) {
+        if(this.$route.params.max==3){
+        this.gamelist = [ [], []];
+        this.namelist = [ "百位", "十位"];
+        return 
+        }
         this.gamelist = [[], []];
         this.namelist = ["万位", "千位"];
       }
       if (x.includes("后二")) {
+        if(this.$route.params.max==3){
+        this.gamelist = [ [], []];
+        this.namelist = [ "十位", "个位"];
+        return 
+        }
         this.gamelist = [[], []];
         this.namelist = ["十位", "个位"];
       }
@@ -196,6 +226,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.m{
+  text-align: center;
+}
 .zhezhao {
   position: absolute;
   height: 85%;
@@ -205,7 +238,7 @@ export default {
   letter-spacing: 5px;
   top: 0;
   line-height: 170%;
-  background-color: #9b9b9b;
+  background-color: #e1d9ba;
 }
 .de {
   display: flex;
@@ -237,8 +270,9 @@ export default {
 .kjdet {
   .datenum,
   .kjnum {
-    font-size: 25px;
-    color: #9b9b9b;
+    font-size: 22px;
+  text-align: center;
+    color: black;
   }
   margin-top: 8px;
   background-color: #e1d9ba;
