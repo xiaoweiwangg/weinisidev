@@ -17,6 +17,7 @@
           v-model="password"
           type="password"
           label="密码"
+          @keydown.enter="sub"
           placeholder="请输入密码"
           required
         />

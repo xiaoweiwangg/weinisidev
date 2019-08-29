@@ -9,6 +9,7 @@ import TalkV from "./components/talk/talk.vue";
 import LogoIn from "./components/logoin/login.vue";
 import RegIstry from "./components/registry/registry.vue";
 import WGame from "./components/game/game.vue";
+import TGame from "./components/game/threegame/threegame.vue";
 // import { homedir } from "os";
 export default new Router({
   routes: [
@@ -64,9 +65,14 @@ export default new Router({
       component: WGame
     },
     {
+      name: "ynssc",
+      path: "/ynssc",
+      component: WGame
+    },
+    {
       name: "fc3d",
       path: "/fc3d",
-      component: WGame
+      component: TGame
     }
   ]
 });

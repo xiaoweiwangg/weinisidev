@@ -49,11 +49,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.van-swipe-item{
+  width: 100%;
+}
 .van-swipe {
   width: 100%;
 }
 img {
-  height: 100%;
+  height: 130px;
   width: 100%;
 }
 </style>

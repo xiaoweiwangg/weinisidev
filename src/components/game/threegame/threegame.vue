@@ -36,14 +36,14 @@
 </template>
 
 <script>
-import SGame from "./base/selgame/select";
-import BaseLottor from "./base/pos/pos";
-import GD from "./danshi/danshi";
-import JSuan from "./jiesuan/jiesuan";
+import SGame from './selgame/select';
+import BaseLottor from "../base/pos/pos";
+import GD from "../danshi/danshi";
+import JSuan from "../jiesuan/jiesuan";
 import { clearInterval } from "timers";
 import { log } from "util";
 export default {
-  name: "WGame",
+  name: "TGame",
   mounted() {
     this.t = parseInt(this.$route.params.t);
     this.n = this.$route.params.n;
@@ -140,7 +140,7 @@ export default {
         .then(() => {});
     },
     gl() {
-      this.gamelist = [[], [], [], [], [], []];
+      this.gamelist = [[], [], []];
       this.cl = "cl";
     },
     up(x) {
@@ -148,53 +148,21 @@ export default {
       this.num = 10;
 
       if (x.includes("一")) {
-        console.log(this.n);
-
-        if (this.$route.params.max == 3) {
-          this.gamelist = [[], [], []];
-          this.namelist = ["百位", "十位", "个位"];
-          return;
-        }
-        this.gamelist = [[], [], [], [], []];
-        this.namelist = ["万位", "千位", "百位", "十位", "个位"];
+        this.gamelist = [[], [], []];
+        this.namelist = [ "百位", "十位", "个位"];
       }
       if (x.includes("前二")) {
-        if (this.$route.params.max == 3) {
-          this.gamelist = [[], []];
-          this.namelist = ["百位", "十位"];
-          return;
-        }
+        
         this.gamelist = [[], []];
-        this.namelist = ["万位", "千位"];
+        this.namelist = ["百位", "十位"];
       }
       if (x.includes("后二")) {
-        if (this.$route.params.max == 3) {
           this.gamelist = [[], []];
           this.namelist = ["十位", "个位"];
-          return;
-        }
-        this.gamelist = [[], []];
-        this.namelist = ["十位", "个位"];
       }
       if (x.includes("前三")) {
         this.gamelist = [[], [], []];
         this.namelist = ["万位", "千位", "百位"];
-      }
-      if (x.includes("中三")) {
-        this.gamelist = [[], [], []];
-        this.namelist = ["千位", "百位", "十位"];
-      }
-      if (x.includes("后三")) {
-        this.gamelist = [[], [], []];
-        this.namelist = ["百位", "十位", "个位"];
-      }
-      if (x.includes("五")) {
-        this.gamelist = [[], [], [], [], []];
-        this.namelist = ["万位", "千位", "百位", "十位", "个位"];
-      }
-      if (x.includes("四")) {
-        this.gamelist = [[], [], [], []];
-        this.namelist = ["千位", "百位", "十位", "个位"];
       }
       if (x.includes("组选")) {
         this.gamelist = [[]];

@@ -1,10 +1,10 @@
 <template>
   <div class="js" v-show="isshow&&num>0">
     <div class="type" v-show="istype">
-      <van-button type="info">模式:</van-button>
-      <van-button  plain hairline type="primary" color="#07c160">元</van-button>
-      <van-button  plain hairline type="primary" color="#07c160">角</van-button>
-      <van-button  plain hairline type="primary" color="#07c160">分</van-button>
+      <van-button type="warning">模式:</van-button>
+      <van-button :class="{ck:isck(tp,1)}" @click="ck(1)" plain hairline type="primary" color="#07c160">元</van-button>
+      <van-button :class="{ck:isck(tp,0.1)}" @click="ck(0.1)" plain hairline type="primary" color="#07c160">角</van-button>
+      <van-button :class="{ck:isck(tp,0.01)}" @click="ck(0.01)" plain hairline type="primary" color="#07c160">分</van-button>
       <van-stepper v-model="ratel" input-width="40px" button-size="44px" />
     </div>
     <div class="det">
@@ -12,7 +12,7 @@
         投注篮合计:&nbsp;{{add}}&nbsp;注
         <span class="iconfont icon-sanjiaoxing1"></span>
       </van-button>
-      <van-button type="warning">{{num * huilv * sprice*ratel}} 元</van-button>
+      <van-button type="warning">{{num * huilv *tp*sprice*ratel}} 元</van-button>
     </div>
     <div class="sub">
       <van-button type="danger">立即下注</van-button>
@@ -35,6 +35,7 @@ export default {
   },
   data() {
     return {
+      tp:1,
       ratel:1,
       istype:true,
       sh: false,
@@ -62,8 +63,20 @@ export default {
       return this.suanfa(this.dt);
     }
   },
-  mounted() {},
+  mounted() {
+
+  },
   methods: {
+    isck(x,y){
+      if(x==y){
+        return true
+      }else{
+        return false
+      }
+    },
+    ck(x){
+      this.tp=x
+    },
     detshow() {
       this.$dialog;
       this.sh = true;
@@ -480,6 +493,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.ck{
+  background-color: red;
+}
 .type{
   position: absolute;
   bottom: 44px;
