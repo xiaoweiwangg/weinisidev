@@ -10,6 +10,7 @@ import LogoIn from "./components/logoin/login.vue";
 import RegIstry from "./components/registry/registry.vue";
 import WGame from "./components/game/game.vue";
 import TGame from "./components/game/threegame/threegame.vue";
+import RecharGe from "./components/recharge/recharge.vue";
 // import { homedir } from "os";
 export default new Router({
   routes: [
@@ -36,6 +37,11 @@ export default new Router({
       component: LogoIn
     },
     {
+      path: "/recharge",
+      name: "recharge",
+      component: RecharGe
+    },
+    {
       path: "/registry",
       component: RegIstry
     },
@@ -57,6 +63,11 @@ export default new Router({
     {
       name: "tjssc",
       path: "/tjssc",
+      component: WGame
+    },
+    {
+      name: "tcpl5",
+      path: "/tcpl5",
       component: WGame
     },
     {

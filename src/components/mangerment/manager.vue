@@ -19,16 +19,13 @@
         <div class="bl">
           <span class="sum">余&nbsp;&nbsp; 额:</span>
           <span class="ye"
-            >&nbsp;&nbsp;{{ userinfo.balance }}&nbsp;&nbsp;<span
-              class="iconfont icon-rmb"
-            ></span
-          ></span>
+            >&nbsp;&nbsp;{{ balance }}&nbsp;元</span>
         </div>
       </div>
     </div>
     <van-row>
-      <van-col span="6">
-        <div class="item">
+      <van-col span="6" >
+        <div class="item" @click="recharge">
           <div class="ic"><span class="iconfont icon-chongzhi"></span></div>
           <div class="ms">我要充值</div>
         </div>
@@ -68,7 +65,13 @@ export default {
     [Col.name]: Col
   },
   mounted() {
-    this.userinfo = JSON.parse(sessionStorage.getItem("userinfo"));
+    this.$socket.emit("user",{
+      username:JSON.parse(sessionStorage.getItem("userinfo")).name,
+    })
+    this.sockets.subscribe("balance", data => {
+     this.balance=data[0].balance
+    })
+    this.userinfo = JSON.parse(sessionStorage.getItem("userinfo"))
   },
   computed: {
     ...mapGetters(["getuserinfo"])
@@ -76,10 +79,14 @@ export default {
   data() {
     return {
       // ...mapState(["userinfo"]),
-      userinfo: {}
+      userinfo: {},
+      balance:0,
     };
   },
   methods: {
+    recharge(){
+      this.$router.push("/recharge")
+    }
     // ...mapMutations([""]),
     // ...mapActions([""])
   }

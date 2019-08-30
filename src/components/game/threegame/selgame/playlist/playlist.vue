@@ -7,7 +7,8 @@
           type="primary"
           @click="wch(index)"
           :class="{ isact: isact(index) }"
-        >{{ item.posname }}</van-button>
+          >{{ item.posname }}</van-button
+        >
       </div>
     </div>
     <div class="ls">
@@ -18,13 +19,14 @@
         <div class="lslist">
           <van-button
             :class="{ isz: isz(index, t) }"
-            :disabled="isz(index,t)"
+            :disabled="isz(index, t)"
             type="warning"
             plain
             v-for="(i, t) in item.list"
             :key="t"
             @click="ente(x, index, t)"
-          >{{ i }}</van-button>
+            >{{ i }}</van-button
+          >
         </div>
       </div>
     </div>
@@ -78,9 +80,7 @@ export default {
       playlist: [
         {
           posname: "一星",
-          posplaylist: [
-            { type: "定位", list: ["直选复式"] }
-          ]
+          posplaylist: [{ type: "定位", list: ["直选复式"] }]
         },
         {
           posname: "前二",
@@ -91,7 +91,7 @@ export default {
             },
             {
               type: "组选",
-              list: [ "组选复式","组选单式", "组选和值", "不定位包胆"]
+              list: ["组选复式", "组选单式", "组选和值", "不定位包胆"]
             }
           ]
         },
@@ -104,7 +104,7 @@ export default {
             },
             {
               type: "组选",
-              list: [ "组选复式","组选单式", "组选和值", "不定位包胆"]
+              list: ["组选复式", "组选单式", "组选和值", "不定位包胆"]
             }
           ]
         },
@@ -117,15 +117,20 @@ export default {
             },
             {
               type: "组选",
-              list: ["组选组六","组选组三", "组选单式", "组选和值", "一码不定位","二码不定位"]
+              list: [
+                "组选组六",
+                "组选组三",
+                "组选单式",
+                "组选和值",
+                "一码不定位",
+                "二码不定位"
+              ]
             }
           ]
         },
         {
           posname: "龙虎斗",
-          posplaylist: [
-            { type: "龙虎斗", list: ["龙虎斗"] }
-          ]
+          posplaylist: [{ type: "龙虎斗", list: ["龙虎斗"] }]
         }
       ]
     };

@@ -1,5 +1,5 @@
 <template>
-  <div class="pos">
+  <div class="pos" :class="{bot:true}">
     <ul v-for="(item, i) in gamelist" :key="i">
       <div class="btn">
         <van-button @click="chek(i, 9)" type="primary">大</van-button>
@@ -106,7 +106,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.pos{
+.bot{
   padding-bottom: 74px;
 }
 .act {

@@ -5,7 +5,8 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    userinfo: {}
+    userinfo: {},
+    gonggao: null
   },
   mutations: {
     setuserinfo(state, x) {

@@ -49,7 +49,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.van-swipe-item{
+.van-swipe-item {
   width: 100%;
 }
 .van-swipe {

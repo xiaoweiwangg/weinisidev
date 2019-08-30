@@ -4,16 +4,16 @@
     <div class="kjdet">
       <div class="kjnum">
         <div class="datenum">
-          <span class>{{playdate}}期</span>
+          <span class>{{ playdate }}期</span>
           <span>开奖</span>
         </div>
         <ul class="de">
-          <li v-for="(i,s) in playnum" :key="s">{{i}}</li>
+          <li v-for="(i, s) in playnum" :key="s">{{ i }}</li>
         </ul>
       </div>
       <div class="djs">
         <div class="datenum m">
-          <span>{{next}}</span>
+          <span>{{ next }}</span>
           <span class="qi">期截止</span>
         </div>
         <div class="det">
@@ -31,12 +31,12 @@
       :namelist="namelist"
       :gamelist="gamelist"
     ></component>
-    <j-suan :dt="dt" :name="name" :cl="cl"></j-suan>
+    <j-suan :dt="dt" :name="name" :cl="cl" :playgame="n" :playdate="playdate"></j-suan>
   </div>
 </template>
 
 <script>
-import SGame from './selgame/select';
+import SGame from "./selgame/select";
 import BaseLottor from "../base/pos/pos";
 import GD from "../danshi/danshi";
 import JSuan from "../jiesuan/jiesuan";
@@ -45,6 +45,8 @@ import { log } from "util";
 export default {
   name: "TGame",
   mounted() {
+    console.log(this.n);
+    
     this.t = parseInt(this.$route.params.t);
     this.n = this.$route.params.n;
     // this.$nextTick(() => {
@@ -149,16 +151,15 @@ export default {
 
       if (x.includes("一")) {
         this.gamelist = [[], [], []];
-        this.namelist = [ "百位", "十位", "个位"];
+        this.namelist = ["百位", "十位", "个位"];
       }
       if (x.includes("前二")) {
-        
         this.gamelist = [[], []];
         this.namelist = ["百位", "十位"];
       }
       if (x.includes("后二")) {
-          this.gamelist = [[], []];
-          this.namelist = ["十位", "个位"];
+        this.gamelist = [[], []];
+        this.namelist = ["十位", "个位"];
       }
       if (x.includes("前三")) {
         this.gamelist = [[], [], []];

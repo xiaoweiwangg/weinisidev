@@ -1,9 +1,15 @@
 <template>
   <div>
     <div class="controlgame">
+      <div class="back" @click="back">
+        <i class="iconfont icon-jiantou-copy"></i>
+      </div>
       <div class="sel" @click="chac">
         {{ gameplayname }}
         <span ref="zhishi" class="iconfont icon-sanjiaoxing1"></span>
+      </div>
+      <div class="playdet">
+        玩法<i class="iconfont icon-wenhao"></i>
       </div>
     </div>
     <transition>
@@ -15,7 +21,7 @@
 <script>
 import PlayList from "./playlist/playlist";
 export default {
-  props:["gamelist"],
+  props: ["gamelist"],
   components: {
     PlayList
   },
@@ -35,9 +41,12 @@ export default {
     }
   },
   methods: {
+    back() {
+      this.$router.go(-1);
+    },
     chang(x) {
       this.gameplayname = x.pname + x.pgame;
-      this.$emit("gl")
+      this.$emit("gl");
     },
     chac() {
       this.ac = !this.ac;
@@ -50,6 +59,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.playdet{
+  color:white;
+  line-height: 52px;
+}
 .v-enter,
 .v-leave-to {
   transform: translateY(-550px);
@@ -66,9 +79,15 @@ export default {
   left: 0;
   right: 0;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  .iconfont {
+    font-size: 25px;
+    color: white;
+    line-height: 52px;
+  }
   .sel {
     color: #fff;
+    transform: translateX(20px);
     border: 1px solid #ccc;
     border-radius: 7px;
     height: 50px;

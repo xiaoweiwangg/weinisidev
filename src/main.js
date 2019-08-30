@@ -4,6 +4,8 @@ import router from "./router";
 import store from "./store";
 import "./assets/icon/iconfont.css";
 import "./assets/base/reset.css";
+// iconfont
+import "./assets/icon/iconfont";
 //vue-socket 模块
 import VueSocketIO from "vue-socket.io";
 
@@ -11,7 +13,7 @@ Vue.use(
   new VueSocketIO({
     debug: true,
     // 服务器端地址
-    connection: "http://192.168.2.100:8090",
+    connection: "http://192.168.10.223:8090/",
     vuex: {}
   })
 );

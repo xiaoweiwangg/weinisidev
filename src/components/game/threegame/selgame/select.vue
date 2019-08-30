@@ -15,7 +15,7 @@
 <script>
 import PlayList from "./playlist/playlist";
 export default {
-  props:["gamelist"],
+  props: ["gamelist"],
   components: {
     PlayList
   },
@@ -37,7 +37,7 @@ export default {
   methods: {
     chang(x) {
       this.gameplayname = x.pname + x.pgame;
-      this.$emit("gl")
+      this.$emit("gl");
     },
     chac() {
       this.ac = !this.ac;

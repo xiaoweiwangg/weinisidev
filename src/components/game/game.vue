@@ -1,19 +1,19 @@
 <template>
   <div>
-    <s-game @update="up" :gamelist="gamelist" @gl="gl"></s-game>
+    <s-game @update="up" :gamelist="gamelist" @gl="gl" ></s-game>
     <div class="kjdet">
       <div class="kjnum">
         <div class="datenum">
-          <span class>{{playdate}}期</span>
+          <span class>{{ playdate }}期</span>
           <span>开奖</span>
         </div>
         <ul class="de">
-          <li v-for="(i,s) in playnum" :key="s">{{i}}</li>
+          <li v-for="(i, s) in playnum" :key="s">{{ i }}</li>
         </ul>
       </div>
       <div class="djs">
         <div class="datenum m">
-          <span>{{next}}</span>
+          <span>{{ next }}</span>
           <span class="qi">期截止</span>
         </div>
         <div class="det">
@@ -31,7 +31,7 @@
       :namelist="namelist"
       :gamelist="gamelist"
     ></component>
-    <j-suan :dt="dt" :name="name" :cl="cl"></j-suan>
+    <j-suan :dt="dt" :playdate="playdate" :name="name" :gamelist="gamelist" :cl="cl" :playname="name" :playgame="n"></j-suan>
   </div>
 </template>
 
@@ -53,6 +53,10 @@ export default {
       name: this.$route.params.n,
       time: this.$route.params.t
     });
+    this.$socket.emit(JSON.parse(sessionStorage.getItem("userinfo")).name,{
+      msg:"wojiao erwei!"
+    });
+    
     this.sockets.subscribe(this.n, data => {
       this.time = ((this.t - (data.m % this.t)) * 60 - data.s) * 1000;
       this.next = parseInt(data.msg.playdate) + 1;

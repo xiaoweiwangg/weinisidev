@@ -2,16 +2,7 @@
   <div>
     <van-row>
       <van-col span="8">
-        <router-link to="/cqssc">
-          <div class="item">
-            <span class="iconfont icon-kuai1"></span>
-            <span class="name">港澳快3</span>
-            <span class="det">1分钟一期</span>
-          </div>
-        </router-link>
-      </van-col>
-      <van-col span="8">
-        <router-link :to="{name:'gassc',params:{n:'gassc',t:5,js:10,jm:0}}">
+        <router-link :to="{ name: 'gassc', params: { n: 'gassc', t: 5, js: 10, jm: 0 } }">
           <div class="item">
             <span class="iconfont icon-shishicai"></span>
             <span class="name">港澳时时彩</span>
@@ -20,7 +11,17 @@
         </router-link>
       </van-col>
       <van-col span="8">
-        <router-link :to="{name:'cqssc',params:{n:'cqssc',t:20,js:40,jm:3}}">
+        <router-link :to="{ name: 'ynssc', params: { n: 'ynssc', t: 20, js: 20, jm: 2 } }">
+          <div class="item">
+            <span class="iconfont icon-jxssc"></span>
+            <span class="name">云南时时彩</span>
+            <span class="det">20分钟一期</span>
+          </div>
+        </router-link>
+      </van-col>
+
+      <van-col span="8">
+        <router-link :to="{ name: 'cqssc', params: { n: 'cqssc', t: 20, js: 40, jm: 3 } }">
           <div class="item">
             <span class="iconfont icon-icon-zhongqingshishicai"></span>
             <span class="name">重庆时时彩</span>
@@ -31,7 +32,7 @@
     </van-row>
     <van-row>
       <van-col span="8">
-        <router-link :to="{name:'tjssc',params:{n:'tjssc',t:20,js:20,jm:2}}">
+        <router-link :to="{ name: 'tjssc', params: { n: 'tjssc', t: 20, js: 20, jm: 2 } }">
           <div class="item">
             <span class="iconfont icon-tjssc"></span>
             <span class="name">天津时时彩</span>
@@ -40,7 +41,7 @@
         </router-link>
       </van-col>
       <van-col span="8">
-        <router-link :to="{name:'xjssc',params:{n:'xjssc',t:20,js:20,jm:2}}">
+        <router-link :to="{ name: 'xjssc', params: { n: 'xjssc', t: 20, js: 20, jm: 2 } }">
           <div class="item">
             <span class="iconfont icon-xinjiangshishicai"></span>
             <span class="name">新疆时时彩</span>
@@ -49,7 +50,7 @@
         </router-link>
       </van-col>
       <van-col span="8">
-        <router-link :to="{name:'fc3d',params:{n:'fc3d',t:1,max:3}}">
+        <router-link :to="{ name: 'fc3d', params: { n: 'fc3d', t: 24*12, max: 3 } }">
           <div class="item">
             <span class="iconfont icon-fucai3d"></span>
             <span class="name">福彩3d</span>
@@ -60,11 +61,11 @@
     </van-row>
     <van-row>
       <van-col span="8">
-        <router-link :to="{name:'ynssc',params:{n:'ynssc',t:20,js:20,jm:2}}">
+        <router-link :to="{ name: 'tcpl5', params: { n: 'tcpl5', t: 20, js: 40, jm: 3 } }">
           <div class="item">
-            <span class="iconfont icon-jxssc"></span>
-            <span class="name">云南时时彩</span>
-            <span class="det">20分钟一期</span>
+            <span class="iconfont icon-pailiesanpailiewu"></span>
+            <span class="name">体彩排列3/5</span>
+            <span class="det">1天一期</span>
           </div>
         </router-link>
       </van-col>
@@ -107,10 +108,13 @@ export default {
     color: #218ddd;
   }
   .icon-fucai3d {
-    color: #58a3e1;
+    color: blue;
   }
-  .icon-kuai1 {
-    color: chartreuse;
+  .icon-xinjiangshishicai {
+    color: brown;
+  }
+  .icon-pailiesanpailiewu {
+    color: rgb(235, 57, 45);
   }
   .name {
     font-weight: bolder;
