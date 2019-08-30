@@ -16,11 +16,7 @@ export default {
   mounted() {
     this.sockets.subscribe(JSON.parse(sessionStorage.getItem("userinfo")).name, data => {
       if(data.msg=="ok"){
-        this.$notify({
-         message: "您有一条盈亏记录产生!请注意余额变化!",
-            duration: 2000,
-            background: "green"
-        })
+        this.$toast('您有一条盈亏记录产生!');
       }
       
     })

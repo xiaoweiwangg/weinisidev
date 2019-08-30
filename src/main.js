@@ -8,7 +8,9 @@ import "./assets/base/reset.css";
 import "./assets/icon/iconfont";
 //vue-socket 模块
 import VueSocketIO from "vue-socket.io";
-
+//轻提示插件
+import { Toast } from "vant";
+Vue.use(Toast);
 Vue.use(
   new VueSocketIO({
     debug: true,
