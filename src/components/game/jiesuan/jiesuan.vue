@@ -233,7 +233,7 @@ export default {
         for (let a = 0; a < x[0].length; a++) {
           for (let i = 0; i < 10; i++) {
             for (let k = 0; k < 10; k++) {
-              if (i!==k&&(i + k == x[0][a])) {
+              if (i !== k && i + k == x[0][a]) {
                 it.push([i, k].sort((a, b) => a - b).join(""));
                 ls.push(i + "" + k);
               }
@@ -471,10 +471,10 @@ export default {
             for (let b = 0; b < 10; b++) {
               for (let c = 0; c < 10; c++) {
                 tip.push([a, b, c].sort((d, e) => d - e).join(""));
-                tip = _.uniq(tip);
               }
             }
           }
+          tip = _.uniq(tip);
           for (let i = 0; i < x[0].length; i++) {
             tip.forEach(el => {
               if (el[0] * 1 + el[1] * 1 + el[2] * 1 == x[0][i]) {
@@ -482,6 +482,21 @@ export default {
               }
             });
           }
+          let bz = [
+            "000",
+            "111",
+            "222",
+            "333",
+            "444",
+            "555",
+            "666",
+            "777",
+            "888",
+            "999"
+          ];
+          bz.forEach((item, index) => {
+            ls.splice(ls.indexOf(bz[index]), 1);
+          });
           this.car = ls;
           this.numcar = ls.join("\r\n");
           this.num = ls.length;
