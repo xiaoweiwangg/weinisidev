@@ -1,16 +1,17 @@
+/* eslint-disable no-unused-vars */
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import "./assets/icon/iconfont.css";
 import "./assets/base/reset.css";
+
+//录播图
 // iconfont
 import "./assets/icon/iconfont";
 //vue-socket 模块
 import VueSocketIO from "vue-socket.io";
 //轻提示插件
-import { Toast } from "vant";
-Vue.use(Toast);
 Vue.use(
   new VueSocketIO({
     debug: true,

@@ -17,12 +17,10 @@ export default {
     this.sockets.subscribe(
       JSON.parse(sessionStorage.getItem("userinfo")).name,
       data => {
-        if (data.msg == "ok") {
-          // if (data.msg == "ok") {
-          //   this.$toast("您有一条盈亏记录产生!");
-          // }
+        if (data.msg == "kj") {
+            this.$toast("您有一条盈亏记录产生!");
           this.$notify({
-            message: "您有一条盈亏记录产生!请注意余额变化!",
+            message: "您有一条盈亏记录产生!",
             duration: 2000,
             background: "green"
           });

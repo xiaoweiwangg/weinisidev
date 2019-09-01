@@ -37,7 +37,7 @@
         </div>
       </van-col>
       <van-col span="6">
-        <div class="item">
+        <div class="item" @click="history">
           <div class="ic"><span class="iconfont icon-tedian3"></span></div>
           <div class="ms">交易记录</div>
         </div>
@@ -86,6 +86,12 @@ export default {
   methods: {
     recharge(){
       this.$router.push("/recharge")
+    },
+    history(){
+      this.axios.post("/history",{username:JSON.parse(sessionStorage.getItem("userinfo")).name})
+      .then((x)=>{
+        console.log(x);
+      })
     }
     // ...mapMutations([""]),
     // ...mapActions([""])

@@ -9,6 +9,13 @@ module.exports = {
         style: true
       },
       "vant"
+    ],
+    [
+      "component",
+      {
+        libraryName: "mint-ui",
+        style: true
+      }
     ]
   ]
 };

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <s-game @update="up" :gamelist="gamelist" @gl="gl" ></s-game>
+    <s-game @update="up" :gamelist="gamelist" @gl="gl"></s-game>
     <div class="kjdet">
       <div class="kjnum">
         <div class="datenum">
@@ -31,7 +31,16 @@
       :namelist="namelist"
       :gamelist="gamelist"
     ></component>
-    <j-suan :dt="dt" :playdate="playdate" :name="name" :gamelist="gamelist" :cl="cl" :playname="name" :playgame="n"></j-suan>
+    <j-suan
+      :dt="dt"
+      :playdate="playdate"
+      :name="name"
+      :gamelist="gamelist"
+      :cl="cl"
+      :playname="name"
+      :playgame="n"
+      :dis="ds"
+    ></j-suan>
   </div>
 </template>
 
@@ -53,21 +62,20 @@ export default {
       name: this.$route.params.n,
       time: this.$route.params.t
     });
-    this.$socket.emit(JSON.parse(sessionStorage.getItem("userinfo")).name,{
-      msg:"wojiao erwei!"
-    });
-    
     this.sockets.subscribe(this.n, data => {
       this.time = ((this.t - (data.m % this.t)) * 60 - data.s) * 1000;
       this.next = parseInt(data.msg.playdate) + 1;
       this.playdate = parseInt(data.msg.playdate);
       this.playnum = data.msg.playnum;
       this.dj = false;
+      this.ds = false;
+
       window.clearInterval(this.int);
       this.int = null;
       if (data.m < this.$route.params.jm % this.$route.params.t) {
-        this.dj = true;
         this.animate();
+        this.dj = true;
+        this.ds = "disabled";
       }
       // });
     });
@@ -87,6 +95,7 @@ export default {
   },
   data() {
     return {
+      ds: false,
       t: 5,
       n: "",
       dic: [
@@ -134,14 +143,11 @@ export default {
     log() {
       this.dj = true;
       this.animate();
-      this.$dialog
-        .alert({
-          title: this.playdate + "期投注时间已结束,再次投注请注意期数!",
-          message:
-            this.playdate +
-            "期正在开奖,\r\n由于可能存在的网络延迟,若长时间数据没有更新,请您手动刷新!"
-        })
-        .then(() => {});
+      this.$notify({
+        message: this.playdate + "期投注时间已结束,再次投注请注意期数!",
+        duration: 2000,
+        background: "greenyellow"
+      })
     },
     gl() {
       this.gamelist = [[], [], [], [], [], []];

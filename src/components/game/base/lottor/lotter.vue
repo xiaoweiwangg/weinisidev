@@ -40,7 +40,7 @@ export default {
     line-height: 40px;
     text-align: center;
     font-size: 20px;
-    margin: .1rem;
+    margin:0 9px;
   }
   .act {
     background-color: red;

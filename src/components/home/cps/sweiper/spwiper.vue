@@ -50,13 +50,13 @@ export default {
 
 <style lang="scss" scoped>
 .van-swipe-item {
-  width: 100%;
+  width: 100vw;
 }
 .van-swipe {
-  width: 100%;
+  width: 100vw;
 }
 img {
-  height: 130px;
+  height: 140px;
   width: 100%;
 }
 </style>

@@ -106,6 +106,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.pos{
+  padding: 0 10px;
+}
 .bot{
   padding-bottom: 74px;
 }
@@ -120,6 +123,7 @@ ul {
   flex-flow: column;
   .lot {
     display: flex;
+    justify-content:space-between;
     .wei {
       width: 35px;
       min-height: 100px;
@@ -136,7 +140,7 @@ ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    padding: 0 20px;
+    // padding: 0 20px;
   }
   .btn {
     display: flex;
