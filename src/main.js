@@ -27,10 +27,15 @@ fast.attach(document.body);
 //全局弹出层组件
 import { Notify } from "vant";
 Vue.use(Notify);
-
+//手风琴
+import { Collapse, CollapseItem } from "vant";
+Vue.use(Collapse).use(CollapseItem);
 //全局button组件
 import { Button } from "vant";
 Vue.use(Button);
+//弹出层
+import { Popup } from "vant";
+Vue.use(Popup);
 //全局倒计时模块
 import { CountDown } from "vant";
 Vue.use(CountDown);

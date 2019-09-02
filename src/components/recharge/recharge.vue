@@ -18,10 +18,12 @@
           <use xlink:href="#icon-weixin" />
         </svg>
       </div>
+      <router-link to="/wechatpay">
       <div class="right">
         <div class="tit">微信扫码支付</div>
         <div class="detail">最低入款100元起,单次5万元封顶,1分钟到帐</div>
       </div>
+      </router-link>
     </div>
     <div class="item">
       <div class="left">
@@ -29,10 +31,12 @@
           <use xlink:href="#icon-zhifubao" />
         </svg>
       </div>
+      <router-link to="/alipay">
       <div class="right">
         <div class="tit">支付宝扫码支付</div>
-        <div class="detail">支付宝充值通道维护中...</div>
+        <div class="detail">最低入款100元起,单次5万元封顶,1分钟到帐</div>
       </div>
+      </router-link>
     </div>
     <div class="item">
       <div class="left">
@@ -85,6 +89,9 @@ export default {
   }
   #icon-zhifubao,#icon-ziyuan1{
       color:#ccc;
+  }
+  a{
+    color: black;
   }
 }
 </style>

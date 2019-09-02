@@ -11,9 +11,27 @@ import RegIstry from "./components/registry/registry.vue";
 import WGame from "./components/game/game.vue";
 import TGame from "./components/game/threegame/threegame.vue";
 import RecharGe from "./components/recharge/recharge.vue";
+import WechatPay from "./components/pay/wechatpay.vue";
+import AliPay from "./components/pay/alipay.vue";
+import HistoryPage from "./components/history/history.vue";
 // import { homedir } from "os";
 export default new Router({
   routes: [
+    {
+      path: "/wechatpay",
+      component: WechatPay,
+      name: "wechatpay"
+    },
+    {
+      path: "/aliPay",
+      component: AliPay,
+      name: "alipay"
+    },
+    {
+      path: "/history",
+      component: HistoryPage,
+      name: "history"
+    },
     {
       path: "/",
       component: HomeV,
