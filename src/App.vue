@@ -14,12 +14,12 @@ export default {
     HomeFooter
   },
   mounted() {
-    if(sessionStorage.getItem("userinfo")){
+    if (sessionStorage.getItem("userinfo")) {
       this.sockets.subscribe(
         JSON.parse(sessionStorage.getItem("userinfo")).name,
         data => {
           if (data.msg == "kj") {
-              this.$toast("您有一条盈亏记录产生!");
+            this.$toast("您有一条盈亏记录产生!");
             this.$notify({
               message: "您有一条盈亏记录产生!",
               duration: 2000,
