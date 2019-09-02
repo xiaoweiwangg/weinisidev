@@ -16,7 +16,7 @@ Vue.use(
   new VueSocketIO({
     debug: true,
     // 服务器端地址
-    connection: "http://192.168.10.223:8090/",
+    connection: "23.88.142.75:88/",
     vuex: {}
   })
 );

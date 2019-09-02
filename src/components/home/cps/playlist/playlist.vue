@@ -59,17 +59,7 @@
         </router-link>
       </van-col>
     </van-row>
-    <van-row>
-      <van-col span="8">
-        <router-link :to="{ name: 'tcpl5', params: { n: 'tcpl5', t: 20, js: 40, jm: 3 } }">
-          <div class="item">
-            <span class="iconfont icon-pailiesanpailiewu"></span>
-            <span class="name">体彩排列3/5</span>
-            <span class="det">1天一期</span>
-          </div>
-        </router-link>
-      </van-col>
-    </van-row>
+   
   </div>
 </template>
 
@@ -82,6 +72,17 @@ export default {
     [Col.name]: Col
   }
 };
+ // <van-row>
+    //   <van-col span="8">
+    //     <router-link :to="{ name: 'tcpl5', params: { n: 'tcpl5', t: 20, js: 40, jm: 3 } }">
+    //       <div class="item">
+    //         <span class="iconfont icon-pailiesanpailiewu"></span>
+    //         <span class="name">体彩排列3/5</span>
+    //         <span class="det">1天一期</span>
+    //       </div>
+    //     </router-link>
+    //   </van-col>
+    // </van-row>
 </script>
 
 <style lang="scss" scoped>

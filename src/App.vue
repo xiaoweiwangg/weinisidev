@@ -14,19 +14,21 @@ export default {
     HomeFooter
   },
   mounted() {
-    this.sockets.subscribe(
-      JSON.parse(sessionStorage.getItem("userinfo")).name,
-      data => {
-        if (data.msg == "kj") {
-            this.$toast("您有一条盈亏记录产生!");
-          this.$notify({
-            message: "您有一条盈亏记录产生!",
-            duration: 2000,
-            background: "green"
-          });
+    if(sessionStorage.getItem("userinfo")){
+      this.sockets.subscribe(
+        JSON.parse(sessionStorage.getItem("userinfo")).name,
+        data => {
+          if (data.msg == "kj") {
+              this.$toast("您有一条盈亏记录产生!");
+            this.$notify({
+              message: "您有一条盈亏记录产生!",
+              duration: 2000,
+              background: "green"
+            });
+          }
         }
-      }
-    );
+      );
+    }
     setInterval(() => {
       if (sessionStorage.getItem("islogoin") == "true") {
         window.start++;
