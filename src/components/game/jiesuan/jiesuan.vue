@@ -30,8 +30,8 @@
     </div>
     <div class="det">
       <van-button type="info" @click="detshow">
-        投注篮合计:&nbsp;{{ add }}&nbsp;注
-        <span class="iconfont icon-sanjiaoxing1"></span>
+        合成:&nbsp;{{ add }}&nbsp;注
+        <span class="iconfont icon-jiantoushang"></span>
       </van-button>
       <van-button type="warning">{{ (num * huilv * tp * sprice * ratel).toFixed(2) }} 元</van-button>
     </div>
@@ -120,6 +120,9 @@ export default {
           Toast.fail("订单提交失败");
         } else if (x.data.msg == "ok") {
           Toast.success("订单提交成功!");
+          this.$notify({
+            message:`当前余额:${JSON.parse(sessionStorage.getItem("userinfo")).balance}元`
+          })
         }
       });
     },

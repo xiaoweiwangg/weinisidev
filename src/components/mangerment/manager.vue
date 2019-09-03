@@ -65,6 +65,8 @@ export default {
     [Col.name]: Col
   },
   mounted() {
+    console.log(JSON.parse(sessionStorage.getItem("userinfo")).name);
+    
     this.$socket.emit("user",{
       username:JSON.parse(sessionStorage.getItem("userinfo")).name,
     })
