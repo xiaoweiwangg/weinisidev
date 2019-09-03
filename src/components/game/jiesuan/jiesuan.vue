@@ -121,7 +121,7 @@ export default {
         } else if (x.data.msg == "ok") {
           Toast.success("订单提交成功!");
           this.$notify({
-            message:`当前余额:${JSON.parse(sessionStorage.getItem("userinfo")).balance}元`
+            message:`当前余额:${this.$store.state.userinfo.balance-shopcar.price}元`
           })
         }
       });

@@ -11,6 +11,9 @@ export default new Vuex.Store({
   mutations: {
     setuserinfo(state, x) {
       state.userinfo = x;
+    },
+    setbalance(state, x) {
+      state.userinfo.balance = x;
     }
   },
   actions: {},

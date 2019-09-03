@@ -65,13 +65,12 @@ export default {
     [Col.name]: Col
   },
   mounted() {
-    console.log(JSON.parse(sessionStorage.getItem("userinfo")).name);
-    
     this.$socket.emit("user",{
       username:JSON.parse(sessionStorage.getItem("userinfo")).name,
     })
     this.sockets.subscribe("balance", data => {
      this.balance=data[0].balance
+     this.setbalance(this.balance)
     })
     this.userinfo = JSON.parse(sessionStorage.getItem("userinfo"))
   },
@@ -91,8 +90,8 @@ export default {
     },
     history(){
       this.$router.push("/history")
-    }
-    // ...mapMutations([""]),
+    },
+    ...mapMutations(["setbalance"]),
     // ...mapActions([""])
   }
 };
