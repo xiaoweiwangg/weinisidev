@@ -3,7 +3,7 @@
     <van-row>
       <van-col span="8">
         <router-link
-          :to="{ name: 'gassc', params: { n: 'gassc', t: 5, js: 10, jm: 0 } }"
+          :to="{ name: 'gassc', params: { n: 'gassc', t: 5,jh:0, js: 10, jm: 0 } }"
         >
           <div class="item">
             <span class="iconfont icon-shishicai"></span>
@@ -14,7 +14,7 @@
       </van-col>
       <van-col span="8">
         <router-link
-          :to="{ name: 'ynssc', params: { n: 'ynssc', t: 20, js: 20, jm: 2 } }"
+          :to="{ name: 'ynssc', params: { n: 'ynssc', t: 20, jh:0,js: 20, jm: 2 } }"
         >
           <div class="item">
             <span class="iconfont icon-jxssc"></span>
@@ -26,7 +26,7 @@
 
       <van-col span="8">
         <router-link
-          :to="{ name: 'cqssc', params: { n: 'cqssc', t: 20, js: 40, jm: 3 } }"
+          :to="{ name: 'cqssc', params: { n: 'cqssc', t: 20,jh:0, js: 40, jm: 3 } }"
         >
           <div class="item">
             <span class="iconfont icon-icon-zhongqingshishicai"></span>
@@ -39,7 +39,7 @@
     <van-row>
       <van-col span="8">
         <router-link
-          :to="{ name: 'tjssc', params: { n: 'tjssc', t: 20, js: 20, jm: 2 } }"
+          :to="{ name: 'tjssc', params: { n: 'tjssc', t: 20,jh:0, js: 20, jm: 2 } }"
         >
           <div class="item">
             <span class="iconfont icon-tjssc"></span>
@@ -50,7 +50,7 @@
       </van-col>
       <van-col span="8">
         <router-link
-          :to="{ name: 'xjssc', params: { n: 'xjssc', t: 20, js: 20, jm: 2 } }"
+          :to="{ name: 'xjssc', params: { n: 'xjssc', t: 20,jh:0, js: 20, jm: 2 } }"
         >
           <div class="item">
             <span class="iconfont icon-xinjiangshishicai"></span>
@@ -61,7 +61,7 @@
       </van-col>
       <van-col span="8">
         <router-link
-          :to="{ name: 'fc3d', params: { n: 'fc3d', t: 24 * 12, max: 3 } }"
+          :to="{ name: 'fc3d', params: { n: 'fc3d', t: 24 * 12,max: 3 } }"
         >
           <div class="item">
             <span class="iconfont icon-fucai3d"></span>

@@ -12,6 +12,12 @@ import "./assets/icon/iconfont";
 //vue-socket 模块
 import VueSocketIO from "vue-socket.io";
 //轻提示插件
+import { Cell, CellGroup } from 'vant';
+Vue.use(Cell).use(CellGroup);
+import { PasswordInput, NumberKeyboard } from 'vant';
+Vue.use(PasswordInput).use(NumberKeyboard);
+import { Field } from 'vant';
+Vue.use(Field);
 Vue.use(
   new VueSocketIO({
     debug: true,

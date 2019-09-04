@@ -14,11 +14,26 @@
       <div class="djs">
         <div class="datenum m">
           <span>{{ next }}</span>
-          <span class="qi">期截止</span>
+          <span class="qi">期销售截至</span>
         </div>
         <div class="det">
-          <van-count-down @finish="log" :time="time" />
-          <div class="zhezhao" v-show="dj">正在开奖中</div>
+          <!-- <van-count-down @finish="log" :time="time" /> -->
+          <div class="ds">
+            <van-button type="info">
+              <span v-show="show(ih)">{{w}}</span>
+              {{ih}}:
+            </van-button>
+            <van-button type="info">
+              <span v-show="show(im)">{{w}}</span>
+              {{im}}:
+            </van-button>
+            <van-button type="info">
+              <span v-show="show(ms)">{{w}}</span>
+              {{ms}}
+            </van-button>
+          </div>
+          <!-- ----------------------------------------------- -->
+          <div class="zhezhao" v-show="dj">{{next}}期正在开奖中</div>
         </div>
       </div>
     </div>
@@ -45,6 +60,7 @@
 </template>
 
 <script>
+import TimeV from "../time/timer";
 import SGame from "./base/selgame/select";
 import BaseLottor from "./base/pos/pos";
 import GD from "./danshi/danshi";
@@ -56,14 +72,20 @@ export default {
   mounted() {
     this.t = parseInt(this.$route.params.t);
     this.n = this.$route.params.n;
-    // this.$nextTick(() => {
     this.$socket.emit(this.n, {
       username: JSON.parse(sessionStorage.getItem("userinfo")).name,
       name: this.$route.params.n,
       time: this.$route.params.t
     });
     this.sockets.subscribe(this.n, data => {
-      this.time = ((this.t - (data.m % this.t)) * 60 - data.s) * 1000;
+      this.ih = 0;
+      this.im = this.t - (data.m % this.t+1);
+      this.ms = 60 - data.s;
+      if(this.im<=(this.t-this.$route.params.jm)&&this.ms<=this.$route.params.js){
+        console.log("开奖中");
+        this.log()
+      }
+      this.ani()
       this.next = parseInt(data.msg.playdate) + 1;
       this.playdate = parseInt(data.msg.playdate);
       this.playnum = data.msg.playnum;
@@ -77,7 +99,6 @@ export default {
         this.dj = true;
         this.ds = "disabled";
       }
-      // });
     });
   },
   watch: {
@@ -91,10 +112,18 @@ export default {
     BaseLottor,
     SGame,
     GD,
-    JSuan
+    JSuan,
+    TimeV
   },
   data() {
     return {
+      im: 30,
+      ih: 0,
+      ms: 40,
+      w: "0",
+      tm: null,
+      tp: "djs",
+
       ds: false,
       t: 5,
       n: "",
@@ -116,7 +145,6 @@ export default {
       next: "",
       playdate: "",
       playnum: "",
-      time: 1000 * 60,
       cl: "no",
       num: 10,
       cur: "BaseLottor",
@@ -127,6 +155,42 @@ export default {
     };
   },
   methods: {
+    ani() {
+      this.tm = setInterval(() => {
+        this.ms--;
+        if (this.ms == 0) {
+          if (this.ih > 0) {
+            if (this.im > 0) {
+              this.ms = 59;
+              this.im--;
+            } else if (this.im == 0) {
+              this.ih--;
+              this.ms = 59;
+              this.im = 59;
+            }
+          } else if (this.ih == 0) {
+            if (this.im > 0) {
+              this.im--;
+              this.ms = 59;
+            } else if (this.im == 0) {
+              this.im = 0;
+              this.ms = 0;
+              this.log()
+              window.clearInterval(this.tm);
+              this.tm = null;
+            }
+          }
+        }
+      }, 1000);
+    },
+    show(x) {
+      if ((this.w + x).length >= 3) {
+        return false;
+      } else {
+        return true;
+      }
+    },
+    redu() {},
     animate() {
       this.int = setInterval(() => {
         this.q++;
@@ -146,8 +210,9 @@ export default {
       this.$notify({
         message: this.playdate + "期投注时间已结束,再次投注请注意期数!",
         duration: 2000,
-        background: "greenyellow"
-      })
+        background: "greenyellow", 
+
+      });
     },
     gl() {
       this.gamelist = [[], [], [], [], [], []];
@@ -245,17 +310,25 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.ds {
+  .van-button{
+    height: 30px;
+    line-height: 30px;
+  }
+}
 .m {
   text-align: center;
 }
 .zhezhao {
   position: absolute;
-  height: 85%;
+  height: 67px;
+  background: #ff976a;
+
   width: 100%;
-  font-size: 30px;
+  font-size: 20px;
   text-align: center;
   letter-spacing: 5px;
-  top: 0;
+  top: -35px;
   line-height: 170%;
   background-color: #e1d9ba;
 }
@@ -278,7 +351,7 @@ export default {
   position: relative;
   .van-count-down {
     font-size: 29px;
-    line-height: 52px;
+    // line-height: 52px;
     transform: translateX(18%);
   }
 }
@@ -289,8 +362,9 @@ export default {
 .kjdet {
   .datenum,
   .kjnum {
-    font-size: 20px;
+    font-size: 18px;
     text-align: center;
+    line-height: 37px;
     color: black;
   }
   margin-top: 8px;

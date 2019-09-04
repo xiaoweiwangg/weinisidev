@@ -31,7 +31,7 @@
         </div>
       </van-col>
       <van-col span="6">
-        <div class="item">
+        <div class="item" @click="cash">
           <div class="ic"><span class="iconfont icon-tixiancopy"></span></div>
           <div class="ms">我要提现</div>
         </div>
@@ -85,6 +85,9 @@ export default {
     };
   },
   methods: {
+    cash(){
+      this.$router.push("/cash")
+    },
     recharge(){
       this.$router.push("/recharge")
     },

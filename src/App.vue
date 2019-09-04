@@ -9,6 +9,7 @@
 <script>
 import { log } from "util";
 import HomeFooter from "./components/footer/footerbar";
+import { setTimeout } from 'timers';
 export default {
   components: {
     HomeFooter
@@ -19,12 +20,14 @@ export default {
         JSON.parse(sessionStorage.getItem("userinfo")).name,
         data => {
           if (data.msg == "kj") {
-            this.$toast("您有一条盈亏记录产生!");
-            this.$notify({
-              message: "您有一条盈亏记录产生!",
-              duration: 2000,
-              background: "green"
-            });
+            setTimeout(()=>{
+              this.$toast("您有新的盈亏记录产生!");
+              this.$notify({
+                message: "您有新的盈亏记录产生!",
+                duration: 3000,
+                background: "green"
+              });
+            },0)
           }
         }
       );

@@ -14,9 +14,21 @@ import RecharGe from "./components/recharge/recharge.vue";
 import WechatPay from "./components/pay/wechatpay.vue";
 import AliPay from "./components/pay/alipay.vue";
 import HistoryPage from "./components/history/history.vue";
+import TimeV from "./components/time/timer.vue";
+import CaSh from "./components/pay/cash.vue";
 // import { homedir } from "os";
 export default new Router({
   routes: [
+    {
+      path: "/cash",
+      name: "cash",
+      component: CaSh
+    },
+    {
+     path: "/timev",
+     name: "timev",
+     component: TimeV
+   },
     {
       path: "/wechatpay",
       component: WechatPay,
@@ -43,7 +55,8 @@ export default new Router({
     },
     {
       path: "/talks",
-      component: TalkV
+     component: TimeV
+    //  component: TalkV
     },
     {
       path: "/manager",
