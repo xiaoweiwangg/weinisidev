@@ -186,7 +186,7 @@ export default {
     flex: 1;
     line-height: 62px;
     text-align: left;
-    font-size: 24px;
+    font-size: 20px;
     padding-left: 12px;
   }
 }

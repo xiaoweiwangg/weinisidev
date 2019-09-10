@@ -13,7 +13,7 @@
       </router-link>
       <router-link :to="{ path: '/talks' }" exact>
         <div class="item">
-          <i class="iconfont icon-liaotian"></i><span>聊天室</span>
+          <i class="iconfont icon-custom-service"></i><span>找客服</span>
         </div>
       </router-link>
       <router-link :to="{ path: '/manager' }" exact>

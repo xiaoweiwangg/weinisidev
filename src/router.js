@@ -123,6 +123,18 @@ export default new Router({
         import(/* webpackChunkName: "about" */ "./components/game/game.vue")
     },
     {
+      name: "lol",
+      path: "/lol",
+      component: () =>
+        import(/* webpackChunkName: "about" */ "./components/game/lol/lol.vue")
+    },
+    {
+      name: "pk",
+      path: "/pk10",
+      component: () =>
+        import(/* webpackChunkName: "about" */ "./components/game/pk10/pk10")
+    },
+    {
       name: "tcpl5",
       path: "/tcpl5",
       component: () =>

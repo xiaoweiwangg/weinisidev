@@ -3,12 +3,15 @@
     <t-header :t="'交 流 大 厅'"></t-header>
     <div class="cont">
       <ul>
-        <li v-for="(item ,index) in msglist" :key="index" :style="{float:item.type=='client'?'left':'right',color:item.type=='client'?'green':'white'}">{{item.msg}}</li>
+        <div class="ls clf" v-for="(item ,index) in msglist" :key="index">
+        <div class="img" :style="{float:item.type=='client'?'left':'right'}"><i class="iconfont" :class="item.type=='client'?'icon-management':'icon-custom-service'"> </i></div>
+        <li :style="{float:item.type=='client'?'left':'right',backgroundColor:item.type=='client'?'#1a2a3a':'gold',color:item.type=='client'?'white':'#1a2a3a'}">{{item.msg}}</li>
+        </div>
       </ul>
     </div>
     <div class="tk">
       <input type="text" v-model="msg" />
-      <van-button type="info" @click="send">发送</van-button>
+      <van-button type="info" @click="send" size="large">发送</van-button>
     </div>
   </div>
 </template>
@@ -28,6 +31,9 @@ export default {
   },
   methods: {
     send() {
+      if(this.msg.length<=0){
+        return 
+      }
       let res={}
       this.$socket.emit("logoin", {
         username: JSON.parse(sessionStorage.getItem("userinfo")).name,
@@ -57,10 +63,22 @@ export default {
 
 <style lang="scss" scoped>
 ul{
-  display: flex;
-  flex-flow: column;
+  .ls{
+    min-height: 80px;
+    
+    .icon-custom-service{
+      color:#9b59b6;
+      font-size: 39px;
+    }
+    .icon-management{
+      font-size: 39px;
+      color: #2980b9;
+    }
+
+  }
 }
 li{
+  width: 50.5%;
   font-size: 18px;
   margin: 5px;
   line-height: 25px;
@@ -71,7 +89,6 @@ li{
 .talks {
   padding-top: 45px;
   .tk {
-    display: flex;
     border: 2px solid #2c3e50;
     border-radius: 8px;
     margin:0 5px;
@@ -81,8 +98,13 @@ li{
     bottom: 70px;
     left: 0;
     right: 0;
+    .van-button{
+      float: right;
+      width: 80px;
+    }
     input {
-      flex: 1;
+      // flex: 1;
+      width: 220px;
     }
   }
 }

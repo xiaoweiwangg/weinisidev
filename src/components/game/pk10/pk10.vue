@@ -1,5 +1,5 @@
 <template>
-  <div ref="body">
+  <div ref="body" class="bd">
     <s-game @update="up" :gamelist="gamelist" @gl="gl"></s-game>
     <div class="kjdet">
       <div class="kjnum" @click="history">
@@ -77,16 +77,15 @@
 <script>
 import TimeV from "../../time/timer";
 import SGame from "./selgame/select";
-import BaseLottor from "../base/pos/pos";
-import GD from "../danshi/danshi";
-import JSuan from "../jiesuan/jiesuan";
+import BaseLottor from "./base/pos/pos.vue";
+import GD from "./danshi/danshi";
+import JSuan from "./jiesuan/jiesuan";
 import { clearInterval } from "timers";
 import { log } from "util";
 export default {
-  name: "TGame",
+  name: "PkGame",
 
   mounted() {
-    
     this.t = parseInt(this.$route.params.t);
     this.n = this.$route.params.n;
     this.$socket.emit(this.n, {
@@ -96,16 +95,23 @@ export default {
     });
     this.sockets.subscribe(this.n, data => {
       console.log(data);
-      console.log(data);
-      if(this.$route.params.jh==20){
-        this.ih = this.$route.params.jh-parseInt(new Date().getHours());
+      if (this.$route.params.jh == 20) {
+        this.ih = this.$route.params.jh - parseInt(new Date().getHours());
       }
+      console.log(
+        this.$route.params.jh - parseInt(new Date().getHours()),
+        "123"
+      );
+      console.log(this.$route.params.jh);
+
       this.im = this.t - ((data.m % this.t) + 1);
       this.ms = 60 - data.s;
       this.ani();
       this.next = parseInt(data.msg.playdate) + 1;
       this.playdate = parseInt(data.msg.playdate);
-      this.playnum = data.msg.playnum;
+      this.playnum = data.msg.playnum.split(",")
+      console.log(this.playnum);
+      
       this.dj = false;
       this.ds = true;
       this.dab = false;
@@ -157,13 +163,13 @@ export default {
       dj: true,
       next: "",
       playdate: "",
-      playnum: "",
+      playnum: [],
       cl: "no",
       num: 10,
       cur: "BaseLottor",
       gamelist: null,
       namelist: null,
-      dt: null,
+      dt: null, 
       name: "",
       hislist: []
     };
@@ -181,13 +187,10 @@ export default {
         : "rotate(90deg)";
     },
     ani() {
-      console.log(this.t - this.$route.params.jm);
-      if (this.ih == 0 && this.im == 0 && this.ms < 30) {
-        this.dab = true;
-      }
+      let djs = this.$route.params.djs || 30;
       this.tm = setInterval(() => {
         this.ms--;
-        if (this.ih == 0 && this.im == 20 && this.ms < 30) {
+        if (this.ih == 0 && this.im == 0 && this.ms < djs) {
           this.dab = true;
         }
 
@@ -253,70 +256,39 @@ export default {
       this.num = 10;
 
       if (x.includes("一")) {
-        console.log(this.n);
-
-        if (this.$route.params.max == 3) {
-          this.gamelist = [[], [], []];
-          this.namelist = ["百位", "十位", "个位"];
-          return;
-        }
+        this.gamelist = [[], [], [], [], [], [], [], [], [], []];
+        this.namelist = [
+          "冠军",
+          "亚军",
+          "季军",
+          "第四名",
+          "第五名",
+          "第六名",
+          "第七名",
+          "第八名",
+          "第九名",
+          "第十名"
+        ];
+      }
+      if (x.includes("猜前五")) {
         this.gamelist = [[], [], [], [], []];
-        this.namelist = ["万位", "千位", "百位", "十位", "个位"];
+        this.namelist = ["冠军", "亚军", "季军", "第四名", "第五名"];
       }
-      if (x.includes("前二")) {
-        if (this.$route.params.max == 3) {
-          this.gamelist = [[], []];
-          this.namelist = ["百位", "十位"];
-          return;
-        }
-        this.gamelist = [[], []];
-        this.namelist = ["万位", "千位"];
+      if (x.includes("猜前四")) {
+        this.gamelist = [[], [], [], []];
+        this.namelist = ["冠军", "亚军", "季军", "第四名"];
       }
-      if (x.includes("后二")) {
-        if (this.$route.params.max == 3) {
-          this.gamelist = [[], []];
-          this.namelist = ["十位", "个位"];
-          return;
-        }
-        this.gamelist = [[], []];
-        this.namelist = ["十位", "个位"];
-      }
-      if (x.includes("前三")) {
+      if (x.includes("猜前三")) {
         this.gamelist = [[], [], []];
-        this.namelist = ["万位", "千位", "百位"];
+        this.namelist = ["冠军", "亚军", "季军"];
       }
-      if (x.includes("组选")) {
+      if (x.includes("猜前二")) {
+        this.gamelist = [[], []];
+        this.namelist = ["冠军", "亚军"];
+      }
+      if (x.includes("猜冠军")) {
         this.gamelist = [[]];
-        this.namelist = ["组选"];
-      }
-      if (x.includes("跨度")) {
-        this.gamelist = [[]];
-        this.namelist = ["跨度"];
-      }
-      if (x.includes("和值") && x.includes("三")) {
-        this.gamelist = [[]];
-        this.namelist = ["和值"];
-        this.num = 28;
-      }
-      if (x.includes("和值") && x.includes("二")) {
-        this.gamelist = [[]];
-        this.namelist = ["和值"];
-        this.num = 19;
-      }
-      if (x.includes("不定位")) {
-        this.gamelist = [[]];
-        this.namelist = ["不定位"];
-      }
-      if (x.includes("不定位")) {
-        this.gamelist = [[]];
-        this.namelist = ["不定位"];
-      }
-      if (x.includes("单式")) {
-        this.gamelist = [];
-        this.namelist = [];
-        this.cur = "GD";
-      } else {
-        this.cur = "BaseLottor";
+        this.namelist = ["冠军"];
       }
     }
   }
@@ -341,16 +313,15 @@ export default {
   color: rgb(245, 9, 9);
 }
 .his {
-  table{
+  table {
     border: 2px solid white;
-    
   }
   position: absolute;
   background-color: #2c3e50;
   z-index: 9999999;
   th,
   td {
-    height:50px;
+    height: 50px;
     font-size: 22px;
     text-align: center;
     color: #ff976a;
@@ -361,16 +332,19 @@ export default {
 }
 .ds {
   .van-button {
-    font-size: 22px;
+    font-size: 16px;
     height: 30px;
     line-height: 30px;
-    width: 56px;
+    width: 49px;
     letter-spacing: -3.5px;
   }
 }
 .m {
   text-align: center;
   font-size: 15px;
+}
+.bd{
+  background-color: #f5f1e4;
 }
 .zhezhao {
   position: absolute;
@@ -389,21 +363,21 @@ export default {
   display: flex;
   justify-content: space-around;
   li {
-    height: 32px;
-    width: 32px;
+    height: 31px;
+    width: 31px;
     border: 1px solid rgb(250, 51, 1);
     text-align: center;
-    line-height: 32px;
+    line-height: 31px;
     border-radius: 50%;
     color: red;
-    font-size: 28px;
+    font-size: 27px;
   }
 }
 .det {
   text-align: center;
   position: relative;
   .van-count-down {
-    font-size: 29px;
+    font-size: 20px;
     // line-height: 52px;
     transform: translateX(18%);
   }
@@ -415,7 +389,7 @@ export default {
 .kjdet {
   .datenum,
   .kjnum {
-    font-size: 18px;
+    font-size: 15px;
     text-align: center;
     line-height: 37px;
     color: black;
@@ -428,12 +402,17 @@ export default {
   display: flex;
   .djs,
   .kjnum {
-    flex: 1;
     display: flex;
     flex-flow: column;
     div {
       flex: 1;
     }
+  }
+  .djs{
+    flex: 1;
+  }
+  .kjnum{
+    width: 60%;
   }
   .djs {
     border-left: 1px solid gray;

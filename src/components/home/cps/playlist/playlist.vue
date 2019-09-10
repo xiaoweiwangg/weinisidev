@@ -83,11 +83,31 @@
         </router-link>
       </van-col>
       <van-col span="8">
-        <router-link :to="{ name: 'ynssc', params: { n: 'ynssc', t: 20, jh:0,js: 20, jm: 2 } }">
+        <router-link :to="{ name: 'lol', params: { n: 'ynssc', t: 20, jh:0,js: 20, jm: 2 } }">
           <div class="item">
             <span class="iconfont icon-logo-esport"></span>
             <span class="name">电子竞技</span>
             <span class="det">S9等各大联赛...</span>
+          </div>
+        </router-link>
+      </van-col>
+    </van-row>
+    <van-row>
+      <van-col span="8">
+        <router-link :to="{ name: 'pk', params: { n: 'bjkcssc', t: 20, jh:0,js: 40, jm: 3 } }">
+          <div class="item">
+            <span class="iconfont icon-pk10"></span>
+            <span class="name">北京赛车</span>
+            <span class="det">20分钟1期</span>
+          </div>
+        </router-link>
+      </van-col>
+      <van-col span="8">
+        <router-link :to="{ name: 'pk10', params: { n: 'pk10ssc', t: 20, jh:0,js: 40, jm: 3 } }">
+          <div class="item">
+            <span class="iconfont icon-pk"></span>
+            <span class="name">威尼斯pk10</span>
+            <span class="det">5分钟1期</span>
           </div>
         </router-link>
       </van-col>
@@ -116,6 +136,15 @@ export default {
   margin: 1px;
   .iconfont {
     font-size: 50px;
+  }
+  .icon-pk10{
+    color:rgb(243, 6, 6);
+  }
+  .icon-logo-esport{
+    color:#e9bb4f;
+  }
+  .icon-pk{
+    color: green;
   }
   .icon-shishicai {
     color: #f22751;
