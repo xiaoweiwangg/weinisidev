@@ -1,16 +1,15 @@
 <template>
   <div class="gg">
-    <span class="iconfont icon-gonggao"></span>
-    <van-swipe
-      indicator-color="transparent"
-      :autoplay="2500"
-      style="height:30px;"
-      vertical
-    >
-      <van-swipe-item v-for="(item, index) in gglist" :key="index">{{
+    <van-swipe indicator-color="transparent" :autoplay="2500" style="height:30px;" vertical>
+      <van-swipe-item v-for="(item, index) in gglist" :key="index">
+        {{
         item.cont
-      }}</van-swipe-item>
+        }}
+      </van-swipe-item>
     </van-swipe>
+    <svg class="icon" aria-hidden="true">
+      <use xlink:href="#icon-guangbo" />
+    </svg>
   </div>
 </template>
 
@@ -37,11 +36,12 @@ export default {
 
 <style lang="scss" scoped>
 .gg {
+  padding-left: 15px;
   display: flex;
   line-height: 30px;
-  .icon-gonggao {
-    font-size: 20px;
-    margin: auto 8px;
+  .icon {
+    font-size: 25px;
+    margin: auto 15px;
   }
   .van-swipe {
     flex: 1;

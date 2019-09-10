@@ -20,10 +20,10 @@ import { Field } from "vant";
 Vue.use(Field);
 Vue.use(
   new VueSocketIO({
-    debug: true,
+    // debug: true,
     // 服务器端地址
-    connection: "23.88.142.75:88/",
-    vuex: {}
+    connection: "localhost:88"
+    // vuex: {},
   })
 );
 //移动端延迟300毫秒解决

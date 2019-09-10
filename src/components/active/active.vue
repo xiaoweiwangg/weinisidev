@@ -32,8 +32,6 @@ export default {
     }
   },
   mounted() {
-    console.log(this.rand());
-    
     this.axios.get("/active").then(d => {
       this.dt = d.data;
       console.log(d.data);
@@ -53,8 +51,8 @@ export default {
     margin:15px 0;
     .left {
       color: wheat;
-      height: 70px;
-      width: 70px;
+      height: 40px;
+      width: 40px;
       border-radius: 50%;
       text-align: center;
       border: 1px solid white;
@@ -62,12 +60,12 @@ export default {
       justify-content: center;
       align-items: center;
       p {
-        height: 30px;
-        width: 30px;
+        height: 20px;
+        width: 20px;
         border: 1px solid white;
         border-radius: 50%;
-        line-height: 30px;
-        font-size: 20px;
+        line-height: 20px;
+        font-size: 18px;
       }
     }
       .right{

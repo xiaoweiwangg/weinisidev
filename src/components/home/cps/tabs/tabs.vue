@@ -1,13 +1,21 @@
 <template>
   <div class="tab">
     <van-row>
-      <van-col span="6"
-        ><span class="iconfont icon-paihang"></span> 排行</van-col
-      >
-      <van-col span="6"
-        ><span class="iconfont icon-custom-service"></span> 客服</van-col
-      >
-      <van-col span="6"><span class="iconfont icon-miji"></span> 秘籍</van-col>
+      <van-col span="6">
+        <router-link to="/paihang">
+        <span class="iconfont icon-paihang"></span> 排行
+        </router-link>
+      </van-col>
+      <van-col span="6">
+        <router-link to="/talks">
+        <span class="iconfont icon-custom-service"></span> 客服
+        </router-link>
+      </van-col>
+      <van-col span="6">
+        <router-link to="/miji">
+        <span class="iconfont icon-miji"></span> 秘籍
+        </router-link>
+      </van-col>
     </van-row>
   </div>
 </template>

@@ -9,25 +9,31 @@
 <script>
 import { log } from "util";
 import HomeFooter from "./components/footer/footerbar";
-import { setTimeout } from 'timers';
+import { setTimeout } from "timers";
 export default {
   components: {
     HomeFooter
   },
+  data() {
+    return {
+
+    }
+  },
   mounted() {
+    
     if (sessionStorage.getItem("userinfo")) {
       this.sockets.subscribe(
         JSON.parse(sessionStorage.getItem("userinfo")).name,
         data => {
           if (data.msg == "kj") {
-            setTimeout(()=>{
+            setTimeout(() => {
               this.$toast("您有新的盈亏记录产生!");
               this.$notify({
                 message: "您有新的盈亏记录产生!",
                 duration: 3000,
                 background: "green"
               });
-            },0)
+            }, 0);
           }
         }
       );

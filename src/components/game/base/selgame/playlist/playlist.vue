@@ -164,12 +164,12 @@ export default {
             }
           ]
         },
-        {
-          posname: "龙虎斗",
-          posplaylist: [
-            { type: "龙虎斗", list: ["龙虎斗"] }
-          ]
-        }
+        // {
+        //   posname: "龙虎斗",
+        //   posplaylist: [
+        //     { type: "龙虎斗", list: ["龙虎斗"] }
+        //   ]
+        // }
       ]
     };
   }

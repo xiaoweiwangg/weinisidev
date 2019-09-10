@@ -7,49 +7,97 @@
       </div>
       <div class="msg">
         <div class="name">
-          <span class="sum"> 账 &nbsp;&nbsp;号:</span>
+          <span class="sum">账 &nbsp;&nbsp;号:</span>
           <span class="nm">{{ userinfo.name }}</span>
         </div>
         <div class="bl">
           <span class="sum">代&nbsp;&nbsp; 理:</span>
-          <span class="ye dl"
-            >&nbsp;&nbsp;{{ userinfo.level }}&nbsp;&nbsp;级</span
-          >
+          <span class="ye dl">&nbsp;&nbsp;{{ userinfo.level }}&nbsp;&nbsp;级</span>
         </div>
         <div class="bl">
           <span class="sum">余&nbsp;&nbsp; 额:</span>
-          <span class="ye"
-            >&nbsp;&nbsp;{{ balance }}&nbsp;元</span>
+          <span class="ye">&nbsp;&nbsp;{{ balance }}&nbsp;元</span>
         </div>
       </div>
     </div>
     <van-row>
-      <van-col span="6" >
+      <van-col span="6">
         <div class="item" @click="recharge">
-          <div class="ic"><span class="iconfont icon-chongzhi"></span></div>
+          <div class="ic">
+            <span class="iconfont icon-chongzhi"></span>
+          </div>
           <div class="ms">我要充值</div>
         </div>
       </van-col>
       <van-col span="6">
         <div class="item" @click="cash">
-          <div class="ic"><span class="iconfont icon-tixiancopy"></span></div>
+          <div class="ic">
+            <span class="iconfont icon-tixiancopy"></span>
+          </div>
           <div class="ms">我要提现</div>
         </div>
       </van-col>
       <van-col span="6">
         <div class="item">
-          <div class="ic"><span class="iconfont icon-tedian3"></span></div>
+          <div class="ic">
+            <span class="iconfont icon-tedian3"></span>
+          </div>
           <div class="ms">交易记录</div>
         </div>
       </van-col>
       <van-col span="6">
         <div class="item" @click="history">
-          <div class="ic"><span class="iconfont icon-jilu"></span></div>
+          <div class="ic">
+            <span class="iconfont icon-jilu"></span>
+          </div>
           <div class="ms">投注记录</div>
         </div>
       </van-col>
     </van-row>
     <div class="jx"></div>
+    <div class="mlist">
+      <div class="item">
+        <i class="iconfont icon-management"></i>
+        <span class="contdet">个人信息</span>
+        <i class="iconfont icon-jiantou1"></i>
+      </div>
+    </div>
+    <div class="mlist">
+      <div class="item">
+        <i class="iconfont icon-anquan"></i>
+        <span class="contdet">安全中心</span>
+        <i class="iconfont icon-jiantou1"></i>
+      </div>
+    </div>
+    <div class="mlist">
+      <div class="item">
+        <i class="iconfont icon-daili1"></i>
+        <span class="contdet">代理中心</span>
+        <i class="iconfont icon-jiantou1"></i>
+      </div>
+    </div>
+    <div class="mlist">
+      <div class="item">
+        <i class="iconfont icon-yingkui"></i>
+        <span class="contdet">今日盈亏</span>
+        <i class="iconfont icon-jiantou1"></i>
+      </div>
+    </div>
+    <div class="jx"></div>
+    <div class="mlist">
+      <div class="item">
+        <i class="iconfont icon-zhinan"></i>
+        <span class="contdet">帮助指南</span>
+        <i class="iconfont icon-jiantou1"></i>
+      </div>
+    </div>
+    <div class="mlist">
+      <div class="item">
+        <i class="iconfont icon-guanyu"></i>
+        <span class="contdet">关于威尼斯</span>
+        <i class="iconfont icon-jiantou1"></i>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -65,14 +113,14 @@ export default {
     [Col.name]: Col
   },
   mounted() {
-    this.$socket.emit("user",{
-      username:JSON.parse(sessionStorage.getItem("userinfo")).name,
-    })
+    this.$socket.emit("user", {
+      username: JSON.parse(sessionStorage.getItem("userinfo")).name
+    });
     this.sockets.subscribe("balance", data => {
-     this.balance=data[0].balance
-     this.setbalance(this.balance)
-    })
-    this.userinfo = JSON.parse(sessionStorage.getItem("userinfo"))
+      this.balance = data[0].balance;
+      this.$store.commit("setbalance", this.balance);
+    });
+    this.userinfo = JSON.parse(sessionStorage.getItem("userinfo"));
   },
   computed: {
     ...mapGetters(["getuserinfo"])
@@ -81,26 +129,67 @@ export default {
     return {
       // ...mapState(["userinfo"]),
       userinfo: {},
-      balance:0,
+      balance: 0
     };
   },
   methods: {
-    cash(){
-      this.$router.push("/cash")
+    cash() {
+      this.$router.push("/cash");
     },
-    recharge(){
-      this.$router.push("/recharge")
+    recharge() {
+      this.$router.push("/recharge");
     },
-    history(){
-      this.$router.push("/history")
+    history() {
+      this.$router.push("/history");
     },
-    ...mapMutations(["setbalance"]),
+    ...mapMutations(["setbalance"])
     // ...mapActions([""])
   }
 };
 </script>
 
 <style lang="scss" scoped>
+.mlist {
+  .item {
+    height: 60px;
+    display: flex;
+    border-bottom: 1px dashed #ccc;
+    padding: 0 12px;
+    .icon-jiantou1 {
+      font-size: 25px !important;
+      line-height: 62px;
+    }
+    .iconfont {
+      line-height: 60px;
+    }
+    .icon-management {
+      color: #7885ca;
+    }
+    .icon-anquan {
+      color: #81c784;
+    }
+    .icon-guanyu {
+      color: #e0755f;
+    }
+    .icon-yingkui {
+      color: #a1abe3;
+    }
+    .icon-daili1 {
+      color: #63b4f6;
+      font-size: 38px !important;
+    }
+    .icon-zhinan {
+      color: #7ca3f5;
+    }
+  }
+  .contdet {
+    flex: 1;
+    line-height: 62px;
+    text-align: left;
+    font-size: 24px;
+    padding-left: 12px;
+  }
+}
 .nm {
   color: rebeccapurple;
 }

@@ -36,7 +36,7 @@
       <van-button type="warning">{{ (num * huilv * tp * sprice * ratel).toFixed(2) }} 元</van-button>
     </div>
     <div class="sub">
-      <van-button type="danger" @click="car1" :disabled="dis">立即下注</van-button>
+      <van-button type="danger" @click="car1" :disabled="dis" :loading="load"  loading-text="下单中...">立即下注</van-button>
     </div>
     <van-dialog v-model="sh" :title="name" show-cancel-button>
       <div class="car">{{ numcar }}</div>
@@ -45,6 +45,7 @@
 </template>
 
 <script>
+import {mapMutations,mapState}  from "vuex";
 import { Toast } from "vant";
 import _ from "underscore";
 import { Stepper } from "vant";
@@ -76,7 +77,8 @@ export default {
       sprice: 2,
       huilv: 1,
       numcar: "",
-      car: null
+      car: null,
+      load:false,
     };
   },
   watch: {
@@ -89,6 +91,8 @@ export default {
     }
   },
   computed: {
+    ...mapState(["userinfo"])
+,
     count() {
       return this.num * this.huilv * this.sprice;
     },
@@ -96,7 +100,10 @@ export default {
       return this.suanfa(this.dt);
     }
   },
-  mounted() {},
+  mounted() {
+    console.log(this.dis );
+    
+  },
   methods: {
     car1() {
       let shopcar = {};
@@ -112,17 +119,22 @@ export default {
       shopcar.iskj = 0;
       shopcar.playmode = this.tp;
       console.log(shopcar);
+      this.load=true
       this.axios.post("/shopcar", shopcar).then(x => {
+
         if (x.data.msg == "余额不足") {
           this.$notify({
             message: "您的余额不足,请充值"
           });
           Toast.fail("订单提交失败");
+          setTimeout(() => {
+            this.load=false
+          }, 500);
         } else if (x.data.msg == "ok") {
           Toast.success("订单提交成功!");
-          this.$notify({
-            message:`当前余额:${this.$store.state.userinfo.balance-shopcar.price}元`
-          })
+          setTimeout(() => {
+            this.load=false
+          }, 500);
         }
       });
     },

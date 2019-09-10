@@ -2,112 +2,151 @@ import Vue from "vue";
 import Router from "vue-router";
 
 Vue.use(Router);
-import HomeV from "./components/home/home.vue";
-import ActveV from "./components/active/active.vue";
-import ManagerV from "./components/mangerment/manager.vue";
-import TalkV from "./components/talk/talk.vue";
-import LogoIn from "./components/logoin/login.vue";
-import RegIstry from "./components/registry/registry.vue";
-import WGame from "./components/game/game.vue";
-import TGame from "./components/game/threegame/threegame.vue";
-import RecharGe from "./components/recharge/recharge.vue";
-import WechatPay from "./components/pay/wechatpay.vue";
-import AliPay from "./components/pay/alipay.vue";
-import HistoryPage from "./components/history/history.vue";
-import CaSh from "./components/pay/cash.vue";
-// import { homedir } from "os";
 export default new Router({
   routes: [
     {
       path: "/cash",
       name: "cash",
-      component: CaSh
+      component: () =>
+        import(/* webpackChunkName: "about" */ "./components/pay/cash.vue")
+    },
+    {
+      path: "/jiangli",
+      name: "jiangli",
+      component: () =>
+        import(
+          /* webpackChunkName: "about" */ "./components/active/actlist/jiangli.vue"
+        )
+    },
+    {
+      path: "/jiajiang",
+      name: "jiajiang",
+      component: () =>
+        import(
+          /* webpackChunkName: "about" */ "./components/active/actlist/mrjj.vue"
+        )
     },
     {
       path: "/wechatpay",
-      component: WechatPay,
+      component: () =>
+        import(
+          /* webpackChunkName: "about" */ "./components/pay/wechatpay.vue"
+        ),
       name: "wechatpay"
     },
     {
       path: "/aliPay",
-      component: AliPay,
+      component: () =>
+        import(/* webpackChunkName: "about" */ "./components/pay/alipay.vue"),
       name: "alipay"
     },
     {
       path: "/history",
-      component: HistoryPage,
+      component: () =>
+        import(
+          /* webpackChunkName: "about" */ "./components/history/history.vue"
+        ),
       name: "history"
     },
     {
       path: "/",
-      component: HomeV,
+      component: () =>
+        import(/* webpackChunkName: "about" */ "./components/home/home.vue"),
       name: "home"
     },
     {
       path: "/active",
-      component: ActveV
+      component: () =>
+        import(/* webpackChunkName: "about" */ "./components/active/active.vue")
     },
     {
       path: "/talks",
-      component: TalkV
+      component: () =>
+        import(/* webpackChunkName: "about" */ "./components/talk/talk.vue")
     },
     {
       path: "/manager",
-      component: ManagerV
+      component: () =>
+        import(
+          /* webpackChunkName: "about" */ "./components/mangerment/manager.vue"
+        )
     },
     {
       path: "/logoin",
       name: "logoin",
-      component: LogoIn
+      component: () =>
+        import(/* webpackChunkName: "about" */ "./components/logoin/login.vue")
     },
     {
       path: "/recharge",
       name: "recharge",
-      component: RecharGe
+      component: () =>
+        import(
+          /* webpackChunkName: "about" */ "./components/recharge/recharge.vue"
+        )
     },
     {
       path: "/registry",
-      component: RegIstry
+      component: () =>
+        import(
+          /* webpackChunkName: "about" */ "./components/registry/registry.vue"
+        )
     },
     {
       path: "*",
       redirect: "/",
-      component: HomeV
+      component: () =>
+        import(/* webpackChunkName: "about" */ "./components/home/home.vue")
     },
     {
       name: "gassc",
       path: "/gassc",
-      component: WGame
+      component: () =>
+        import(/* webpackChunkName: "about" */ "./components/game/game.vue")
     },
     {
       name: "cqssc",
       path: "/cqssc",
-      component: WGame
+      component: () =>
+        import(/* webpackChunkName: "about" */ "./components/game/game.vue")
     },
     {
       name: "tjssc",
       path: "/tjssc",
-      component: WGame
+      component: () =>
+        import(/* webpackChunkName: "about" */ "./components/game/game.vue")
+    },
+    {
+      name: "txffc",
+      path: "/txffc",
+      component: () =>
+        import(/* webpackChunkName: "about" */ "./components/game/game.vue")
     },
     {
       name: "tcpl5",
       path: "/tcpl5",
-      component: WGame
+      component: () =>
+        import(/* webpackChunkName: "about" */ "./components/game/game.vue")
     },
     {
       name: "xjssc",
       path: "/xjssc",
-      component: WGame
+      component: () =>
+        import(/* webpackChunkName: "about" */ "./components/game/game.vue")
     },
     {
       name: "ynssc",
       path: "/ynssc",
-      component: WGame
+      component: () =>
+        import(/* webpackChunkName: "about" */ "./components/game/game.vue")
     },
     {
       name: "fc3d",
       path: "/fc3d",
-      component: TGame
+      component: () =>
+        import(
+          /* webpackChunkName: "about" */ "./components/game/threegame/threegame.vue"
+        )
     }
   ]
 });
