@@ -42,7 +42,6 @@ export default {
       res.msg=this.msg
       res.type="client"
       this.msglist.push(res);
-      console.log(this.msglist);
       this.msg=""
     }
   },
@@ -53,7 +52,6 @@ export default {
     this.sockets.subscribe(
       "client:"+JSON.parse(sessionStorage.getItem("userinfo")).name,
       data => {
-        console.log(data);
         this.msglist.push(data);
       }
     );

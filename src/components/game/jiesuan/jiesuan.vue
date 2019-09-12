@@ -100,10 +100,6 @@ export default {
       return this.suanfa(this.dt);
     }
   },
-  mounted() {
-    console.log(this.dis );
-    
-  },
   methods: {
     car1() {
       let shopcar = {};
@@ -118,7 +114,6 @@ export default {
       shopcar.dl = this.num;
       shopcar.iskj = 0;
       shopcar.playmode = this.tp;
-      console.log(shopcar);
       this.load=true
       this.axios.post("/shopcar", shopcar).then(x => {
 

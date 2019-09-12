@@ -9,6 +9,9 @@
             <span class="det">5分钟一期</span>
           </div>
         </router-link>
+        <div class="fengpan" v-show="false">
+          <i class="iconfont icon-sheweifengpan"></i>
+        </div>
       </van-col>
       <van-col span="8">
         <router-link
@@ -20,6 +23,9 @@
             <span class="det">1分钟一期</span>
           </div>
         </router-link>
+        <div class="fengpan" v-show="false">
+          <i class="iconfont icon-sheweifengpan"></i>
+        </div>
       </van-col>
 
       <van-col span="8">
@@ -30,6 +36,11 @@
             <span class="det">20分钟一期</span>
           </div>
         </router-link>
+        <div class="fengpan" v-show="true">
+          <i class="iconfont icon-sheweifengpan"></i>
+          <i class="iconfont icon-feng1"></i>
+          
+        </div>
       </van-col>
     </van-row>
     <van-row>
@@ -37,10 +48,13 @@
         <router-link :to="{ name: 'tjssc', params: { n: 'tjssc', t: 20,jh:0, js: 20, jm: 2 } }">
           <div class="item">
             <span class="iconfont icon-tjssc"></span>
-            <span class="name">天津时时彩</span>
+            <span class="name">天津时时彩</span> 
             <span class="det">20分钟一期</span>
           </div>
         </router-link>
+        <div class="fengpan" v-show="false">
+          <i class="iconfont icon-sheweifengpan"></i>
+        </div>
       </van-col>
       <van-col span="8">
         <router-link :to="{ name: 'xjssc', params: { n: 'xjssc', t: 20,jh:0, js: 20, jm: 2 } }">
@@ -50,6 +64,11 @@
             <span class="det">20分钟一期</span>
           </div>
         </router-link>
+        <div class="fengpan" v-show="true">
+          <i class="iconfont icon-sheweifengpan"></i>
+          <i class="iconfont icon-feng1"></i>
+          
+        </div>
       </van-col>
       <van-col span="8">
         <router-link :to="{ name: 'fc3d', params: { n: 'fc3d', t: 24,jh:20,js:20,jm:50,max: 3 } }">
@@ -59,6 +78,9 @@
             <span class="det">1天一期</span>
           </div>
         </router-link>
+        <div class="fengpan" v-show="false">
+          <i class="iconfont icon-sheweifengpan"></i>
+        </div>
       </van-col>
     </van-row>
     <van-row>
@@ -72,6 +94,9 @@
             <span class="det">1天一期</span>
           </div>
         </router-link>
+        <div class="fengpan" v-show="false">
+          <i class="iconfont icon-sheweifengpan"></i>
+        </div>
       </van-col>
       <van-col span="8">
         <router-link :to="{ name: 'ynssc', params: { n: 'ynssc', t: 20, jh:0,js: 20, jm: 2 } }">
@@ -81,6 +106,11 @@
             <span class="det">20分钟一期</span>
           </div>
         </router-link>
+        <div class="fengpan" v-show="true">
+          <i class="iconfont icon-sheweifengpan"></i>
+          <i class="iconfont icon-feng1"></i>
+          
+        </div>
       </van-col>
       <van-col span="8">
         <router-link :to="{ name: 'lol', params: { n: 'ynssc', t: 20, jh:0,js: 20, jm: 2 } }">
@@ -90,6 +120,9 @@
             <span class="det">S9等各大联赛...</span>
           </div>
         </router-link>
+        <div class="fengpan" v-show="false">
+          <i class="iconfont icon-sheweifengpan"></i>
+        </div>
       </van-col>
     </van-row>
     <van-row>
@@ -101,15 +134,24 @@
             <span class="det">20分钟1期</span>
           </div>
         </router-link>
+        <div class="fengpan" v-show="true">
+          <i class="iconfont icon-sheweifengpan"></i>
+          <i class="iconfont icon-feng1"></i>
+        </div>
       </van-col>
       <van-col span="8">
-        <router-link :to="{ name: 'pk10', params: { n: 'pk10ssc', t: 20, jh:0,js: 40, jm: 3 } }">
+        <router-link
+          :to="{ name: 'pk10', params: { n: 'wnspk10',djs:5, t: 1,jh:0, js: 10, jm: 0 } }"
+        >
           <div class="item">
             <span class="iconfont icon-pk"></span>
             <span class="name">威尼斯pk10</span>
-            <span class="det">5分钟1期</span>
+            <span class="det">1分钟1期</span>
           </div>
         </router-link>
+        <div class="fengpan" v-show="false">
+          <!-- <i class="iconfont icon-sheweifengpan"></i> -->
+        </div>
       </van-col>
     </van-row>
   </div>
@@ -127,33 +169,67 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.icon-feng1{
+  position: absolute;
+position: absolute;
+    top: -22px;
+    left: 70px;
+    right: 0;
+    font-size: 49px;
+}
+.fengpan {
+  position: absolute;
+  margin:1px;
+  top: 0;
+  bottom: 0;
+  left:0;
+  font-family: "宋体";
+  right:-3px;
+ color: rgb(211, 72, 72);
+  width: 100%;
+  font-size: 18px;
+  text-align: center;
+  line-height: 99px;
+  background-color: rgba(0,0,0,0.3);
+  .icon-sheweifengpan{
+    font-size: 35px;
+    color:wheat;
+    position: relative;
+  }
+}
+.van-col {
+  position: relative;
+}
 .item {
   display: flex;
   flex-flow: column;
   text-align: center;
-  border: 0.5px solid #ccc;
+  border: 1px dashed #ccc;
   padding: 5px;
   margin: 1px;
   .iconfont {
     font-size: 50px;
   }
-  .icon-pk10{
-    color:rgb(243, 6, 6);
+  .icon-pk10 {
+    // color: rgb(243, 6, 6);
+    color:#ccc;
   }
-  .icon-logo-esport{
-    color:#e9bb4f;
+  .icon-logo-esport {
+    color: #e9bb4f;
   }
-  .icon-pk{
+  .icon-pk {
     color: green;
   }
   .icon-shishicai {
     color: #f22751;
   }
   .icon-icon-zhongqingshishicai {
-    color: #f96e00;
+    // color: #f96e;
+    color:#ccc;
   }
   .icon-jxssc {
-    color: #38b366;
+    // color: #38b366;
+    color:#ccc;
   }
   .icon-tjssc {
     color: #218ddd;
@@ -162,7 +238,8 @@ export default {
     color: blue;
   }
   .icon-xinjiangshishicai {
-    color: brown;
+    // color: brown;
+    color:#ccc;
   }
   .icon-pailiesanpailiewu {
     color: rgb(235, 57, 45);

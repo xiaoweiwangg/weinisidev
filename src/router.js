@@ -130,7 +130,29 @@ export default new Router({
     },
     {
       name: "pk",
-      path: "/pk10",
+      path: "/bjpk10",
+      component: () =>
+        import(/* webpackChunkName: "about" */ "./components/game/pk10/pk10")
+    },
+    {
+      name: "qipai",
+      path: "/qipai",
+      component: () =>
+        import(
+          /* webpackChunkName: "about" */ "./components/game/qipai/qipai.vue"
+        )
+    },
+    {
+      name: "bmw",
+      path: "/benchibmw",
+      component: () =>
+        import(
+          /* webpackChunkName: "about" */ "./components/game/qipai/benchibmw/bmw.vue"
+        )
+    },
+    {
+      name: "pk10",
+      path: "/wnspk10",
       component: () =>
         import(/* webpackChunkName: "about" */ "./components/game/pk10/pk10")
     },

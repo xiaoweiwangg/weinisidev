@@ -61,31 +61,31 @@ export default {
       this.gamelist[t].splice(0, this.num);
       switch (x) {
         case 0:
-          for (let i = 0; i <= Math.floor(this.num/2); i++) {
+          for (let i = 1; i <= Math.floor(this.num/2); i++) {
             this.f(t, i);
           }
           break;
         case 9:
-          for (let i = Math.floor((this.num)/2); i <= this.num; i++) {
+          for (let i = Math.floor((this.num)/2)+1; i <= this.num; i++) {
             this.f(t, i);
           }
           break;
         case 1:
-          for (let i = 0; i <=this.num-1; i++) {
+          for (let i = 1; i <=this.num-1; i++) {
             if (i % 2 != 0) {
               this.f(t, i);
             }
           }
           break;
         case 2:
-          for (let i = 0; i <= this.num; i++) {
+          for (let i = 1; i <= this.num; i++) {
             if (i % 2 == 0) {
               this.f(t, i);
             }
           }
           break;
         case 10:
-          for (let i = 0; i <= this.num; i++) {
+          for (let i = 1; i <= this.num; i++) {
             this.f(t, i);
           }
           break;
@@ -108,6 +108,7 @@ export default {
 <style lang="scss" scoped>
 .pos{
   padding: 0 10px;
+  background-color: #fff;
 }
 .bot{
   padding-bottom: 74px;
@@ -125,13 +126,14 @@ ul {
     display: flex;
     justify-content:space-between;
     .wei {
-      width: 35px;
+      width: 31px;
       min-height: 100px;
       line-height: 50px;
       min-width: 30px;
       text-align: center;
       font-size: 20px;
-      background-color: gold;
+      background-color: #ccc;
+      color:whitesmoke;
       align-items: center;
     }
   }

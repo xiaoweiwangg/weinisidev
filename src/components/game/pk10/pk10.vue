@@ -15,23 +15,23 @@
       <div class="djs">
         <div class="datenum m">
           <span>{{ next }}</span>
-          <span class="qi">期销售截至</span>
+          <span class="qi">期截止</span>
         </div>
         <div class="det">
           <!-- <van-count-down @finish="log" :time="time" /> -->
           <div class="ds">
-            <van-button type="primary">
+            <div class="van-button">
               <span v-show="show(ih)">{{w}}</span>
-              {{ih}}
-            </van-button>
-            <van-button type="warning">
+              {{ih}}&nbsp;:
+              </div>
+              <div class="van-button">
               <span v-show="show(im)">{{w}}</span>
-              {{im}}
-            </van-button>
-            <van-button type="danger">
+              {{im}}&nbsp;:
+              </div>
+              <div class="van-button">
               <span v-show="show(ms)">{{w}}</span>
               {{ms}}
-            </van-button>
+              </div>
           </div>
           <!-- ----------------------------------------------- -->
           <div class="zhezhao" v-show="dj">{{next}}期正在开奖中</div>
@@ -94,24 +94,15 @@ export default {
       time: this.$route.params.t
     });
     this.sockets.subscribe(this.n, data => {
-      console.log(data);
       if (this.$route.params.jh == 20) {
         this.ih = this.$route.params.jh - parseInt(new Date().getHours());
       }
-      console.log(
-        this.$route.params.jh - parseInt(new Date().getHours()),
-        "123"
-      );
-      console.log(this.$route.params.jh);
-
       this.im = this.t - ((data.m % this.t) + 1);
       this.ms = 60 - data.s;
       this.ani();
       this.next = parseInt(data.msg.playdate) + 1;
       this.playdate = parseInt(data.msg.playdate);
       this.playnum = data.msg.playnum.split(",")
-      console.log(this.playnum);
-      
       this.dj = false;
       this.ds = true;
       this.dab = false;
@@ -179,7 +170,6 @@ export default {
     history() {
       this.axios.get("/fhis?item=" + this.$route.params.n).then(x => {
         this.hislist = x.data.data;
-        console.log(this.hislist);
       });
       this.ac = !this.ac;
       this.$refs.zhishi.style.transform = this.ac
@@ -332,11 +322,14 @@ export default {
 }
 .ds {
   .van-button {
-    font-size: 16px;
+    font-size: 21px;
+    font-weight: bold;
+    text-shadow: 3px 4px 3px #000;
     height: 30px;
+    color:whitesmoke;
     line-height: 30px;
-    width: 49px;
-    letter-spacing: -3.5px;
+    width: 33%;
+    letter-spacing: 0px;
   }
 }
 .m {
@@ -365,11 +358,12 @@ export default {
   li {
     height: 31px;
     width: 31px;
-    border: 1px solid rgb(250, 51, 1);
+    // border: 1px solid rgb(52, 112, 182);
+    text-shadow: 2px 3px 2px black;
     text-align: center;
     line-height: 31px;
-    border-radius: 50%;
-    color: red;
+    // border-radius: 50%;
+    color: rgb(215, 215, 0);
     font-size: 27px;
   }
 }
@@ -393,6 +387,9 @@ export default {
     text-align: center;
     line-height: 37px;
     color: black;
+  }
+  .datenum{
+    font-size:18px;
   }
   margin-top: 8px;
   background-color: #e1d9ba;

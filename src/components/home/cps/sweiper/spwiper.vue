@@ -18,14 +18,6 @@
         </router-link>
       </van-swipe-item>
       <van-swipe-item>
-        <router-link to="/">
-          <img
-            src="https://images.imags-google.com//2ycptz/mobile/banner/banner3.png?727411"
-            alt=""
-          />
-        </router-link>
-      </van-swipe-item>
-      <van-swipe-item>
         <a href="/daili/index.html">
           <img
             src="https://images.imags-google.com//2ycptz/mobile/banner/banner4.png?550582"

@@ -95,8 +95,6 @@ export default {
       time: this.$route.params.t
     });
     this.sockets.subscribe(this.n, data => {
-      console.log(data);
-      console.log(data);
       if(this.$route.params.jh==20){
         this.ih = this.$route.params.jh-parseInt(new Date().getHours());
       }
@@ -173,7 +171,6 @@ export default {
     history() {
       this.axios.get("/fhis?item=" + this.$route.params.n).then(x => {
         this.hislist = x.data.data;
-        console.log(this.hislist);
       });
       this.ac = !this.ac;
       this.$refs.zhishi.style.transform = this.ac
@@ -181,7 +178,6 @@ export default {
         : "rotate(90deg)";
     },
     ani() {
-      console.log(this.t - this.$route.params.jm);
       if (this.ih == 0 && this.im == 0 && this.ms < 30) {
         this.dab = true;
       }
@@ -253,8 +249,6 @@ export default {
       this.num = 10;
 
       if (x.includes("一")) {
-        console.log(this.n);
-
         if (this.$route.params.max == 3) {
           this.gamelist = [[], [], []];
           this.namelist = ["百位", "十位", "个位"];

@@ -35,15 +35,17 @@ export default {
   li {
     height: 40px;
     width: 40px;
-    border: 2px solid #ccc;
-    border-radius: 50%;
+    border: 2px solid #000;
+    border-radius: 5px;
     line-height: 40px;
     text-align: center;
     font-size: 20px;
     margin:0 9px;
+    color: black;
+    box-shadow: 5px 3px 3px #ccc;
   }
   .act {
-    background-color: red;
+    background-color: rgb(128, 224, 119);
     border-color: goldenrod;
   }
 }

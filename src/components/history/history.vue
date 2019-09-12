@@ -80,14 +80,11 @@ export default {
         username: JSON.parse(sessionStorage.getItem("userinfo")).name
       })
       .then(x => {
-        console.log(x.data);
-
         let arr = [];
         this.list = Array.from(x.data).reverse();
         this.currlist = this.page(this.currentPage);
         this.length = this.list.length;
         this.im = this.list[0];
-        console.log(this.length);
       });
   },
   methods: {
@@ -96,7 +93,6 @@ export default {
     },
     ch(x) {
       this.currlist = this.page(x);
-      console.log(this.currlist);
     },
     showPopup(x) {
       this.show = true;
@@ -141,6 +137,12 @@ export default {
           break;
         case "txffc":
           return "腾讯分分彩";
+          break;
+        case "bjkcssc":
+          return "北京赛车pk10";
+          break;
+        case "wnspk10":
+          return "威尼斯pk10";
           break;
       }
     },

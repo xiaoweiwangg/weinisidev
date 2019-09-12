@@ -5,7 +5,13 @@ import router from "./router";
 import store from "./store";
 import "./assets/icon/iconfont.css";
 import "./assets/base/reset.css";
-
+//music
+import audio from "./assets/mp3/StopBet.mp3";
+// Vue.prototype.playAudio = () => {
+//   let buttonAudio = document.getElementById("eventAudio");
+//   buttonAudio.setAttribute("src", audio);
+//   buttonAudio.play();
+// };
 //录播图
 // iconfont
 import "./assets/icon/iconfont";
@@ -21,7 +27,7 @@ Vue.use(Field);
 // import "./assets/css/comm.css";
 Vue.use(
   new VueSocketIO({
-    debug: true,
+    // debug: true,
     // 服务器端地址
     // connection: "localhost:88"
     connection: "http://23.88.142.75:88"

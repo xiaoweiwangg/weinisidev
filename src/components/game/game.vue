@@ -15,23 +15,23 @@
       <div class="djs">
         <div class="datenum m">
           <span>{{ next }}</span>
-          <span class="qi">期销售截至</span>
+          <span class="qi">期截止</span>
         </div>
         <div class="det">
           <!-- <van-count-down @finish="log" :time="time" /> -->
           <div class="ds">
-            <van-button type="primary">
+              <div class="van-button">
               <span v-show="show(ih)">{{w}}</span>
-              {{ih}}
-            </van-button>
-            <van-button type="warning">
+              {{ih}}&nbsp;:
+              </div>
+              <div class="van-button">
               <span v-show="show(im)">{{w}}</span>
-              {{im}}
-            </van-button>
-            <van-button type="danger">
+              {{im}}&nbsp;:
+              </div>
+              <div class="van-button">
               <span v-show="show(ms)">{{w}}</span>
               {{ms}}
-            </van-button>
+              </div>
           </div>
           <!-- ----------------------------------------------- -->
           <div class="zhezhao" v-show="dj">{{next}}期正在开奖中</div>
@@ -95,13 +95,9 @@ export default {
       time: this.$route.params.t
     });
     this.sockets.subscribe(this.n, data => {
-      console.log(data);
       if(this.$route.params.jh==20){
         this.ih = this.$route.params.jh-parseInt(new Date().getHours());
       }
-      console.log(this.$route.params.jh-parseInt(new Date().getHours()),"123");
-      console.log(this.$route.params.jh);
-      
       this.im = this.t - ((data.m % this.t) + 1);
       this.ms = 60 - data.s;
       this.ani();
@@ -175,7 +171,6 @@ export default {
     history() {
       this.axios.get("/fhis?item=" + this.$route.params.n).then(x => {
         this.hislist = x.data.data;
-        console.log(this.hislist);
       });
       this.ac = !this.ac;
       this.$refs.zhishi.style.transform = this.ac
@@ -252,8 +247,6 @@ export default {
       this.num = 10;
 
       if (x.includes("一")) {
-        console.log(this.n);
-
         if (this.$route.params.max == 3) {
           this.gamelist = [[], [], []];
           this.namelist = ["百位", "十位", "个位"];
@@ -376,11 +369,14 @@ export default {
 }
 .ds {
   .van-button {
-    font-size: 22px;
+    font-size: 25px;
+    text-shadow: 3px 4px 3px #000;
+    color: whitesmoke;
     height: 30px;
     line-height: 30px;
-    width: 56px;
-    letter-spacing: -3.5px;
+    width: 33%;
+    font-weight: bold;
+    letter-spacing: 0px;
   }
 }
 .m {

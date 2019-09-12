@@ -98,6 +98,7 @@
         <i class="iconfont icon-jiantou1"></i>
       </div>
     </div>
+    <van-button class="q" type="primary" size="large" color="red" @click="quit">退出登录</van-button>
   </div>
 </template>
 
@@ -133,6 +134,10 @@ export default {
     };
   },
   methods: {
+    quit(){
+    sessionStorage.setItem("islogoin","false")
+    this.$router.push("/logoin")
+    },
     cash() {
       this.$router.push("/cash");
     },
@@ -149,6 +154,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.q{
+  position: fixed;
+  bottom: 60px;
+  left:0;
+  right:0;
+}
 .mlist {
   .item {
     height: 60px;
@@ -211,6 +222,8 @@ export default {
 }
 .m {
   padding-top: 45px;
+  padding-bottom: 120px;
+
   .user {
     display: flex;
     text-align: center;

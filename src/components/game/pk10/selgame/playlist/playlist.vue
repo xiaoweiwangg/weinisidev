@@ -87,7 +87,7 @@ export default {
           posplaylist: [
             {
               type: "直选",
-              list: ["直选复式", "直选单式"]
+              list: ["直选复式"]
             }
           ]
         },
@@ -96,7 +96,7 @@ export default {
           posplaylist: [
             {
               type: "直选",
-              list: ["直选复式", "直选单式"]
+              list: ["直选复式"]
             }
           ]
         },
@@ -105,7 +105,7 @@ export default {
           posplaylist: [
             {
               type: "直选",
-              list: ["直选复式", "直选单式"]
+              list: ["直选复式"]
             }
           ]
         },
@@ -114,7 +114,7 @@ export default {
           posplaylist: [
             {
               type: "直选",
-              list: ["直选复式", "直选单式"]
+              list: ["直选复式"]
             }
           ]
         },

@@ -89,7 +89,6 @@ export default {
       userinfo.password = this.password;
       userinfo.phone = this.phone;
       this.axios.post("/inuser", userinfo).then(x => {
-        console.log(x.data);
         if (x.data.msg == "no") {
           this.$notify({
             message: "用户名已存在!",

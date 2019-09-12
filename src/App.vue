@@ -4,6 +4,8 @@
       <router-view class="roter"></router-view>
     </transition>
     <home-footer></home-footer>
+    <audio src="/mp3/dingdong.wav" ref="au"></audio>
+    <!-- <audio src="https://images.imags-google.com/game/music/nn100/sound-bg.mp3" autoplay loop> -->
   </div>
 </template>
 <script>
@@ -15,18 +17,16 @@ export default {
     HomeFooter
   },
   data() {
-    return {
-
-    }
+    return {};
   },
   mounted() {
-    
     if (sessionStorage.getItem("userinfo")) {
       this.sockets.subscribe(
         JSON.parse(sessionStorage.getItem("userinfo")).name,
         data => {
           if (data.msg == "kj") {
             setTimeout(() => {
+              this.$refs.au.play();
               this.$toast("您有新的盈亏记录产生!");
               this.$notify({
                 message: "您有新的盈亏记录产生!",

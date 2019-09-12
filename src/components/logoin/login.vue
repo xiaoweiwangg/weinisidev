@@ -73,10 +73,7 @@ export default {
       userinfo.username = this.username;
       userinfo.password = this.password;
       this.axios.post("/fuser", userinfo).then(x => {
-        console.log(x);
-
         if (x.data.msg == "ok") {
-          console.log(x.data);
           sessionStorage.setItem("token", x.data.token);
           sessionStorage.setItem("islogoin", "true");
           sessionStorage.setItem("userinfo", JSON.stringify(x.data.userinfo));

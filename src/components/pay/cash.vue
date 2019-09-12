@@ -69,6 +69,14 @@ export default {
   methods: {
     // ...mapMutations(["serbalance"]),
     sub() {
+      if(isNaN(this.num)){
+        this.$notify({
+              message: "输入有误,请重新核对!",
+              duration: 3000,
+              background: "green"
+            });
+            return 
+      }
       this.axios
         .post("/subcash", {
           pwd:this.pwd,

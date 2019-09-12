@@ -6,6 +6,11 @@
           <i class="iconfont icon-shouye"></i><span>首页</span>
         </div>
       </router-link>
+      <router-link :to="{ name: 'qipai' }" exact>
+        <div class="item">
+          <i class="iconfont icon-qipai2"></i><span>棋牌</span>
+        </div>
+      </router-link>
       <router-link :to="{ path: '/active' }" exact>
         <div class="item">
           <i class="iconfont icon-huodong"></i><span>活动</span>
@@ -13,12 +18,12 @@
       </router-link>
       <router-link :to="{ path: '/talks' }" exact>
         <div class="item">
-          <i class="iconfont icon-custom-service"></i><span>找客服</span>
+          <i class="iconfont icon-custom-service"></i><span>客服</span>
         </div>
       </router-link>
       <router-link :to="{ path: '/manager' }" exact>
         <div class="item">
-          <i class="iconfont icon-management"></i><span>个人中心</span>
+          <i class="iconfont icon-management"></i><span>管理</span>
         </div>
       </router-link>
     </v-tab>
