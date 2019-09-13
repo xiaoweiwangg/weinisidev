@@ -2,7 +2,7 @@
   <div class="bd">
     <t-header :l="true" :t="'棋 牌 大 厅'"></t-header>
     <div class="qipailist1">
-      <router-link to="/"></router-link>
+      <router-link to="/benchibmw"></router-link>
     </div>
     <div class="qipailist2">
       <router-link to="/"></router-link>
