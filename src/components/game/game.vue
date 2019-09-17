@@ -179,12 +179,17 @@ export default {
     },
     ani() {
       let djs=this.$route.params.djs||30
+      if (this.ih == 0 && this.im == 0 && this.ms < 30) {
+        this.dab = true;
+      }
       this.tm = setInterval(() => {
         this.ms--;
         if (this.ih == 0 && this.im == 0 && this.ms < djs ) {
           this.dab = true;
         }
-
+        if(this.ih<0){
+          this.dab = true;
+        }
         if (this.ms == 0) {
           if (this.ih > 0) {
             if (this.im > 0) {

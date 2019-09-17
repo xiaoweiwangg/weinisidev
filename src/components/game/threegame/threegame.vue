@@ -183,7 +183,7 @@ export default {
       }
       this.tm = setInterval(() => {
         this.ms--;
-        if (this.ih == 0 && this.im == 20 && this.ms < 30) {
+        if (this.ih < 0 && this.im == 20 && this.ms < 30) {
           this.dab = true;
         }
 

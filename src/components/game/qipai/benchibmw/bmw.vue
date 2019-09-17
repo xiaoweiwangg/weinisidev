@@ -3,9 +3,12 @@
     <div class="top">
       <div class="quit" @click="back"></div>
       <div class="his">
-        <div class="kjnum"></div>
+        <div class="kjnum">{{playdate}}</div>
         <div class="zhuang"></div>
-        <div class="touzhunum"></div>
+        <div class="touzhunum">
+          {{type}}
+          <div class="djs">{{m}}</div>
+        </div>
       </div>
       <div class="playmethod">
         <div class="by"></div>
@@ -103,40 +106,19 @@
       <span>(0)</span>
     </div>
     <div
-      class="chiper"
+      class="chiperl"
       :style="{backgroundPosition:fill(item)}"
       v-for="(item,index) in chip"
       :key="index"
     ></div>
     <div class="f">
       <div class="chip">
-        <div class="act act1">
-          <div class="ch chip1"></div>
-        </div>
-        <div class="act act5">
-          <div class="ch chip5"></div>
-        </div>
-        <div class="act act10">
-          <div class="ch chip10"></div>
-        </div>
-        <div class="act act50">
-          <div class="ch chip50"></div>
-        </div>
-        <div class="act act100">
-          <div class="ch chip100"></div>
-        </div>
-        <div class="act act500">
-          <div class="ch chip500"></div>
-        </div>
-        <div class="act act1000">
-          <div class="ch chip1000"></div>
-        </div>
-        <div class="act act5000">
-          <div class="ch chip5000"></div>
-        </div>
-        <div class="act act10000">
-          <div class="ch chip10000"></div>
-        </div>
+        <div
+          class="chiper"
+          :style="{backgroundPosition:fill(item)}"
+          v-for="(item,index) in chiplist"
+          :key="index"
+        ></div>
       </div>
     </div>
     <div class="balance">
@@ -144,12 +126,22 @@
       <div class="bal"></div>
       <div class="ent"></div>
     </div>
+    <transition name="log">
+      <div class="dailog" v-show="ts">
+        <div class="tishi">{{str}}</div>
+      </div>
+    </transition>
     <audio src="https://images.imags-google.com/game/music/nn100/sound-bg.mp3" ref="bg"></audio>
     <audio
       src="https://images.imags-google.com/game/music/nn100/Effects/ChipInSound.mp3"
       ref="chip"
     ></audio>
     <audio src="/mp3/OpenPoker.mp3" class="puk"></audio>
+    <audio src="/mp3/CountDown.mp3" class="jsk"></audio>
+    <audio src="/mp3/StartBet.mp3" class="sxz"></audio>
+    <audio src="/mp3/StopBet.mp3" class="stop"></audio>
+    <audio src="/mp3/closeCard.mp3" class="clo"></audio>
+    <audio src="/mp3/OpenPoker.mp3" class="shou"></audio>
   </div>
 </template>
 
@@ -160,187 +152,155 @@ export default {
   name: "BmwV",
   data() {
     return {
-      puk: [
-        { num: 14, type: "z", hua: 2 },
-        { num: 14, type: "z", hua: 2 },
-        { num: 14, type: "z", hua: 2 },
-        { num: 14, type: "z", hua: 2 },
-        { num: 14, type: "z", hua: 2 },
-        { num: 14, type: "x1", hua: 2 },
-        { num: 14, type: "x1", hua: 2 },
-        { num: 14, type: "x1", hua: 2 },
-        { num: 14, type: "x1", hua: 2 },
-        { num: 14, type: "x1", hua: 2 },
-        { num: 14, type: "x2", hua: 2 },
-        { num: 14, type: "x2", hua: 2 },
-        { num: 14, type: "x2", hua: 2 },
-        { num: 14, type: "x2", hua: 2 },
-        { num: 14, type: "x2", hua: 2 },
-        { num: 14, type: "x3", hua: 2 },
-        { num: 14, type: "x3", hua: 2 },
-        { num: 14, type: "x3", hua: 2 },
-        { num: 14, type: "x3", hua: 2 },
-        { num: 14, type: "x3", hua: 2 }
+      type: "",
+      playdate: null,
+      puk: [],
+      puk1: [
+        { num: 14, type: 0, hua: 2 },
+        { num: 14, type: 0, hua: 2 },
+        { num: 14, type: 0, hua: 2 },
+        { num: 14, type: 0, hua: 2 },
+        { num: 14, type: 0, hua: 2 },
+        { num: 14, type: 1, hua: 2 },
+        { num: 14, type: 1, hua: 2 },
+        { num: 14, type: 1, hua: 2 },
+        { num: 14, type: 1, hua: 2 },
+        { num: 14, type: 1, hua: 2 },
+        { num: 14, type: 2, hua: 2 },
+        { num: 14, type: 2, hua: 2 },
+        { num: 14, type: 2, hua: 2 },
+        { num: 14, type: 2, hua: 2 },
+        { num: 14, type: 2, hua: 2 },
+        { num: 14, type: 3, hua: 2 },
+        { num: 14, type: 3, hua: 2 },
+        { num: 14, type: 3, hua: 2 },
+        { num: 14, type: 3, hua: 2 },
+        { num: 14, type: 3, hua: 2 }
       ],
+      puk2: null,
+      chiplist: [1, 5, 10, 50, 100, 500, 1000, 5000, 10000],
       chip: [
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
         5,
         1,
-        100,
+        5,
         10,
-        20,
+        1000,
+        5000,
         10000,
-        100,
-        500,
-        1,
-        1,
-        5,
-        5,
-        1,
-        100,
-        10,
-        20,
-        10000,
-        100,
-        500,
-        1,
-        1,
-        5,
-        5,
-        1,
-        100,
-        10,
-        20,
-        10000,
-        100,
-        500,
-        1,
-        1,
-        5,
-        5,
-        1,
-        100,
-        10, 5,
-        1,
-        100,
-        10,
-        20,
-        10000,
-        100,
-        500,
-        1,
-        1,
-        5,
-        5,
-        1,
-        100,
-        10, 5,
-        1,
-        100,
-        10,
-        20,
-        10000,
-        100,
-        500,
-        1,
-        1,
-        5,
-        5,
-        1,
-        100,
-        10, 5,
-        1,
-        100,
-        10,
-        20,
-        10000,
-        100,
-        500,
-        1,
-        1,
-        5,
-        5,
-        1,
-        100,
-        10, 5,
-        1,
-        100,
-        10,
-        20,
-        10000,
-        100,
-        500,
-        1,
-        1,
-        5,
-        5,
-        1,
-        100,
-        10, 5,
-        1,
-        100,
-        10,
-        20,
-        10000,
-        100,
-        500,
-        1,
-        1,
-        5,
-        5,
-        1,
-        100,
-        10, 5,
-        1,
-        100,
-        10,
-        20,
-        10000,
-        100,
-        500,
-        1,
-        1,
-        5,
-        5,
-        1,
-        100,
-        10, 5,
-        1,
-        100,
-        10,
-        20,
-        10000,
-        100,
-        500,
-        1,
-        1,
-        5,
-        5,
-        1,
-        100,
-        10,
-        20,
-        10000,
-        100,
-        500,
-        1,
         1,
         5
-      ]
+      ],
+      t: 15,
+      time: null,
+      ts: false,
+      str: 3,
+      m: 30
     };
   },
   methods: {
+    shoupai() {
+      console.log("shoupai");
+
+      let n = 0;
+      let b = 0;
+      for (let c = 0; c < this.$refs.pk.length; c++) {
+        this.puk = this.puk1;
+        setTimeout(() => {
+          $(".pk")
+            .eq(c)
+            .css({
+              transform:
+                "scale(0.45,0.43) rotateX(90deg) rotateY(0deg) translateZ(0px)"
+            })
+            .animate({
+              top: "-75px",
+              left: "40%"
+            });
+          $(".clo")[0].play();
+        }, c * 80);
+      }
+    },
+    shouzhu() {
+      console.log("shouzhu");
+
+      for (let i = 0; i < this.chip.length; i++) {
+        let r = _.random(0, 5);
+        setTimeout(() => {
+          this.$refs.chip.play();
+          $(".chiperl")
+            .eq(i)
+            .animate(
+              {
+                left: `${$(".per")
+                  .eq(0)
+                  .position().left - 30}px`,
+                top: `${$(".per")
+                  .eq(0)
+                  .position().top - 30}px`
+              },
+              600
+            );
+        }, i * 70);
+      }
+    },
+    get() {
+      return new Promise(function(resolve, reject) {
+        this.$socket.emit("niuniu2", {
+          username: JSON.parse(sessionStorage.getItem("userinfo")).name,
+          name: this.$route.params.n,
+          time: this.$route.params.t
+        });
+        this.sockets.subscribe("niuniu2", data => {
+          // 2.初始时间
+          // this.t = 15 - (data.s % 15);
+          // this.m = 30 - (data.s % 30);
+          // 2.1初始开奖数据----
+          this.playdate = parseInt(data.msg.playdate) + 1;
+        });
+      });
+    },
+    liangpai() {
+      console.log("liangpai");
+      
+      for (let p = 0; p < this.$refs.pk.length; p++) {
+        $(".pk")
+          .eq(p)
+          .css({
+            transform:
+              "scale(0.45,0.43) rotateX(0deg) rotateY(90deg) translateZ(0px)"
+          });
+        this.puk = this.puk2;
+
+        setTimeout(() => {
+          $(".pk")
+            .eq(p)
+            .css({
+              transform:
+                "scale(0.45,0.43) rotateX(0deg) rotateY(0deg) translateZ(0px)"
+            });
+        }, 500);
+      }
+    },
     pos(x, i) {
       switch (x) {
-        case "z":
+        case 0:
           return 0 + i * 10.5 + "px";
           break;
-        case "x1":
+        case 1:
           return 28 + i * 10.5 + "px";
           break;
-        case "x2":
+        case 2:
           return 56 + i * 10.5 + "px";
           break;
-        case "x3":
+        case 3:
           return 87 + i * 10.5 + "px";
           break;
       }
@@ -357,33 +317,35 @@ export default {
     back() {
       this.$router.go(-1);
     },
-    play() {
+    fapai() {
+      console.log("fapai");
+
       let n = 0;
       let b = 0;
       for (let c = 0; c < this.$refs.pk.length; c++) {
         setTimeout(() => {
-          $(".puk")[0].play();
-          console.log($(".puk")[0]);
           if (c != 0 && c % 5 == 0) {
             n++;
             b = n * 28;
           }
           $(".pk")
             .eq(c)
-            .animate(
-              {
-                top: "-20px",
-                left: b + c * 10.5 + "px"
-              }
-            );
-        }, c * 50);
+            .css({
+              transform:
+                "scale(0.45,0.43) rotateX(0deg) rotateY(0deg) translateZ(0px)"
+            })
+            .animate({
+              top: "-20px",
+              left: b + c * 10.5 + "px"
+            });
+          $(".puk")[0].play();
+        }, c * 40);
       }
       for (let i = 0; i < this.chip.length; i++) {
         let r = _.random(0, 5);
-        console.log(r);
         setTimeout(() => {
           this.$refs.chip.play();
-          $(".chiper")
+          $(".chiperl")
             .eq(i)
             .animate(
               {
@@ -401,13 +363,79 @@ export default {
                     .position().top + 17,
                   $(".item")
                     .eq(r)
-                    .position().top + 37
+                    .position().top + 27
                 )}px`
               },
               600
             );
         }, i * 70);
       }
+    },
+    kaijiang() {
+      let n = 0;
+      let b = 0;
+      for (let c = 0; c < this.$refs.pk.length; c++) {
+        if (c != 0 && c % 5 == 0) {
+          n++;
+          b = n * 28;
+        }
+        $(".pk")
+          .eq(c)
+          .css({
+            // top:"-20px",
+            transform:
+              "scale(0.45,0.43) rotateX(0deg) rotateY(0deg) translateZ(0px)",
+            top: "-20px",
+            left: b + c * 10.5 + "px"
+          });
+      }
+    },
+    xiazhu() {
+      let n = 0;
+      let b = 0;
+      for (let c = 0; c < this.$refs.pk.length; c++) {
+        if (c != 0 && c % 5 == 0) {
+          n++;
+          b = n * 28;
+        }
+        $(".pk")
+          .eq(c)
+          .css({
+            // top:"-20px",
+            transform:
+              "scale(0.45,0.43) rotateX(0deg) rotateY(0deg) translateZ(0px)",
+            top: "-20px",
+            left: b + c * 10.5 + "px"
+          });
+      }
+    },
+    getnn() {},
+    //1.获取时间
+    gettime() {
+      this.$socket.emit("niuniu", {
+        username: JSON.parse(sessionStorage.getItem("userinfo")).name,
+        name: this.$route.params.n,
+        time: this.$route.params.t
+      });
+      this.sockets.subscribe("niuniu", data => {
+        //2.初始时间
+        this.t = 15 - (data.s % 15);
+        this.m = 30 - (data.s % 30);
+        //2.1初始开奖数据----
+        this.playdate = parseInt(data.msg.playdate);
+        //2.2初始化状态
+        if (this.m > 15) {
+          console.log("下注中");
+          this.type = "下注时间";
+          this.puk = this.puk1;
+          this.xiazhu();
+        } else {
+          console.log("开奖中");
+          this.type = "下注时间";
+          this.puk2 = JSON.parse(data.msg.playnum);
+          this.kaijiang();
+        }
+      });
     },
     fill(x) {
       switch (x) {
@@ -420,7 +448,7 @@ export default {
         case 10:
           return "47.2% 65.8%";
           break;
-        case 20:
+        case 50:
           return "69.7% 65.8%";
           break;
         case 100:
@@ -444,17 +472,123 @@ export default {
       }
     }
   },
+  beforeDestroy() {
+    window.clearInterval(this.time);
+    this.time = null;
+  },
   mounted() {
-    this.play();
-
-    console.log();
+    this.puk = this.puk1;
+    this.getnn();
+    //背景音乐播放
     this.$refs.bg.play();
     this.$refs.bg.loop = true;
+    this.gettime(); //1.2.
+    //3.设定计时
+    this.time = setInterval(() => {
+      this.t--;
+      this.m--;
+      if (this.m % 15 == 0 && this.m != 15) {
+        this.fapai();
+        setTimeout(() => {
+          $(".sxz")[0].play();
+          this.str = "开始下注";
+          this.ts = true;
+        }, 1000);
+      } else {
+        this.str = null;
+        this.ts = false;
+      }
+      if (this.m == 19) {
+        this.str = 3;
+        this.ts = true;
+        $(".jsk")[0].play();
+      }
+      if (this.m == 18) {
+        this.str = 2;
+        this.ts = true;
+        $(".jsk")[0].play();
+      }
+      if (this.m == 17) {
+        this.str = 1;
+        this.ts = true;
+        $(".jsk")[0].play();
+        setTimeout(() => {
+          this.ts = true;
+          this.str = "停止下注";
+          $(".stop")[0].play();
+          setTimeout(() => {
+            for (let v = 0; v < 20; v++) {
+              $(".shou")[0].play();
+            }
+          }, 1500);
+        }, 1000);
+      }
+      if (this.t <= 0) {
+        this.t = 15;
+      }
+      if (this.m == 3) {
+        this.shoupai();
+        this.shouzhu();
+      }
+      if (this.m == 15) {
+        this.$socket.emit("niuniu2", {
+          username: JSON.parse(sessionStorage.getItem("userinfo")).name,
+          name: this.$route.params.n,
+          time: this.$route.params.t
+        });
+        this.sockets.subscribe("niuniu2", data => {
+          // 2.初始时间
+          // this.t = 15 - (data.s % 15);
+          // this.m = 30 - (data.s % 30);
+          // 2.1初始开奖数据----
+          this.puk2=data.msg.playnum
+          this.playdate = parseInt(data.msg.playdate) + 1;
+        });
+        this.liangpai();
+        
+      } else if (this.m == 14) {
+        this.ts = false;
+      }
+      if (this.m == 0) {
+        this.m = 30;
+      }
+    }, 1000);
   }
 };
 </script>
 
 <style lang="scss" scoped>
+.log-enter,
+.log-leave-to {
+  opacity: 0;
+  transform: scale(1.5);
+}
+.log-enter-active,
+.log-leave-active {
+  transition: all 0.3s;
+}
+.dailog {
+  // transform: scale(1);
+  position: relative;
+  .tishi {
+    height: 100px;
+    width: 100%;
+    // border: 1px solid red;
+    text-shadow: 4px 14px 4px black;
+    z-index: 99;
+    font-size: 50px;
+    font-family: "宋体";
+    font-weight: bolder;
+    text-align: center;
+    line-height: 100px;
+    color: gold;
+  }
+  margin: 0 auto;
+  height: 100px;
+  width: 100%;
+  z-index: 17;
+  top: 120px;
+}
 .z,
 .x1 {
   position: relative;
@@ -467,22 +601,32 @@ export default {
   left: 15px;
 }
 .pk {
-  // border:1px solid red;
   position: absolute;
   top: -75px;
   left: 40%;
+  transition: all 0.5s;
   height: 100px;
   width: 78px;
-  transform: scale(0.45, 0.43);
+  transform: scale(0.35, 0.33) rotateX(90deg) translateZ(-100px);
   background: url(https://images.imags-google.com/game/puke.png);
 }
-.chiper {
+.chiperl {
   position: fixed;
   height: 100px;
   width: 100px;
   right: -36px;
   top: 112px;
   transform: scale(0.2);
+  z-index: 13;
+  background: url(https://images.imags-google.com/game/chipIcon.png);
+}
+.chiper {
+  // position: fixed;
+  height: 100px;
+  width: 100px;
+  // right: -36px;
+  // top: 112px;
+  transform: scale(0.8);
   z-index: 13;
   background: url(https://images.imags-google.com/game/chipIcon.png);
 }
@@ -523,12 +667,13 @@ export default {
   width: 100vw;
   height: 78px;
   position: absolute;
-  bottom: 25px;
+  bottom: 32px;
   overflow: scroll;
   z-index: 10;
 }
 .chip {
-  width: 640px;
+  display: flex;
+  width: 900px;
   .ch {
     margin: 0 auto;
     position: relative;
@@ -538,71 +683,6 @@ export default {
     background: url(https://images.imags-google.com/game/chipIcon.png);
     background-position: 46.8% 96.1%;
     background-size: 100vw auto;
-  }
-  .chip1 {
-    background-position: 0.7% 67.8%;
-  }
-  .chip5 {
-    background-position: 23.6% 67.8%;
-  }
-  .chip10 {
-    background-position: 46.7% 67.8%;
-  }
-  .chip50 {
-    background-position: 69.7% 67.8%;
-  }
-  .chip100 {
-    background-position: 92.8% 67.8%;
-  }
-  .chip500 {
-    background-position: 0.5% 96.1%;
-  }
-  .chip1000 {
-    background-position: 23.8% 96.1%;
-  }
-  .chip5000 {
-    background-position: 46.8% 96.1%;
-  }
-  .chip10000 {
-    background-position: 69.8% 96.1%;
-  }
-  .act {
-    width: 15.6vw;
-    margin: 0 1vw;
-    height: 63px;
-    float: left;
-    position: relative;
-    top: 6px;
-    border: 1px dashed red;
-    border-radius: 50%;
-  }
-  .act1 {
-    background: #5bbd2e;
-    filter: blur(0.1px);
-  }
-  .act5 {
-    background: #2f6fb6;
-  }
-  .act10 {
-    background: #5947a0;
-  }
-  .act50 {
-    background: #df8306;
-  }
-  .act100 {
-    background: #db397b;
-  }
-  .act500 {
-    background: #ca424d;
-  }
-  .act1000 {
-    background: #c64100;
-  }
-  .act5000 {
-    background: #e61e2c;
-  }
-  .act10000 {
-    background: #55555d;
   }
 }
 .per {
@@ -651,6 +731,11 @@ export default {
     justify-content: space-around;
     align-items: center;
     .kjnum {
+      line-height: 35px;
+      text-align: right;
+      color: white;
+      font-weight: bold;
+      font-size: 20px;
       background: url("https://images.imags-google.com/game/nnicon.png?1");
       background-position: 0% 45.9%;
       background-size: 100vw auto;
@@ -662,8 +747,19 @@ export default {
     }
     .touzhunum {
       background: url("https://images.imags-google.com/game/nnicon.png?1");
-      background-position: 40% 45.9%;
+      background-position: 41% 45.9%;
       background-size: 100vw auto;
+      font-size: 15px;
+      color: white;
+      font-weight: bold;
+      .djs {
+        float: right;
+        width: 32px;
+        text-align: center;
+        position: relative;
+        right: 4px;
+      }
+      line-height: 32px;
     }
     .zhuang {
       width: 45px;
@@ -711,6 +807,10 @@ export default {
   .playz {
     display: flex;
     justify-content: space-around;
+    ul {
+      transform-style: preserve-3d;
+      perspective: 1500px;
+    }
   }
   .z,
   .x,
@@ -765,8 +865,6 @@ export default {
 .playcont {
   background: url(https://images.imags-google.com/game/nn100bg2.png);
   position: absolute;
-  background-size: 100% 100%;
-
   top: 30px;
   bottom: 0;
   width: 100%;

@@ -71,7 +71,7 @@
         </div>
       </van-col>
       <van-col span="8">
-        <router-link :to="{ name: 'fc3d', params: { n: 'fc3d', t: 24,jh:20,js:20,jm:50,max: 3 } }">
+        <router-link :to="{ name: 'fc3d', params: { n: 'fc3d', t: 24,jh:19,js:20,jm:30,max: 3 } }">
           <div class="item">
             <span class="iconfont icon-fucai3d"></span>
             <span class="name">福彩3d</span>
@@ -86,7 +86,7 @@
     <van-row>
       <van-col span="8">
         <router-link
-          :to="{ name: 'tcpl5', params: { n: 'tcpl5',  t: 24,jh:20,js:20,jm:50,max: 3 } }"
+          :to="{ name: 'tcpl5', params: { n: 'tcpl5',  t: 24,jh:19,js:20,jm:30,max: 3 } }"
         >
           <div class="item">
             <span class="iconfont icon-pailiesanpailiewu"></span>

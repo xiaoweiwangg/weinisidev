@@ -5,7 +5,7 @@
       <router-link to="/benchibmw"></router-link>
     </div>
     <div class="qipailist2">
-      <router-link to="/"></router-link>
+      <router-link to="/niuniu"></router-link>
     </div>
     <div class="qipailist3">
       <router-link to="/"></router-link>

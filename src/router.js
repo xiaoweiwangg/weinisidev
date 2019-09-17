@@ -149,6 +149,14 @@ export default new Router({
         import(
           /* webpackChunkName: "about" */ "./components/game/qipai/benchibmw/bmw.vue"
         )
+    }, 
+    {
+      name: "niuniu",
+      path: "/niuniu",
+      component: () =>
+        import(
+          /* webpackChunkName: "about" */ "./components/game/qipai/gamelist/niuniu.vue"
+        )
     },
     {
       name: "pk10",
