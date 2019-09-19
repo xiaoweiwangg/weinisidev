@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="balance">
-      <div class="reback"></div>
+      <div class="reback" @click="reback"></div>
       <div class="bal"></div>
       <div class="ent"></div>
     </div>
@@ -10,7 +10,12 @@
 
 <script>
 export default {
-  name: "FooTer"
+  name: "FooTer",
+  methods:{
+    reback(){
+      this.$emit("reback")
+    }
+  }
 };
 </script>
 
@@ -20,7 +25,7 @@ export default {
   justify-content: space-between;
   height: 36px;
   border: 1px solid gray;
-  z-index: 8;
+  z-index: 88888;
   position: absolute;
   bottom: -7px;
   width: 100%;

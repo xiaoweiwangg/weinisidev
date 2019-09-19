@@ -13,8 +13,12 @@
 export default {
     props:["chip","size"],
   name: "ChiP",
+  mounted(){
+createjs.Sound.registerSound("/mp3/lotter.mp3", "cp");
+  },
   methods: {
     mit(){
+      createjs.Sound.play("cp")
       this.$emit("chek",this.chip)
     },
     fill(x) {

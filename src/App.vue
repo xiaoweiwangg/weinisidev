@@ -9,6 +9,7 @@
   </div>
 </template>
 <script>
+require("yuki-createjs");
 import { log } from "util";
 import HomeFooter from "./components/footer/footerbar";
 import { setTimeout } from "timers";
@@ -20,6 +21,7 @@ export default {
     return {};
   },
   mounted() {
+    
     if (sessionStorage.getItem("userinfo")) {
       this.sockets.subscribe(
         JSON.parse(sessionStorage.getItem("userinfo")).name,

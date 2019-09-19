@@ -7,7 +7,7 @@
         <div class="zhuang"></div>
         <div class="touzhunum">
           {{type}}
-          <div class="djs">{{djs }}</div>
+          <div class="djs">{{start}} &nbsp;</div>
         </div>
       </div>
       <div class="playmethod">
@@ -19,6 +19,7 @@
 
 <script>
 export default {
+  props:["start","playdate","type"],
   name: "QTop",
   methods:{
       back(){
@@ -27,9 +28,6 @@ export default {
   },
   data(){
       return {
-          playdate:"123456",
-          djs:0,
-          type:"开奖中"
       }
   }
 };
@@ -65,7 +63,7 @@ export default {
       text-align: right;
       color: white;
       font-weight: bold;
-      font-size: 20px;
+      font-size: 18px;
       background: url("https://images.imags-google.com/game/nnicon.png?1");
       background-position: 0% 45.9%;
       background-size: 100vw auto;
@@ -88,6 +86,7 @@ export default {
         text-align: center;
         position: relative;
         right: 4px;
+        text-indent: 8px;
       }
       line-height: 32px;
     }

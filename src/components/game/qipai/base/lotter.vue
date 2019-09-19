@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="f">
-      <div class="chip">
+      <div :class="{chip:cpl}">
         <chi-per
           class="cp"
           v-for="(item,index) in chiplist"
@@ -20,6 +20,7 @@
 <script>
 import ChiPer from "./chip";
 export default {
+  props:["cpl"],
   components: {
     ChiPer
   },
@@ -38,6 +39,7 @@ export default {
     },
     ac(x) {
       this.act = x;
+      this.$emit("chek",this.act)
     }
   }
 };
@@ -48,7 +50,7 @@ export default {
   width: 100vw;
   height: 100px;
   position: absolute;
-  bottom: 32px;
+  bottom: 10px;
   overflow: scroll;
   z-index: 10;
   .chip {

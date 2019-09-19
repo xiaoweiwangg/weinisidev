@@ -55,6 +55,7 @@ export default {
       display: flex;
       flex-flow: column;
       text-align: center;
+      height:52px!important;
       i {
         font-size: 28px;
       }
