@@ -144,6 +144,9 @@ export default {
         case "wnspk10":
           return "威尼斯pk10";
           break;
+        case "niuniu":
+          return "牛牛竞猜";
+          break;
       }
     },
     md(x) {

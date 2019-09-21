@@ -21,14 +21,16 @@ export default {
     return {};
   },
   mounted() {
-    
+   
+    createjs.Sound.registerSound("/mp3/dingdong.wav", "dingdong");
     if (sessionStorage.getItem("userinfo")) {
       this.sockets.subscribe(
         JSON.parse(sessionStorage.getItem("userinfo")).name,
         data => {
           if (data.msg == "kj") {
             setTimeout(() => {
-              this.$refs.au.play();
+              createjs.Sound.play("dingdong");
+
               this.$toast("您有新的盈亏记录产生!");
               this.$notify({
                 message: "您有新的盈亏记录产生!",

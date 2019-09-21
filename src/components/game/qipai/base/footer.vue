@@ -2,18 +2,48 @@
   <div>
     <div class="balance">
       <div class="reback" @click="reback"></div>
-      <div class="bal"></div>
-      <div class="ent"></div>
+      <div class="bal">余额:{{bl}}元</div>
+      <div class="ent" @click="ent"></div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  props: ["pr", "start"],
+  computed: {
+    bl() {
+      return this.balance;
+    }
+  },
   name: "FooTer",
-  methods:{
-    reback(){
-      this.$emit("reback")
+  data() {
+    return {
+      balance: 0
+    };
+  },
+  mounted() {
+    this.getbalance();
+  },
+  methods: {
+    getbalance() {
+      this.$socket.emit("user", {
+        username: JSON.parse(sessionStorage.getItem("userinfo")).name
+      });
+      this.sockets.subscribe("balance", data => {
+        this.balance = data[0].balance;
+        this.$store.commit("setbalance", this.balance);
+      });
+    },
+    reback() {
+      this.$emit("reback");
+      this.getbalance();
+    },
+    ent() {
+      this.$emit("sub");
+      setTimeout(() => {
+        this.getbalance();
+      }, 500);
     }
   }
 };
@@ -47,6 +77,11 @@ export default {
   }
   .bal {
     // flex:1;
+    font-size: 15px;
+    text-align: center;
+    line-height: 33px;
+    color: honeydew;
+    font-weight: 500;
     width: 112px;
     background: url(https://images.imags-google.com/game/nnicon.png?1);
     background-size: 100vw auto;

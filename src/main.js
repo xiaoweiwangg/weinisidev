@@ -5,6 +5,7 @@ import router from "./router";
 import store from "./store";
 import "./assets/icon/iconfont.css";
 import "./assets/base/reset.css";
+import "./assets/css/comm.css"
 //music
 import audio from "./assets/mp3/StopBet.mp3";
 // Vue.prototype.playAudio = () => {
@@ -24,12 +25,11 @@ import { PasswordInput, NumberKeyboard } from "vant";
 Vue.use(PasswordInput).use(NumberKeyboard);
 import { Field } from "vant";
 Vue.use(Field);
-// import "./assets/css/comm.css";
 Vue.use(
   new VueSocketIO({
     // debug: true,
     // 服务器端地址
-    connection: "http://192.168.10.223:88"
+    connection: "http://192.168.43.88:88"
     // connection: "http://23.88.142.75:88"
     // vuex: {},
   })

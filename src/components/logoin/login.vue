@@ -6,13 +6,7 @@
     </div>
     <div class="dl">
       <van-cell-group>
-        <van-field
-          v-model="username"
-          required
-          clearable
-          label="用户名"
-          placeholder="请输入用户名"
-        />
+        <van-field v-model="username" required clearable label="用户名" placeholder="请输入用户名" />
         <van-field
           v-model="password"
           type="password"
@@ -22,9 +16,12 @@
           required
         />
         <div class="sub">
-          <van-button :loading="load" @click="sub" square type="primary"
-            >登 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 录</van-button
-          >
+          <van-button
+            :loading="load"
+            @click="sub"
+            square
+            type="primary"
+          >登 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 录</van-button>
         </div>
       </van-cell-group>
       <div class="fog">
@@ -88,8 +85,19 @@ export default {
             background: "green"
           });
           setTimeout(() => {
-            this.load = false;
-            this.$router.push("/");
+            this.$dialog
+              .confirm({
+                title: "棋牌游戏百人牛牛已推出",
+                message: "多样玩法,老少皆宜,真人对战,赔率更高,赶快加入游戏体验吧"
+              })
+              .then(x => {
+                this.$router.push("/qipai");
+              })
+              .catch(() => {
+                // on cancel
+              this.load = false;
+              this.$router.push("/");
+              });
           }, 500);
 
           setInterval(() => {}, 1000);

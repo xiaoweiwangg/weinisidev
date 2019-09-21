@@ -143,14 +143,6 @@ export default new Router({
         )
     },
     {
-      name: "bmw",
-      path: "/benchibmw",
-      component: () =>
-        import(
-          /* webpackChunkName: "about" */ "./components/game/qipai/benchibmw/bmw.vue"
-        )
-    }, 
-    {
       name: "niuniu",
       path: "/niuniu",
       component: () =>

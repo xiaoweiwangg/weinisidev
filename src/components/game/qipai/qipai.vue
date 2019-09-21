@@ -2,10 +2,10 @@
   <div class="bd">
     <t-header :l="true" :t="'棋 牌 大 厅'"></t-header>
     <div class="qipailist1">
-      <router-link to="/benchibmw"></router-link>
-    </div>
-    <div class="qipailist2">
       <router-link to="/niuniu"></router-link>
+    </div>
+    <!-- <div class="qipailist2">
+      <router-link to="/"></router-link>
     </div>
     <div class="qipailist3">
       <router-link to="/"></router-link>
@@ -18,7 +18,7 @@
     </div>
     <div class="qipailist6">
       <router-link to="/"></router-link>
-    </div>
+    </div> -->
     <van-popup v-model="show">
         <p>即将开放,敬请期待!</p>
     </van-popup>

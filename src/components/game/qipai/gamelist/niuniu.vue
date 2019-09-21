@@ -1,11 +1,132 @@
 <template>
   <div class="niuniu">
+    <van-popup v-model="ishow">
+      <div data-v-e1fcc0e8 title="2001" class="how-to-play">
+        <div class="game-chess-img how-to-play-top">
+          <div class="game-chess-img how-to-play-head"></div>
+          <div class="game-chess-img how-to-play-close" @click="close"></div>
+        </div>
+        <div class="game-chess-img how-to-play-middle">
+          <div class="how-to-play-content setfont games-font">
+            <div>
+              <div class="tit">开奖时间：</div>
+              <div class="row-bottom">30秒1局，全天2880局；</div>
+            </div>
+            <div>
+              <div class="tit">玩法规则</div>
+              <div class="row-bottom">
+                每局由一副扑克牌（&nbsp;不含大小王）开出20张牌为开奖号码，庄、闲1、闲2、闲3各5张牌，竞猜庄分别与闲1、闲2、闲3的牌型大小；
+                <br />
+                <br />庄对闲1「庄」&nbsp;&nbsp;庄获胜即中奖；
+                <br />庄对闲1「闲1」&nbsp;闲1获胜即中奖；
+                <br />庄对闲2「庄」&nbsp;&nbsp;庄获胜即中奖；
+                <br />庄对闲2「闲2」闲2获胜即中奖；
+                <br />庄对闲3「庄」&nbsp;&nbsp;庄获胜即中奖；
+                <br />庄对闲3「闲3」闲3获胜即中奖；
+              </div>
+            </div>
+            <div>
+              <div class="tit">牌型大小：</div>
+              <div
+                class="row-bottom"
+              >四炸&gt;五花牛&gt;四花牛&gt;牛牛&gt;牛九&gt;牛八&gt;牛七&gt;牛六&gt;牛五&gt;牛四&gt;牛三&gt;牛二&gt;牛一&gt;无牛；牌型相同时比较最大一张牌点数大小，K最大A最小，若点数也相同比较花色大小，黑桃&gt;红桃&gt;梅花&gt;方块;（特例：四炸时比较四张一样的那张牌）JQK都为10，A为1；</div>
+            </div>
+            <!---->
+            <!---->
+            <ul class="how-to-play-list">
+              <li>
+                <div class="how-to-play-code">
+                  <em class="game-chess-card card-0 pk4"></em>
+                  <em class="game-chess-card card-1 pk5"></em>
+                  <em class="game-chess-card card-2 pk6"></em>
+                  <em class="game-chess-card card-3 pk7"></em>
+                  <em class="game-chess-card card-4 pk8"></em>
+                </div>
+                <div class="how-to-play-info">
+                  <div class="tit">四炸：</div>
+                  <div>五张牌中有四张完全一样；</div>
+                </div>
+              </li>
+              <li>
+                <div class="how-to-play-code">
+                  <em class="game-chess-card card-0 pk53"></em>
+                  <em class="game-chess-card card-1 pk52"></em>
+                  <em class="game-chess-card card-2 pk51"></em>
+                  <em class="game-chess-card card-3 pk50"></em>
+                  <em class="game-chess-card card-4 pk47"></em>
+                </div>
+                <div class="how-to-play-info">
+                  <div class="tit">五花牛：</div>
+                  <div>五张牌全部是JQK的组合；</div>
+                </div>
+              </li>
+              <li>
+                <div class="how-to-play-code">
+                  <em class="game-chess-card card-0 pk54"></em>
+                  <em class="game-chess-card card-1 pk51"></em>
+                  <em class="game-chess-card card-2 pk47"></em>
+                  <em class="game-chess-card card-3 pk49"></em>
+                  <em class="game-chess-card card-4 pk43"></em>
+                </div>
+                <div class="how-to-play-info">
+                  <div class="tit">四花牛：</div>
+                  <div>五张牌除了一张10，其余四张为JQK的组合；</div>
+                </div>
+              </li>
+              <li>
+                <div class="how-to-play-code">
+                  <em class="game-chess-card card-0 pk13"></em>
+                  <em class="game-chess-card card-1 pk28"></em>
+                  <em class="game-chess-card card-2 pk42"></em>
+                  <em class="game-chess-card card-3 pk44"></em>
+                  <em class="game-chess-card card-4 pk48"></em>
+                </div>
+                <div class="how-to-play-info">
+                  <div class="tit">牛牛：</div>
+                  <div>五张牌中任意三张相加为10的倍数，剩余两张相加也为10的倍数；</div>
+                </div>
+              </li>
+              <li>
+                <div class="how-to-play-code">
+                  <em class="game-chess-card card-0 pk14"></em>
+                  <em class="game-chess-card card-1 pk28"></em>
+                  <em class="game-chess-card card-2 pk43"></em>
+                  <em class="game-chess-card card-3 pk5"></em>
+                  <em class="game-chess-card card-4 pk8"></em>
+                </div>
+                <div class="how-to-play-info">
+                  <div class="tit">牛一至牛九：</div>
+                  <div>五张牌中任意三张相加为10的倍数，剩余两张相加取个位数，个位数是几就是牛几；</div>
+                </div>
+              </li>
+              <li>
+                <div class="how-to-play-code">
+                  <em class="game-chess-card card-0 pk33"></em>
+                  <em class="game-chess-card card-1 pk32"></em>
+                  <em class="game-chess-card card-2 pk28"></em>
+                  <em class="game-chess-card card-3 pk41"></em>
+                  <em class="game-chess-card card-4 pk47"></em>
+                </div>
+                <div class="how-to-play-info">
+                  <div class="tit">无牛：</div>
+                  <div>五张牌中任意三张相加不为10的倍数；</div>
+                </div>
+              </li>
+            </ul>
+            <!---->
+          </div>
+        </div>
+        <div class="game-chess-img how-to-play-dottom">
+          <em class="game-chess-img how-to-play-icon"></em>
+        </div>
+      </div>
+    </van-popup>
     <div class="ad" v-show="isload">
       <p>{{per}}%</p>
     </div>
-    <header-top :start="djs" :playdate="playdate" :type="type"></header-top>
+    <header-top :start="djs" :playdate="playdate" :type="type" @play="play" @close="close"></header-top>
     <div class="player">
-      <span>(0)</span>
+      <span>({{pm}})</span>
     </div>
     <chi-per
       class="ch"
@@ -83,13 +204,14 @@
                 <div class="win"></div>
                 <div class="sun"></div>
               </div>
+              <div class="w2"></div>
             </div>
           </div>
         </div>
       </div>
     </div>
     <lotte-r :cpl="cpl" class="cpr" @chek="ck"></lotte-r>
-    <Foo-ter @reback="reback"></Foo-ter>
+    <Foo-ter @reback="reback" @sub="sub" :pr="price" :start="start"></Foo-ter>
     <div class="timerdjs" v-show="jishil">{{str}}</div>
   </div>
 </template>
@@ -99,6 +221,7 @@ import $ from "jquery";
 import _ from "underscore";
 import HeaderTop from "../base/top";
 import LotteR from "../base/lotter";
+import { Toast } from "vant";
 import FooTer from "../base/footer";
 import PukerV from "../base/puker";
 import ChiPer from "../base/chip";
@@ -109,7 +232,8 @@ export default {
     LotteR,
     FooTer,
     PukerV,
-    ChiPer
+    ChiPer,
+    [Toast.name]: Toast
   },
   filters: {
     fname(x) {
@@ -133,6 +257,9 @@ export default {
   },
   data() {
     return {
+      pm: 0,
+      playmode: 1.0,
+      playratel: 1.0,
       po: 0,
       list: [], //用户投注定位列表
       cpl: false, //chip动画
@@ -143,6 +270,7 @@ export default {
       t: [], //牌翻转的序列
       n: null, //全局牛n
       ischip: 1, //默认投注码
+      ishow: true,
       puklist: [
         //扑克牌列表
         { num: 14, type: 0, hua: 0 },
@@ -183,6 +311,7 @@ export default {
           { type: 3, playnum: 0, iswin: false }
         ]
       ],
+      price: 0,
       start: 30, //默认起始倒计时
       playdate: "2019001", //投注日期
       type: "", //开奖投注状态
@@ -196,9 +325,24 @@ export default {
     createjs.Sound.stop();
     window.clearInterval(this.timer);
     this.timer = null;
+    this.$socket.emit("qtniuniu", {
+      username: JSON.parse(sessionStorage.getItem("userinfo")).name
+    });
   },
   computed: {},
   mounted() {
+    this.sockets.subscribe("niuniu2", data => {
+      this.playdate = parseInt(data.msg.playdate);
+      this.puklist = JSON.parse(data.msg.playnum);
+    });
+    this.sockets.subscribe("move", data => {
+      this.chiplist.push(data.tz);
+      this.list.push(data.tz);
+    });
+    this.sockets.subscribe("qtniuniu", data => {
+      this.pm = data.pm;
+    });
+    //---------------------
     document.addEventListener("visibilitychange", function() {
       //浏览器切换事件
       if (document.visibilityState == "hidden") {
@@ -279,6 +423,12 @@ export default {
     this.normal();
   },
   updated() {
+    if ($(".van-notify")[0]) {
+      $(".van-notify")[0].style.zIndex = 999999999999999999;
+    }
+    if ($(".van-toast")[0]) {
+      $(".van-toast")[0].style.zIndex = 999999999999999999;
+    }
     // console.log($(".ch").eq(0).position().top);
     for (let i = 0; i < $(".ch").length; i++) {
       if (
@@ -286,7 +436,7 @@ export default {
           .eq(i)
           .position().top == 113
       ) {
-        createjs.Sound.play("chip");
+        // createjs.Sound.play("chip");
         $(".ch")
           .eq(i)
           .animate(
@@ -316,6 +466,9 @@ export default {
   watch: {
     jieguo(x) {
       if (x.length == 4) {
+        setTimeout(() => {
+          (Math.random() * 10) % 2 == 0 ? this.wanjiashou() : this.zhuangshou();
+        }, 2000);
         let size = [
           "z4",
           "whn",
@@ -373,6 +526,11 @@ export default {
             }
           }
         }
+        //结算
+        this.$socket.emit("ks", { data: JSON.stringify(this.vs) });
+        this.sockets.subscribe("jiesuan", data => {
+          console.log();
+        });
       }
     }
   },
@@ -380,17 +538,18 @@ export default {
     jishiv(x) {
       x > 17 ? "开奖时间" : "下注时间";
     },
-    getdata(){
-      return new Promise((res,rej)=>{
+    getdata() {
+      return new Promise((res, rej) => {
         this.$socket.emit("niuniu2", {
-            username: JSON.parse(sessionStorage.getItem("userinfo")).name
-          });
-          this.sockets.subscribe("niuniu2", data => {
-            // this.start = 30 - (data.s % 30);
-            // this.djs = 15 - (data.s % 15);
-            res(data.msg)
-          });
-      })
+          username: JSON.parse(sessionStorage.getItem("userinfo")).name
+        });
+      });
+    },
+    close(){
+      this.ishow=!this.ishow
+    },
+    play(){
+      createjs.Sound.stop()
     },
     init() {
       this.$socket.emit("niuniu", {
@@ -400,27 +559,27 @@ export default {
         // 初始倒计时时间
         this.start = 30 - (data.s % 30);
         this.djs = 15 - (data.s % 15);
+
         // 初始开奖date数据
         this.playdate = parseInt(data.msg.playdate);
         this.puklist = JSON.parse(data.msg.playnum);
-        console.log(this.puklist);
+        this.pm = data.pm;
       });
       if (this.start > 14) {
-        console.log("开奖...");
-        this.type = "开奖中...";
+        this.type = "开奖中";
         this.fz = false;
       } else {
         this.fz = true;
-        this.type = "投注中...";
-        console.log("投注...");
+        this.type = "投注中";
+        console.log("投注");
       }
       this.timer = setInterval(() => {
         this.start--;
         this.djs--;
         if (this.start > 14) {
-          this.type = "投注中...";
+          this.type = "投注中";
         } else {
-          this.type = "开奖中...";
+          this.type = "开奖中";
         }
         if (this.start == 3) {
           this.shoupai();
@@ -450,17 +609,15 @@ export default {
           createjs.Sound.play("daojishi");
           this.str = "1";
           this.jishil = true;
-          this.getdata().then((x)=>{
-            console.log(x);
-            this.playdate = parseInt(x.playdate);
-            this.puklist = JSON.parse(x.playnum);
-          })
+          // this.getdata().then(x => {
+          //   console.log(x);
+          //   this.playdate = parseInt(x.playdate);
+          //   this.puklist = JSON.parse(x.playnum);
+          // });
         }
-        if (this.start == 12) {
-          
+        if (this.start == 14) {
         }
         if (this.start == 15) {
-          
           createjs.Sound.play("tingzhu");
           this.str = "停止下注";
           this.jishil = true;
@@ -483,11 +640,62 @@ export default {
       this.vs.map(x => {
         x.map(v => (v.playnum = 0));
       });
+      this.price = 0;
     },
-    add(x, y) {
-      if (this.start < 17) {
+    sub() {
+      if (this.start < 15 || this.price < 1) {
         return;
       }
+      let shopcar = {};
+      (shopcar.username = JSON.parse(sessionStorage.getItem("userinfo")).name),
+        //   // (shopcar.userinput = JSON.stringify({ data: this.gamelist }));
+        (shopcar.buydet = JSON.stringify(this.vs));
+      shopcar.userinput = JSON.stringify(this.vs);
+      shopcar.playdate = `${this.playdate + 1}期`;
+      shopcar.playname = "百人牛牛";
+      shopcar.playgame = "niuniu";
+      shopcar.playratel = this.playratel;
+      shopcar.price = this.price;
+      // shopcar.dl = this.num;
+      shopcar.iskj = 0;
+      shopcar.playmode = this.playmode;
+      this.axios.post("/shopcar", shopcar).then(x => {
+        this.reback();
+        if (x.data.msg == "余额不足") {
+          this.$notify({
+            message: "您的余额不足,请充值"
+          });
+          Toast.fail("订单提交失败");
+          setTimeout(() => {
+            createjs.Sound.play("dingdong");
+          }, 100);
+        } else if (x.data.msg == "ok") {
+          Toast.success("订单提交成功!");
+          this.price = 0;
+          setTimeout(() => {
+            createjs.Sound.play("dingdong");
+          }, 100);
+        }
+      });
+    },
+    add(x, y) {
+      if (this.start < 17 && this.start > 14) {
+        this.$notify({
+          message: "本期投注已截止,请等待开奖",
+          background: "#dc3b40",
+          duration: 1500
+        });
+        return;
+      }
+      if (this.start < 14) {
+        this.$notify({
+          message: "结算时间,请稍后投注",
+          background: "#dc3b40",
+          duration: 1500
+        });
+        return;
+      }
+
       let z = 0;
       let tz = {};
       tz.price = this.ischip;
@@ -496,14 +704,19 @@ export default {
         z -= 2;
       }
       tz.addr = z;
-      this.list.push(tz);
+      // this.list.push(tz);
+      // console.log(this.list);
+      this.$socket.emit("add", {
+        data: tz
+      });
+
       this.vs[x][y].playnum += this.ischip;
       createjs.Sound.play("chip");
       //加入用户投注列表
-      this.chiplist.push(tz);
+      // this.chiplist.push(tz);
+      this.price += this.ischip;
     },
     ck(x) {
-      console.log(x);
       this.ischip = x;
     },
     nnbg(x) {
@@ -573,7 +786,6 @@ export default {
             );
         }, i * 10);
         if (i % 2 == 0) {
-          createjs.Sound.play("shouzhu");
         }
       }
     },
@@ -731,9 +943,6 @@ export default {
           }, 400);
         }, i * 900);
       }
-      setTimeout(() => {
-      this.wanjiashou();
-      }, 2000);
     },
     fapai() {
       this.jieguo = [];
@@ -813,7 +1022,7 @@ export default {
           .eq(c)
           .css({
             transform:
-              "scale(0.55) rotateX(0deg) rotateY(0deg) translateZ(0px)",
+              "scale(0.55) rotateX(0deg) rotateY(0deg) translatex(-10px)",
             top: "-5px",
             left: b + c * ($(window).width() * 0.028) + "px"
           });
@@ -830,6 +1039,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.w2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999999;
+}
 .w {
   position: absolute;
   top: 0;
@@ -844,7 +1061,7 @@ export default {
     position: absolute;
     height: 108%;
     width: 100%;
-    animation: sun 3s linear infinite;
+    // animation: sun 3s linear infinite;
   }
   .sun {
     position: absolute;
@@ -897,6 +1114,7 @@ export default {
   position: relative;
   perspective: 1000px;
   text-align: center;
+  transform: translateX(-10px);
   .p {
     background: url(https://images.imags-google.com/game/brnnJackWin.png)
       no-repeat;
@@ -912,7 +1130,7 @@ export default {
     // transform-style: preserve-3d;
     backface-visibility: hidden;
     transition: all 0.3s ease-in-out;
-    transform: rotateX(-180deg);
+    transform: rotateX(-180deg) translateX(-10px);
   }
 }
 .ct {
@@ -1100,7 +1318,18 @@ export default {
   text-shadow: 5px 8px 2px black;
   color: #f9c970;
   text-align: center;
-  z-index: 99999;
+  z-index: 7;
   letter-spacing: 5px;
+}
+//-------------------------
+.van-popup{
+  z-index: 9999999!important;
+background: transparent!important;
+}
+.how-to-play {
+  font-size: 26px;
+  z-index: 999999999999999999999;
+  line-height: 23px;
+  font-weight: 600;
 }
 </style>
