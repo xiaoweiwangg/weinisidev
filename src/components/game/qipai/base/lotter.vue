@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="f">
-      <div :class="{chip:cpl}">
+      <div :class="{chip:cpl}" class="tl">
         <chi-per
           class="cp"
           v-for="(item,index) in chiplist"
@@ -46,6 +46,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.tl{
+  display: flex!important;
+}
 .f {
   width: 100vw;
   height: 100px;

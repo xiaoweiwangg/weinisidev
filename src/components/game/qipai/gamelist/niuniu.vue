@@ -401,7 +401,7 @@ export default {
       if (per > 1) {
         per = 1;
       }
-      $(".ad p").text("文件加载中 . . ." + (per * 100).toFixed(0) + " %");
+      $(".ad p").text("LOADING . . ." + (per * 100).toFixed(0) + " %");
     }
 
     function listener() {
@@ -409,7 +409,7 @@ export default {
       createjs.Sound.play("bg", { loop: -1 });
       that.cpl = true;
       //   setInterval(() => {
-      //   that.chiplist.push({addr:_.random(0,5),price:[1,5,10,50,100,5000,10000][_.random(0,6)]})
+      //   that.chiplist.push({addr:_.random(0,5),price:[1,5,10,50,100][_.random(0,6)]})
       // }, 1000);
       that.init();
     }
@@ -458,7 +458,7 @@ export default {
                   .offset().top
               )}px`
             },
-            600
+            300
           );
       }
     }
@@ -545,11 +545,11 @@ export default {
         });
       });
     },
-    close(){
-      this.ishow=!this.ishow
+    close() {
+      this.ishow = !this.ishow;
     },
-    play(){
-      createjs.Sound.stop()
+    play() {
+      createjs.Sound.stop();
     },
     init() {
       this.$socket.emit("niuniu", {
@@ -672,9 +672,7 @@ export default {
         } else if (x.data.msg == "ok") {
           Toast.success("订单提交成功!");
           this.price = 0;
-          setTimeout(() => {
-            createjs.Sound.play("dingdong");
-          }, 100);
+          createjs.Sound.play("dingdong");
         }
       });
     },
@@ -809,8 +807,8 @@ export default {
               }
             );
         }, i * 10);
+        createjs.Sound.play("shouzhu");
         if (i % 2 == 0) {
-          createjs.Sound.play("shouzhu");
         }
       }
       // this.chiplist=[]
@@ -1027,12 +1025,6 @@ export default {
             left: b + c * ($(window).width() * 0.028) + "px"
           });
       }
-    },
-    touzhu() {
-      this.chiplist.push(
-        [1, 5, 10, 50, 100, 500, 1000, 5000, 10000][_.random(0, 8)]
-      );
-      //   this.isfz = !this.isfz;
     }
   }
 };
@@ -1102,12 +1094,13 @@ export default {
   justify-content: center;
   align-items: center;
   p {
-    transform: translateY(155px);
+    position: absolute;
+    bottom: 120px;
     letter-spacing: 5px;
     font-size: 25px;
     color: gold;
-    text-shadow: 5px 5px 3px black;
-    font-weight: bolder;
+    text-shadow: 5px 9px 3px black;
+    font-weight: 700;
     text-align: center;
   }
 }
@@ -1323,9 +1316,9 @@ export default {
   letter-spacing: 5px;
 }
 //-------------------------
-.van-popup{
-  z-index: 9999999!important;
-background: transparent!important;
+.van-popup {
+  z-index: 9999999 !important;
+  background: transparent !important;
 }
 .how-to-play {
   font-size: 26px;
