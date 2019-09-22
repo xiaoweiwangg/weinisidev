@@ -4,8 +4,6 @@
       <router-view class="roter"></router-view>
     </transition>
     <home-footer></home-footer>
-    <audio src="/mp3/dingdong.wav" ref="au"></audio>
-    <!-- <audio src="https://images.imags-google.com/game/music/nn100/sound-bg.mp3" autoplay loop> -->
   </div>
 </template>
 <script>

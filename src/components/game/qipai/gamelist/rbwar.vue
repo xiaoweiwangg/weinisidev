@@ -1,7 +1,7 @@
 <template>
   <div class="niuniu">
     <van-popup v-model="ishow">
-      <div data-v-e1fcc0e8 title="2001" class="how-to-play">
+      <div data-v-e1fcc0e8 title="2002" class="how-to-play">
         <div class="game-chess-img how-to-play-top">
           <div class="game-chess-img how-to-play-head"></div>
           <div class="game-chess-img how-to-play-close" @click="close"></div>
@@ -15,101 +15,92 @@
             <div>
               <div class="tit">玩法规则</div>
               <div class="row-bottom">
-                每局由一副扑克牌（&nbsp;不含大小王）开出20张牌为开奖号码，庄、闲1、闲2、闲3各5张牌，竞猜庄分别与闲1、闲2、闲3的牌型大小；
+                每局由一副扑克牌（不含大小王）开出6张牌，红方、黑方各3张牌，竞猜红方和黑方的牌型大小，
                 <br />
-                <br />庄对闲1「庄」&nbsp;&nbsp;庄获胜即中奖；
-                <br />庄对闲1「闲1」&nbsp;闲1获胜即中奖；
-                <br />庄对闲2「庄」&nbsp;&nbsp;庄获胜即中奖；
-                <br />庄对闲2「闲2」闲2获胜即中奖；
-                <br />庄对闲3「庄」&nbsp;&nbsp;庄获胜即中奖；
-                <br />庄对闲3「闲3」闲3获胜即中奖；
+                <br />「红方」红方胜利即中奖；
+                <br />「黑方」黑方胜利即中奖；
+                <br />「幸运一击」胜利一方的牌型为特殊牌型时（豹子、顺金、金花、顺子、对子9-A）即中奖，不同牌型奖金也不同；
               </div>
             </div>
             <div>
               <div class="tit">牌型大小：</div>
+              <div class="row-bottom">豹子&gt;顺金&gt;金花&gt;顺子&gt;对子&gt;单张；若牌型相同比点数大小，若点数也相同则比花色大小；</div>
+            </div>
+            <div>
+              <div class="tit">点数大小：</div>
               <div
                 class="row-bottom"
-              >四炸&gt;五花牛&gt;四花牛&gt;牛牛&gt;牛九&gt;牛八&gt;牛七&gt;牛六&gt;牛五&gt;牛四&gt;牛三&gt;牛二&gt;牛一&gt;无牛；牌型相同时比较最大一张牌点数大小，K最大A最小，若点数也相同比较花色大小，黑桃&gt;红桃&gt;梅花&gt;方块;（特例：四炸时比较四张一样的那张牌）JQK都为10，A为1；</div>
+              >A&gt;K&gt;Q&gt;J&gt;10&gt;9&gt;8&gt;7&gt;6&gt;5&gt;4&gt;3&gt;2；</div>
             </div>
-            <!---->
-            <!---->
+            <div>
+              <div class="tit">花色大小：</div>
+              <div class="row-bottom">黑桃&gt;红桃&gt;梅花&gt;方块</div>
+            </div>
             <ul class="how-to-play-list">
               <li>
                 <div class="how-to-play-code">
-                  <em class="game-chess-card card-0 pk4"></em>
-                  <em class="game-chess-card card-1 pk5"></em>
-                  <em class="game-chess-card card-2 pk6"></em>
-                  <em class="game-chess-card card-3 pk7"></em>
-                  <em class="game-chess-card card-4 pk8"></em>
+                  <em class="game-chess-card rbcard-0 pk4"></em>
+                  <em class="game-chess-card rbcard-1 pk5"></em>
+                  <em class="game-chess-card rbcard-2 pk6"></em>
                 </div>
                 <div class="how-to-play-info">
-                  <div class="tit">四炸：</div>
-                  <div>五张牌中有四张完全一样；</div>
+                  <div class="tit">豹子：</div>
+                  <div>三张点数相同的牌；</div>
                 </div>
               </li>
               <li>
                 <div class="how-to-play-code">
-                  <em class="game-chess-card card-0 pk53"></em>
-                  <em class="game-chess-card card-1 pk52"></em>
-                  <em class="game-chess-card card-2 pk51"></em>
-                  <em class="game-chess-card card-3 pk50"></em>
-                  <em class="game-chess-card card-4 pk47"></em>
+                  <em class="game-chess-card rbcard-0 pk46"></em>
+                  <em class="game-chess-card rbcard-1 pk50"></em>
+                  <em class="game-chess-card rbcard-2 pk54"></em>
                 </div>
                 <div class="how-to-play-info">
-                  <div class="tit">五花牛：</div>
-                  <div>五张牌全部是JQK的组合；</div>
+                  <div class="tit">顺金：</div>
+                  <div>三张花色相同的顺子；</div>
                 </div>
               </li>
               <li>
                 <div class="how-to-play-code">
-                  <em class="game-chess-card card-0 pk54"></em>
-                  <em class="game-chess-card card-1 pk51"></em>
-                  <em class="game-chess-card card-2 pk47"></em>
-                  <em class="game-chess-card card-3 pk49"></em>
-                  <em class="game-chess-card card-4 pk43"></em>
+                  <em class="game-chess-card rbcard-0 pk4"></em>
+                  <em class="game-chess-card rbcard-1 pk24"></em>
+                  <em class="game-chess-card rbcard-2 pk36"></em>
                 </div>
                 <div class="how-to-play-info">
-                  <div class="tit">四花牛：</div>
-                  <div>五张牌除了一张10，其余四张为JQK的组合；</div>
+                  <div class="tit">金花：</div>
+                  <div>三张花色相同的牌</div>
                 </div>
               </li>
               <li>
                 <div class="how-to-play-code">
-                  <em class="game-chess-card card-0 pk13"></em>
-                  <em class="game-chess-card card-1 pk28"></em>
-                  <em class="game-chess-card card-2 pk42"></em>
-                  <em class="game-chess-card card-3 pk44"></em>
-                  <em class="game-chess-card card-4 pk48"></em>
+                  <em class="game-chess-card rbcard-0 pk15"></em>
+                  <em class="game-chess-card rbcard-1 pk17"></em>
+                  <em class="game-chess-card rbcard-2 pk20"></em>
                 </div>
                 <div class="how-to-play-info">
-                  <div class="tit">牛牛：</div>
-                  <div>五张牌中任意三张相加为10的倍数，剩余两张相加也为10的倍数；</div>
+                  <div class="tit">顺子：</div>
+                  <div>三张不同花色的连牌；</div>
                 </div>
               </li>
               <li>
                 <div class="how-to-play-code">
-                  <em class="game-chess-card card-0 pk14"></em>
-                  <em class="game-chess-card card-1 pk28"></em>
-                  <em class="game-chess-card card-2 pk43"></em>
-                  <em class="game-chess-card card-3 pk5"></em>
-                  <em class="game-chess-card card-4 pk8"></em>
+                  <em class="game-chess-card rbcard-0 pk4"></em>
+                  <em class="game-chess-card rbcard-1 pk5"></em>
+                  <em class="game-chess-card rbcard-2 pk8"></em>
                 </div>
                 <div class="how-to-play-info">
-                  <div class="tit">牛一至牛九：</div>
-                  <div>五张牌中任意三张相加为10的倍数，剩余两张相加取个位数，个位数是几就是牛几；</div>
+                  <div class="tit">对子：</div>
+                  <div>两张点数一样的牌；</div>
                 </div>
               </li>
               <li>
                 <div class="how-to-play-code">
-                  <em class="game-chess-card card-0 pk33"></em>
-                  <em class="game-chess-card card-1 pk32"></em>
-                  <em class="game-chess-card card-2 pk28"></em>
-                  <em class="game-chess-card card-3 pk41"></em>
-                  <em class="game-chess-card card-4 pk47"></em>
+                  <em class="game-chess-card rbcard-0 pk21"></em>
+                  <em class="game-chess-card rbcard-1 pk40"></em>
+                  <em class="game-chess-card rbcard-2 pk54"></em>
                 </div>
                 <div class="how-to-play-info">
-                  <div class="tit">无牛：</div>
-                  <div>五张牌中任意三张相加不为10的倍数；</div>
+                  <div class="tit">单张：</div>
+                  <div>三张不同的牌；</div>
                 </div>
               </li>
             </ul>
@@ -136,53 +127,46 @@
       :size=".25"
     ></chi-per>
     <div>
-      <div class="cont">
-        <div class="zhuang">
-          <div class="name">
-            庄
-            <div class="p">
-              <div class="xs"></div>
-            </div>
-          </div>
-        </div>
-        <div class="x1">
-          <div class="name">
-            闲1
-            <div class="p">
-              <div class="xs"></div>
-            </div>
-          </div>
-        </div>
-        <div class="x2">
-          <div class="name">
-            闲2
-            <div class="p">
-              <div class="xs"></div>
-            </div>
-          </div>
-        </div>
-        <div class="x3">
-          <div class="name">
-            闲3
-            <div class="p">
-              <div class="xs"></div>
-            </div>
-          </div>
-        </div>
-      </div>
       <div class="paiqu">
-        <puker-v
+        <div data-v-e1fcc0e8 class="redblackwar-chess-card">
+          <!-- <div data-v-e1fcc0e8 class="game-chess-img redblackwar-top-bg"></div> -->
+          <div data-v-e1fcc0e8 class="redblackwar-top-left">
+            <div
+              data-v-e1fcc0e8
+              class="redblack-outsildebox redblack-queen queen-cry queen-waitting"
+            >
+              <div data-v-e1fcc0e8 class="redblack-queen-righthair whole"></div>
+              <div data-v-e1fcc0e8 class="redblack-queen-lefthair whole"></div>
+              <div data-v-e1fcc0e8 class="redblack-queen-allbody whole"></div>
+              <div data-v-e1fcc0e8 class="redblack-queen-rightside whole"></div>
+              <div data-v-e1fcc0e8 class="redblack-queen-leftside whole"></div>
+              <div data-v-e1fcc0e8 class="redblack-queen-head whole"></div>
+            </div>
+          </div>
+          <div data-v-e1fcc0e8 class="redblackwar-top-right">
+            <div data-v-e1fcc0e8 class="redblack-outsildebox redblack-king king-cry king-waitting">
+              <div data-v-e1fcc0e8 class="redblack-kingwin-leftcloth whole"></div>
+              <div data-v-e1fcc0e8 class="redblack-kingwin-foot whole"></div>
+              <div data-v-e1fcc0e8 class="redblack-kingwin-rightcloth whole"></div>
+              <div data-v-e1fcc0e8 class="redblack-kingwin-lefthand whole"></div>
+              <div data-v-e1fcc0e8 class="redblack-kingwin-allbody whole"></div>
+              <div data-v-e1fcc0e8 class="redblack-kingwin-head whole"></div>
+              <div data-v-e1fcc0e8 class="redblack-kingwin-righthand whole"></div>
+            </div>
+          </div>
+        </div>
+        <!-- <puker-v
           class="pk"
           v-for="(item,index) in puklist"
           :key="index"
           :puk="item"
           :isbface="isfz(t,item.type,fz)"
-        ></puker-v>
+        ></puker-v>-->
       </div>
     </div>
     <div class="d">
       <div class="desk">
-        <div class="pl">
+        <!-- <div class="pl">
           <div class="count">本局总下注数:0</div>
         </div>
         <div class="jia">
@@ -207,7 +191,7 @@
               <div class="w2"></div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
     <lotte-r :cpl="cpl" class="cpr" @chek="ck"></lotte-r>
@@ -364,7 +348,7 @@ export default {
     //加载文件列表
     loader.loadManifest(
       [
-        { id: "bg", src: "/mp3/bg.mp3" },
+        { id: "bg", src: "/rbwar/bg.mp3" },
         { id: "daojishi", src: "/mp3/daojishi.mp3" },
         { id: "dingdong", src: "/mp3/dingdong.wav" },
         { id: "xiazhu", src: "/mp3/xiazhu.mp3" },
@@ -545,11 +529,11 @@ export default {
         });
       });
     },
-    close(){
-      this.ishow=!this.ishow
+    close() {
+      this.ishow = !this.ishow;
     },
-    play(){
-      createjs.Sound.stop()
+    play() {
+      createjs.Sound.stop();
     },
     init() {
       this.$socket.emit("niuniu", {
@@ -573,67 +557,67 @@ export default {
         this.type = "投注中";
         console.log("投注");
       }
-      this.timer = setInterval(() => {
-        this.start--;
-        this.djs--;
-        if (this.start > 14) {
-          this.type = "投注中";
-        } else {
-          this.type = "开奖中";
-        }
-        if (this.start == 3) {
-          this.shoupai();
-          setTimeout(() => {
-            this.fapai();
-            createjs.Sound.play("xiazhu");
-            this.str = "开始下注";
-            this.jishil = true;
-          }, 2000);
-          if (this.start % 15 == 0 && this.start != 15) {
-          }
-        } else {
-          this.str = null;
-          this.jishil = false;
-        }
-        if (this.start == 18) {
-          createjs.Sound.play("daojishi");
-          this.str = "3";
-          this.jishil = true;
-        }
-        if (this.start == 17) {
-          createjs.Sound.play("daojishi");
-          this.str = "2";
-          this.jishil = true;
-        }
-        if (this.start == 16) {
-          createjs.Sound.play("daojishi");
-          this.str = "1";
-          this.jishil = true;
-          // this.getdata().then(x => {
-          //   console.log(x);
-          //   this.playdate = parseInt(x.playdate);
-          //   this.puklist = JSON.parse(x.playnum);
-          // });
-        }
-        if (this.start == 14) {
-        }
-        if (this.start == 15) {
-          createjs.Sound.play("tingzhu");
-          this.str = "停止下注";
-          this.jishil = true;
-        }
-        if (this.start == 14) {
-          setTimeout(() => {
-            this.kaipai();
-          }, 500);
-        }
-        if (this.start <= 0) {
-          this.start = 30;
-        }
-        if (this.djs == 0) {
-          this.djs = 15;
-        }
-      }, 1000);
+      // this.timer = setInterval(() => {
+      //   this.start--;
+      //   this.djs--;
+      //   if (this.start > 14) {
+      //     this.type = "投注中";
+      //   } else {
+      //     this.type = "开奖中";
+      //   }
+      //   if (this.start == 3) {
+      //     this.shoupai();
+      //     setTimeout(() => {
+      //       this.fapai();
+      //       createjs.Sound.play("xiazhu");
+      //       this.str = "开始下注";
+      //       this.jishil = true;
+      //     }, 2000);
+      //     if (this.start % 15 == 0 && this.start != 15) {
+      //     }
+      //   } else {
+      //     this.str = null;
+      //     this.jishil = false;
+      //   }
+      //   if (this.start == 18) {
+      //     createjs.Sound.play("daojishi");
+      //     this.str = "3";
+      //     this.jishil = true;
+      //   }
+      //   if (this.start == 17) {
+      //     createjs.Sound.play("daojishi");
+      //     this.str = "2";
+      //     this.jishil = true;
+      //   }
+      //   if (this.start == 16) {
+      //     createjs.Sound.play("daojishi");
+      //     this.str = "1";
+      //     this.jishil = true;
+      //     // this.getdata().then(x => {
+      //     //   console.log(x);
+      //     //   this.playdate = parseInt(x.playdate);
+      //     //   this.puklist = JSON.parse(x.playnum);
+      //     // });
+      //   }
+      //   if (this.start == 14) {
+      //   }
+      //   if (this.start == 15) {
+      //     createjs.Sound.play("tingzhu");
+      //     this.str = "停止下注";
+      //     this.jishil = true;
+      //   }
+      //   if (this.start == 14) {
+      //     setTimeout(() => {
+      //       this.kaipai();
+      //     }, 500);
+      //   }
+      //   if (this.start <= 0) {
+      //     this.start = 30;
+      //   }
+      //   if (this.djs == 0) {
+      //     this.djs = 15;
+      //   }
+      // }, 1000);
     },
     reback() {
       createjs.Sound.play("lotter");
@@ -1072,6 +1056,17 @@ export default {
     background-position: center 3rem;
   }
 }
+.redblackwar-chess-card{
+display: flex;
+justify-content: space-between;
+}
+.redblackwar-top-right{
+  position: relative;
+}
+.king-waitting{
+  position: absolute;
+  right: -72px;
+}
 @keyframes sun {
   0% {
     transform: rotate(0deg);
@@ -1096,18 +1091,18 @@ export default {
   right: 0;
   bottom: 0;
   z-index: 99999999999999999;
-  background: url(https://images.imags-google.com/game/nn-progress.jpg);
+  background: url(https://images.imags-google.com/game/rb-progress.jpg);
   background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
   p {
     transform: translateY(155px);
-    letter-spacing: 5px;
     font-size: 25px;
+    letter-spacing: 5px;
     color: gold;
     text-shadow: 5px 5px 3px black;
-    font-weight: bolder;
+    font-weight: 500;
     text-align: center;
   }
 }
@@ -1141,7 +1136,7 @@ export default {
 .paiqu {
   position: relative;
   // top:17px;
-  // height: 50px;
+  height: 80px;
   .pk {
     // transition: all 0.5s;
     position: absolute;
@@ -1179,7 +1174,7 @@ export default {
   display: flex;
   flex-flow: column;
   overflow: scroll;
-  background: url(https://images.imags-google.com/game/nn100bg.jpg);
+  background: url(https://images.imags-google.com/game/redBlackWar.jpg);
   position: absolute;
   bottom: 0;
   z-index: 999999999;
@@ -1191,11 +1186,11 @@ export default {
 }
 .d {
   flex: 1;
-  margin-top: 47px;
+  margin-top: -20px;
   .desk {
     width: 100%;
     height: 108%;
-    background: url(https://images.imags-google.com/game/nn100bg2.png);
+    background: url(https://images.imags-google.com/game/redblackbg.png);
     background-size: 100% 100vh;
     background-position: 0 -103px;
   }
@@ -1323,9 +1318,9 @@ export default {
   letter-spacing: 5px;
 }
 //-------------------------
-.van-popup{
-  z-index: 9999999!important;
-background: transparent!important;
+.van-popup {
+  z-index: 9999999 !important;
+  background: transparent !important;
 }
 .how-to-play {
   font-size: 26px;
@@ -1333,4 +1328,6 @@ background: transparent!important;
   line-height: 23px;
   font-weight: 600;
 }
+
+
 </style>

@@ -4,10 +4,10 @@
     <div class="qipailist1">
       <router-link to="/niuniu"></router-link>
     </div>
-    <!-- <div class="qipailist2">
-      <router-link to="/"></router-link>
+     <div class="qipailist2">
+      <router-link to="/rbwar"></router-link>
     </div>
-    <div class="qipailist3">
+  <!--  <div class="qipailist3">
       <router-link to="/"></router-link>
     </div>
     <div class="qipailist4">

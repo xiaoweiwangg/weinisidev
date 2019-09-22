@@ -1,14 +1,47 @@
 <template>
   <div>
-    <div class="balance">
+    <!-- <div class="balance">
       <div class="reback" @click="reback"></div>
       <div class="bal">余额:{{bl}}元</div>
       <div class="ent" @click="ent"></div>
-    </div>
+    </div>-->
+    <footer data-v-e1fcc0e8 class="game-chess-img chess-foot">
+      <div class="game-foot-btn">
+        <div class="resultMoney win" style="display: none;">
+          <em class="games-font set-yellow-slide set-yellow-slide-me">+ -1</em>
+        </div>
+        <div class="game-chess-img game-foot-left not" @click="reback"></div>
+        <div class="game-foot-middle">
+          <div class="game-chess-img game-foot-money">
+            <em class="game-chess-img foot-money-icon"></em>
+            <em class="game-chess-img foot-add-btn" @click="fom"></em>
+            <span id="self" class="games-font">{{balance}}</span>
+          </div>
+        </div>
+        <div class="game-chess-img game-foot-right not" @click="ent">
+          <button
+            class="van-button van-button--default van-button--mini van-button--plain van-button--loading van-button--unclickable"
+            style="display: none;"
+          >
+            <div
+              class="van-loading van-loading--circular van-loading"
+              style="color: rgb(201, 201, 201); width: 20px; height: 20px;"
+            >
+              <span class="van-loading__spinner van-loading__spinner--circular">
+                <svg viewBox="25 25 50 50" class="van-loading__circular">
+                  <circle cx="50" cy="50" r="20" fill="none" />
+                </svg>
+              </span>
+            </div>
+          </button>
+        </div>
+      </div>
+    </footer>
   </div>
 </template>
 
 <script>
+import $ from "jquery";
 export default {
   props: ["pr", "start"],
   computed: {
@@ -26,6 +59,9 @@ export default {
     this.getbalance();
   },
   methods: {
+    fom() {
+      this.$router.push("/wechatpay");
+    },
     getbalance() {
       this.$socket.emit("user", {
         username: JSON.parse(sessionStorage.getItem("userinfo")).name
@@ -50,42 +86,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.balance {
-  display: flex;
-  justify-content: space-between;
-  height: 36px;
-  border: 1px solid gray;
-  z-index: 88888;
-  position: absolute;
-  bottom: -7px;
-  width: 100%;
-  background: url(https://images.imags-google.com/game/nnicon.png?1);
-  background-size: 100vw auto;
-  .reback {
-    width: 103px;
-    height: 33px;
-    background: url(https://images.imags-google.com/game/nnicon.png?1);
-    background-size: 100vw auto;
-    background-position: 103% 34.5%;
-  }
-  .ent {
-    width: 103px;
-    height: 33px;
-    background: url(https://images.imags-google.com/game/nnicon.png?1);
-    background-size: 100vw auto;
-    background-position: 116% 38.5%;
-  }
-  .bal {
-    // flex:1;
-    font-size: 15px;
-    text-align: center;
-    line-height: 33px;
-    color: honeydew;
-    font-weight: 500;
-    width: 112px;
-    background: url(https://images.imags-google.com/game/nnicon.png?1);
-    background-size: 100vw auto;
-    background-position: 59% 8.2%;
-  }
-}
 </style>
