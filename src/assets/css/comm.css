@@ -12850,11 +12850,6 @@ to {-webkit-transform: rotate(0deg);transform: rotate(0deg);-webkit-transform-or
               transform: rotate3d(0, 0, 1, 3deg);
   }
   }
-  /* ggstyle */
-@font-face {
-  font-family: GamesFont;
-  src: url(/static/font/fzcjh.ttf);
-}
 .ceshidonghua {
   position: fixed;
   z-index: 1000;

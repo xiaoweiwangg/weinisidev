@@ -166,6 +166,56 @@
     </div>
     <div class="d">
       <div class="desk">
+        <div data-v-e1fcc0e8 id="bettingBox" class="redblackwar-betting">
+          <div data-v-e1fcc0e8>
+            <div data-v-e1fcc0e8 class="opacity-box redblackwar-red tl games-font">
+              <div data-v-e1fcc0e8>
+                <em data-v-e1fcc0e8 class="set-yellow">21222</em>
+              </div>
+              <div data-v-e1fcc0e8 id="content1">
+                <span data-v-e1fcc0e8>红方</span>
+                <span data-v-e1fcc0e8>×</span>
+                <span data-v-e1fcc0e8>1.970</span>
+              </div>
+              <div data-v-e1fcc0e8 class="slide-color">
+                <em data-v-e1fcc0e8 class="set-red-black">0</em>
+              </div>
+            </div>
+            <div data-v-e1fcc0e8 class="opacity-box redblackwar-black tr games-font">
+              <div data-v-e1fcc0e8>
+                <em data-v-e1fcc0e8 class="set-yellow">9545</em>
+              </div>
+              <div data-v-e1fcc0e8 id="content2">
+                <span data-v-e1fcc0e8>黑方</span>
+                <span data-v-e1fcc0e8>×</span>
+                <span data-v-e1fcc0e8>1.970</span>
+              </div>
+              <div data-v-e1fcc0e8 class="slide-color">
+                <em data-v-e1fcc0e8 class="set-red-black">0</em>
+              </div>
+            </div>
+          </div>
+          <div data-v-e1fcc0e8>
+            <div data-v-e1fcc0e8 class="opacity-box redblackwar-hit bl games-font">
+              <div data-v-e1fcc0e8>
+                <em data-v-e1fcc0e8 class="set-yellow">2661</em>
+              </div>
+              <div data-v-e1fcc0e8 id="content3">
+                <span data-v-e1fcc0e8>幸运一击</span>
+                <span data-v-e1fcc0e8 class="redblack-span">
+                  <i data-v-e1fcc0e8>豹子×14.775</i>
+                  <i data-v-e1fcc0e8>顺金×9.850</i>
+                  <i data-v-e1fcc0e8>金花×3.940</i>
+                  <i data-v-e1fcc0e8>顺子×2.955</i>
+                  <i data-v-e1fcc0e8>对子(9-A)×1.970</i>
+                </span>
+              </div>
+              <div data-v-e1fcc0e8 class="slide-color">
+                <em data-v-e1fcc0e8 class="set-red-black-tran">0</em>
+              </div>
+            </div>
+          </div>
+        </div>
         <!-- <div class="pl">
           <div class="count">本局总下注数:0</div>
         </div>
@@ -191,7 +241,7 @@
               <div class="w2"></div>
             </div>
           </div>
-        </div> -->
+        </div>-->
       </div>
     </div>
     <lotte-r :cpl="cpl" class="cpr" @chek="ck"></lotte-r>
@@ -1056,14 +1106,14 @@ export default {
     background-position: center 3rem;
   }
 }
-.redblackwar-chess-card{
-display: flex;
-justify-content: space-between;
+.redblackwar-chess-card {
+  display: flex;
+  justify-content: space-between;
 }
-.redblackwar-top-right{
+.redblackwar-top-right {
   position: relative;
 }
-.king-waitting{
+.king-waitting {
   position: absolute;
   right: -72px;
 }
@@ -1328,6 +1378,6 @@ justify-content: space-between;
   line-height: 23px;
   font-weight: 600;
 }
-
+// haha
 
 </style>
