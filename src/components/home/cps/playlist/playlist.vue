@@ -269,7 +269,7 @@ export default {
     color: rgb(235, 57, 45);
   }
   .name {
-    font-size: 13px;
+    font-size: 11px;
     font-weight: 600;
     color: #585151;
     margin: 8px auto 2px;

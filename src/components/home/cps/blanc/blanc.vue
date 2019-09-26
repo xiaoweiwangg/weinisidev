@@ -1,5 +1,6 @@
 <template>
   <div class="gg">
+    <van-popup v-model="show">内容</van-popup>
     <van-swipe indicator-color="transparent" :autoplay="2500" style="height:30px;" vertical>
       <van-swipe-item v-for="(item, index) in gglist" :key="index">
         {{
@@ -19,6 +20,7 @@ export default {
   name: "BlancV",
   data() {
     return {
+      show :false,
       gglist: null
     };
   },

@@ -19,6 +19,10 @@ export default {
     SwiPer,
     BlancV,
     PlayList
+  },
+  data(){
+    return {
+    }
   }
 };
 </script>
