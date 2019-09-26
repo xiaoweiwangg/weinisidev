@@ -1,5 +1,5 @@
 <template>
-  <div class="bd">
+  <div class="bd" id="qipai">
     <t-header :l="true" :t="'棋 牌 大 厅'"></t-header>
     <div class="qipailist1">
       <router-link to="/niuniu"></router-link>
@@ -16,13 +16,15 @@
     <div class="qipailist4">
       <router-link to="/baijiale"></router-link>
     </div>
-  <!--    
     <div class="qipailist6">
-      <router-link to="/"></router-link>
-    </div> -->
+      <router-link to="/saibao"></router-link> 
+    </div> 
+  <!--
+       
     <van-popup v-model="show">
         <p>即将开放,敬请期待!</p>
     </van-popup>
+     -->
   </div>
 </template>
 
@@ -42,7 +44,7 @@ export default {
   name: "QiPai",
   mounted(){
     createjs.Sound.registerSound("/rbwar/maopao.mp3", "maopao");
-$("a").on("click",function(){
+$("#qipai a").on("click",function(){
   createjs.Sound.play("maopao")
 })
       setTimeout(() => {

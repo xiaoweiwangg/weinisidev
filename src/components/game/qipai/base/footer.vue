@@ -66,10 +66,10 @@ export default {
       this.$socket.emit("user", {
         username: JSON.parse(sessionStorage.getItem("userinfo")).name
       });
-      this.sockets.subscribe("balance", data => {
-        this.balance = data[0].balance;
-        this.$store.commit("setbalance", this.balance);
-      });
+      // this.sockets.subscribe("balance", data => {
+      //   this.balance = data[0].balance;
+      //   this.$store.commit("setbalance", this.balance);
+      // });
     },
     reback() {
       this.$emit("reback");

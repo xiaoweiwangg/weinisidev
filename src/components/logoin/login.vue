@@ -15,6 +15,14 @@
           placeholder="请输入密码"
           required
         />
+        <div class="code">
+          <div class="img">
+            <img src="http://localhost/img" alt="验证码" />
+          </div>
+          <div class="coder">
+            <van-field v-model="code" placeholder="请输入验证码" />
+          </div>
+        </div>
         <div class="sub">
           <van-button
             :loading="load"
@@ -33,6 +41,7 @@
 </template>
 
 <script>
+import $ from "jquery";
 import { Button } from "vant";
 import { Field } from "vant";
 import { Cell, CellGroup } from "vant";
@@ -52,10 +61,15 @@ export default {
       load: false,
       username: "",
       password: "",
-      f: false
+      f: false,
+      code:""
     };
   },
   mounted() {
+    this.getimg();
+    $("img").on("click", () => {
+      this.getimg();
+    });
     window.addEventListener("resize", () => {
       // alert(1)
       if (this.f) {
@@ -64,11 +78,15 @@ export default {
     });
   },
   methods: {
+    getimg() {
+      $("img").attr("src", "http://localhost/img?" + Math.random());
+    },
     sub() {
       this.load = true;
       let userinfo = {};
       userinfo.username = this.username;
       userinfo.password = this.password;
+      userinfo.code=this.code
       this.axios.post("/fuser", userinfo).then(x => {
         if (x.data.msg == "ok") {
           sessionStorage.setItem("token", x.data.token);
@@ -88,20 +106,32 @@ export default {
             this.$dialog
               .confirm({
                 title: "棋牌游戏百人牛牛已推出",
-                message: "多样玩法,老少皆宜,真人对战,赔率更高,赶快加入游戏体验吧"
+                message:
+                  "多样玩法,老少皆宜,真人对战,赔率更高,赶快加入游戏体验吧"
               })
               .then(x => {
                 this.$router.push("/qipai");
               })
               .catch(() => {
                 // on cancel
-              this.load = false;
-              this.$router.push("/");
+                this.load = false;
+                this.$router.push("/");
               });
           }, 500);
 
           setInterval(() => {}, 1000);
-        } else {
+        } else if (x.data.msg == "codeno"){
+          this.$notify({
+            message: "验证码错误",
+            duration: 1000,
+            background: "#000"
+          });
+          this.getimg()
+          setTimeout(() => {
+            this.load = false;
+          }, 500);
+        }else{
+          this.getimg()
           this.$notify({
             message: "用户名或密码错误",
             duration: 1000,
@@ -118,6 +148,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.code {
+  display: flex;
+}
 .tx {
   text-align: center;
   padding: 10px;

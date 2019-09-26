@@ -26,11 +26,28 @@ x        placeholder="请输入用户名"
         :error-message="pwem"
       />
       <van-field
+        v-model.trim="realname"
+        required
+        clearable
+        :error-message="nem"
+        label="真实姓名"
+x        placeholder="虚假信息将会影响正常出款"
+      />
+      <van-field
         v-model.trim="phone"
         label="手机号"
         placeholder="请输入手机号"
         :error-message="pem"
       />
+      
+      <div class="code">
+          <div class="img">
+            <img src="http://localhost/img" alt="验证码" />
+          </div>
+          <div class="coder">
+            <van-field v-model="code" placeholder="请输入验证码" />
+          </div>
+        </div>
       <div class="sub">
         <van-button :loading="load" @click="sub" square type="primary"
           >注 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 册</van-button
@@ -41,6 +58,7 @@ x        placeholder="请输入用户名"
 </template>
 
 <script>
+import $ from "jquery";
 import { Button } from "vant";
 import { Notify } from "vant";
 import { Field } from "vant";
@@ -66,11 +84,21 @@ export default {
       phone: "",
       pem: "",
       nem: "",
-      pwem: ""
+      pwem: "",
+      code:"",
+      realname
     };
   },
-  mounted() {},
+  mounted() {
+    this.getimg();
+    $("img").on("click", () => {
+      this.getimg();
+    });
+  },
   methods: {
+    getimg() {
+      $("img").attr("src", "http://localhost/img?" + Math.random());
+    },
     sub() {
       if (this.name.length < 8) {
         this.nem = "用户名不能少于8位";
@@ -84,18 +112,37 @@ export default {
         this.pem = "手机号格式错误";
         return;
       }
+      if(this.password.length<6){
+        this.pwem="密码长度不能低于6位"
+        return
+      }
+      if(!isNaN(this.password)){
+        this.pwem="密码必须包含英文字母"
+        return
+      }
       let userinfo = {};
+      userinfo.code=this.code
       userinfo.name = this.name;
       userinfo.password = this.password;
       userinfo.phone = this.phone;
+      userinfo.realname=this.realname;
       this.axios.post("/inuser", userinfo).then(x => {
         if (x.data.msg == "no") {
+          this.getimg()
           this.$notify({
             message: "用户名已存在!",
             duration: 2000,
             background: "#000"
           });
-        } else {
+        } else if (x.data.msg == "codeno"){
+           this.$notify({
+            message: "验证码错误!",
+            duration: 500,
+            background: "#000"
+          });
+          this.getimg()
+        }else
+        {
           sessionStorage.setItem("islogoin", "true");
           sessionStorage.setItem("token", x.data.token);
           sessionStorage.setItem("userinfo", JSON.stringify(x.data.userinfo));
@@ -115,6 +162,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.code {
+  display: flex;
+}
 .van-popup {
   height: 60px;
   font-size: 25px;

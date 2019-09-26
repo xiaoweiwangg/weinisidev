@@ -169,14 +169,21 @@ export default {
         $(".item")
           .eq(i)
           .css({
-            borderColor: "#ccc #ccc #ccc #ccc"
+            borderColor: "#eee #eee #eee #eee"
           });
       }
-      if (i>3) {
+      if(i==2){
+       $(".item")
+          .eq(i)
+          .css({
+            borderRight: "1px solid #eee"
+          }); 
+      }
+      if (i>2) {
         $(".item")
           .eq(i)
           .css({
-            borderColor: "transparent #ccc #ccc ransparent"
+            borderColor: "transparent #eee #eee transparent"
           });
       }
     }
@@ -221,7 +228,7 @@ export default {
   flex-flow: column;
   text-align: center;
   border: 0.1px solid;
-  border-color: #ccc transparent #ccc transparent;
+  border-color: #eee transparent #eee transparent;
   padding: 8px;
   // margin: 1px;
   .iconfont {
