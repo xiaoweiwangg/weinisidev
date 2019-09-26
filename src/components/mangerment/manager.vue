@@ -3,7 +3,7 @@
     <t-header :t="'个 人 中 心'"></t-header>
     <div class="user">
       <div class="ui">
-        <span class="iconfont icon-yonghutouxiang"></span>
+        <div class="img"><img :src="'/image/'+userinfo.img" alt="" height="100" width="100"></div>
       </div>
       <div class="msg">
         <div class="name">
