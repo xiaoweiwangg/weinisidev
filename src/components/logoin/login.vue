@@ -17,7 +17,7 @@
         />
         <div class="code">
           <div class="img">
-            <img src="http://localhost/img" alt="验证码" />
+            <img src="/img" alt="验证码" />
           </div>
           <div class="coder">
             <van-field v-model="code" placeholder="请输入验证码" />
@@ -79,7 +79,7 @@ export default {
   },
   methods: {
     getimg() {
-      $("img").attr("src", "http://localhost/img?" + Math.random());
+      $("img").attr("src", "/img?" + Math.random());
     },
     sub() {
       this.load = true;
@@ -87,7 +87,7 @@ export default {
       userinfo.username = this.username;
       userinfo.password = this.password;
       userinfo.code=this.code
-      this.axios.post("/fuser", userinfo).then(x => {
+      this.axios.post("http://flcvip.net/fuser", userinfo).then(x => {
         if (x.data.msg == "ok") {
           sessionStorage.setItem("token", x.data.token);
           sessionStorage.setItem("islogoin", "true");

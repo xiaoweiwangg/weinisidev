@@ -28,9 +28,9 @@ Vue.use(Field);
 Vue.use(
   new VueSocketIO({
     // debug: true,
-    // 服务器端地址
-    connection: "localhost:88"
-    // connection: "http://23.88.142.75:88"
+    // // 服务器端地址
+    // connection: "localhost:88"
+    connection: "http://23.88.142.75:88"
     // vuex: {},
   })
 );

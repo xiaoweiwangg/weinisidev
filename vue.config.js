@@ -3,6 +3,6 @@ module.exports = {
   assetsDir:"./",
   publicPath:'./',
   devServer: {
-    proxy: "http://localhost:80/"
+    proxy: "http://localhost:8088/"
   }
 };

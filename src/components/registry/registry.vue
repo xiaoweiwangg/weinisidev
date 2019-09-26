@@ -42,7 +42,7 @@ x        placeholder="虚假信息将会影响正常出款"
       
       <div class="code">
           <div class="img">
-            <img src="http://localhost/img" alt="验证码" />
+            <img src="/img" alt="验证码" />
           </div>
           <div class="coder">
             <van-field v-model="code" placeholder="请输入验证码" />
@@ -86,7 +86,7 @@ export default {
       nem: "",
       pwem: "",
       code:"",
-      realname
+      realname:"",
     };
   },
   mounted() {
@@ -97,7 +97,7 @@ export default {
   },
   methods: {
     getimg() {
-      $("img").attr("src", "http://localhost/img?" + Math.random());
+      $("img").attr("src", "/img?" + Math.random());
     },
     sub() {
       if (this.name.length < 8) {
