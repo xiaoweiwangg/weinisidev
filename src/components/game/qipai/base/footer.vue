@@ -79,7 +79,7 @@ export default {
       this.$emit("sub");
       setTimeout(() => {
         this.getbalance();
-      }, 500);
+      }, 100);
     }
   }
 };

@@ -193,7 +193,6 @@
           </div>
           <div class="jj" v-for="(it,index) in vs" :key="index">
             <div class="sj" @click="add(index,ix)" v-for="(i,ix) in it" :key="ix">
-              <div class="zhushu">0</div>
               <div class="det">
                 <p>{{i.type|fname}}</p>
                 <p>x</p>
@@ -366,6 +365,8 @@ export default {
       [
         { id: "bg", src: "/mp3/bg.mp3" },
         { id: "daojishi", src: "/mp3/daojishi.mp3" },
+        { id: "chenggong", src: "/rbwar/chenggong.mp3" },
+        { id: "chexiao", src: "/rbwar/chexiao.mp3" },
         { id: "dingdong", src: "/mp3/dingdong.wav" },
         { id: "xiazhu", src: "/mp3/xiazhu.mp3" },
         { id: "kaipai", src: "/mp3/kaipai.mp3" },
@@ -636,7 +637,7 @@ export default {
       }, 1000);
     },
     reback() {
-      createjs.Sound.play("lotter");
+      // createjs.Sound.play("chexiao");
       this.vs.map(x => {
         x.map(v => (v.playnum = 0));
       });
@@ -666,9 +667,7 @@ export default {
             message: "您的余额不足,请充值"
           });
           Toast.fail("订单提交失败");
-          setTimeout(() => {
-            createjs.Sound.play("dingdong");
-          }, 100);
+            createjs.Sound.play("chenggong");
         } else if (x.data.msg == "ok") {
           Toast.success("订单提交成功!");
           this.price = 0;
@@ -795,8 +794,8 @@ export default {
             .animate(
               {
                 opacity: 0.2,
-                top: $(".zhuang").offset().top - 33 + "px",
-                left: $(".zhuang").offset().left - 26 + "px"
+                top: $("#banker").offset().top - 33 + "px",
+                left: $("#banker").offset().left - 26 + "px"
               },
               950,
               function() {
@@ -965,7 +964,7 @@ export default {
                 top: "0px",
                 left: b + c * ($(window).width() * 0.028) + "px"
               },
-              400,
+              300,
               function() {}
             );
         }, c * 80);
@@ -1037,7 +1036,7 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 999999;
+  z-index: 999999999999999999999999999;
 }
 .w {
   position: absolute;
@@ -1045,15 +1044,14 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
-  border: 1px dashed red;
   .win {
-    background: url(https://images.imags-google.com/game/brnnJackWin.png);
-    background-size: 2.8rem;
-    background-position: center 4.5rem;
+    background: url("./../../../../assets/img/sun.png");
+    background-size: 100%;
+    background-position: center center;
     position: absolute;
     height: 108%;
     width: 100%;
-    // animation: sun 3s linear infinite;
+    animation: sun 3s linear infinite;
   }
   .sun {
     position: absolute;
@@ -1190,7 +1188,7 @@ export default {
     height: 108%;
     background: url(https://images.imags-google.com/game/nn100bg2.png);
     background-size: 100% 100vh;
-    background-position: 0 -103px;
+    background-position: 0 -50px;
   }
 }
 .cont {
@@ -1220,7 +1218,7 @@ export default {
 .desk {
   border: 1px solid transparent;
   .pl {
-    margin-top: 14.5%;
+    margin-top: 28.5%;
     display: flex;
     .count {
       color: white;
@@ -1255,15 +1253,19 @@ export default {
     flex-flow: wrap;
     justify-content: center;
     padding: 0 20px;
-    position: relative;
+        position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 146px;
     .sj {
       position: relative;
       display: flex;
       flex-flow: column;
       align-items: space-around;
-      width: 33%;
-      height: 83px;
-      border: 1px dashed rgb(255, 255, 255);
+      width: 27%;
+      height: 74px;
+      filter: brightness(1.1);
+      // border: 1px dashed rgb(255, 255, 255);
       border-radius: 9px;
       margin: 15px 5px 0 5px;
       background-color: rgba($color: #000000, $alpha: 0.2);
@@ -1279,7 +1281,7 @@ export default {
         }
       }
       .zhushu {
-        color: #f9c970;
+        color: #ce5855;
         text-align: center;
         height: 16px;
         font-size: 13px;
@@ -1289,7 +1291,9 @@ export default {
         color: #f9c970;
         text-align: center;
         height: 16px;
-        line-height: 16px;
+        line-height: 16px; 
+        border-bottom-left-radius: 9px;
+        border-bottom-right-radius: 9px;
       }
     }
   }

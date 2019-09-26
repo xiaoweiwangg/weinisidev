@@ -7,15 +7,16 @@
      <div class="qipailist2">
       <router-link to="/rbwar"></router-link>
     </div>
-  <!--  <div class="qipailist3">
-      <router-link to="/"></router-link>
-    </div>
-    <div class="qipailist4">
-      <router-link to="/"></router-link>
+  <div class="qipailist3">
+      <router-link to="/longhu"></router-link>
     </div>
     <div class="qipailist5">
-      <router-link to="/benchibmw"></router-link>
+      <router-link to="/benchi"></router-link>
     </div>
+    <div class="qipailist4">
+      <router-link to="/baijiale"></router-link>
+    </div>
+  <!--    
     <div class="qipailist6">
       <router-link to="/"></router-link>
     </div> -->
@@ -26,6 +27,7 @@
 </template>
 
 <script>
+import $ from "jquery"
 import THeader from "../../home/cps/header/header";
 import { setTimeout } from 'timers';
 export default {
@@ -39,6 +41,10 @@ export default {
   },
   name: "QiPai",
   mounted(){
+    createjs.Sound.registerSound("/rbwar/maopao.mp3", "maopao");
+$("a").on("click",function(){
+  createjs.Sound.play("maopao")
+})
       setTimeout(() => {
           // this.show=true
       }, 500);

@@ -215,65 +215,14 @@
       </div>
     </div>
     <div class="d">
-      <div class="desk"></div>
+      <div class="desk">
+      </div>
     </div>
     <lotte-r :cpl="cpl" class="cpr" @chek="ck"></lotte-r>
     <Foo-ter @reback="reback" @sub="sub" :pr="price" :start="start"></Foo-ter>
     <div class="timerdjs" v-show="jishil">{{str}}</div>
-    <div data-v-e1fcc0e8 id="bettingBox" class="redblackwar-betting">
-      <div data-v-e1fcc0e8>
-        <div data-v-e1fcc0e8 class="opacity-box redblackwar-red tl games-font vitem">
-          <div data-v-e1fcc0e8 class="yet">
-            <em data-v-e1fcc0e8>0</em>
-          </div>
-          <div data-v-e1fcc0e8 id="content1" @click="kaipai">
-            <span data-v-e1fcc0e8>红方</span>
-            <span data-v-e1fcc0e8>×</span>
-            <span data-v-e1fcc0e8>1.970</span>
-          </div>
-          <div data-v-e1fcc0e8 class="slide-color">
-            <em data-v-e1fcc0e8 class="set-red-black">0</em>
-          </div>
-        </div>
-        <div data-v-e1fcc0e8 class="opacity-box redblackwar-black tr games-font vitem">
-          <div data-v-e1fcc0e8 class="yet">
-            <em data-v-e1fcc0e8>0</em>
-          </div>
-          <div data-v-e1fcc0e8 id="content2" @click="fapai">
-            <span data-v-e1fcc0e8>黑方</span>
-            <span data-v-e1fcc0e8>×</span>
-            <span data-v-e1fcc0e8>1.970</span>
-          </div>
-          <div data-v-e1fcc0e8 class="slide-color">
-            <em data-v-e1fcc0e8 class="set-red-black">0</em>
-          </div>
-        </div>
-      </div>
-      <div data-v-e1fcc0e8>
-        <div data-v-e1fcc0e8 class="opacity-box redblackwar-hit bl games-font vitem">
-          <div data-v-e1fcc0e8 id="yet">
-            <em data-v-e1fcc0e8>0</em>
-          </div>
-          <div data-v-e1fcc0e8 id="content3" @click="shoupai">
-            <span data-v-e1fcc0e8>幸运一击</span>
-            <span data-v-e1fcc0e8 class="redblack-span">
-              <i data-v-e1fcc0e8>豹子×14.775</i>
-              <i data-v-e1fcc0e8>顺金×9.850</i>
-              <i data-v-e1fcc0e8>金花×3.940</i>
-              <i data-v-e1fcc0e8>顺子×2.955</i>
-              <i data-v-e1fcc0e8>对子(9-A)×1.970</i>
-            </span>
-          </div>
-          <div data-v-e1fcc0e8 class="slide-color">
-            <em data-v-e1fcc0e8 class="set-red-black-tran">0</em>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="x">
-      <div class="xs"></div>
-      <div class="xs"></div>
-    </div>
+    
+          <div data-v-e1fcc0e8="" class="table-content-bg"><div data-v-e1fcc0e8="" class="beauty-chair"></div> <div data-v-e1fcc0e8="" class="beauty-poker"></div> <div data-v-e1fcc0e8="" id="dealer"><canvas class="dealer" width="225" height="300"></canvas></div> <div data-v-e1fcc0e8="" class="table-content"><div data-v-e1fcc0e8="" class="bet-xian-win-bg"></div> <div data-v-e1fcc0e8="" class="bet-zuan-win-bg"></div> <div data-v-e1fcc0e8="" class="baccarat-chipleft stop"></div> <div data-v-e1fcc0e8="" class="baccarat-chipright stop"><div data-v-e1fcc0e8="" id="bjlPokerStart" class="baccarat-poker-start"></div></div> <div data-v-e1fcc0e8="" class="baccarat-chipleft-bg"><div data-v-e1fcc0e8="" class="game-chess-img"></div></div> <div data-v-e1fcc0e8="" class="baccarat-chipright-bg"><div data-v-e1fcc0e8="" class="game-chess-img"></div></div> <div data-v-e1fcc0e8="" class="bet-money">总下注 <span data-v-e1fcc0e8="">4132</span></div> <div data-v-e1fcc0e8="" class="bet-content"><div data-v-e1fcc0e8="" class="bet-box"><div data-v-e1fcc0e8="" class="bet-ele bet-box-xian opacity-box"><div data-v-e1fcc0e8="" id="content1" class="chip-box1"></div> <div data-v-e1fcc0e8="" class="txt-box txt-box-xian"><div data-v-e1fcc0e8="" class="money">1773</div> <div data-v-e1fcc0e8="" id="area-poker1" class="area-poker-win"></div> <div data-v-e1fcc0e8="" class="title">闲</div> <div data-v-e1fcc0e8="" class="odds-x">×</div> <div data-v-e1fcc0e8="" class="odds">1.970</div> <div data-v-e1fcc0e8="" class="my-money">0</div></div></div> <div data-v-e1fcc0e8="" class="bet-ele bet-box-zuan opacity-box"><div data-v-e1fcc0e8="" id="content2" class="chip-box2"></div> <div data-v-e1fcc0e8="" class="txt-box txt-box-zuan"><div data-v-e1fcc0e8="" class="money">2305</div> <div data-v-e1fcc0e8="" id="area-poker2" class="area-poker-win"></div> <div data-v-e1fcc0e8="" class="title">庄</div> <div data-v-e1fcc0e8="" class="odds-x">×</div> <div data-v-e1fcc0e8="" class="odds">1.920</div> <div data-v-e1fcc0e8="" class="my-money">0</div></div></div></div> <div data-v-e1fcc0e8="" class="bet-box-ping"><div data-v-e1fcc0e8="" class="ping-win-bg"></div> <div data-v-e1fcc0e8="" class="ping-box"><div data-v-e1fcc0e8="" class="txt-box txt-box-ping opacity-box"><div data-v-e1fcc0e8="" id="content3" class="chip-box3"></div> <div data-v-e1fcc0e8="" class="money">54</div> <div data-v-e1fcc0e8="" class="title">平</div> <div data-v-e1fcc0e8="" class="odds-x">×</div> <div data-v-e1fcc0e8="" class="odds">8.865</div> <div data-v-e1fcc0e8="" class="my-money">0</div></div></div></div></div></div></div>
   </div>
 </template>
 
@@ -1116,7 +1065,7 @@ console.log(winlist);
   right: 0;
   bottom: 0;
   z-index: 99999999999999999;
-  background: url(https://images.imags-google.com/game/rb-progress.jpg);
+  background: url(https://images.imags-google.com/game/baccarat-progress.jpg);
   background-size: cover;
   display: flex;
   justify-content: center;
@@ -1203,7 +1152,7 @@ console.log(winlist);
   display: flex;
   flex-flow: column;
   overflow: scroll;
-  background: url(https://images.imags-google.com/game/redBlackWar.jpg);
+  background: url(https://images.imags-google.com/game/baccarat-bg.jpg);
   position: absolute;
   bottom: 0;
   z-index: 999999999;

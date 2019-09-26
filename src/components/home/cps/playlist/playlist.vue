@@ -36,10 +36,9 @@
             <span class="det">20分钟一期</span>
           </div>
         </router-link>
-        <div class="fengpan" v-show="true">
+        <div class="fengpan" v-show="false">
           <i class="iconfont icon-sheweifengpan"></i>
           <i class="iconfont icon-feng1"></i>
-          
         </div>
       </van-col>
     </van-row>
@@ -48,7 +47,7 @@
         <router-link :to="{ name: 'tjssc', params: { n: 'tjssc', t: 20,jh:0, js: 20, jm: 2 } }">
           <div class="item">
             <span class="iconfont icon-tjssc"></span>
-            <span class="name">天津时时彩</span> 
+            <span class="name">天津时时彩</span>
             <span class="det">20分钟一期</span>
           </div>
         </router-link>
@@ -64,10 +63,9 @@
             <span class="det">20分钟一期</span>
           </div>
         </router-link>
-        <div class="fengpan" v-show="true">
+        <div class="fengpan" v-show="false">
           <i class="iconfont icon-sheweifengpan"></i>
           <i class="iconfont icon-feng1"></i>
-          
         </div>
       </van-col>
       <van-col span="8">
@@ -106,10 +104,9 @@
             <span class="det">20分钟一期</span>
           </div>
         </router-link>
-        <div class="fengpan" v-show="true">
+        <div class="fengpan" v-show="false">
           <i class="iconfont icon-sheweifengpan"></i>
           <i class="iconfont icon-feng1"></i>
-          
         </div>
       </van-col>
       <van-col span="8">
@@ -134,7 +131,7 @@
             <span class="det">20分钟1期</span>
           </div>
         </router-link>
-        <div class="fengpan" v-show="true">
+        <div class="fengpan" v-show="false">
           <i class="iconfont icon-sheweifengpan"></i>
           <i class="iconfont icon-feng1"></i>
         </div>
@@ -158,42 +155,61 @@
 </template>
 
 <script>
+import $ from "jquery";
 import { Row, Col } from "vant";
 export default {
   name: "PlayList",
   components: {
     [Row.name]: Row,
     [Col.name]: Col
+  },
+  mounted() {
+    for (let i = 0; i < $(".item").length; i++) {
+      if ((i - 1) % 3 == 0) {
+        $(".item")
+          .eq(i)
+          .css({
+            borderColor: "#ccc #ccc #ccc #ccc"
+          });
+      }
+      if (i>3) {
+        $(".item")
+          .eq(i)
+          .css({
+            borderColor: "transparent #ccc #ccc ransparent"
+          });
+      }
+    }
   }
 };
 </script>
 
 <style lang="scss" scoped>
-.icon-feng1{
+.icon-feng1 {
   position: absolute;
-position: absolute;
-    top: -22px;
-    left: 70px;
-    right: 0;
-    font-size: 49px;
+  position: absolute;
+  top: -22px;
+  left: 70px;
+  right: 0;
+  font-size: 49px;
 }
 .fengpan {
   position: absolute;
-  margin:1px;
+  margin: 1px;
   top: 0;
   bottom: 0;
-  left:0;
+  left: 0;
   font-family: "宋体";
-  right:-3px;
- color: rgb(211, 72, 72);
+  right: -3px;
+  color: rgb(211, 72, 72);
   width: 100%;
   font-size: 18px;
   text-align: center;
   line-height: 99px;
-  background-color: rgba(0,0,0,0.3);
-  .icon-sheweifengpan{
+  background-color: rgba(0, 0, 0, 0.3);
+  .icon-sheweifengpan {
     font-size: 35px;
-    color:wheat;
+    color: wheat;
     position: relative;
   }
 }
@@ -204,15 +220,16 @@ position: absolute;
   display: flex;
   flex-flow: column;
   text-align: center;
-  border: 1px dashed #ccc;
-  padding: 5px;
-  margin: 1px;
+  border: 0.1px solid;
+  border-color: #ccc transparent #ccc transparent;
+  padding: 8px;
+  // margin: 1px;
   .iconfont {
-    font-size: 50px;
+    font-size: 32px;
   }
   .icon-pk10 {
-    // color: rgb(243, 6, 6);
-    color:#ccc;
+    color: rgb(243, 6, 6);
+    // color:#ccc;
   }
   .icon-logo-esport {
     color: #e9bb4f;
@@ -224,12 +241,12 @@ position: absolute;
     color: #f22751;
   }
   .icon-icon-zhongqingshishicai {
-    // color: #f96e;
-    color:#ccc;
+    color: #f96e;
+    // color:#ccc;
   }
   .icon-jxssc {
-    // color: #38b366;
-    color:#ccc;
+    color: #38b366;
+    // color:#ccc;
   }
   .icon-tjssc {
     color: #218ddd;
@@ -238,15 +255,17 @@ position: absolute;
     color: blue;
   }
   .icon-xinjiangshishicai {
-    // color: brown;
-    color:#ccc;
+    color: brown;
+    // color:#ccc;
   }
   .icon-pailiesanpailiewu {
     color: rgb(235, 57, 45);
   }
   .name {
-    font-weight: bolder;
-    color: black;
+    font-size: 13px;
+    font-weight: 600;
+    color: #585151;
+    margin: 8px auto 2px;
   }
   .det {
     font-size: 11px;

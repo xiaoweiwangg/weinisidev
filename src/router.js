@@ -149,12 +149,36 @@ export default new Router({
         import(
           /* webpackChunkName: "about" */ "./components/game/qipai/gamelist/niuniu.vue"
         )
-    },{
+    },
+    {
       name: "rbwar",
       path: "/rbwar",
       component: () =>
         import(
           /* webpackChunkName: "about" */ "./components/game/qipai/gamelist/rbwar.vue"
+        )
+    },
+    {
+      name: "baijiale",
+      path: "/baijiale",
+      component: () =>
+        import(
+          /* webpackChunkName: "about" */ "./components/game/qipai/gamelist/baijiale.vue"
+        )
+    },
+    {
+      name: "longhu",
+      path: "/longhu",
+      component: () =>
+        import(
+          /* webpackChunkName: "about" */ "./components/game/qipai/gamelist/longhu.vue"
+        )
+    },{
+      name: "benchi",
+      path: "/benchi",
+      component: () =>
+        import(
+          /* webpackChunkName: "about" */ "./components/game/qipai/gamelist/benchi.vue"
         )
     },
     {
