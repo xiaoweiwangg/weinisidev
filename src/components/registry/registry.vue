@@ -54,7 +54,7 @@ x        placeholder="虚假信息将会影响正常出款"
         >
       </div>
     </van-cell-group>
-  </div>
+  </div> 
 </template>
 
 <script>

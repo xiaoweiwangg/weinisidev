@@ -1,7 +1,7 @@
 module.exports = {
   productionSourceMap: false,
-  assetsDir:"./",
-  publicPath:'./',
+  // assetsDir:"./",
+  // publicPath:'./',
   devServer: {
     proxy: "http://localhost:8088/"
   }

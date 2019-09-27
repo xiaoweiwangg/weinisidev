@@ -87,7 +87,7 @@ export default {
       userinfo.username = this.username;
       userinfo.password = this.password;
       userinfo.code=this.code
-      this.axios.post("http://flcvip.net/fuser", userinfo).then(x => {
+      this.axios.post("/fuser", userinfo).then(x => {
         if (x.data.msg == "ok") {
           sessionStorage.setItem("token", x.data.token);
           sessionStorage.setItem("islogoin", "true");

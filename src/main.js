@@ -6,14 +6,6 @@ import store from "./store";
 import "./assets/icon/iconfont.css";
 import "./assets/base/reset.css";
 import "./assets/css/comm.css"
-//music
-import audio from "./assets/mp3/StopBet.mp3";
-// Vue.prototype.playAudio = () => {
-//   let buttonAudio = document.getElementById("eventAudio");
-//   buttonAudio.setAttribute("src", audio);
-//   buttonAudio.play();
-// };
-//录播图
 // iconfont
 import "./assets/icon/iconfont";
 //vue-socket 模块
