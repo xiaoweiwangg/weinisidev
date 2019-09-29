@@ -168,7 +168,7 @@
     <div class="player">
       <span>({{pm}})</span>
     </div>
-    <chi-per
+    <chi-per 
       class="ch"
       v-for="(item,index) in chiplist"
       :key="index"
@@ -218,15 +218,15 @@
       <div class="desk"></div>
     </div>
     <lotte-r :cpl="cpl" class="cpr" @chek="ck"></lotte-r>
-    <Foo-ter @reback="reback" @sub="sub" :pr="price" :start="start"></Foo-ter>
+    <Foo-ter @reback="reback" @sub="sub" :pri="price" :start="start"></Foo-ter>
     <div class="timerdjs" v-show="jishil">{{str}}</div>
     <div data-v-e1fcc0e8 id="bettingBox" class="redblackwar-betting">
       <div data-v-e1fcc0e8>
-        <div data-v-e1fcc0e8 class="opacity-box redblackwar-red tl games-font vitem">
+        <div data-v-e1fcc0e8 @click="add(0)" class="opacity-box redblackwar-red tl games-font vitem jj" style="position:relative">
           <div data-v-e1fcc0e8 class="yet">
             <em data-v-e1fcc0e8>0</em>
           </div>
-          <div data-v-e1fcc0e8 id="content1" @click="kaipai">
+          <div data-v-e1fcc0e8 id="content1">
             <span data-v-e1fcc0e8>红方</span>
             <span data-v-e1fcc0e8>×</span>
             <span data-v-e1fcc0e8>1.970</span>
@@ -234,12 +234,13 @@
           <div data-v-e1fcc0e8 class="slide-color">
             <em data-v-e1fcc0e8 class="set-red-black">0</em>
           </div>
+          <div class="jjafter" style="position:absolute;top:0;left:0;height:100%;width:100%;z-index:100;"></div>
         </div>
-        <div data-v-e1fcc0e8 class="opacity-box redblackwar-black tr games-font vitem">
+        <div data-v-e1fcc0e8 @click="add(1)" class="opacity-box redblackwar-black tr games-font vitem jj" style="position:relative">
           <div data-v-e1fcc0e8 class="yet">
             <em data-v-e1fcc0e8>0</em>
           </div>
-          <div data-v-e1fcc0e8 id="content2" @click="fapai">
+          <div data-v-e1fcc0e8 id="content2">
             <span data-v-e1fcc0e8>黑方</span>
             <span data-v-e1fcc0e8>×</span>
             <span data-v-e1fcc0e8>1.970</span>
@@ -247,14 +248,15 @@
           <div data-v-e1fcc0e8 class="slide-color">
             <em data-v-e1fcc0e8 class="set-red-black">0</em>
           </div>
+          <div class="jjafter" style="position:absolute;top:0;left:0;height:100%;width:100%;z-index:100;"></div>
         </div>
       </div>
-      <div data-v-e1fcc0e8>
+      <div data-v-e1fcc0e8 class="jj" @click="add(2)" style="position:relative">
         <div data-v-e1fcc0e8 class="opacity-box redblackwar-hit bl games-font vitem">
           <div data-v-e1fcc0e8 id="yet">
             <em data-v-e1fcc0e8>0</em>
           </div>
-          <div data-v-e1fcc0e8 id="content3" @click="shoupai">
+          <div data-v-e1fcc0e8 id="content3">
             <span data-v-e1fcc0e8>幸运一击</span>
             <span data-v-e1fcc0e8 class="redblack-span">
               <i data-v-e1fcc0e8>豹子×14.775</i>
@@ -267,6 +269,7 @@
           <div data-v-e1fcc0e8 class="slide-color">
             <em data-v-e1fcc0e8 class="set-red-black-tran">0</em>
           </div>
+          <div class="jjafter" style="position:absolute;top:0;left:0;height:100%;width:100%;z-index:100;"></div>
         </div>
       </div>
     </div>
@@ -329,17 +332,31 @@ export default {
       fz: false, //初始化是否翻转牌面
       ct: false, //开牌动画
       t: [], //牌翻转的序列
-      n: "jinhua", //全局牛n
+      n: "", //全局牛n
       ischip: 1, //默认投注码
-      ishow: true,
+      ishow: false,
+      winlist: [
+        { rwin: false, playnum: 0 },
+        { bwin: false, playnum: 0 },
+        { wluck: false, playnum: 0 }
+      ],
       puklist: [
         //扑克牌列表
-        { num: _.random(0, 13), type: 0, hua: 0 },
-        { num: _.random(0, 13), type: 0, hua: 0 },
-        { num: _.random(0, 13), type: 0, hua: 0 },
-        { num: _.random(0, 13), type: 1, hua: 0 },
-        { num: _.random(0, 13), type: 1, hua: 0 },
-        { num: _.random(0, 13), type: 1, hua: 0 }
+        { num: 14, type: 0, hua: 0 },
+        { num: 14, type: 0, hua: 0 },
+        { num: 14, type: 0, hua: 0 },
+        { num: 14, type: 0, hua: 0 },
+        { num: 14, type: 0, hua: 0 },
+        { num: 14, type: 1, hua: 0 }
+      ],
+      backpuk: [
+        //扑克牌列表
+        { num: 14, type: 0, hua: 0 },
+        { num: 14, type: 0, hua: 0 },
+        { num: 14, type: 0, hua: 0 },
+        { num: 14, type: 0, hua: 0 },
+        { num: 14, type: 0, hua: 0 },
+        { num: 14, type: 1, hua: 0 }
       ],
       chiplist: [], //所有用户的投注码
       jieguo: [], //接收开牌结果集
@@ -361,7 +378,8 @@ export default {
       timer: null, //定时器
       djs: 0,
       jishil: false,
-      str: "停止下注"
+      str: "停止下注",
+      isactz:false,
     };
   },
   beforeDestroy() {
@@ -386,6 +404,8 @@ export default {
       this.pm = data.pm;
     });
     //---------------------
+    console.log($(".jj").length);
+
     document.addEventListener("visibilitychange", function() {
       //浏览器切换事件
       if (document.visibilityState == "hidden") {
@@ -397,7 +417,7 @@ export default {
       }
     });
     let that = this;
-    for (let i = 0; i < $(".jj .sj").length; i++) {}
+    for (let i = 0; i < $(".jj").length; i++) {}
     let p = this.per;
     var loader = new createjs.LoadQueue();
     // 添加声音支持
@@ -483,18 +503,18 @@ export default {
           .animate(
             {
               left: `${_.random(
-                $(".jj .sj")
+                $(".jj")
                   .eq(this.chiplist[i].addr)
                   .offset().left - 40,
-                $(".jj .sj")
+                $(".jj")
                   .eq(this.chiplist[i].addr)
-                  .offset().left + 50
+                  .offset().left + ($(".jj").eq(this.chiplist[i].addr).width()-70)
               )}px`,
               top: `${_.random(
-                $(".jj .sj")
+                $(".jj")
                   .eq(this.chiplist[i].addr)
                   .offset().top - 20,
-                $(".jj .sj")
+                $(".jj")
                   .eq(this.chiplist[i].addr)
                   .offset().top
               )}px`
@@ -507,10 +527,9 @@ export default {
   watch: {
     jieguo(x) {
       if (x.length == 2) {
-        let winlist = [{ rwin: false }, { bwin: false }, { wluck: false }];
-        // setTimeout(() => {
-        //   (Math.random() * 10) % 2 == 0 ? this.wanjiashou() : this.zhuangshou();
-        // }, 2000);
+        setTimeout(() => {
+          (Math.random() * 10) % 2 == 0 ? this.wanjiashou() : this.zhuangshou();
+        }, 2000);
         let s = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 1];
         let size = [
           "baozi",
@@ -524,41 +543,41 @@ export default {
         //校验同牌
         if (x[0].niu == x[1].niu) {
           if (s.indexOf(x[0].maxnum) > s.indexOf(x[1].maxnum)) {
-            winlist[0].rwin = true;
+            this.winlist[0].rwin = true;
           } else {
-            winlist[1].bwin = true;
+            this.winlist[1].bwin = true;
           }
           if (x[0].maxnum == x[1].maxnum) {
             let hsize = [1, 0, 2, 3].reverse();
             if (hsize.indexOf(x[0].maxhua) > hsize.indexOf(x[1].maxhua)) {
-              winlist[0].rwin = true;
+              this.winlist[0].rwin = true;
             } else {
-              winlist[1].bwin = true;
+              this.winlist[1].bwin = true;
             }
           }
         } else {
           if (size.indexOf(x[0].niu) > size.indexOf(x[1].niu)) {
-            winlist[0].rwin = true;
+            this.winlist[0].rwin = true;
           } else {
-            winlist[1].bwin = true;
+            this.winlist[1].bwin = true;
           }
         }
-        if (winlist[0].rwin) {
-            createjs.Sound.play("rwin");
+        if (this.winlist[0].rwin) {
+          createjs.Sound.play("rwin");
           $(".redblackwar-red").addClass("on");
-        }else{
+        } else {
           $(".redblackwar-black").addClass("on");
-            createjs.Sound.play("bwin");
+          createjs.Sound.play("bwin");
         }
-        if (winlist[0].rwin && size.indexOf(x[0].niu) != 0) {
+        if (this.winlist[0].rwin && size.indexOf(x[0].niu) != 0) {
           $(".redblackwar-hit").addClass("on");
           console.log("luck", size.indexOf(x[0].niu));
         }
-        if (winlist[1].bwin && size.indexOf(x[1].niu) != 0) {
+        if (this.winlist[1].bwin && size.indexOf(x[1].niu) != 0) {
           $(".redblackwar-hit").addClass("on");
           console.log("luck", size.indexOf(x[1].niu));
         }
-console.log(winlist);
+        console.log(this.winlist);
 
         setTimeout(() => {
           $(".redblackwar-red,.redblackwar-black,.redblackwar-hit").removeClass(
@@ -576,6 +595,7 @@ console.log(winlist);
   methods: {
     jishiv(x) {
       x > 17 ? "开奖时间" : "下注时间";
+      
     },
     getdata() {
       return new Promise((res, rej) => {
@@ -626,6 +646,8 @@ console.log(winlist);
             this.fapai();
             createjs.Sound.play("xiazhu");
             this.str = "开始下注";
+            this.isactz=true
+            this.puklist = this.backpuk;
             this.jishil = true;
           }, 2000);
           if (this.start % 15 == 0 && this.start != 15) {
@@ -663,6 +685,7 @@ console.log(winlist);
         if (this.start == 15) {
           createjs.Sound.play("tingzhu");
           this.str = "停止下注";
+          this.isactz=false
           this.jishil = true;
         }
         if (this.start == 14) {
@@ -686,7 +709,7 @@ console.log(winlist);
       this.price = 0;
     },
     sub() {
-      if (this.start < 15 || this.price < 1) {
+      if (!this.isactz) {
         return;
       }
       let shopcar = {};
@@ -721,8 +744,8 @@ console.log(winlist);
         }
       });
     },
-    add(x, y) {
-      if (this.start < 17 && this.start > 14) {
+    add(x) {
+      if (!this.isactz) {
         this.$notify({
           message: "本期投注已截止,请等待开奖",
           background: "#dc3b40",
@@ -730,32 +753,17 @@ console.log(winlist);
         });
         return;
       }
-      if (this.start < 14) {
-        this.$notify({
-          message: "结算时间,请稍后投注",
-          background: "#dc3b40",
-          duration: 1500
-        });
-        return;
-      }
-
-      let z = 0;
       let tz = {};
       tz.price = this.ischip;
-      z = (x + 1) * x + y;
-      if (z > 4) {
-        z -= 2;
-      }
-      tz.addr = z;
-      // this.list.push(tz);
-      // console.log(this.list);
+      tz.addr = x;
       this.$socket.emit("add", {
         data: tz
       });
-
-      this.vs[x][y].playnum += this.ischip;
+      this.winlist[x].playnum += this.ischip;
       createjs.Sound.play("chip");
       //加入用户投注列表
+      console.log(tz);
+
       // this.chiplist.push(tz);
       this.price += this.ischip;
     },
@@ -793,7 +801,7 @@ console.log(winlist);
               {
                 opacity: 0.2,
                 top: 103 + "px",
-                left: $(".player").position().left + "px"
+                left: $(".player").offset().left + "px"
               },
               950,
               function() {
@@ -816,8 +824,8 @@ console.log(winlist);
             .animate(
               {
                 opacity: 0.2,
-                top: $(".zhuang").offset().top - 33 + "px",
-                left: $(".zhuang").offset().left - 26 + "px"
+                top: $("#bker").offset().top - 33 + "px",
+                left: $("#bker").offset().left - 26 + "px"
               },
               950,
               function() {
@@ -884,7 +892,6 @@ console.log(winlist);
       if (jg.shunzi && jg.jinhua) {
         jg.niu = "jinshun";
       }
-      console.log(jg);
       this.n = jg.niu;
       this.jieguo.push(jg);
       createjs.Sound.play(this.n);
@@ -1219,7 +1226,7 @@ console.log(winlist);
   transform: rotateX(7deg) translateX(-134px);
   border-radius: 8px !important;
   position: fixed;
-  bottom: 116px;
+  bottom: 153px;
   left: 50%;
 }
 #bettingBox > div:nth-child(1) {
@@ -1276,6 +1283,7 @@ console.log(winlist);
 }
 .d {
   flex: 1;
+  z-index: -1; 
   // margin-top: -20px;
   .desk {
     width: 100%;
@@ -1345,6 +1353,7 @@ console.log(winlist);
     flex-flow: wrap;
     justify-content: space-around;
     position: relative;
+  
   }
   .jia {
     display: flex;

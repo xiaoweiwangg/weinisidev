@@ -66,7 +66,7 @@ createjs.Sound.registerSound("/mp3/lotter.mp3", "cp");
   transition: all 0.25s;
   box-shadow: 9.5px 14px 4px #310b0b;
   border-radius: 50%;
-  z-index: 13;
+  z-index: 0;
   position: relative;
   background: url(https://images.imags-google.com/game/chipIcon.png);
 }

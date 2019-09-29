@@ -160,6 +160,8 @@ export default {
       this.pm = data.pm;
     });
     //---------------------
+          console.log($(".box").length);
+
     document.addEventListener("visibilitychange", function() {
       //浏览器切换事件
       if (document.visibilityState == "hidden") {
@@ -181,9 +183,9 @@ export default {
     //加载文件列表
     loader.loadManifest(
       [
-        { id: "bg", src: "/rbwar/lhbg.mp3" },
+        { id: "bg", src: "/mp3/benchi.mp3" },
         { id: "daojishi", src: "/mp3/daojishi.mp3" },
-        { id: "dingdong", src: "/mp3/dingdong.wav" },
+        { id: "dingdong", src: "/mp3/dingdong.wav" }, 
         { id: "start", src: "/rbwar/start.mp3" },
         { id: "kaipai", src: "/mp3/kaipai.mp3" },
         { id: "fapai", src: "/mp3/fapai.mp3" },
@@ -348,6 +350,15 @@ export default {
     }
   },
   methods: {
+    run(){
+      let i=0
+      setInterval(() => {
+        i++
+        if(i>=$(".box").length){
+          i=0
+        }
+      }, 1000);
+    },
     jishiv(x) {
       x > 17 ? "开奖时间" : "下注时间";
     },

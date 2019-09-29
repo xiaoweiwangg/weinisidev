@@ -134,6 +134,7 @@
       :key="index"
       :chip="item.price"
       :size=".25"
+      :class="item.cls||'other'"
     ></chi-per>
     <div>
       <div class="cont">
@@ -198,7 +199,7 @@
                 <p>x</p>
                 <p>1.970</p>
               </div>
-              <div class="self">{{i.playnum}}</div>
+              <div class="self">我的投注: {{i.playnum}}</div>
               <div class="w" v-show="i.iswin">
                 <div class="win"></div>
                 <div class="sun"></div>
@@ -210,7 +211,7 @@
       </div>
     </div>
     <lotte-r :cpl="cpl" class="cpr" @chek="ck"></lotte-r>
-    <Foo-ter @reback="reback" @sub="sub" :pr="price" :start="start"></Foo-ter>
+    <Foo-ter @reback="reback" @sub="sub" :pri="price" :start="start"></Foo-ter>
     <div class="timerdjs" v-show="jishil">{{str}}</div>
   </div>
 </template>
@@ -269,8 +270,32 @@ export default {
       t: [], //牌翻转的序列
       n: null, //全局牛n
       ischip: 1, //默认投注码
-      ishow: true,
+      ishow: false,
+      isactz: false,
       puklist: [
+        //扑克牌列表
+        { num: 14, type: 0, hua: 0 },
+        { num: 14, type: 0, hua: 0 },
+        { num: 14, type: 0, hua: 0 },
+        { num: 14, type: 0, hua: 0 },
+        { num: 14, type: 0, hua: 0 },
+        { num: 14, type: 1, hua: 0 },
+        { num: 14, type: 1, hua: 0 },
+        { num: 14, type: 1, hua: 0 },
+        { num: 14, type: 1, hua: 0 },
+        { num: 14, type: 1, hua: 0 },
+        { num: 14, type: 2, hua: 0 },
+        { num: 14, type: 2, hua: 0 },
+        { num: 14, type: 2, hua: 0 },
+        { num: 14, type: 2, hua: 0 },
+        { num: 14, type: 2, hua: 0 },
+        { num: 14, type: 3, hua: 0 },
+        { num: 14, type: 3, hua: 0 },
+        { num: 14, type: 3, hua: 0 },
+        { num: 14, type: 3, hua: 0 },
+        { num: 14, type: 3, hua: 0 }
+      ],
+      backpuk: [
         //扑克牌列表
         { num: 14, type: 0, hua: 0 },
         { num: 14, type: 0, hua: 0 },
@@ -317,7 +342,9 @@ export default {
       timer: null, //定时器
       djs: 0,
       jishil: false,
-      str: "停止下注"
+      str: "停止下注",
+      pri: 0,
+      tj: false
     };
   },
   beforeDestroy() {
@@ -339,6 +366,8 @@ export default {
       this.list.push(data.tz);
     });
     this.sockets.subscribe("qtniuniu", data => {
+      console.log(this.pm);
+
       this.pm = data.pm;
     });
     //---------------------
@@ -361,38 +390,36 @@ export default {
     // 检测文件加载进度
     loader.addEventListener("progress", loadprogress);
     //加载文件列表
-    loader.loadManifest(
-      [
-        { id: "bg", src: "/mp3/bg.mp3" },
-        { id: "daojishi", src: "/mp3/daojishi.mp3" },
-        { id: "chenggong", src: "/rbwar/chenggong.mp3" },
-        { id: "chexiao", src: "/rbwar/chexiao.mp3" },
-        { id: "dingdong", src: "/mp3/dingdong.wav" },
-        { id: "xiazhu", src: "/mp3/xiazhu.mp3" },
-        { id: "kaipai", src: "/mp3/kaipai.mp3" },
-        { id: "fapai", src: "/mp3/fapai.mp3" },
-        { id: "tingzhu", src: "/mp3/tingzhu.mp3" },
-        { id: "shouzhu", src: "/mp3/shouzhu.mp3" },
-        { id: "lotter", src: "/mp3/lotter.mp3" },
-        { id: "jinbi", src: "/mp3/jinbi.mp3" },
-        { id: "nz4", src: "/mp3/FamaleZhaDanNiu.mp3" },
-        { id: "nwhn", src: "/mp3/FamaleWuHuaNiu.mp3" },
-        { id: "nshn", src: "/mp3/FamaleSiHuaNiu.mp3" },
-        { id: "n1", src: "/mp3/FamaleNiuYi.mp3" },
-        { id: "n5", src: "/mp3/FamaleNiuWu.mp3" },
-        { id: "n4", src: "/mp3/FamaleNiuSi.mp3" },
-        { id: "n3", src: "/mp3/FamaleNiuSan.mp3" },
-        { id: "n7", src: "/mp3/FamaleNiuQi.mp3" },
-        { id: "n-1", src: "/mp3/FamaleNiuNone.mp3" },
-        { id: "n0", src: "/mp3/FamaleNiuNiu.mp3" },
-        { id: "n6", src: "/mp3/FamaleNiuLiu.mp3" },
-        { id: "n9", src: "/mp3/FamaleNiuJiu.mp3" },
-        { id: "n2", src: "/mp3/FamaleNiuEr.mp3" },
-        { id: "n8", src: "/mp3/FamaleNiuBa.mp3" },
-        { id: "chip", src: "/mp3/chip.mp3" }
-      ],
-      true
-    );
+    let mainfest = [
+      { id: "bg", src: "/mp3/bg.mp3" },
+      { id: "daojishi", src: "/mp3/daojishi.mp3" },
+      { id: "chenggong", src: "/rbwar/chenggong.mp3" },
+      { id: "chexiao", src: "/rbwar/chexiao.mp3" },
+      { id: "dingdong", src: "/mp3/dingdong.wav" },
+      { id: "xiazhu", src: "/mp3/xiazhu.mp3" },
+      { id: "kaipai", src: "/mp3/kaipai.mp3" },
+      { id: "fapai", src: "/mp3/fapai.mp3" },
+      { id: "tingzhu", src: "/mp3/tingzhu.mp3" },
+      { id: "shouzhu", src: "/mp3/shouzhu.mp3" },
+      { id: "lotter", src: "/mp3/lotter.mp3" },
+      { id: "jinbi", src: "/mp3/jinbi.mp3" },
+      { id: "nz4", src: "/mp3/FamaleZhaDanNiu.mp3" },
+      { id: "nwhn", src: "/mp3/FamaleWuHuaNiu.mp3" },
+      { id: "nshn", src: "/mp3/FamaleSiHuaNiu.mp3" },
+      { id: "n1", src: "/mp3/FamaleNiuYi.mp3" },
+      { id: "n5", src: "/mp3/FamaleNiuWu.mp3" },
+      { id: "n4", src: "/mp3/FamaleNiuSi.mp3" },
+      { id: "n3", src: "/mp3/FamaleNiuSan.mp3" },
+      { id: "n7", src: "/mp3/FamaleNiuQi.mp3" },
+      { id: "n-1", src: "/mp3/FamaleNiuNone.mp3" },
+      { id: "n0", src: "/mp3/FamaleNiuNiu.mp3" },
+      { id: "n6", src: "/mp3/FamaleNiuLiu.mp3" },
+      { id: "n9", src: "/mp3/FamaleNiuJiu.mp3" },
+      { id: "n2", src: "/mp3/FamaleNiuEr.mp3" },
+      { id: "n8", src: "/mp3/FamaleNiuBa.mp3" },
+      { id: "chip", src: "/mp3/chip.mp3" }
+    ];
+    loader.loadManifest(mainfest, true);
     //加载文件完成
     loader.addEventListener("complete", listener);
     //媒体文件扩展
@@ -529,6 +556,21 @@ export default {
         }
         //结算
         this.$socket.emit("ks", { data: JSON.stringify(this.vs) });
+        console.log(JSON.stringify(this.vs));
+        this.vs.map(x => {
+          x.map(v => {
+            if (v.iswin) {
+              this.pri += v.playnum * 1.97;
+            }
+          });
+        });
+        console.log(this.pri);
+        if (this.tj) {
+          this.$socket.emit("tb", {
+            pri: this.pri,
+            username: JSON.parse(sessionStorage.getItem("userinfo")).name
+          });
+        }
         this.sockets.subscribe("jiesuan", data => {
           console.log();
         });
@@ -587,8 +629,12 @@ export default {
           setTimeout(() => {
             this.fapai();
             createjs.Sound.play("xiazhu");
+            this.price = 0;
             this.str = "开始下注";
+            this.isactz = true;
             this.jishil = true;
+            this.reback();
+            this.tj = false;
           }, 2000);
           if (this.start % 15 == 0 && this.start != 15) {
           }
@@ -622,6 +668,7 @@ export default {
           createjs.Sound.play("tingzhu");
           this.str = "停止下注";
           this.jishil = true;
+          this.isactz = false;
         }
         if (this.start == 14) {
           setTimeout(() => {
@@ -642,9 +689,11 @@ export default {
         x.map(v => (v.playnum = 0));
       });
       this.price = 0;
+      this.pri = 0;
+      this.meshou();
     },
     sub() {
-      if (this.start < 15 || this.price < 1) {
+      if (!this.isactz) {
         return;
       }
       let shopcar = {};
@@ -661,32 +710,30 @@ export default {
       shopcar.iskj = 0;
       shopcar.playmode = this.playmode;
       this.axios.post("/shopcar", shopcar).then(x => {
-        this.reback();
+        // this.reback();
         if (x.data.msg == "余额不足") {
           this.$notify({
             message: "您的余额不足,请充值"
           });
           Toast.fail("订单提交失败");
-            createjs.Sound.play("chenggong");
+          createjs.Sound.play("dingdong");
+          this.$socket.emit("user", {
+            username: JSON.parse(sessionStorage.getItem("userinfo")).name
+          });
         } else if (x.data.msg == "ok") {
           Toast.success("订单提交成功!");
-          this.price = 0;
-          createjs.Sound.play("dingdong");
+          this.tj = true;
+          createjs.Sound.play("chenggong");
+          this.$socket.emit("user", {
+            username: JSON.parse(sessionStorage.getItem("userinfo")).name
+          });
         }
       });
     },
     add(x, y) {
-      if (this.start < 17 && this.start > 14) {
+      if (!this.isactz) {
         this.$notify({
           message: "本期投注已截止,请等待开奖",
-          background: "#dc3b40",
-          duration: 1500
-        });
-        return;
-      }
-      if (this.start < 14) {
-        this.$notify({
-          message: "结算时间,请稍后投注",
           background: "#dc3b40",
           duration: 1500
         });
@@ -701,14 +748,17 @@ export default {
         z -= 2;
       }
       tz.addr = z;
+      tz.cls = "me";
       // this.list.push(tz);
       // console.log(this.list);
       this.$socket.emit("add", {
         data: tz
       });
+      console.log(tz);
 
       this.vs[x][y].playnum += this.ischip;
       createjs.Sound.play("chip");
+      this.$emit("add", this.price);
       //加入用户投注列表
       // this.chiplist.push(tz);
       this.price += this.ischip;
@@ -762,6 +812,30 @@ export default {
           break;
       }
     },
+    meshou() {
+      for (let i = 0; i < $(".me").length; i++) {
+        setTimeout(() => {
+          $(".me")
+            .eq(i)
+            .animate(
+              {
+                opacity: 0.2,
+                top: $("#self").offset().top + "px",
+                left: $("#self").offset().left + "px"
+              },
+              950,
+              function() {
+                $(".me")
+                  .eq(i)
+                  .css({ opacity: 0 });
+                // this.chiplist = [];
+              }
+            );
+        }, i * 10);
+        if (i % 2 == 0) {
+        }
+      }
+    },
     wanjiashou() {
       for (let i = 0; i < $(".ch").length; i++) {
         setTimeout(() => {
@@ -794,8 +868,8 @@ export default {
             .animate(
               {
                 opacity: 0.2,
-                top: $("#banker").offset().top - 33 + "px",
-                left: $("#banker").offset().left - 26 + "px"
+                top: $("#bker").offset().top - 33 + "px",
+                left: $("#bker").offset().left - 26 + "px"
               },
               950,
               function() {
@@ -1006,6 +1080,7 @@ export default {
             );
         }, 800 + c * 30);
       }
+      this.puklist = this.backpuk;
     },
     normal() {
       let n = 0;
@@ -1051,6 +1126,7 @@ export default {
     position: absolute;
     height: 108%;
     width: 100%;
+    top: -10px;
     animation: sun 3s linear infinite;
   }
   .sun {
@@ -1253,7 +1329,7 @@ export default {
     flex-flow: wrap;
     justify-content: center;
     padding: 0 20px;
-        position: fixed;
+    position: fixed;
     left: 0;
     right: 0;
     bottom: 146px;
@@ -1291,7 +1367,7 @@ export default {
         color: #f9c970;
         text-align: center;
         height: 16px;
-        line-height: 16px; 
+        line-height: 16px;
         border-bottom-left-radius: 9px;
         border-bottom-right-radius: 9px;
       }

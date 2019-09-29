@@ -164,29 +164,7 @@ export default {
     [Col.name]: Col
   },
   mounted() {
-    for (let i = 0; i < $(".item").length; i++) {
-      if ((i - 1) % 3 == 0) {
-        $(".item")
-          .eq(i)
-          .css({
-            borderColor: "#eee #eee #eee #eee"
-          });
-      }
-      if(i==2){
-       $(".item")
-          .eq(i)
-          .css({
-            borderRight: "1px solid #eee"
-          }); 
-      }
-      if (i>2) {
-        $(".item")
-          .eq(i)
-          .css({
-            borderColor: "transparent #eee #eee transparent"
-          });
-      }
-    }
+    
   }
 };
 </script>
@@ -228,11 +206,11 @@ export default {
   flex-flow: column;
   text-align: center;
   border: 0.1px solid;
-  border-color: #eee transparent #eee transparent;
+  border-color: #eee #eee #eee transparent;
   padding: 8px;
   // margin: 1px;
   .iconfont {
-    font-size: 32px;
+    font-size: 34px;
   }
   .icon-pk10 {
     color: rgb(243, 6, 6);
@@ -269,7 +247,7 @@ export default {
     color: rgb(235, 57, 45);
   }
   .name {
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 600;
     color: #585151;
     margin: 8px auto 2px;

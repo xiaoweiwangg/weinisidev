@@ -1,10 +1,5 @@
 <template>
   <div>
-    <!-- <div class="balance">
-      <div class="reback" @click="reback"></div>
-      <div class="bal">余额:{{bl}}元</div>
-      <div class="ent" @click="ent"></div>
-    </div>-->
     <footer data-v-e1fcc0e8 class="game-chess-img chess-foot">
       <div class="game-foot-btn">
         <div class="resultMoney win" style="display: none;">
@@ -15,7 +10,7 @@
           <div class="game-chess-img game-foot-money">
             <em class="game-chess-img foot-money-icon"></em>
             <em class="game-chess-img foot-add-btn" @click="fom"></em>
-            <span id="self" class="games-font">{{balance}}</span>
+            <span id="self" class="games-font">{{bl}}</span>
           </div>
         </div>
         <div class="game-chess-img game-foot-right not" @click="ent">
@@ -43,10 +38,16 @@
 <script>
 import $ from "jquery";
 export default {
-  props: ["pr", "start"],
+  props: ["pri", "start"],
   computed: {
     bl() {
-      return this.balance;
+      return (this.balance-this.pri).toFixed(2);
+    }
+  },
+  watch:{
+    pri(x){
+      // console.log(x);
+      
     }
   },
   name: "FooTer",
@@ -57,8 +58,17 @@ export default {
   },
   mounted() {
     this.getbalance();
+    this.sockets.subscribe("balance", data => {
+      if(data.length>0){
+        this.balance = data[0].balance;
+      }
+      this.$store.commit("setbalance", this.balance);
+    });
   },
   methods: {
+    update(){
+
+    },
     fom() {
       this.$router.push("/wechatpay");
     },
@@ -66,10 +76,6 @@ export default {
       this.$socket.emit("user", {
         username: JSON.parse(sessionStorage.getItem("userinfo")).name
       });
-      // this.sockets.subscribe("balance", data => {
-      //   this.balance = data[0].balance;
-      //   this.$store.commit("setbalance", this.balance);
-      // });
     },
     reback() {
       this.$emit("reback");

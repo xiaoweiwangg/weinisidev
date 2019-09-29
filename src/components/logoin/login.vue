@@ -15,14 +15,6 @@
           placeholder="请输入密码"
           required
         />
-        <div class="code">
-          <div class="img">
-            <img src="/img" alt="验证码" />
-          </div>
-          <div class="coder">
-            <van-field v-model="code" placeholder="请输入验证码" />
-          </div>
-        </div>
         <div class="sub">
           <van-button
             :loading="load"
@@ -62,33 +54,26 @@ export default {
       username: "",
       password: "",
       f: false,
-      code:""
+      jwtpwd: ""
     };
   },
   mounted() {
-    this.getimg();
-    $("img").on("click", () => {
-      this.getimg();
-    });
     window.addEventListener("resize", () => {
-      // alert(1)
       if (this.f) {
         this.blu();
       }
     });
   },
   methods: {
-    getimg() {
-      $("img").attr("src", "/img?" + Math.random());
-    },
     sub() {
       this.load = true;
       let userinfo = {};
       userinfo.username = this.username;
       userinfo.password = this.password;
-      userinfo.code=this.code
       this.axios.post("/fuser", userinfo).then(x => {
         if (x.data.msg == "ok") {
+          console.log(x.data.userinfo);
+
           sessionStorage.setItem("token", x.data.token);
           sessionStorage.setItem("islogoin", "true");
           sessionStorage.setItem("userinfo", JSON.stringify(x.data.userinfo));
@@ -96,7 +81,6 @@ export default {
             "setuserinfo",
             JSON.parse(sessionStorage.getItem("userinfo"))
           );
-
           this.$notify({
             message: "登录成功!跳转...",
             duration: 500,
@@ -120,18 +104,18 @@ export default {
           }, 500);
 
           setInterval(() => {}, 1000);
-        } else if (x.data.msg == "codeno"){
+        } else if (x.data.msg == "codeno") {
           this.$notify({
             message: "验证码错误",
             duration: 1000,
             background: "#000"
           });
-          this.getimg()
+          this.getimg();
           setTimeout(() => {
             this.load = false;
           }, 500);
-        }else{
-          this.getimg()
+        } else {
+          this.getimg();
           this.$notify({
             message: "用户名或密码错误",
             duration: 1000,
@@ -148,9 +132,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.code {
-  display: flex;
-}
 .tx {
   text-align: center;
   padding: 10px;

@@ -176,7 +176,7 @@ export default {
     //加载文件列表
     loader.loadManifest(
       [
-        { id: "bg", src: "/mp3/bg.mp3" },
+        { id: "bg", src: "/mp3/saibao.mp3" },
         { id: "daojishi", src: "/mp3/daojishi.mp3" },
         { id: "chenggong", src: "/rbwar/chenggong.mp3" },
         { id: "chexiao", src: "/rbwar/chexiao.mp3" },

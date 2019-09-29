@@ -16,7 +16,7 @@
             </span>
           </div>
           <div id="banker" class="head-zhuang">
-            <em class="game-chess-img"></em>
+            <em class="game-chess-img" id="bker"></em>
             <em id="pokerStart" class="poker-start" @click="back"></em>
           </div>
           <div class="game-chess-img head-middle-img head-middle-runtime">

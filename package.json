@@ -13,6 +13,8 @@
     "core-js": "^2.6.5",
     "fastclick": "^1.0.6",
     "jquery": "^3.4.1",
+    "js-md5": "^0.7.3",
+    "jwt-simple": "^0.5.6",
     "socket.io-client": "^2.2.0",
     "underscore": "^1.9.1",
     "vant": "^2.1.3",

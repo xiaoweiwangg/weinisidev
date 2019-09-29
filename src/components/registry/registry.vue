@@ -39,15 +39,6 @@ x        placeholder="虚假信息将会影响正常出款"
         placeholder="请输入手机号"
         :error-message="pem"
       />
-      
-      <div class="code">
-          <div class="img">
-            <img src="/img" alt="验证码" />
-          </div>
-          <div class="coder">
-            <van-field v-model="code" placeholder="请输入验证码" />
-          </div>
-        </div>
       <div class="sub">
         <van-button :loading="load" @click="sub" square type="primary"
           >注 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 册</van-button
@@ -85,20 +76,12 @@ export default {
       pem: "",
       nem: "",
       pwem: "",
-      code:"",
       realname:"",
     };
   },
   mounted() {
-    this.getimg();
-    $("img").on("click", () => {
-      this.getimg();
-    });
   },
   methods: {
-    getimg() {
-      $("img").attr("src", "/img?" + Math.random());
-    },
     sub() {
       if (this.name.length < 8) {
         this.nem = "用户名不能少于8位";
@@ -121,7 +104,6 @@ export default {
         return
       }
       let userinfo = {};
-      userinfo.code=this.code
       userinfo.name = this.name;
       userinfo.password = this.password;
       userinfo.phone = this.phone;
@@ -162,9 +144,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.code {
-  display: flex;
-}
 .van-popup {
   height: 60px;
   font-size: 25px;

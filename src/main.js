@@ -5,7 +5,7 @@ import router from "./router";
 import store from "./store";
 import "./assets/icon/iconfont.css";
 import "./assets/base/reset.css";
-import "./assets/css/comm.css"
+import "./assets/css/comm.css";
 // iconfont
 import "./assets/icon/iconfont";
 //vue-socket 模块
@@ -21,8 +21,8 @@ Vue.use(
   new VueSocketIO({
     // debug: true,
     // // 服务器端地址
-    // connection: "localhost:88"
-    connection: "http://23.88.142.75:88"
+    connection: "localhost:88"
+    // connection: "http://23.88.142.75:88"
     // vuex: {},
   })
 );
