@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div> 
     <footer data-v-e1fcc0e8 class="game-chess-img chess-foot">
       <div class="game-foot-btn">
         <div class="resultMoney win" style="display: none;">
@@ -39,18 +39,16 @@
 import $ from "jquery";
 export default {
   props: ["pri", "start"],
-  computed: {
+  computed: { 
     bl() {
       return (this.balance-this.pri).toFixed(2);
     }
   },
   watch:{
     pri(x){
-      // console.log(x);
-      
     }
   },
-  name: "FooTer",
+  name: "FooTer",  
   data() {
     return {
       balance: 0
@@ -70,7 +68,7 @@ export default {
 
     },
     fom() {
-      this.$router.push("/wechatpay");
+      this.$router.push("/wechatpay"); 
     },
     getbalance() {
       this.$socket.emit("user", {

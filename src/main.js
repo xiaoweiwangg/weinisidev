@@ -1,4 +1,10 @@
-/* eslint-disable no-unused-vars */
+import 'babel-polyfill'
+
+import Es6Promise from 'es6-promise'
+
+require('es6-promise').polyfill()
+
+Es6Promise.polyfill()
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
@@ -21,8 +27,8 @@ Vue.use(
   new VueSocketIO({
     // debug: true,
     // // 服务器端地址
-    connection: "localhost:88"
-    // connection: "http://23.88.142.75:88"
+    // connection: "localhost:88"
+    connection: "http://23.88.142.75:88"
     // vuex: {},
   })
 );

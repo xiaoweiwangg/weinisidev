@@ -35,8 +35,9 @@ export default {
   li {
     height: 40px;
     width: 40px;
-    border: 2px solid #ccc;
+    border: 2px solid #000;
     border-radius: 50%;
+    box-shadow: 2px 4px 2px #9a939a, 1px 2px 1px #ccc;
     line-height: 40px;
     text-align: center;
     font-size: 20px;

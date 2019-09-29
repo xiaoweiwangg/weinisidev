@@ -229,71 +229,70 @@ export default {
       str: "停止下注",
       pri: 0,
       tj: false,
-      main:[],
-      main2 :[
-      { id: "bg", src: "/mp3/bg.mp3" },
-      { id: "daojishi", src: "/mp3/daojishi.mp3" },
-      { id: "chenggong", src: "/rbwar/chenggong.mp3" },
-      { id: "chexiao", src: "/rbwar/chexiao.mp3" },
-      { id: "dingdong", src: "/mp3/dingdong.wav" },
-      { id: "xiazhu", src: "/mp3/xiazhu.mp3" },
-      { id: "kaipai", src: "/mp3/kaipai.mp3" },
-      { id: "fapai", src: "/mp3/fapai.mp3" },
-      { id: "tingzhu", src: "/mp3/tingzhu.mp3" },
-      { id: "shouzhu", src: "/mp3/shouzhu.mp3" },
-      { id: "lotter", src: "/mp3/lotter.mp3" },
-      { id: "jinbi", src: "/mp3/jinbi.mp3" },
-      { id: "nz4", src: "/mp3/FamaleZhaDanNiu.mp3" },
-      { id: "nwhn", src: "/mp3/FamaleWuHuaNiu.mp3" },
-      { id: "nshn", src: "/mp3/FamaleSiHuaNiu.mp3" },
-      { id: "n1", src: "/mp3/FamaleNiuYi.mp3" },
-      { id: "n5", src: "/mp3/FamaleNiuWu.mp3" },
-      { id: "n4", src: "/mp3/FamaleNiuSi.mp3" },
-      { id: "n3", src: "/mp3/FamaleNiuSan.mp3" },
-      { id: "n7", src: "/mp3/FamaleNiuQi.mp3" },
-      { id: "n-1", src: "/mp3/FamaleNiuNone.mp3" },
-      { id: "n0", src: "/mp3/FamaleNiuNiu.mp3" },
-      { id: "n6", src: "/mp3/FamaleNiuLiu.mp3" },
-      { id: "n9", src: "/mp3/FamaleNiuJiu.mp3" },
-      { id: "n2", src: "/mp3/FamaleNiuEr.mp3" },
-      { id: "n8", src: "/mp3/FamaleNiuBa.mp3" },
-      { id: "chip", src: "/mp3/chip.mp3" }
-    ],
-     mainfest :[
-      { id: "bg", src: "/mp3/bg.mp3" },
-      { id: "daojishi", src: "/mp3/daojishi.mp3" },
-      { id: "chenggong", src: "/rbwar/chenggong.mp3" },
-      { id: "chexiao", src: "/rbwar/chexiao.mp3" },
-      { id: "dingdong", src: "/mp3/dingdong.wav" },
-      { id: "xiazhu", src: "/mp3/xiazhu.mp3" },
-      { id: "kaipai", src: "/mp3/kaipai.mp3" },
-      { id: "fapai", src: "/mp3/fapai.mp3" },
-      { id: "tingzhu", src: "/mp3/tingzhu.mp3" },
-      { id: "shouzhu", src: "/mp3/shouzhu.mp3" },
-      { id: "lotter", src: "/mp3/lotter.mp3" },
-      { id: "jinbi", src: "/mp3/jinbi.mp3" },
-      { id: "nz4", src: "/mp3/FamaleZhaDanNiu.mp3" },
-      { id: "nwhn", src: "/mp3/FamaleWuHuaNiu.mp3" },
-      { id: "nshn", src: "/mp3/FamaleSiHuaNiu.mp3" },
-      { id: "n1", src: "/mp3/FamaleNiuYi.mp3" },
-      { id: "n5", src: "/mp3/FamaleNiuWu.mp3" },
-      { id: "n4", src: "/mp3/FamaleNiuSi.mp3" },
-      { id: "n3", src: "/mp3/FamaleNiuSan.mp3" },
-      { id: "n7", src: "/mp3/FamaleNiuQi.mp3" },
-      { id: "n-1", src: "/mp3/FamaleNiuNone.mp3" },
-      { id: "n0", src: "/mp3/FamaleNiuNiu.mp3" },
-      { id: "n6", src: "/mp3/FamaleNiuLiu.mp3" },
-      { id: "n9", src: "/mp3/FamaleNiuJiu.mp3" },
-      { id: "n2", src: "/mp3/FamaleNiuEr.mp3" },
-      { id: "n8", src: "/mp3/FamaleNiuBa.mp3" },
-      { id: "chip", src: "/mp3/chip.mp3" }
-    ],
-    volume:1,
-    jingyin:0,
+      main: [],
+      main2: [
+        { id: "bg", src: "/mp3/bg.mp3" },
+        { id: "daojishi", src: "/mp3/daojishi.mp3" },
+        { id: "chenggong", src: "/rbwar/chenggong.mp3" },
+        { id: "chexiao", src: "/rbwar/chexiao.mp3" },
+        { id: "dingdong", src: "/mp3/dingdong.wav" },
+        { id: "xiazhu", src: "/mp3/xiazhu.mp3" },
+        { id: "kaipai", src: "/mp3/kaipai.mp3" },
+        { id: "fapai", src: "/mp3/fapai.mp3" },
+        { id: "tingzhu", src: "/mp3/tingzhu.mp3" },
+        { id: "shouzhu", src: "/mp3/shouzhu.mp3" },
+        { id: "lotter", src: "/mp3/lotter.mp3" },
+        { id: "jinbi", src: "/mp3/jinbi.mp3" },
+        { id: "nz4", src: "/mp3/FamaleZhaDanNiu.mp3" },
+        { id: "nwhn", src: "/mp3/FamaleWuHuaNiu.mp3" },
+        { id: "nshn", src: "/mp3/FamaleSiHuaNiu.mp3" },
+        { id: "n1", src: "/mp3/FamaleNiuYi.mp3" },
+        { id: "n5", src: "/mp3/FamaleNiuWu.mp3" },
+        { id: "n4", src: "/mp3/FamaleNiuSi.mp3" },
+        { id: "n3", src: "/mp3/FamaleNiuSan.mp3" },
+        { id: "n7", src: "/mp3/FamaleNiuQi.mp3" },
+        { id: "n-1", src: "/mp3/FamaleNiuNone.mp3" },
+        { id: "n0", src: "/mp3/FamaleNiuNiu.mp3" },
+        { id: "n6", src: "/mp3/FamaleNiuLiu.mp3" },
+        { id: "n9", src: "/mp3/FamaleNiuJiu.mp3" },
+        { id: "n2", src: "/mp3/FamaleNiuEr.mp3" },
+        { id: "n8", src: "/mp3/FamaleNiuBa.mp3" },
+        { id: "chip", src: "/mp3/chip.mp3" }
+      ],
+      mainfest: [
+        { id: "bg", src: "/mp3/bg.mp3" },
+        { id: "daojishi", src: "/mp3/daojishi.mp3" },
+        { id: "chenggong", src: "/rbwar/chenggong.mp3" },
+        { id: "chexiao", src: "/rbwar/chexiao.mp3" },
+        { id: "dingdong", src: "/mp3/dingdong.wav" },
+        { id: "xiazhu", src: "/mp3/xiazhu.mp3" },
+        { id: "kaipai", src: "/mp3/kaipai.mp3" },
+        { id: "fapai", src: "/mp3/fapai.mp3" },
+        { id: "tingzhu", src: "/mp3/tingzhu.mp3" },
+        { id: "shouzhu", src: "/mp3/shouzhu.mp3" },
+        { id: "lotter", src: "/mp3/lotter.mp3" },
+        { id: "jinbi", src: "/mp3/jinbi.mp3" },
+        { id: "nz4", src: "/mp3/FamaleZhaDanNiu.mp3" },
+        { id: "nwhn", src: "/mp3/FamaleWuHuaNiu.mp3" },
+        { id: "nshn", src: "/mp3/FamaleSiHuaNiu.mp3" },
+        { id: "n1", src: "/mp3/FamaleNiuYi.mp3" },
+        { id: "n5", src: "/mp3/FamaleNiuWu.mp3" },
+        { id: "n4", src: "/mp3/FamaleNiuSi.mp3" },
+        { id: "n3", src: "/mp3/FamaleNiuSan.mp3" },
+        { id: "n7", src: "/mp3/FamaleNiuQi.mp3" },
+        { id: "n-1", src: "/mp3/FamaleNiuNone.mp3" },
+        { id: "n0", src: "/mp3/FamaleNiuNiu.mp3" },
+        { id: "n6", src: "/mp3/FamaleNiuLiu.mp3" },
+        { id: "n9", src: "/mp3/FamaleNiuJiu.mp3" },
+        { id: "n2", src: "/mp3/FamaleNiuEr.mp3" },
+        { id: "n8", src: "/mp3/FamaleNiuBa.mp3" },
+        { id: "chip", src: "/mp3/chip.mp3" }
+      ],
+      volume: 1,
+      jingyin: 0
     };
   },
   beforeDestroy() {
-
     createjs.Sound.stop();
     window.clearInterval(this.timer);
     this.timer = null;
@@ -303,14 +302,9 @@ export default {
   },
   computed: {},
   mounted() {
-    console.log(this.$store.state.nnload);
-    if(this.$store.state.nnload){
-      this.isload=false
+    if (this.$store.state.nnload) {
+      this.isload = false;
     }
-    this.sockets.subscribe("niuniu2", data => {
-      this.playdate = parseInt(data.msg.playdate);
-      this.puklist = JSON.parse(data.msg.playnum);
-    });
     this.sockets.subscribe("move", data => {
       this.chiplist.push(data.tz);
       this.list.push(data.tz);
@@ -318,21 +312,19 @@ export default {
     this.sockets.subscribe("qtniuniu", data => {
       this.pm = data.pm;
     });
-    //---------------------
-      let that = this;
+    //切换浏览器动作
+    let that = this;
     document.addEventListener("visibilitychange", function() {
       //浏览器切换事件
       if (document.visibilityState == "hidden") {
         //离开当前tab标签
-        that.mainfest=that.main
+        that.mainfest = that.main;
         createjs.Sound.stop();
-        that.volume=that.jingyin
-        
+        that.volume = that.jingyin;
       } else {
         /////回到当前tab标签
-        that.mainfest=that.main2
-        that.volume=1
-        createjs.Sound.play("bg",{volume:that.volume}); 
+        that.mainfest = that.main2;
+        that.volume = 1;
       }
     });
     for (let i = 0; i < $(".jj .sj").length; i++) {}
@@ -355,13 +347,12 @@ export default {
       }
       $(".ad p").text("LOADING . . ." + (per * 100).toFixed(0) + " %");
     }
-
     function listener() {
       that.isload = false;
-      createjs.Sound.play("bg", { loop: -1,volume:that.volume });
+      createjs.Sound.play("bg", { loop: -1, volume: that.volume });
       that.cpl = true;
       that.init();
-      that.$store.state.nnload=true
+      that.$store.state.nnload = true;
     }
     //展示牌
     $(".sj").css({
@@ -372,6 +363,7 @@ export default {
     });
     this.normal();
   },
+  // 监听所有用户投注并执行动作
   updated() {
     if ($(".van-notify")[0]) {
       $(".van-notify")[0].style.zIndex = 999999999999999999;
@@ -414,6 +406,7 @@ export default {
     }
   },
   watch: {
+    // 监听开奖结果并对比计算
     jieguo(x) {
       if (x.length == 4) {
         setTimeout(() => {
@@ -485,46 +478,43 @@ export default {
             }
           });
         });
-        if (this.tj) {
-          this.$socket.emit("tb", {
-            pri: this.pri,
-            username: JSON.parse(sessionStorage.getItem("userinfo")).name
-          });
-        }
-        this.sockets.subscribe("jiesuan", data => {
-          console.log();
-        });
       }
     }
   },
   methods: {
+    // 获取开奖状态
     jishiv(x) {
       x > 17 ? "开奖时间" : "下注时间";
     },
+    // 获取数据
     getdata() {
       return new Promise((res, rej) => {
-        this.$socket.emit("niuniu2", {
-          username: JSON.parse(sessionStorage.getItem("userinfo")).name
+        this.axios.post("/niuniu").then(data => {
+          res(data.data.data[0]);
         });
       });
     },
+    // 关闭玩法组件
     close() {
       this.ishow = !this.ishow;
     },
+    // 关闭背景音乐
     play() {
       createjs.Sound.stop();
     },
+    // 初始化操作
     init() {
       this.$socket.emit("niuniu", {
         username: JSON.parse(sessionStorage.getItem("userinfo")).name
+      });
+      this.getdata().then(x => {
+        this.playdate = parseInt(x.playdate);
+        this.puklist = JSON.parse(x.playnum);
       });
       this.sockets.subscribe("niuniu", data => {
         // 初始倒计时时间
         this.start = 30 - (data.s % 30);
         this.djs = 15 - (data.s % 15);
-        // 初始开奖date数据
-        this.playdate = parseInt(data.msg.playdate);
-        this.puklist = JSON.parse(data.msg.playnum);
         this.pm = data.pm;
       });
       if (this.start > 14) {
@@ -535,6 +525,7 @@ export default {
         this.type = "投注中";
         console.log("投注");
       }
+      //定时器
       this.timer = setInterval(() => {
         this.start--;
         this.djs--;
@@ -547,7 +538,7 @@ export default {
           this.shoupai();
           setTimeout(() => {
             this.fapai();
-            createjs.Sound.play("xiazhu",{volume:this.volume});
+            createjs.Sound.play("xiazhu", { volume: this.volume });
             this.price = 0;
             this.str = "开始下注";
             this.isactz = true;
@@ -562,27 +553,35 @@ export default {
           this.jishil = false;
         }
         if (this.start == 18) {
-          createjs.Sound.play("daojishi",{volume:this.volume});
+          createjs.Sound.play("daojishi", { volume: this.volume });
           this.str = "3";
           this.jishil = true;
         }
         if (this.start == 17) {
-          createjs.Sound.play("daojishi",{volume:this.volume});
+          createjs.Sound.play("daojishi", { volume: this.volume });
           this.str = "2";
           this.jishil = true;
         }
         if (this.start == 16) {
-          createjs.Sound.play("daojishi",{volume:this.volume});
+          createjs.Sound.play("daojishi", { volume: this.volume });
           this.str = "1";
           this.jishil = true;
         }
-        if (this.start == 14) {
+        if (this.start == 12) {
+          this.$socket.emit("user", {
+            username: JSON.parse(sessionStorage.getItem("userinfo")).name
+          });
         }
         if (this.start == 15) {
-          createjs.Sound.play("tingzhu",{volume:this.volume});
+          createjs.Sound.play("tingzhu", { volume: this.volume });
           this.str = "停止下注";
           this.jishil = true;
           this.isactz = false;
+          this.getdata().then(x => {
+            console.log(x);
+            this.playdate = parseInt(x.playdate);
+            this.puklist = JSON.parse(x.playnum);
+          });
         }
         if (this.start == 14) {
           setTimeout(() => {
@@ -597,8 +596,8 @@ export default {
         }
       }, 1000);
     },
+    //撤销动作
     reback() {
-      // createjs.Sound.play("chexiao");
       this.vs.map(x => {
         x.map(v => (v.playnum = 0));
       });
@@ -606,6 +605,7 @@ export default {
       this.pri = 0;
       this.meshou();
     },
+    //提交动作
     sub() {
       if (!this.isactz) {
         return;
@@ -619,30 +619,30 @@ export default {
       shopcar.playgame = "niuniu";
       shopcar.playratel = this.playratel;
       shopcar.price = this.price;
-      // shopcar.dl = this.num;
       shopcar.iskj = 0;
       shopcar.playmode = this.playmode;
       this.axios.post("/shopcar", shopcar).then(x => {
-        // this.reback();
         if (x.data.msg == "余额不足") {
           this.$notify({
             message: "您的余额不足,请充值"
           });
           Toast.fail("订单提交失败");
-          createjs.Sound.play("dingdong",{volume:this.volume});
+          createjs.Sound.play("dingdong", { volume: this.volume });
           this.$socket.emit("user", {
             username: JSON.parse(sessionStorage.getItem("userinfo")).name
           });
         } else if (x.data.msg == "ok") {
+          this.price = 0;
           Toast.success("订单提交成功!");
           this.tj = true;
-          createjs.Sound.play("chenggong",{volume:this.volume});
+          createjs.Sound.play("chenggong", { volume: this.volume });
           this.$socket.emit("user", {
             username: JSON.parse(sessionStorage.getItem("userinfo")).name
           });
         }
       });
     },
+    // 下注动作
     add(x, y) {
       if (!this.isactz) {
         this.$notify({
@@ -652,7 +652,6 @@ export default {
         });
         return;
       }
-
       let z = 0;
       let tz = {};
       tz.price = this.ischip;
@@ -662,23 +661,20 @@ export default {
       }
       tz.addr = z;
       tz.cls = "me";
-      // this.list.push(tz);
-      // console.log(this.list);
       this.$socket.emit("add", {
         data: tz
       });
-      console.log(tz);
-
       this.vs[x][y].playnum += this.ischip;
-      createjs.Sound.play("chip",{volume:this.volume});
+      createjs.Sound.play("chip", { volume: this.volume });
       this.$emit("add", this.price);
       //加入用户投注列表
-      // this.chiplist.push(tz);
       this.price += this.ischip;
     },
+    // 选定注码
     ck(x) {
       this.ischip = x;
     },
+    // 开奖结果背景
     nnbg(x) {
       switch (x) {
         case "whn":
@@ -725,6 +721,7 @@ export default {
           break;
       }
     },
+    // 我的收注
     meshou() {
       for (let i = 0; i < $(".me").length; i++) {
         setTimeout(() => {
@@ -749,6 +746,7 @@ export default {
         }
       }
     },
+    //玩家收注
     wanjiashou() {
       for (let i = 0; i < $(".ch").length; i++) {
         setTimeout(() => {
@@ -773,6 +771,7 @@ export default {
         }
       }
     },
+    // 庄家收注
     zhuangshou() {
       for (let i = 0; i < $(".ch").length; i++) {
         setTimeout(() => {
@@ -793,18 +792,19 @@ export default {
               }
             );
         }, i * 10);
-        createjs.Sound.play("shouzhu",{volume:this.volume});
+        createjs.Sound.play("shouzhu", { volume: this.volume });
         if (i % 2 == 0) {
         }
       }
-      // this.chiplist=[]
     },
+    // 求数组的差集函数
     dif(a, b) {
       for (let i = 0; i < 3; i++) {
         a.splice(a.indexOf(b[i]), 1);
       }
       return a;
     },
+    // 结算方法
     nnme(j) {
       let jg = {};
       //校验最大单牌
@@ -851,9 +851,7 @@ export default {
           }
         }
       }
-
       let r = [...new Set(res)].map(x => x.split(",").map(v => v - 0));
-      // console.log(r);
       let n = 0;
       let jarr = [];
       for (let i in r) {
@@ -867,22 +865,12 @@ export default {
               .map(v => (v > 10 ? 10 : v))
               .reduce((a, b) => a + b) % 10
           );
-          // console.log(
-          //   "牛" +
-          //     (_.difference(j.map(x => x.num), r[i])
-          //       .map(v => (v > 10 ? 10 : v))
-          //       .reduce((a, b) => a + b) %
-          //       10)
-          // );
         }
       }
       if (n > 0) {
         jg.niu = Math.max(...jarr);
-        // console.log(jg);
-        // console.log(jarr);
       } else {
         jg.niu = "-1";
-        // console.log("无牛");
       }
 
       if (jg.shn == 4) {
@@ -896,8 +884,9 @@ export default {
       }
       this.n = jg.niu;
       this.jieguo.push(jg);
-      createjs.Sound.play("n" + jg.niu,{volume:this.volume});
+      createjs.Sound.play("n" + jg.niu, { volume: this.volume });
     },
+    // 是否翻转
     isfz(x, y, z) {
       if (z) {
         return false;
@@ -906,13 +895,14 @@ export default {
         return true;
       }
     },
+    // 开牌动作
     kaipai() {
       let arr = [1, 2, 3, 0];
       for (let i = 0; i < 4; i++) {
         setTimeout(() => {
           this.t.push(arr[i]);
           setTimeout(() => {
-            createjs.Sound.play("kaipai",{volume:this.volume});
+            createjs.Sound.play("kaipai", { volume: this.volume });
             setTimeout(() => {
               this.nnme(this.puklist.filter(x => x.type == arr[i]));
               $(".xs")
@@ -928,6 +918,7 @@ export default {
         }, i * 900);
       }
     },
+    // 发牌动作
     fapai() {
       this.jieguo = [];
       this.fz = false;
@@ -941,7 +932,7 @@ export default {
             b = n * ($(window).width() * 0.1);
           }
           if (c % 5 == 0) {
-            createjs.Sound.play("fapai",{volume:this.volume});
+            createjs.Sound.play("fapai", { volume: this.volume });
           }
           $(".pk")
             .eq(c)
@@ -957,6 +948,7 @@ export default {
         }, c * 80);
       }
     },
+    // 收牌动作
     shoupai() {
       this.reback();
       this.vs.map(x => {
@@ -965,7 +957,7 @@ export default {
       this.jieguo = [];
       this.fz = false;
       for (let i = 0; i < 4; i++) {
-        createjs.Sound.play("fapai",{volume:this.volume});
+        createjs.Sound.play("fapai", { volume: this.volume });
         $(".p")
           .eq(i)
           .removeClass("ct");
@@ -977,7 +969,7 @@ export default {
         if (c != 0 && c % 5 == 0) {
           n++;
           setTimeout(() => {
-            createjs.Sound.play("fapai",{volume:this.volume});
+            createjs.Sound.play("fapai", { volume: this.volume });
           }, 800 + n * 50);
         }
         setTimeout(() => {
@@ -995,6 +987,7 @@ export default {
       }
       this.puklist = this.backpuk;
     },
+    // 初始牌面
     normal() {
       let n = 0;
       let b = 0;
