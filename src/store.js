@@ -4,6 +4,12 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+
+    nnload:false,
+    rbload:false,
+    lhload:false,
+    sbload:false,
+    bcload:false,
     userinfo: {}
   },
   mutations: {

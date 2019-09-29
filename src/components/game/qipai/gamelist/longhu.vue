@@ -136,102 +136,7 @@
     </div>
     <div class="d">
       <div class="desk">
-        <div data-v-e1fcc0e8 id="bettingBox" class="loongtiger-betting">
-          <div data-v-e1fcc0e8 class="loongtiger-first">
-            <div data-v-e1fcc0e8 class style="position: relative;">
-              <div
-                data-v-e1fcc0e8
-                class="game-loongTiger-img loongtiger-betting-loong loongtiger-betinfo opacity-box games-font"
-              >
-                <div data-v-e1fcc0e8 class="loongtiger-number-top games-font">
-                  <em data-v-e1fcc0e8>0</em>
-                </div>
-                <div data-v-e1fcc0e8 id="content1" class="loongtiger-number-middle">
-                  <div data-v-e1fcc0e8>
-                    <em
-                      data-v-e1fcc0e8
-                      title="龙"
-                      class="game-loongTiger-img loongtiger-nmiddle-loong"
-                    ></em>
-                  </div>
-                  <div data-v-e1fcc0e8>
-                    <em data-v-e1fcc0e8>×</em>
-                  </div>
-                  <div data-v-e1fcc0e8>
-                    <em data-v-e1fcc0e8>1.970</em>
-                  </div>
-                </div>
-                <div data-v-e1fcc0e8 class="loongtiger-number-down games-font">
-                  <em data-v-e1fcc0e8>0</em>
-                </div>
-              </div>
-              <div data-v-e1fcc0e8 id="aus-long-content" class="aus-long-content">
-                <div data-v-e1fcc0e8 class="aus-long"></div>
-                <div data-v-e1fcc0e8 class="aus-long-bj"></div>
-              </div>
-            </div>
-            <div data-v-e1fcc0e8 class style="position: relative;">
-              <div
-                data-v-e1fcc0e8
-                class="game-loongTiger-img loongtiger-betting-tiger loongtiger-betinfo opacity-box games-font"
-              >
-                <div data-v-e1fcc0e8 class="loongtiger-number-top games-font">
-                  <em data-v-e1fcc0e8>0</em>
-                </div>
-                <div data-v-e1fcc0e8 id="content2" class="loongtiger-number-middle">
-                  <div data-v-e1fcc0e8>
-                    <em
-                      data-v-e1fcc0e8
-                      title="虎"
-                      class="game-loongTiger-img loongtiger-nmiddle-tiger"
-                    ></em>
-                  </div>
-                  <div data-v-e1fcc0e8>
-                    <em data-v-e1fcc0e8>×</em>
-                  </div>
-                  <div data-v-e1fcc0e8>
-                    <em data-v-e1fcc0e8>1.970</em>
-                  </div>
-                </div>
-                <div data-v-e1fcc0e8 class="loongtiger-number-down games-font">
-                  <em data-v-e1fcc0e8>0</em>
-                </div>
-              </div>
-              <div data-v-e1fcc0e8 id="aus-tiger-content" class="aus-tiger-content">
-                <div data-v-e1fcc0e8 class="aus-tiger"></div>
-                <div data-v-e1fcc0e8 class="aus-tiger-bj"></div>
-              </div>
-            </div>
-          </div>
-          <div data-v-e1fcc0e8 class="loongtiger-second games-font" style="position: relative;">
-            <div
-              data-v-e1fcc0e8
-              class="game-loongTiger-img loongtiger-betting-he loongtiger-betinfo opacity-box"
-            >
-              <div data-v-e1fcc0e8 class="loongtiger-number-top games-font">
-                <em data-v-e1fcc0e8>0</em>
-              </div>
-              <div data-v-e1fcc0e8 id="content3" class="loongtiger-number-middle">
-                <div data-v-e1fcc0e8>
-                  <em data-v-e1fcc0e8 title="和" class="game-loongTiger-img loongtiger-nmiddle-he"></em>
-                </div>
-                <div data-v-e1fcc0e8>
-                  <em data-v-e1fcc0e8>×</em>
-                </div>
-                <div data-v-e1fcc0e8>
-                  <em data-v-e1fcc0e8>15.045</em>
-                </div>
-              </div>
-              <div data-v-e1fcc0e8 class="loongtiger-number-down games-font">
-                <em data-v-e1fcc0e8>0</em>
-              </div>
-            </div>
-            <div data-v-e1fcc0e8 class="aus-he-content" style="display: none;">
-              <div data-v-e1fcc0e8 class="aus-he"></div>
-              <div data-v-e1fcc0e8 class="aus-he aus-he-small"></div>
-            </div>
-          </div>
-        </div>
+        
       </div>
     </div>
     <lotte-r :cpl="cpl" class="cpr" @chek="ck"></lotte-r>
@@ -1237,30 +1142,6 @@ export default {
   background: #c3330e;
   width: 100%;
 }
-
-#bettingBox > div:nth-child(2) {
-  display: flex;
-  justify-content: center;
-  & > div {
-    text-align-last: center;
-    width: 262px;
-    height: 88px;
-    border: 1vw solid #a93c30;
-    overflow: hidden;
-    color: #dca091;
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    #content3 {
-      display: flex;
-      flex-flow: column;
-    }
-    display: flex;
-    flex-flow: column;
-    /* align-items: center; */
-    justify-content: space-between;
-  }
-}
 .d {
   flex: 1;
   margin-top: 129px;
@@ -1294,7 +1175,6 @@ export default {
   .x3 {
     width: 25%;
     height: 30px;
-    // text-align: center;
   }
   .zhuang {
     margin-left: 18px;

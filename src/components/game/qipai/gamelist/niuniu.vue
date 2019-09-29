@@ -1,125 +1,7 @@
 <template>
   <div class="niuniu">
     <van-popup v-model="ishow">
-      <div data-v-e1fcc0e8 title="2001" class="how-to-play">
-        <div class="game-chess-img how-to-play-top">
-          <div class="game-chess-img how-to-play-head"></div>
-          <div class="game-chess-img how-to-play-close" @click="close"></div>
-        </div>
-        <div class="game-chess-img how-to-play-middle">
-          <div class="how-to-play-content setfont games-font">
-            <div>
-              <div class="tit">开奖时间：</div>
-              <div class="row-bottom">30秒1局，全天2880局；</div>
-            </div>
-            <div>
-              <div class="tit">玩法规则</div>
-              <div class="row-bottom">
-                每局由一副扑克牌（&nbsp;不含大小王）开出20张牌为开奖号码，庄、闲1、闲2、闲3各5张牌，竞猜庄分别与闲1、闲2、闲3的牌型大小；
-                <br />
-                <br />庄对闲1「庄」&nbsp;&nbsp;庄获胜即中奖；
-                <br />庄对闲1「闲1」&nbsp;闲1获胜即中奖；
-                <br />庄对闲2「庄」&nbsp;&nbsp;庄获胜即中奖；
-                <br />庄对闲2「闲2」闲2获胜即中奖；
-                <br />庄对闲3「庄」&nbsp;&nbsp;庄获胜即中奖；
-                <br />庄对闲3「闲3」闲3获胜即中奖；
-              </div>
-            </div>
-            <div>
-              <div class="tit">牌型大小：</div>
-              <div
-                class="row-bottom"
-              >四炸&gt;五花牛&gt;四花牛&gt;牛牛&gt;牛九&gt;牛八&gt;牛七&gt;牛六&gt;牛五&gt;牛四&gt;牛三&gt;牛二&gt;牛一&gt;无牛；牌型相同时比较最大一张牌点数大小，K最大A最小，若点数也相同比较花色大小，黑桃&gt;红桃&gt;梅花&gt;方块;（特例：四炸时比较四张一样的那张牌）JQK都为10，A为1；</div>
-            </div>
-            <!---->
-            <!---->
-            <ul class="how-to-play-list">
-              <li>
-                <div class="how-to-play-code">
-                  <em class="game-chess-card card-0 pk4"></em>
-                  <em class="game-chess-card card-1 pk5"></em>
-                  <em class="game-chess-card card-2 pk6"></em>
-                  <em class="game-chess-card card-3 pk7"></em>
-                  <em class="game-chess-card card-4 pk8"></em>
-                </div>
-                <div class="how-to-play-info">
-                  <div class="tit">四炸：</div>
-                  <div>五张牌中有四张完全一样；</div>
-                </div>
-              </li>
-              <li>
-                <div class="how-to-play-code">
-                  <em class="game-chess-card card-0 pk53"></em>
-                  <em class="game-chess-card card-1 pk52"></em>
-                  <em class="game-chess-card card-2 pk51"></em>
-                  <em class="game-chess-card card-3 pk50"></em>
-                  <em class="game-chess-card card-4 pk47"></em>
-                </div>
-                <div class="how-to-play-info">
-                  <div class="tit">五花牛：</div>
-                  <div>五张牌全部是JQK的组合；</div>
-                </div>
-              </li>
-              <li>
-                <div class="how-to-play-code">
-                  <em class="game-chess-card card-0 pk54"></em>
-                  <em class="game-chess-card card-1 pk51"></em>
-                  <em class="game-chess-card card-2 pk47"></em>
-                  <em class="game-chess-card card-3 pk49"></em>
-                  <em class="game-chess-card card-4 pk43"></em>
-                </div>
-                <div class="how-to-play-info">
-                  <div class="tit">四花牛：</div>
-                  <div>五张牌除了一张10，其余四张为JQK的组合；</div>
-                </div>
-              </li>
-              <li>
-                <div class="how-to-play-code">
-                  <em class="game-chess-card card-0 pk13"></em>
-                  <em class="game-chess-card card-1 pk28"></em>
-                  <em class="game-chess-card card-2 pk42"></em>
-                  <em class="game-chess-card card-3 pk44"></em>
-                  <em class="game-chess-card card-4 pk48"></em>
-                </div>
-                <div class="how-to-play-info">
-                  <div class="tit">牛牛：</div>
-                  <div>五张牌中任意三张相加为10的倍数，剩余两张相加也为10的倍数；</div>
-                </div>
-              </li>
-              <li>
-                <div class="how-to-play-code">
-                  <em class="game-chess-card card-0 pk14"></em>
-                  <em class="game-chess-card card-1 pk28"></em>
-                  <em class="game-chess-card card-2 pk43"></em>
-                  <em class="game-chess-card card-3 pk5"></em>
-                  <em class="game-chess-card card-4 pk8"></em>
-                </div>
-                <div class="how-to-play-info">
-                  <div class="tit">牛一至牛九：</div>
-                  <div>五张牌中任意三张相加为10的倍数，剩余两张相加取个位数，个位数是几就是牛几；</div>
-                </div>
-              </li>
-              <li>
-                <div class="how-to-play-code">
-                  <em class="game-chess-card card-0 pk33"></em>
-                  <em class="game-chess-card card-1 pk32"></em>
-                  <em class="game-chess-card card-2 pk28"></em>
-                  <em class="game-chess-card card-3 pk41"></em>
-                  <em class="game-chess-card card-4 pk47"></em>
-                </div>
-                <div class="how-to-play-info">
-                  <div class="tit">无牛：</div>
-                  <div>五张牌中任意三张相加不为10的倍数；</div>
-                </div>
-              </li>
-            </ul>
-            <!---->
-          </div>
-        </div>
-        <div class="game-chess-img how-to-play-dottom">
-          <em class="game-chess-img how-to-play-icon"></em>
-        </div>
-      </div>
+      <how-play @close="close"></how-play>
     </van-popup>
     <div class="ad" v-show="isload">
       <p>{{per}}%</p>
@@ -217,6 +99,7 @@
 </template>
 
 <script>
+import HowPlay from "../howtoplay/howniuniu";
 import $ from "jquery";
 import _ from "underscore";
 import HeaderTop from "../base/top";
@@ -233,7 +116,8 @@ export default {
     FooTer,
     PukerV,
     ChiPer,
-    [Toast.name]: Toast
+    [Toast.name]: Toast,
+    HowPlay
   },
   filters: {
     fname(x) {
@@ -270,7 +154,7 @@ export default {
       t: [], //牌翻转的序列
       n: null, //全局牛n
       ischip: 1, //默认投注码
-      ishow: false,
+      ishow: true,
       isactz: false,
       puklist: [
         //扑克牌列表
@@ -344,53 +228,9 @@ export default {
       jishil: false,
       str: "停止下注",
       pri: 0,
-      tj: false
-    };
-  },
-  beforeDestroy() {
-    createjs.Sound.stop();
-    window.clearInterval(this.timer);
-    this.timer = null;
-    this.$socket.emit("qtniuniu", {
-      username: JSON.parse(sessionStorage.getItem("userinfo")).name
-    });
-  },
-  computed: {},
-  mounted() {
-    this.sockets.subscribe("niuniu2", data => {
-      this.playdate = parseInt(data.msg.playdate);
-      this.puklist = JSON.parse(data.msg.playnum);
-    });
-    this.sockets.subscribe("move", data => {
-      this.chiplist.push(data.tz);
-      this.list.push(data.tz);
-    });
-    this.sockets.subscribe("qtniuniu", data => {
-      console.log(this.pm);
-
-      this.pm = data.pm;
-    });
-    //---------------------
-    document.addEventListener("visibilitychange", function() {
-      //浏览器切换事件
-      if (document.visibilityState == "hidden") {
-        //离开当前tab标签
-        createjs.Sound.stop();
-      } else {
-        /////回到当前tab标签
-        // createjs.Sound.play("bg");
-      }
-    });
-    let that = this;
-    for (let i = 0; i < $(".jj .sj").length; i++) {}
-    let p = this.per;
-    var loader = new createjs.LoadQueue();
-    // 添加声音支持
-    loader.installPlugin(createjs.Sound);
-    // 检测文件加载进度
-    loader.addEventListener("progress", loadprogress);
-    //加载文件列表
-    let mainfest = [
+      tj: false,
+      main:[],
+      main2 :[
       { id: "bg", src: "/mp3/bg.mp3" },
       { id: "daojishi", src: "/mp3/daojishi.mp3" },
       { id: "chenggong", src: "/rbwar/chenggong.mp3" },
@@ -418,8 +258,92 @@ export default {
       { id: "n2", src: "/mp3/FamaleNiuEr.mp3" },
       { id: "n8", src: "/mp3/FamaleNiuBa.mp3" },
       { id: "chip", src: "/mp3/chip.mp3" }
-    ];
-    loader.loadManifest(mainfest, true);
+    ],
+     mainfest :[
+      { id: "bg", src: "/mp3/bg.mp3" },
+      { id: "daojishi", src: "/mp3/daojishi.mp3" },
+      { id: "chenggong", src: "/rbwar/chenggong.mp3" },
+      { id: "chexiao", src: "/rbwar/chexiao.mp3" },
+      { id: "dingdong", src: "/mp3/dingdong.wav" },
+      { id: "xiazhu", src: "/mp3/xiazhu.mp3" },
+      { id: "kaipai", src: "/mp3/kaipai.mp3" },
+      { id: "fapai", src: "/mp3/fapai.mp3" },
+      { id: "tingzhu", src: "/mp3/tingzhu.mp3" },
+      { id: "shouzhu", src: "/mp3/shouzhu.mp3" },
+      { id: "lotter", src: "/mp3/lotter.mp3" },
+      { id: "jinbi", src: "/mp3/jinbi.mp3" },
+      { id: "nz4", src: "/mp3/FamaleZhaDanNiu.mp3" },
+      { id: "nwhn", src: "/mp3/FamaleWuHuaNiu.mp3" },
+      { id: "nshn", src: "/mp3/FamaleSiHuaNiu.mp3" },
+      { id: "n1", src: "/mp3/FamaleNiuYi.mp3" },
+      { id: "n5", src: "/mp3/FamaleNiuWu.mp3" },
+      { id: "n4", src: "/mp3/FamaleNiuSi.mp3" },
+      { id: "n3", src: "/mp3/FamaleNiuSan.mp3" },
+      { id: "n7", src: "/mp3/FamaleNiuQi.mp3" },
+      { id: "n-1", src: "/mp3/FamaleNiuNone.mp3" },
+      { id: "n0", src: "/mp3/FamaleNiuNiu.mp3" },
+      { id: "n6", src: "/mp3/FamaleNiuLiu.mp3" },
+      { id: "n9", src: "/mp3/FamaleNiuJiu.mp3" },
+      { id: "n2", src: "/mp3/FamaleNiuEr.mp3" },
+      { id: "n8", src: "/mp3/FamaleNiuBa.mp3" },
+      { id: "chip", src: "/mp3/chip.mp3" }
+    ],
+    volume:1,
+    jingyin:0,
+    };
+  },
+  beforeDestroy() {
+
+    createjs.Sound.stop();
+    window.clearInterval(this.timer);
+    this.timer = null;
+    this.$socket.emit("qtniuniu", {
+      username: JSON.parse(sessionStorage.getItem("userinfo")).name
+    });
+  },
+  computed: {},
+  mounted() {
+    console.log(this.$store.state.nnload);
+    if(this.$store.state.nnload){
+      this.isload=false
+    }
+    this.sockets.subscribe("niuniu2", data => {
+      this.playdate = parseInt(data.msg.playdate);
+      this.puklist = JSON.parse(data.msg.playnum);
+    });
+    this.sockets.subscribe("move", data => {
+      this.chiplist.push(data.tz);
+      this.list.push(data.tz);
+    });
+    this.sockets.subscribe("qtniuniu", data => {
+      this.pm = data.pm;
+    });
+    //---------------------
+      let that = this;
+    document.addEventListener("visibilitychange", function() {
+      //浏览器切换事件
+      if (document.visibilityState == "hidden") {
+        //离开当前tab标签
+        that.mainfest=that.main
+        createjs.Sound.stop();
+        that.volume=that.jingyin
+        
+      } else {
+        /////回到当前tab标签
+        that.mainfest=that.main2
+        that.volume=1
+        createjs.Sound.play("bg",{volume:that.volume}); 
+      }
+    });
+    for (let i = 0; i < $(".jj .sj").length; i++) {}
+    let p = this.per;
+    var loader = new createjs.LoadQueue();
+    // 添加声音支持
+    loader.installPlugin(createjs.Sound);
+    // 检测文件加载进度
+    loader.addEventListener("progress", loadprogress);
+    //加载文件列表
+    loader.loadManifest(this.mainfest, true);
     //加载文件完成
     loader.addEventListener("complete", listener);
     //媒体文件扩展
@@ -434,12 +358,10 @@ export default {
 
     function listener() {
       that.isload = false;
-      createjs.Sound.play("bg", { loop: -1 });
+      createjs.Sound.play("bg", { loop: -1,volume:that.volume });
       that.cpl = true;
-      //   setInterval(() => {
-      //   that.chiplist.push({addr:_.random(0,5),price:[1,5,10,50,100][_.random(0,6)]})
-      // }, 1000);
       that.init();
+      that.$store.state.nnload=true
     }
     //展示牌
     $(".sj").css({
@@ -556,7 +478,6 @@ export default {
         }
         //结算
         this.$socket.emit("ks", { data: JSON.stringify(this.vs) });
-        console.log(JSON.stringify(this.vs));
         this.vs.map(x => {
           x.map(v => {
             if (v.iswin) {
@@ -564,7 +485,6 @@ export default {
             }
           });
         });
-        console.log(this.pri);
         if (this.tj) {
           this.$socket.emit("tb", {
             pri: this.pri,
@@ -602,7 +522,6 @@ export default {
         // 初始倒计时时间
         this.start = 30 - (data.s % 30);
         this.djs = 15 - (data.s % 15);
-
         // 初始开奖date数据
         this.playdate = parseInt(data.msg.playdate);
         this.puklist = JSON.parse(data.msg.playnum);
@@ -628,7 +547,7 @@ export default {
           this.shoupai();
           setTimeout(() => {
             this.fapai();
-            createjs.Sound.play("xiazhu");
+            createjs.Sound.play("xiazhu",{volume:this.volume});
             this.price = 0;
             this.str = "开始下注";
             this.isactz = true;
@@ -643,29 +562,24 @@ export default {
           this.jishil = false;
         }
         if (this.start == 18) {
-          createjs.Sound.play("daojishi");
+          createjs.Sound.play("daojishi",{volume:this.volume});
           this.str = "3";
           this.jishil = true;
         }
         if (this.start == 17) {
-          createjs.Sound.play("daojishi");
+          createjs.Sound.play("daojishi",{volume:this.volume});
           this.str = "2";
           this.jishil = true;
         }
         if (this.start == 16) {
-          createjs.Sound.play("daojishi");
+          createjs.Sound.play("daojishi",{volume:this.volume});
           this.str = "1";
           this.jishil = true;
-          // this.getdata().then(x => {
-          //   console.log(x);
-          //   this.playdate = parseInt(x.playdate);
-          //   this.puklist = JSON.parse(x.playnum);
-          // });
         }
         if (this.start == 14) {
         }
         if (this.start == 15) {
-          createjs.Sound.play("tingzhu");
+          createjs.Sound.play("tingzhu",{volume:this.volume});
           this.str = "停止下注";
           this.jishil = true;
           this.isactz = false;
@@ -698,7 +612,6 @@ export default {
       }
       let shopcar = {};
       (shopcar.username = JSON.parse(sessionStorage.getItem("userinfo")).name),
-        //   // (shopcar.userinput = JSON.stringify({ data: this.gamelist }));
         (shopcar.buydet = JSON.stringify(this.vs));
       shopcar.userinput = JSON.stringify(this.vs);
       shopcar.playdate = `${this.playdate + 1}期`;
@@ -716,14 +629,14 @@ export default {
             message: "您的余额不足,请充值"
           });
           Toast.fail("订单提交失败");
-          createjs.Sound.play("dingdong");
+          createjs.Sound.play("dingdong",{volume:this.volume});
           this.$socket.emit("user", {
             username: JSON.parse(sessionStorage.getItem("userinfo")).name
           });
         } else if (x.data.msg == "ok") {
           Toast.success("订单提交成功!");
           this.tj = true;
-          createjs.Sound.play("chenggong");
+          createjs.Sound.play("chenggong",{volume:this.volume});
           this.$socket.emit("user", {
             username: JSON.parse(sessionStorage.getItem("userinfo")).name
           });
@@ -757,7 +670,7 @@ export default {
       console.log(tz);
 
       this.vs[x][y].playnum += this.ischip;
-      createjs.Sound.play("chip");
+      createjs.Sound.play("chip",{volume:this.volume});
       this.$emit("add", this.price);
       //加入用户投注列表
       // this.chiplist.push(tz);
@@ -880,7 +793,7 @@ export default {
               }
             );
         }, i * 10);
-        createjs.Sound.play("shouzhu");
+        createjs.Sound.play("shouzhu",{volume:this.volume});
         if (i % 2 == 0) {
         }
       }
@@ -983,7 +896,7 @@ export default {
       }
       this.n = jg.niu;
       this.jieguo.push(jg);
-      createjs.Sound.play("n" + jg.niu);
+      createjs.Sound.play("n" + jg.niu,{volume:this.volume});
     },
     isfz(x, y, z) {
       if (z) {
@@ -999,7 +912,7 @@ export default {
         setTimeout(() => {
           this.t.push(arr[i]);
           setTimeout(() => {
-            createjs.Sound.play("kaipai");
+            createjs.Sound.play("kaipai",{volume:this.volume});
             setTimeout(() => {
               this.nnme(this.puklist.filter(x => x.type == arr[i]));
               $(".xs")
@@ -1028,7 +941,7 @@ export default {
             b = n * ($(window).width() * 0.1);
           }
           if (c % 5 == 0) {
-            createjs.Sound.play("fapai");
+            createjs.Sound.play("fapai",{volume:this.volume});
           }
           $(".pk")
             .eq(c)
@@ -1052,7 +965,7 @@ export default {
       this.jieguo = [];
       this.fz = false;
       for (let i = 0; i < 4; i++) {
-        createjs.Sound.play("fapai");
+        createjs.Sound.play("fapai",{volume:this.volume});
         $(".p")
           .eq(i)
           .removeClass("ct");
@@ -1064,7 +977,7 @@ export default {
         if (c != 0 && c % 5 == 0) {
           n++;
           setTimeout(() => {
-            createjs.Sound.play("fapai");
+            createjs.Sound.play("fapai",{volume:this.volume});
           }, 800 + n * 50);
         }
         setTimeout(() => {
@@ -1353,7 +1266,7 @@ export default {
         color: #ccc;
         height: 100%;
         p {
-          line-height: 134%;
+          line-height: 192%;
         }
       }
       .zhushu {
