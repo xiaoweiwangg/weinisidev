@@ -2,7 +2,7 @@
   <div id="app">
     <transition>
       <router-view class="roter"></router-view>
-    </transition>
+    </transition> 
     <home-footer></home-footer>
   </div>
 </template>

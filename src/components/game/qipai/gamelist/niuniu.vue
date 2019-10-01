@@ -108,6 +108,7 @@ import { Toast } from "vant";
 import FooTer from "../base/footer";
 import PukerV from "../base/puker";
 import ChiPer from "../base/chip";
+import { log } from 'util';
 export default {
   name: "NiuNiu",
   components: {
@@ -296,9 +297,6 @@ export default {
     createjs.Sound.stop();
     window.clearInterval(this.timer);
     this.timer = null;
-    this.$socket.emit("qtniuniu", {
-      username: JSON.parse(sessionStorage.getItem("userinfo")).name
-    });
   },
   computed: {},
   mounted() {
@@ -308,9 +306,6 @@ export default {
     this.sockets.subscribe("move", data => {
       this.chiplist.push(data.tz);
       this.list.push(data.tz);
-    });
-    this.sockets.subscribe("qtniuniu", data => {
-      this.pm = data.pm;
     });
     //切换浏览器动作
     let that = this;
@@ -470,7 +465,6 @@ export default {
           }
         }
         //结算
-        this.$socket.emit("ks", { data: JSON.stringify(this.vs) });
         this.vs.map(x => {
           x.map(v => {
             if (v.iswin) {
@@ -490,7 +484,9 @@ export default {
     getdata() {
       return new Promise((res, rej) => {
         this.axios.post("/niuniu").then(data => {
-          res(data.data.data[0]);
+        console.log(data.data.s,data,".........");
+
+          res(data.data);
         });
       });
     },
@@ -504,18 +500,12 @@ export default {
     },
     // 初始化操作
     init() {
-      this.$socket.emit("niuniu", {
-        username: JSON.parse(sessionStorage.getItem("userinfo")).name
-      });
       this.getdata().then(x => {
-        this.playdate = parseInt(x.playdate);
-        this.puklist = JSON.parse(x.playnum);
-      });
-      this.sockets.subscribe("niuniu", data => {
-        // 初始倒计时时间
-        this.start = 30 - (data.s % 30);
-        this.djs = 15 - (data.s % 15);
-        this.pm = data.pm;
+        this.start = 30 - (x.s % 30);
+        this.djs = 15 - (x.s % 15);
+        this.playdate = parseInt(x.data[0].playdate); 
+        this.puklist = JSON.parse(x.data[0].playnum);
+        
       });
       if (this.start > 14) {
         this.type = "开奖中";
@@ -578,9 +568,9 @@ export default {
           this.jishil = true;
           this.isactz = false;
           this.getdata().then(x => {
-            console.log(x);
-            this.playdate = parseInt(x.playdate);
-            this.puklist = JSON.parse(x.playnum);
+            console.log(x.data[0]);
+            this.playdate = parseInt(x.data[0].playdate);
+            this.puklist = JSON.parse(x.data[0].playnum);
           });
         }
         if (this.start == 14) {

@@ -87,7 +87,7 @@ export default {
             background: "green"
           });
           setTimeout(() => {
-            this.$dialog
+            this.$dialog 
               .confirm({
                 title: "棋牌游戏百人牛牛已推出",
                 message:
@@ -110,12 +110,10 @@ export default {
             duration: 1000,
             background: "#000"
           });
-          this.getimg();
           setTimeout(() => {
             this.load = false;
           }, 500);
         } else {
-          this.getimg();
           this.$notify({
             message: "用户名或密码错误",
             duration: 1000,

@@ -59,7 +59,7 @@
     <div class="player">
       <span>({{pm}})</span>
     </div>
-    <chi-per 
+    <chi-per
       class="ch"
       v-for="(item,index) in chiplist"
       :key="index"
@@ -112,7 +112,12 @@
     <div class="timerdjs" v-show="jishil">{{str}}</div>
     <div data-v-e1fcc0e8 id="bettingBox" class="redblackwar-betting">
       <div data-v-e1fcc0e8>
-        <div data-v-e1fcc0e8 @click="add(0)" class="opacity-box redblackwar-red tl games-font vitem jj" style="position:relative">
+        <div
+          data-v-e1fcc0e8
+          @click="add(0)"
+          class="ite opacity-box redblackwar-red tl games-font vitem jj"
+          style="position:relative"
+        >
           <div data-v-e1fcc0e8 class="yet">
             <em data-v-e1fcc0e8>0</em>
           </div>
@@ -124,9 +129,17 @@
           <div data-v-e1fcc0e8 class="slide-color">
             <em data-v-e1fcc0e8 class="set-red-black">0</em>
           </div>
-          <div class="jjafter" style="position:absolute;top:0;left:0;height:100%;width:100%;z-index:100;"></div>
+          <div
+            class="jjafter"
+            style="position:absolute;top:0;left:0;height:100%;width:100%;z-index:100;"
+          ></div>
         </div>
-        <div data-v-e1fcc0e8 @click="add(1)" class="opacity-box redblackwar-black tr games-font vitem jj" style="position:relative">
+        <div
+          data-v-e1fcc0e8
+          @click="add(1)"
+          class="ite opacity-box redblackwar-black tr games-font vitem jj"
+          style="position:relative"
+        >
           <div data-v-e1fcc0e8 class="yet">
             <em data-v-e1fcc0e8>0</em>
           </div>
@@ -138,11 +151,14 @@
           <div data-v-e1fcc0e8 class="slide-color">
             <em data-v-e1fcc0e8 class="set-red-black">0</em>
           </div>
-          <div class="jjafter" style="position:absolute;top:0;left:0;height:100%;width:100%;z-index:100;"></div>
+          <div
+            class="jjafter"
+            style="position:absolute;top:0;left:0;height:100%;width:100%;z-index:100;"
+          ></div>
         </div>
       </div>
       <div data-v-e1fcc0e8 class="jj" @click="add(2)" style="position:relative">
-        <div data-v-e1fcc0e8 class="opacity-box redblackwar-hit bl games-font vitem">
+        <div data-v-e1fcc0e8 class="ite opacity-box redblackwar-hit bl games-font vitem">
           <div data-v-e1fcc0e8 id="yet">
             <em data-v-e1fcc0e8>0</em>
           </div>
@@ -159,7 +175,10 @@
           <div data-v-e1fcc0e8 class="slide-color">
             <em data-v-e1fcc0e8 class="set-red-black-tran">0</em>
           </div>
-          <div class="jjafter" style="position:absolute;top:0;left:0;height:100%;width:100%;z-index:100;"></div>
+          <div
+            class="jjafter"
+            style="position:absolute;top:0;left:0;height:100%;width:100%;z-index:100;"
+          ></div>
         </div>
       </div>
     </div>
@@ -171,7 +190,7 @@
 </template>
 
 <script>
-import RbPlay from "../howtoplay/rbhowplay"
+import RbPlay from "../howtoplay/rbhowplay";
 import $ from "jquery";
 import _ from "underscore";
 import HeaderTop from "../base/top";
@@ -189,7 +208,7 @@ export default {
     PukerV,
     ChiPer,
     [Toast.name]: Toast,
-    RbPlay,
+    RbPlay
   },
   filters: {
     fname(x) {
@@ -228,9 +247,9 @@ export default {
       ischip: 1, //默认投注码
       ishow: false,
       winlist: [
-        { rwin: false, playnum: 0 },
-        { bwin: false, playnum: 0 },
-        { wluck: false, playnum: 0 }
+        { iswin: false, playnum: 0 },
+        { iswin: false, playnum: 0 },
+        { iswin: false, playnum: 0 }
       ],
       puklist: [
         //扑克牌列表
@@ -254,14 +273,9 @@ export default {
       jieguo: [], //接收开牌结果集
       vs: [
         //对局列表
-        [
-          { type: 0, playnum: 0, iswin: false },
-          { type: 1, playnum: 0, iswin: false }
-        ],
-        [
-          { type: 0, playnum: 0, iswin: false },
-          { type: 2, playnum: 0, iswin: false }
-        ]
+        { type: 0, playnum: 0, iswin: false },
+        { type: 1, playnum: 0, iswin: false },
+        { type: 2, playnum: 0, iswin: false }
       ],
       price: 0,
       start: 30, //默认起始倒计时
@@ -271,7 +285,7 @@ export default {
       djs: 0,
       jishil: false,
       str: "停止下注",
-      isactz:false,
+      isactz: false
     };
   },
   beforeDestroy() {
@@ -282,22 +296,12 @@ export default {
       username: JSON.parse(sessionStorage.getItem("userinfo")).name
     });
   },
-  computed: {},
   mounted() {
-    this.sockets.subscribe("rb2", data => {
-      this.playdate = parseInt(data.msg.playdate);
-      this.puklist = JSON.parse(data.msg.playnum);
-    });
     this.sockets.subscribe("move", data => {
       this.chiplist.push(data.tz);
       this.list.push(data.tz);
     });
-    this.sockets.subscribe("qtrbwar", data => {
-      this.pm = data.pm;
-    });
     //---------------------
-    console.log($(".jj").length);
-
     document.addEventListener("visibilitychange", function() {
       //浏览器切换事件
       if (document.visibilityState == "hidden") {
@@ -322,6 +326,7 @@ export default {
         { id: "bg", src: "/rbwar/bg.mp3" },
         { id: "daojishi", src: "/mp3/daojishi.mp3" },
         { id: "dingdong", src: "/mp3/dingdong.wav" },
+        { id: "chenggong", src: "/mp3/chenggong.mp3" },
         { id: "start", src: "/rbwar/start.mp3" },
         { id: "kaipai", src: "/mp3/kaipai.mp3" },
         { id: "fapai", src: "/mp3/fapai.mp3" },
@@ -400,7 +405,11 @@ export default {
                   .offset().left - 40,
                 $(".jj")
                   .eq(this.chiplist[i].addr)
-                  .offset().left + ($(".jj").eq(this.chiplist[i].addr).width()-70)
+                  .offset().left +
+                  ($(".jj")
+                    .eq(this.chiplist[i].addr)
+                    .width() -
+                    70)
               )}px`,
               top: `${_.random(
                 $(".jj")
@@ -431,68 +440,83 @@ export default {
           "duizi",
           "danzhang"
         ].reverse();
-        // console.log(x);
         //校验同牌
         if (x[0].niu == x[1].niu) {
           if (s.indexOf(x[0].maxnum) > s.indexOf(x[1].maxnum)) {
-            this.winlist[0].rwin = true;
+            this.winlist[0].iswin = true;
+            $(".ite")
+              .eq(0)
+              .addClass("on");
+            createjs.Sound.play("rwin");
           } else {
-            this.winlist[1].bwin = true;
+            this.winlist[1].iswin = true;
+            $(".ite")
+              .eq(1)
+              .addClass("on");
+            createjs.Sound.play("bwin");
           }
           if (x[0].maxnum == x[1].maxnum) {
             let hsize = [1, 0, 2, 3].reverse();
             if (hsize.indexOf(x[0].maxhua) > hsize.indexOf(x[1].maxhua)) {
-              this.winlist[0].rwin = true;
+              this.winlist[0].iswin = true;
+              $(".ite")
+                .eq(0)
+                .addClass("on");
+              createjs.Sound.play("rwin");
             } else {
-              this.winlist[1].bwin = true;
+              this.winlist[1].iswin = true;
+              $(".ite")
+                .eq(1)
+                .addClass("on");
+              createjs.Sound.play("bwin");
             }
           }
         } else {
           if (size.indexOf(x[0].niu) > size.indexOf(x[1].niu)) {
-            this.winlist[0].rwin = true;
+            this.winlist[0].iswin = true;
+            $(".ite")
+              .eq(0)
+              .addClass("on");
+            createjs.Sound.play("rwin");
           } else {
-            this.winlist[1].bwin = true;
+            this.winlist[1].iswin = true;
+            $(".ite")
+              .eq(1)
+              .addClass("on");
+            createjs.Sound.play("bwin");
           }
         }
-        if (this.winlist[0].rwin) {
-          createjs.Sound.play("rwin");
-          $(".redblackwar-red").addClass("on");
-        } else {
-          $(".redblackwar-black").addClass("on");
-          createjs.Sound.play("bwin");
-        }
-        if (this.winlist[0].rwin && size.indexOf(x[0].niu) != 0) {
-          $(".redblackwar-hit").addClass("on");
+        if (this.winlist[0].iswin && size.indexOf(x[0].niu) != 0) {
+          $(".ite")
+            .eq(2)
+            .addClass("on");
           console.log("luck", size.indexOf(x[0].niu));
         }
-        if (this.winlist[1].bwin && size.indexOf(x[1].niu) != 0) {
-          $(".redblackwar-hit").addClass("on");
+        if (this.winlist[1].iswin && size.indexOf(x[1].niu) != 0) {
+          $(".ite")
+            .eq(2)
+            .addClass("on");
           console.log("luck", size.indexOf(x[1].niu));
         }
         console.log(this.winlist);
-
         setTimeout(() => {
           $(".redblackwar-red,.redblackwar-black,.redblackwar-hit").removeClass(
             "on"
           );
         }, 10000);
         //结算
-        this.$socket.emit("ks", { data: JSON.stringify(this.vs) });
-        this.sockets.subscribe("jiesuan", data => {
-          console.log();
-        });
       }
     }
   },
   methods: {
     jishiv(x) {
       x > 17 ? "开奖时间" : "下注时间";
-      
     },
     getdata() {
       return new Promise((res, rej) => {
-        this.$socket.emit("niuniu2", {
-          username: JSON.parse(sessionStorage.getItem("userinfo")).name
+        this.axios.post("/rbwar").then(data => {
+          console.log(data.data.s, data, ".........");
+          res(data.data);
         });
       });
     },
@@ -503,18 +527,11 @@ export default {
       createjs.Sound.stop();
     },
     init() {
-      this.$socket.emit("rbwar", {
-        username: JSON.parse(sessionStorage.getItem("userinfo")).name
-      });
-      this.sockets.subscribe("rbwar", data => {
-        // 初始倒计时时间
-        this.start = 30 - (data.s % 30);
-        this.djs = 15 - (data.s % 15);
-
-        // 初始开奖date数据
-        this.playdate = parseInt(data.msg.playdate);
-        this.puklist = JSON.parse(data.msg.playnum);
-        this.pm = data.pm;
+      this.getdata().then(x => {
+        this.start = 30 - (x.s % 30);
+        this.djs = 15 - (x.s % 15);
+        this.playdate = parseInt(x.data[0].playdate);
+        this.puklist = JSON.parse(x.data[0].playnum);
       });
       if (this.start > 14) {
         this.type = "开奖中";
@@ -538,7 +555,7 @@ export default {
             this.fapai();
             createjs.Sound.play("xiazhu");
             this.str = "开始下注";
-            this.isactz=true
+            this.isactz = true;
             this.puklist = this.backpuk;
             this.jishil = true;
           }, 2000);
@@ -572,12 +589,21 @@ export default {
             $("#vs").removeClass("show");
           }, 2000);
         }
-        if (this.start == 14) {
+        if (this.start == 12) {
+          this.$socket.emit("user", {
+            username: JSON.parse(sessionStorage.getItem("userinfo")).name
+          });
         }
         if (this.start == 15) {
+          this.getdata().then(x => {
+            this.start = 30 - (x.s % 30);
+            this.djs = 15 - (x.s % 15);
+            this.playdate = parseInt(x.data[0].playdate);
+            this.puklist = JSON.parse(x.data[0].playnum);
+          });
           createjs.Sound.play("tingzhu");
           this.str = "停止下注";
-          this.isactz=false
+          this.isactz = false;
           this.jishil = true;
         }
         if (this.start == 14) {
@@ -596,7 +622,7 @@ export default {
     reback() {
       createjs.Sound.play("lotter");
       this.vs.map(x => {
-        x.map(v => (v.playnum = 0));
+        x.playnum = 0;
       });
       this.price = 0;
     },
@@ -614,11 +640,9 @@ export default {
       shopcar.playgame = "rbwar";
       shopcar.playratel = this.playratel;
       shopcar.price = this.price;
-      // shopcar.dl = this.num;
       shopcar.iskj = 0;
       shopcar.playmode = this.playmode;
       this.axios.post("/shopcar", shopcar).then(x => {
-        this.reback();
         if (x.data.msg == "余额不足") {
           this.$notify({
             message: "您的余额不足,请充值"
@@ -629,11 +653,16 @@ export default {
           }, 100);
         } else if (x.data.msg == "ok") {
           Toast.success("订单提交成功!");
-          this.price = 0;
           setTimeout(() => {
-            createjs.Sound.play("dingdong");
+            createjs.Sound.play("chenggong");
           }, 100);
         }
+        setTimeout(() => {
+          this.$socket.emit("user", {
+            username: JSON.parse(sessionStorage.getItem("userinfo")).name
+          });
+        }, 500);
+          this.reback();
       });
     },
     add(x) {
@@ -654,9 +683,10 @@ export default {
       this.winlist[x].playnum += this.ischip;
       createjs.Sound.play("chip");
       //加入用户投注列表
-      console.log(tz);
-
+      this.vs[x].iswin = true;
+      this.vs[x].playnum += this.ischip;
       // this.chiplist.push(tz);
+      console.log(this.vs);
       this.price += this.ischip;
     },
     ck(x) {
@@ -741,6 +771,8 @@ export default {
       return a;
     },
     rbme(j) {
+      console.log(j, "cr");
+
       let s = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 1];
       let guize = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 1];
       let jg = {};
@@ -855,8 +887,10 @@ export default {
     },
     shoupai() {
       this.reback();
-      this.vs.map(x => {
-        x.map(v => (v.iswin = false));
+      this.winlist.map(x => {
+        console.log(x);
+
+        x.iswin = false;
       });
       this.jieguo = [];
       this.fz = false;
@@ -1175,7 +1209,7 @@ export default {
 }
 .d {
   flex: 1;
-  z-index: -1; 
+  z-index: -1;
   // margin-top: -20px;
   .desk {
     width: 100%;
@@ -1245,7 +1279,6 @@ export default {
     flex-flow: wrap;
     justify-content: space-around;
     position: relative;
-  
   }
   .jia {
     display: flex;
