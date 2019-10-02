@@ -81,7 +81,7 @@
                 <p>x</p>
                 <p>1.970</p>
               </div>
-              <div class="self">我的投注: {{i.playnum}}</div>
+              <div class="self"> {{i.playnum}}</div> 
               <div class="w" v-show="i.iswin">
                 <div class="win"></div>
                 <div class="sun"></div>
@@ -484,8 +484,6 @@ export default {
     getdata() {
       return new Promise((res, rej) => {
         this.axios.post("/niuniu").then(data => {
-        console.log(data.data.s,data,".........");
-
           res(data.data);
         });
       });
@@ -520,9 +518,11 @@ export default {
         this.start--;
         this.djs--;
         if (this.start > 14) {
+          this.isactz=true
           this.type = "投注中";
         } else {
           this.type = "开奖中";
+          this.isactz=false
         }
         if (this.start == 3) {
           this.shoupai();
@@ -599,6 +599,9 @@ export default {
     sub() {
       if (!this.isactz) {
         return;
+      }
+      if(this.price==0){
+        return 
       }
       let shopcar = {};
       (shopcar.username = JSON.parse(sessionStorage.getItem("userinfo")).name),

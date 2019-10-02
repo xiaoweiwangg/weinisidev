@@ -72,7 +72,13 @@
             <div data-v-e1fcc0e8 class="game-loongTiger-img loongtiger-chip-left">
               <div data-v-e1fcc0e8 class="lt-fire-content lt-fire-content-l" style="display: none;"></div>
               <div data-v-e1fcc0e8 id="area-poker1" class="loongtiger-chips pk04">
-                <div data-v-e1fcc0e8 title="火焰" id="fire" class="game-loongTiger-img lt-fire lt-fire6" style>
+                <div
+                  data-v-e1fcc0e8
+                  title="火焰"
+                  id="fire"
+                  class="game-loongTiger-img lt-fire lt-fire6"
+                  style
+                >
                   <div data-v-e1fcc0e8></div>
                 </div>
               </div>
@@ -80,7 +86,13 @@
             <div data-v-e1fcc0e8 class="game-loongTiger-img loongtiger-chip-right">
               <div data-v-e1fcc0e8 class="lt-fire-content lt-fire-content-t" style="display: none;"></div>
               <div data-v-e1fcc0e8 id="area-poker2" class="loongtiger-chips">
-                <div data-v-e1fcc0e8 title="火焰" id="fire2" class="game-loongTiger-img lt-fire lt-fire6" style></div>
+                <div
+                  data-v-e1fcc0e8
+                  title="火焰"
+                  id="fire2"
+                  class="game-loongTiger-img lt-fire lt-fire6"
+                  style
+                ></div>
               </div>
             </div>
           </div>
@@ -99,31 +111,6 @@
               </div>
             </div>
           </div>
-          <!-- <div data-v-e1fcc0e8 class="game-chess-img redblackwar-top-bg"></div> -->
-          <!-- <div data-v-e1fcc0e8 class="redblackwar-top-left">
-            <div
-              data-v-e1fcc0e8
-              class="redblack-outsildebox redblack-queen queen-cry queen-waitting"
-            >
-              <div data-v-e1fcc0e8 class="redblack-queen-righthair whole"></div>
-              <div data-v-e1fcc0e8 class="redblack-queen-lefthair whole"></div>
-              <div data-v-e1fcc0e8 class="redblack-queen-allbody whole"></div>
-              <div data-v-e1fcc0e8 class="redblack-queen-rightside whole"></div>
-              <div data-v-e1fcc0e8 class="redblack-queen-leftside whole"></div>
-              <div data-v-e1fcc0e8 class="redblack-queen-head whole"></div>
-            </div>
-          </div>
-          <div data-v-e1fcc0e8 class="redblackwar-top-right">
-            <div data-v-e1fcc0e8 class="redblack-outsildebox redblack-king king-cry king-waitting">
-              <div data-v-e1fcc0e8 class="redblack-kingwin-leftcloth whole"></div>
-              <div data-v-e1fcc0e8 class="redblack-kingwin-foot whole"></div>
-              <div data-v-e1fcc0e8 class="redblack-kingwin-rightcloth whole"></div>
-              <div data-v-e1fcc0e8 class="redblack-kingwin-lefthand whole"></div>
-              <div data-v-e1fcc0e8 class="redblack-kingwin-allbody whole"></div>
-              <div data-v-e1fcc0e8 class="redblack-kingwin-head whole"></div>
-              <div data-v-e1fcc0e8 class="redblack-kingwin-righthand whole"></div>
-            </div>
-          </div>-->
         </div>
         <puker-v
           class="pk"
@@ -136,16 +123,112 @@
     </div>
     <div class="d">
       <div class="desk">
-        
+        <!-- <div class="lh">
+          <div class="l">龙</div>
+          <div class="h">虎</div>
+        </div>
+        <div class="ping"></div>-->
+        <div data-v-dc53832e id="bettingBox" class="loongtiger-betting">
+          <div data-v-dc53832e class="loongtiger-first">
+            <div data-v-dc53832e style="position: relative;" class="ite" @click="add(0)">
+              <div
+                data-v-dc53832e
+                class="game-loongTiger-img loongtiger-betting-loong loongtiger-betinfo opacity-box games-font"
+              >
+                <div data-v-dc53832e class="loongtiger-number-top games-font">
+                  <em data-v-dc53832e>585</em>
+                </div>
+                <div data-v-dc53832e id="content1" class="loongtiger-number-middle">
+                  <div data-v-dc53832e>
+                    <em
+                      data-v-dc53832e
+                      title="龙"
+                      class="game-loongTiger-img loongtiger-nmiddle-loong"
+                    ></em>
+                  </div>
+                  <div data-v-dc53832e>
+                    <em data-v-dc53832e>×</em>
+                  </div>
+                  <div data-v-dc53832e>
+                    <em data-v-dc53832e>1.970</em>
+                  </div>
+                </div>
+                <div data-v-dc53832e class="loongtiger-number-down games-font">
+                  <em data-v-dc53832e>0</em>
+                </div>
+              </div>
+              <div data-v-dc53832e id="aus-long-content" class="aus-long-content">
+                <div data-v-dc53832e class="aus-long"></div>
+                <div data-v-dc53832e class="aus-long-bj"></div>
+              </div>
+            </div>
+            <div data-v-dc53832e class="ite" style="position: relative;" @click="add(1)">
+              <div
+                data-v-dc53832e
+                class="game-loongTiger-img loongtiger-betting-tiger loongtiger-betinfo opacity-box games-font"
+              >
+                <div data-v-dc53832e class="loongtiger-number-top games-font">
+                  <em data-v-dc53832e>10501</em>
+                </div>
+                <div data-v-dc53832e id="content2" class="loongtiger-number-middle">
+                  <div data-v-dc53832e>
+                    <em
+                      data-v-dc53832e
+                      title="虎"
+                      class="game-loongTiger-img loongtiger-nmiddle-tiger"
+                    ></em>
+                  </div>
+                  <div data-v-dc53832e>
+                    <em data-v-dc53832e>×</em>
+                  </div>
+                  <div data-v-dc53832e>
+                    <em data-v-dc53832e>1.970</em>
+                  </div>
+                </div>
+                <div data-v-dc53832e class="loongtiger-number-down games-font">
+                  <em data-v-dc53832e>0</em>
+                </div>
+              </div>
+              <div data-v-dc53832e id="aus-tiger-content" class="aus-tiger-content">
+                <div data-v-dc53832e class="aus-tiger"></div>
+                <div data-v-dc53832e class="aus-tiger-bj"></div>
+              </div>
+            </div>
+          </div>
+          <div data-v-dc53832e class="loongtiger-second games-font ite"  style="position: relative;"  @click="add(2)">
+            <div
+              data-v-dc53832e
+              class="game-loongTiger-img loongtiger-betting-he loongtiger-betinfo opacity-box"
+            >
+              <div data-v-dc53832e class="loongtiger-number-top games-font">
+                <em data-v-dc53832e>4</em>
+              </div>
+              <div data-v-dc53832e id="content3" class="loongtiger-number-middle">
+                <div data-v-dc53832e>
+                  <em data-v-dc53832e title="和" class="game-loongTiger-img loongtiger-nmiddle-he"></em>
+                </div>
+                <div data-v-dc53832e>
+                  <em data-v-dc53832e>×</em>
+                </div>
+                <div data-v-dc53832e>
+                  <em data-v-dc53832e>15.045</em>
+                </div>
+              </div>
+              <div data-v-dc53832e class="loongtiger-number-down games-font">
+                <em data-v-dc53832e>0</em>
+              </div>
+            </div>
+            <div data-v-dc53832e class="aus-he-content" style="display: none;">
+              <div data-v-dc53832e class="aus-he"></div>
+              <div data-v-dc53832e class="aus-he aus-he-small"></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <lotte-r :cpl="cpl" class="cpr" @chek="ck"></lotte-r>
-    <Foo-ter @reback="reback" @sub="sub" :pr="price" :start="start"></Foo-ter>
+    <Foo-ter @reback="reback" @sub="sub" :pri="price" :start="start"></Foo-ter>
     <div class="timerdjs" v-show="jishil">{{str}}</div>
-    <div class="x">
-      <div class="xs"></div>
-      <div class="xs"></div>
-    </div>
   </div>
 </template>
 
@@ -206,25 +289,21 @@ export default {
       ishow: true,
       puklist: [
         //扑克牌列表
-        { num: _.random(0, 13), type: 0, hua: 0 },
-        { num: _.random(0, 13), type: 0, hua: 0 },
-        { num: _.random(0, 13), type: 0, hua: 0 },
-        { num: _.random(0, 13), type: 1, hua: 0 },
-        { num: _.random(0, 13), type: 1, hua: 0 },
-        { num: _.random(0, 13), type: 1, hua: 0 }
+        { num: 14, type: 0, hua: 0 },
+        { num: 14, type: 0, hua: 0 }
+      ],
+      backpuk: [
+        //扑克牌列表
+        { num: 14, type: 0, hua: 0 },
+        { num: 14, type: 0, hua: 0 }
       ],
       chiplist: [], //所有用户的投注码
       jieguo: [], //接收开牌结果集
-      vs: [
+       vs: [
         //对局列表
-        [
-          { type: 0, playnum: 0, iswin: false },
-          { type: 1, playnum: 0, iswin: false }
-        ],
-        [
-          { type: 0, playnum: 0, iswin: false },
-          { type: 2, playnum: 0, iswin: false }
-        ]
+        { type: 0, playnum: 0, iswin: false },
+        { type: 1, playnum: 0, iswin: false },
+        { type: 2, playnum: 0, iswin: false }
       ],
       price: 0,
       start: 30, //默认起始倒计时
@@ -234,7 +313,8 @@ export default {
       djs: 0,
       jishil: false,
       str: "停止下注",
-      tl:null
+      tl: null,
+      isactz:false,
     };
   },
   beforeDestroy() {
@@ -242,20 +322,20 @@ export default {
     window.clearInterval(this.timer);
     window.clearInterval(this.tl);
     this.timer = null;
-    this.tl=null
-    this.$socket.emit("qtniuniu", {
-      username: JSON.parse(sessionStorage.getItem("userinfo")).name
-    });
+    this.tl = null;
   },
   computed: {},
   mounted() {
     let tl = 0;
-    this.tl=setInterval(() => {
+    this.tl = setInterval(() => {
       tl++;
       if (tl >= 8) {
         tl = 1;
       }
-      $("#fire,#fire2").attr("class","game-loongTiger-img lt-fire lt-fire"+tl)
+      $("#fire,#fire2").attr(
+        "class",
+        "game-loongTiger-img lt-fire lt-fire" + tl
+      );
       $("#lbg").attr("class", "bg-img long-animation" + tl);
       $("#tbg").attr("class", "bg-img tiger-animation" + tl);
     }, 200);
@@ -282,7 +362,7 @@ export default {
       }
     });
     let that = this;
-    for (let i = 0; i < $(".jj .sj").length; i++) {}
+    for (let i = 0; i < $(".ite").length; i++) {}
     let p = this.per;
     var loader = new createjs.LoadQueue();
     // 添加声音支持
@@ -368,18 +448,18 @@ export default {
           .animate(
             {
               left: `${_.random(
-                $(".jj .sj")
+                $(".ite")
                   .eq(this.chiplist[i].addr)
                   .offset().left - 40,
-                $(".jj .sj")
+                $(".ite")
                   .eq(this.chiplist[i].addr)
                   .offset().left + 50
               )}px`,
               top: `${_.random(
-                $(".jj .sj")
+                $(".ite")
                   .eq(this.chiplist[i].addr)
                   .offset().top - 20,
-                $(".jj .sj")
+                $(".ite")
                   .eq(this.chiplist[i].addr)
                   .offset().top
               )}px`
@@ -390,73 +470,7 @@ export default {
     }
   },
   watch: {
-    jieguo(x) {
-      if (x.length == 2) {
-        let winlist = [{ rwin: false }, { bwin: false }, { wluck: false }];
-        // setTimeout(() => {
-        //   (Math.random() * 10) % 2 == 0 ? this.wanjiashou() : this.zhuangshou();
-        // }, 2000);
-        let s = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 1];
-        let size = [
-          "baozi",
-          "jinshun",
-          "jinhua",
-          "shunzi",
-          "duizi",
-          "danzhang"
-        ].reverse();
-        // console.log(x);
-        //校验同牌
-        if (x[0].niu == x[1].niu) {
-          if (s.indexOf(x[0].maxnum) > s.indexOf(x[1].maxnum)) {
-            winlist[0].rwin = true;
-          } else {
-            winlist[1].bwin = true;
-          }
-          if (x[0].maxnum == x[1].maxnum) {
-            let hsize = [1, 0, 2, 3].reverse();
-            if (hsize.indexOf(x[0].maxhua) > hsize.indexOf(x[1].maxhua)) {
-              winlist[0].rwin = true;
-            } else {
-              winlist[1].bwin = true;
-            }
-          }
-        } else {
-          if (size.indexOf(x[0].niu) > size.indexOf(x[1].niu)) {
-            winlist[0].rwin = true;
-          } else {
-            winlist[1].bwin = true;
-          }
-        }
-        if (winlist[0].rwin) {
-          createjs.Sound.play("rwin");
-          $(".redblackwar-red").addClass("on");
-        } else {
-          $(".redblackwar-black").addClass("on");
-          createjs.Sound.play("bwin");
-        }
-        if (winlist[0].rwin && size.indexOf(x[0].niu) != 0) {
-          $(".redblackwar-hit").addClass("on");
-          console.log("luck", size.indexOf(x[0].niu));
-        }
-        if (winlist[1].bwin && size.indexOf(x[1].niu) != 0) {
-          $(".redblackwar-hit").addClass("on");
-          console.log("luck", size.indexOf(x[1].niu));
-        }
-        console.log(winlist);
-
-        setTimeout(() => {
-          $(".redblackwar-red,.redblackwar-black,.redblackwar-hit").removeClass(
-            "on"
-          );
-        }, 10000);
-        //结算
-        this.$socket.emit("ks", { data: JSON.stringify(this.vs) });
-        this.sockets.subscribe("jiesuan", data => {
-          console.log();
-        });
-      }
-    }
+    jieguo(x) {}
   },
   methods: {
     jishiv(x) {
@@ -464,8 +478,9 @@ export default {
     },
     getdata() {
       return new Promise((res, rej) => {
-        this.$socket.emit("niuniu2", {
-          username: JSON.parse(sessionStorage.getItem("userinfo")).name
+        this.axios.post("/lhwar").then(data => {
+          console.log(data, data);
+          res(data.data);
         });
       });
     },
@@ -476,18 +491,11 @@ export default {
       createjs.Sound.stop();
     },
     init() {
-      this.$socket.emit("rbwar", {
-        username: JSON.parse(sessionStorage.getItem("userinfo")).name
-      });
-      this.sockets.subscribe("rbwar", data => {
-        // 初始倒计时时间
-        this.start = 30 - (data.s % 30);
-        this.djs = 15 - (data.s % 15);
-
-        // 初始开奖date数据
-        this.playdate = parseInt(data.msg.playdate);
-        this.puklist = JSON.parse(data.msg.playnum);
-        this.pm = data.pm;
+      this.getdata().then(x => {
+        this.start = 30 - (x.s % 30);
+        this.djs = 15 - (x.s % 15);
+        this.playdate = parseInt(x.data[0].playdate);
+        this.puklist = JSON.parse(x.data[0].playnum);
       });
       if (this.start > 14) {
         this.type = "开奖中";
@@ -501,9 +509,11 @@ export default {
         this.start--;
         this.djs--;
         if (this.start > 14) {
+          this.isactz=true
           this.type = "投注中";
         } else {
           this.type = "开奖中";
+          this.isactz=false
         }
         if (this.start == 3) {
           this.shoupai();
@@ -512,6 +522,7 @@ export default {
             createjs.Sound.play("xiazhu");
             this.str = "开始下注";
             this.jishil = true;
+            this.puklist = this.backpuk;
             $("#an").addClass("longtiger-kj-container");
             setTimeout(() => {
               $("#an").removeClass("longtiger-kj-container");
@@ -538,11 +549,6 @@ export default {
           $("#vs").addClass("show");
           createjs.Sound.play("daojishi");
           this.jishil = true;
-          // this.getdata().then(x => {
-          //   console.log(x);
-          //   this.playdate = parseInt(x.playdate);
-          //   this.puklist = JSON.parse(x.playnum);
-          // });
           setTimeout(() => {
             $("#vs").removeClass("show");
           }, 2000);
@@ -553,6 +559,11 @@ export default {
           createjs.Sound.play("tingzhu");
           this.str = "停止下注";
           this.jishil = true;
+          this.getdata().then(x => {
+            console.log(x.data[0]);
+            this.playdate = parseInt(x.data[0].playdate);
+            this.puklist = JSON.parse(x.data[0].playnum);
+          });
         }
         if (this.start == 14) {
           setTimeout(() => {
@@ -575,8 +586,11 @@ export default {
       this.price = 0;
     },
     sub() {
-      if (this.start < 15 || this.price < 1) {
+      if (!this.isactz) { 
         return;
+      }
+      if(this.price==0){
+        return 
       }
       let shopcar = {};
       (shopcar.username = JSON.parse(sessionStorage.getItem("userinfo")).name),
@@ -588,11 +602,9 @@ export default {
       shopcar.playgame = "rbwar";
       shopcar.playratel = this.playratel;
       shopcar.price = this.price;
-      // shopcar.dl = this.num;
       shopcar.iskj = 0;
       shopcar.playmode = this.playmode;
       this.axios.post("/shopcar", shopcar).then(x => {
-        this.reback();
         if (x.data.msg == "余额不足") {
           this.$notify({
             message: "您的余额不足,请充值"
@@ -603,15 +615,18 @@ export default {
           }, 100);
         } else if (x.data.msg == "ok") {
           Toast.success("订单提交成功!");
-          this.price = 0;
           setTimeout(() => {
-            createjs.Sound.play("dingdong");
+            createjs.Sound.play("chenggong");
           }, 100);
         }
+          this.$socket.emit("user", {
+            username: JSON.parse(sessionStorage.getItem("userinfo")).name
+          });
+          this.reback();
       });
     },
-    add(x, y) {
-      if (this.start < 17 && this.start > 14) {
+    add(x) { 
+      if (!this.isactz) {
         this.$notify({
           message: "本期投注已截止,请等待开奖",
           background: "#dc3b40",
@@ -619,59 +634,23 @@ export default {
         });
         return;
       }
-      if (this.start < 14) {
-        this.$notify({
-          message: "结算时间,请稍后投注",
-          background: "#dc3b40",
-          duration: 1500
-        });
-        return;
-      }
-
-      let z = 0;
       let tz = {};
       tz.price = this.ischip;
-      z = (x + 1) * x + y;
-      if (z > 4) {
-        z -= 2;
-      }
-      tz.addr = z;
-      // this.list.push(tz);
-      // console.log(this.list);
+      tz.addr = x;
       this.$socket.emit("add", {
         data: tz
       });
-
-      this.vs[x][y].playnum += this.ischip;
+      this.winlist[x].playnum += this.ischip;
       createjs.Sound.play("chip");
       //加入用户投注列表
+      this.vs[x].iswin = true;
+      this.vs[x].playnum += this.ischip;
       // this.chiplist.push(tz);
+      console.log(this.vs);
       this.price += this.ischip;
     },
     ck(x) {
       this.ischip = x;
-    },
-    nnbg(x) {
-      switch (x) {
-        case "baozi":
-          return "center -4.55rem";
-          break;
-        case "jinshun":
-          return "center -3.7rem";
-          break;
-        case "jinhua":
-          return "center -2.85rem";
-          break;
-        case "shunzi":
-          return "center -2rem";
-          break;
-        case "duizi":
-          return "center -1.2rem";
-          break;
-        default:
-          return "center -0.3rem";
-          break;
-      }
     },
     wanjiashou() {
       for (let i = 0; i < $(".ch").length; i++) {
@@ -730,53 +709,7 @@ export default {
       return a;
     },
     rbme(j) {
-      let s = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 1];
-      let guize = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 1];
       let jg = {};
-      //校验最大单牌
-      jg.maxnum = _.sortBy(j, x => s.indexOf(x.num))[2].num;
-      jg.niu = "danzhang";
-      //校验最大花色
-      jg.maxhua = _.sortBy(j, x => s.indexOf(x.num))[2].hua;
-      //校验baozi
-      for (let i in _(j.map(x => x.num)).countBy()) {
-        if (_(j.map(x => x.num)).countBy()[i] == 2) {
-          //校验duizi的值
-          jg.duizi = i;
-          jg.niu = "duizi";
-        }
-        if (_(j.map(x => x.num)).countBy()[i] == 3) {
-          //校验baozi的值
-          jg.niu = "baozi";
-          jg.baozi = i;
-        }
-      }
-      jg.maxleng = Math.max(...Object.values(_(j.map(x => x.num)).countBy()));
-      if (jg.maxleng == 3) {
-        jg.niu = "baozi";
-      }
-      //校验顺子
-      if (
-        guize.indexOf(_.sortBy(j, x => x.num)[0]) + 1 ==
-          guize.indexOf(_.sortBy(j, x => x.num)[1]) &&
-        guize.indexOf(_.sortBy(j, x => x.num)[1]) + 1 ==
-          guize.indexOf(_.sortBy(j, x => x.num)[2])
-      ) {
-        jg.niu = "shunzi";
-        jg.shunzi = _.sortBy(j, x => x.num)[2];
-      }
-      //校验同花
-      if (j[0].hua == j[1].hua && j[1].hua == j[2].hua) {
-        jg.niu = "jinhua";
-      }
-      //校验同花顺
-      if (jg.shunzi && jg.jinhua) {
-        jg.niu = "jinshun";
-      }
-      console.log(jg);
-      this.n = jg.niu;
-      this.jieguo.push(jg);
-      createjs.Sound.play(this.n);
     },
     isfz(x, y, z) {
       if (z) {
@@ -793,17 +726,6 @@ export default {
           this.t.push(i);
           setTimeout(() => {
             createjs.Sound.play("kaipai");
-            setTimeout(() => {
-              this.rbme(this.puklist.filter(x => x.type == i));
-              $(".xs")
-                .eq(i)
-                .css({
-                  backgroundPosition: this.nnbg(this.n)
-                });
-            }, 100);
-            $(".xs")
-              .eq(i)
-              .addClass("ct");
           }, 400);
         }, i * 900);
       }
@@ -816,11 +738,11 @@ export default {
       let b = 0;
       for (let c = 0; c < $(".pk").length; c++) {
         setTimeout(() => {
-          if (c % 3 == 0) {
+          if (c % 2 == 0) {
             n++;
-            b = n * $(window).width() * 0.03;
+            b = n * $(window).width() * 0.08;
           }
-          if (c % 3 == 0) {
+          if (c % 2 == 0) {
             createjs.Sound.play("fapai");
           }
           $(".pk")
@@ -832,9 +754,9 @@ export default {
                 top: "10px",
                 opacity: 1,
                 left:
-                  $(window).width() * 0.2 +
+                  $(window).width() * 0.22 +
                   b +
-                  c * $(window).width() * 0.0634 +
+                  c * $(window).width() * 0.22 +
                   "px"
               },
               400,
@@ -852,15 +774,12 @@ export default {
       this.fz = false;
       for (let i = 0; i < 2; i++) {
         createjs.Sound.play("fapai");
-        $(".xs")
-          .eq(i)
-          .removeClass("ct");
       }
       this.t = [];
       let n = 0;
       let b = 70;
       for (let c = 0; c < $(".pk").length; c++) {
-        if (c != 0 && c % 3 == 0) {
+        if (c != 0 && c % 2 == 0) {
           n++;
           setTimeout(() => {
             createjs.Sound.play("fapai");
@@ -885,9 +804,9 @@ export default {
       let n = 0;
       let b = 0;
       for (let c = 0; c < $(".pk").length; c++) {
-        if (c != 0 && c % 3 == 0) {
+        if (c != 0 && c % 2 == 0) {
           n++;
-          b = n * $(window).width() * 0.096;
+          b = n * $(window).width() * 0.25;
         }
         $(".pk")
           .eq(c)
@@ -896,10 +815,7 @@ export default {
               "scale(0.55) rotateX(0deg) rotateY(0deg) translatex(-10px)",
             top: "10px",
             left:
-              $(window).width() * 0.25 +
-              b +
-              c * $(window).width() * 0.0434 +
-              "px"
+              $(window).width() * 0.28 + b + c * $(window).width() * 0.22 + "px"
           });
       }
     },
@@ -2301,10 +2217,10 @@ em {
   transform: scale(0.8);
   position: relative;
 }
-#cl{
-      text-align: center;
-    line-height: 16px;
-    color:white;
+#cl {
+  text-align: center;
+  line-height: 16px;
+  color: white;
 }
 .chess-nn100-start .nn100-rotate-card > div .rotate-card-list > em {
   position: absolute;

@@ -210,26 +210,6 @@ export default {
     [Toast.name]: Toast,
     RbPlay
   },
-  filters: {
-    fname(x) {
-      switch (x) {
-        case 0:
-          return "庄";
-          break;
-        case 1:
-          return "闲1";
-          break;
-        case 2:
-          return "闲2";
-          break;
-        case 3:
-          return "闲3";
-          break;
-        default:
-          break;
-      }
-    }
-  },
   data() {
     return {
       pm: 0,
@@ -545,9 +525,11 @@ export default {
         this.start--;
         this.djs--;
         if (this.start > 14) {
+          this.isactz=true
           this.type = "投注中";
         } else {
           this.type = "开奖中";
+          this.isactz=false
         }
         if (this.start == 3) {
           this.shoupai();
@@ -627,8 +609,11 @@ export default {
       this.price = 0;
     },
     sub() {
-      if (!this.isactz) {
+      if (!this.isactz) { 
         return;
+      }
+      if(this.price==0){
+        return 
       }
       let shopcar = {};
       (shopcar.username = JSON.parse(sessionStorage.getItem("userinfo")).name),
@@ -657,11 +642,9 @@ export default {
             createjs.Sound.play("chenggong");
           }, 100);
         }
-        setTimeout(() => {
           this.$socket.emit("user", {
             username: JSON.parse(sessionStorage.getItem("userinfo")).name
           });
-        }, 500);
           this.reback();
       });
     },
