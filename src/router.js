@@ -39,6 +39,11 @@ export default new Router({
       component: () =>
         import(/* webpackChunkName: "about" */ "./components/pay/alipay.vue"),
       name: "alipay"
+    },{
+      path: "/uniPay",
+      component: () =>
+        import(/* webpackChunkName: "about" */ "./components/pay/unipay.vue"),
+      name: "unipay"
     },
     {
       path: "/history",
@@ -122,12 +127,12 @@ export default new Router({
       component: () =>
         import(/* webpackChunkName: "about" */ "./components/game/game.vue")
     },
-    {
-      name: "lol",
-      path: "/lol",
-      component: () =>
-        import(/* webpackChunkName: "about" */ "./components/game/lol/lol.vue")
-    },
+    // {
+    //   name: "lol",
+    //   path: "/lol",
+    //   component: () =>
+    //     import(/* webpackChunkName: "about" */ "./components/game/lol/lol.vue")
+    // },
     {
       name: "pk",
       path: "/bjpk10",
@@ -149,14 +154,15 @@ export default new Router({
         import(
           /* webpackChunkName: "about" */ "./components/game/qipai/gamelist/niuniu.vue"
         )
-    },{
-      name: "saibao",
-      path: "/saibao",
-      component: () =>
-        import(
-          /* webpackChunkName: "about" */ "./components/game/qipai/gamelist/saibao.vue"
-        )
     },
+    // {
+    //   name: "saibao",
+    //   path: "/saibao",
+    //   component: () =>
+    //     import(
+    //       /* webpackChunkName: "about" */ "./components/game/qipai/gamelist/saibao.vue"
+    //     )
+    // },
     {
       name: "rbwar",
       path: "/rbwar",
@@ -165,21 +171,22 @@ export default new Router({
           /* webpackChunkName: "about" */ "./components/game/qipai/gamelist/rbwar.vue"
         )
     },
-    {
-      name: "longhu",
-      path: "/longhu",
-      component: () =>
-        import(
-          /* webpackChunkName: "about" */ "./components/game/qipai/gamelist/longhu.vue"
-        )
-    },{
-      name: "benchi",
-      path: "/benchi",
-      component: () =>
-        import(
-          /* webpackChunkName: "about" */ "./components/game/qipai/gamelist/benchi.vue"
-        )
-    },
+    // {
+    //   name: "longhu",
+    //   path: "/longhu",
+    //   component: () =>
+    //     import(
+    //       /* webpackChunkName: "about" */ "./components/game/qipai/gamelist/longhu.vue"
+    //     )
+    // },
+    // {
+    //   name: "benchi",
+    //   path: "/benchi",
+    //   component: () =>
+    //     import(
+    //       /* webpackChunkName: "about" */ "./components/game/qipai/gamelist/benchi.vue"
+    //     )
+    // },
     {
       name: "pk10",
       path: "/wnspk10",

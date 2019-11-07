@@ -7,7 +7,7 @@
      <div class="qipailist2">
       <router-link to="/rbwar"></router-link>
     </div>
-  <div class="qipailist3">
+  <!-- <div class="qipailist3">
       <router-link to="/longhu"></router-link>
     </div>
     <div class="qipailist5">
@@ -18,7 +18,7 @@
     </div>
     <div class="qipailist6">
       <router-link to="/saibao"></router-link> 
-    </div> 
+    </div>  -->
   <!--
        
     <van-popup v-model="show">

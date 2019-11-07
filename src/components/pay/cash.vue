@@ -79,6 +79,7 @@ export default {
       }
       this.axios
         .post("/subcash", {
+          card:this.cd||this.card,
           pwd:this.pwd,
           num: this.num,
           username: JSON.parse(sessionStorage.getItem("userinfo")).name

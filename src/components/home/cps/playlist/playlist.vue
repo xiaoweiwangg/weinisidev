@@ -110,6 +110,20 @@
         </div>
       </van-col>
       <van-col span="8">
+        <router-link
+          :to="{ name: 'pk10', params: { n: 'wnspk10',djs:5, t: 1,jh:0, js: 10, jm: 0 } }"
+        >
+          <div class="item">
+            <span class="iconfont icon-pk"></span>
+            <span class="name">威尼斯pk10</span>
+            <span class="det">1分钟1期</span>
+          </div>
+        </router-link>
+        <div class="fengpan" v-show="false">
+          <!-- <i class="iconfont icon-sheweifengpan"></i> -->
+        </div>
+      </van-col>
+      <!-- <van-col span="8">
         <router-link :to="{ name: 'lol', params: { n: 'ynssc', t: 20, jh:0,js: 20, jm: 2 } }">
           <div class="item">
             <span class="iconfont icon-logo-esport"></span>
@@ -120,7 +134,7 @@
         <div class="fengpan" v-show="false">
           <i class="iconfont icon-sheweifengpan"></i>
         </div>
-      </van-col>
+      </van-col> -->
     </van-row>
     <van-row>
       <van-col span="8">
@@ -136,20 +150,7 @@
           <i class="iconfont icon-feng1"></i>
         </div>
       </van-col>
-      <van-col span="8">
-        <router-link
-          :to="{ name: 'pk10', params: { n: 'wnspk10',djs:5, t: 1,jh:0, js: 10, jm: 0 } }"
-        >
-          <div class="item">
-            <span class="iconfont icon-pk"></span>
-            <span class="name">威尼斯pk10</span>
-            <span class="det">1分钟1期</span>
-          </div>
-        </router-link>
-        <div class="fengpan" v-show="false">
-          <!-- <i class="iconfont icon-sheweifengpan"></i> -->
-        </div>
-      </van-col>
+      
     </van-row>
   </div>
 </template>

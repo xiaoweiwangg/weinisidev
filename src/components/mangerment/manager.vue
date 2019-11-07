@@ -55,7 +55,7 @@
       </van-col>
     </van-row>
     <div class="jx"></div>
-    <div class="mlist">
+    <!-- <div class="mlist">
       <div class="item">
         <i class="iconfont icon-management"></i>
         <span class="contdet">个人信息</span>
@@ -97,7 +97,7 @@
         <span class="contdet">关于威尼斯</span>
         <i class="iconfont icon-jiantou1"></i>
       </div>
-    </div>
+    </div> -->
     <van-button class="q" type="primary" size="large" color="red" @click="quit">退出登录</van-button>
   </div>
 </template>

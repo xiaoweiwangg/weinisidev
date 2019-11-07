@@ -7,10 +7,12 @@
           <use xlink:href="#icon-yinlian" />
         </svg>
       </div>
+      <router-link to="/unipay">
       <div class="right">
         <div class="tit">银联卡转账/支付</div>
         <div class="detail">最低入款10元起,单次5万元封顶,3分钟到帐</div>
       </div>
+      </router-link>
     </div>
     <div class="item">
       <div class="left">
