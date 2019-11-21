@@ -289,7 +289,7 @@ export default {
         createjs.Sound.stop();
       } else {
         /////回到当前tab标签
-        // createjs.Sound.play("bg");
+        createjs.Sound.play("bg");
       }
     });
     let that = this;
