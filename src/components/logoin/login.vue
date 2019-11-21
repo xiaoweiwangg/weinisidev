@@ -89,15 +89,14 @@ export default {
           setTimeout(() => {
             this.$dialog 
               .confirm({
-                title: "棋牌游戏百人牛牛已推出",
+                title: "通告",
                 message:
-                  "多样玩法,老少皆宜,真人对战,赔率更高,赶快加入游戏体验吧"
+                  "入款银行卡号会不定期更换,入款前请确保您填写入款账号是最新的,祝您玩的愉快,"
               })
               .then(x => {
-                this.$router.push("/qipai");
+                this.$router.push("/");
               })
               .catch(() => {
-                // on cancel
                 this.load = false;
                 this.$router.push("/");
               });

@@ -2,7 +2,7 @@
   <div ref="body">
     <s-game @update="up" :gamelist="gamelist" @gl="gl"></s-game>
     <div class="kjdet">
-      <div class="kjnum" @click="history">
+      <div class="kjnum">
         <div class="datenum">
           <span class>{{ playdate }}期</span>
           <span>开奖</span>

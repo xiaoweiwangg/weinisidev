@@ -68,36 +68,44 @@
         <span class="contdet">安全中心</span>
         <i class="iconfont icon-jiantou1"></i>
       </div>
-    </div>
+    </div> -->
     <div class="mlist">
       <div class="item">
         <i class="iconfont icon-daili1"></i>
+        <router-link to="/daili">
         <span class="contdet">代理中心</span>
         <i class="iconfont icon-jiantou1"></i>
+        </router-link>
       </div>
     </div>
     <div class="mlist">
       <div class="item">
+        <router-link to="/yingkui">
         <i class="iconfont icon-yingkui"></i>
         <span class="contdet">今日盈亏</span>
         <i class="iconfont icon-jiantou1"></i>
+        </router-link>
       </div>
     </div>
     <div class="jx"></div>
     <div class="mlist">
       <div class="item">
+        <router-link to="/how">
         <i class="iconfont icon-zhinan"></i>
         <span class="contdet">帮助指南</span>
         <i class="iconfont icon-jiantou1"></i>
+        </router-link>
       </div>
     </div>
     <div class="mlist">
       <div class="item">
+        <router-link to="/guanyu">
         <i class="iconfont icon-guanyu"></i>
-        <span class="contdet">关于威尼斯</span>
+        <span class="contdet">关于我们</span>
         <i class="iconfont icon-jiantou1"></i>
+        </router-link>
       </div>
-    </div> -->
+    </div>
     <van-button class="q" type="primary" size="large" color="red" @click="quit">退出登录</van-button>
   </div>
 </template>
@@ -274,6 +282,11 @@ export default {
     .ms {
       font-size: 17px;
       padding-top: 7px;
+    }
+    a{
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
     }
   }
   .van-row {

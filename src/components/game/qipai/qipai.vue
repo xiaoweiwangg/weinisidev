@@ -1,9 +1,9 @@
 <template>
   <div class="bd" id="qipai">
     <t-header :l="true" :t="'棋 牌 大 厅'"></t-header>
-    <div class="qipailist1">
+    <!-- <div class="qipailist1">
       <router-link to="/niuniu"></router-link>
-    </div>
+    </div> -->
      <div class="qipailist2">
       <router-link to="/rbwar"></router-link>
     </div>

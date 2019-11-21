@@ -22,7 +22,7 @@
       </div>
       <router-link to="/wechatpay">
       <div class="right">
-        <div class="tit">微信扫码支付</div>
+        <div class="tit">微信转账支付</div>
         <div class="detail">最低入款100元起,单次5万元封顶,1分钟到帐</div>
       </div>
       </router-link>
@@ -35,7 +35,7 @@
       </div>
       <router-link to="/alipay">
       <div class="right">
-        <div class="tit">支付宝扫码支付</div>
+        <div class="tit">支付宝转账支付</div>
         <div class="detail">最低入款100元起,单次5万元封顶,1分钟到帐</div>
       </div>
       </router-link>
@@ -60,6 +60,11 @@ export default {
   name: "RecharGe",
   components: {
     THeader
+  },
+  mounted(){
+    this.$notify({
+      message:"如充值过程遇到问题请加客服QQ或微信,专线客服快速处理一切问题"
+    })
   }
 };
 </script>

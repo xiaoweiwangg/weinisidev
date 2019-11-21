@@ -70,6 +70,24 @@ export default new Router({
         import(/* webpackChunkName: "about" */ "./components/talk/talk.vue")
     },
     {
+      path: "/shuoming",
+      name:"shuoming",
+      component: () =>
+        import(/* webpackChunkName: "about" */ "./components/mangerment/daili/item/shuoming/shuoming.vue")
+    },
+    {
+      path: "/how",
+      name:"howplay",
+      component: () =>
+        import(/* webpackChunkName: "about" */ "./components/mangerment/how/how.vue")
+    },
+    {
+      path: "/guanyu",
+      name:"guanyu",
+      component: () =>
+        import(/* webpackChunkName: "about" */ "./components/mangerment/guanyu/guanyu.vue")
+    },
+    {
       path: "/manager",
       component: () =>
         import(
@@ -147,14 +165,14 @@ export default new Router({
           /* webpackChunkName: "about" */ "./components/game/qipai/qipai.vue"
         )
     },
-    {
-      name: "niuniu",
-      path: "/niuniu",
-      component: () =>
-        import(
-          /* webpackChunkName: "about" */ "./components/game/qipai/gamelist/niuniu.vue"
-        )
-    },
+    // {
+    //   name: "niuniu",
+    //   path: "/niuniu",
+    //   component: () =>
+    //     import(
+    //       /* webpackChunkName: "about" */ "./components/game/qipai/gamelist/niuniu.vue"
+    //     )
+    // },
     // {
     //   name: "saibao",
     //   path: "/saibao",
@@ -169,6 +187,38 @@ export default new Router({
       component: () =>
         import(
           /* webpackChunkName: "about" */ "./components/game/qipai/gamelist/rbwar.vue"
+        )
+    },
+    {
+      name: "yingkui",
+      path: "/yingkui",
+      component: () =>
+        import( 
+          /* webpackChunkName: "about" */ "./components/mangerment/yingkui/yingkui.vue"
+        )
+    },
+    {
+      name: "daili",
+      path: "/daili",
+      component: () =>
+        import( 
+          /* webpackChunkName: "about" */ "./components/mangerment/daili/daili.vue"
+        )
+    },
+    {
+      name: "code",
+      path: "/code",
+      component: () =>
+        import( 
+          /* webpackChunkName: "about" */ "./components/mangerment/daili/item/code/code.vue"
+        )
+    },
+    {
+      name: "baobiao",
+      path: "/baobiao",
+      component: () =>
+        import( 
+          /* webpackChunkName: "about" */ "./components/mangerment/daili/item/baobiao.vue"
         )
     },
     // {

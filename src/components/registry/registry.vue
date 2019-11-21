@@ -3,20 +3,25 @@
     <t-header :l="true" :t="'新 用 户 注 册'"></t-header>
     <van-cell-group>
       <van-field
+        v-model.trim="tid"
+        required
+        clearable
+        :error-message="ynem"
+        label="邀请码"
+        :value="tid"
+        x
+        placeholder="请填写您的邀请码"
+      />
+      <van-field
         v-model.trim="name"
         required
         clearable
         :error-message="nem"
         label="用户名"
-x        placeholder="请输入用户名"
+        x
+        placeholder="请输入用户名"
       />
-      <van-field
-        v-model.trim="password"
-        type="password"
-        label="密码"
-        placeholder="请输入密码"
-        required
-      />
+      <van-field v-model.trim="password" type="password" label="密码" placeholder="请输入密码" required />
       <van-field
         v-model.trim="repassword"
         type="password"
@@ -31,21 +36,20 @@ x        placeholder="请输入用户名"
         clearable
         :error-message="nem"
         label="真实姓名"
-x        placeholder="虚假信息将会影响正常出款"
+        x
+        placeholder="虚假信息将会影响正常出款"
       />
-      <van-field
-        v-model.trim="phone"
-        label="手机号"
-        placeholder="请输入手机号"
-        :error-message="pem"
-      />
+      <van-field v-model.trim="phone" label="手机号" placeholder="请输入手机号" :error-message="pem" />
       <div class="sub">
-        <van-button :loading="load" @click="sub" square type="primary"
-          >注 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 册</van-button
-        >
+        <van-button
+          :loading="load"
+          @click="sub"
+          square
+          type="primary"
+        >注 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 册</van-button>
       </div>
     </van-cell-group>
-  </div> 
+  </div>
 </template>
 
 <script>
@@ -76,15 +80,34 @@ export default {
       pem: "",
       nem: "",
       pwem: "",
-      realname:"",
+      ynem: "",
+      realname: "",
+      yaoqingcode: "",
+      tid: null
     };
   },
   mounted() {
+    this.yaoqingcode = this.$Request.tid;
+    this.tid = this.$Request.tid;
   },
   methods: {
     sub() {
-      if (this.name.length < 8) {
-        this.nem = "用户名不能少于8位";
+      if (!this.tid) {
+        this.ynem = "邀请码不能为空";
+        return;
+      } else {
+        this.axios.get("/fcid?tid=" + this.tid).then(x => {
+          if (x.data.num == 0) {
+            this.ynem = "邀请码错误";
+            return;
+          } else {
+            this.ynem = "";
+          }
+          console.log(x);
+        });
+      }
+      if (this.name.length < 6) {
+        this.nem = "用户名不能少于6位";
         return;
       }
       if (this.password != this.repassword) {
@@ -95,36 +118,36 @@ export default {
         this.pem = "手机号格式错误";
         return;
       }
-      if(this.password.length<6){
-        this.pwem="密码长度不能低于6位"
-        return
+      if (this.password.length < 6) {
+        this.pwem = "密码长度不能低于6位";
+        return;
       }
-      if(!isNaN(this.password)){
-        this.pwem="密码必须包含英文字母"
-        return
+      if (!isNaN(this.password)) {
+        this.pwem = "密码必须包含英文字母";
+        return;
       }
       let userinfo = {};
+      userinfo.tid = this.tid;
       userinfo.name = this.name;
       userinfo.password = this.password;
       userinfo.phone = this.phone;
-      userinfo.realname=this.realname;
+      userinfo.realname = this.realname;
       this.axios.post("/inuser", userinfo).then(x => {
         if (x.data.msg == "no") {
-          this.getimg()
+          this.getimg();
           this.$notify({
             message: "用户名已存在!",
             duration: 2000,
             background: "#000"
           });
-        } else if (x.data.msg == "codeno"){
-           this.$notify({
+        } else if (x.data.msg == "codeno") {
+          this.$notify({
             message: "验证码错误!",
             duration: 500,
             background: "#000"
           });
-          this.getimg()
-        }else
-        {
+          this.getimg();
+        } else {
           sessionStorage.setItem("islogoin", "true");
           sessionStorage.setItem("token", x.data.token);
           sessionStorage.setItem("userinfo", JSON.stringify(x.data.userinfo));

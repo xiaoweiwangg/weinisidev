@@ -13,6 +13,10 @@
       <input type="text" v-model="msg" />
       <van-button type="info" @click="send" size="large">发送</van-button>
     </div>
+    <a href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=1226579671&website=www.oicqzone.com">
+    <span class="iconfont">&#xe6c4;</span>
+    <!-- <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1574323640629&di=16d0d8d03c1b602ecc55508aa5ec915c&imgtype=0&src=http%3A%2F%2Fpic.51yuansu.com%2Fpic3%2Fcover%2F00%2F99%2F29%2F58ddde4a8b06d_610.jpg" alt=""> -->
+    </a>
   </div>
 </template>
 
@@ -60,6 +64,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+a{
+  display: block;
+  position: fixed;
+  right: 20px;
+  top:480px;
+  span{
+    font-size: 45px;
+  }
+}
 ul{
   .ls{
     min-height: 80px;

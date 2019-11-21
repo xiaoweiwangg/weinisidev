@@ -1,7 +1,7 @@
 <template>
   <div>
     <t-header :l="true" :t="'提 现 大 厅'"></t-header>
-    <h1>提现到银行卡</h1>
+    <h1>提现到银行卡,平均到账时间5分钟,高峰期最迟10分钟! 提现时出款户名自动以注册时的真实姓名为据.</h1>
     <div class="card">
       <svg class="icon" aria-hidden="true">
         <use xlink:href="#icon-yinhangka" />

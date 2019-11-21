@@ -107,7 +107,7 @@ export default {
     },
     zj(x) {
       if (!x) {
-        return "未开奖";
+        return "未中奖";
       } else {
         return x;
       }
@@ -146,6 +146,9 @@ export default {
           break;
         case "niuniu":
           return "牛牛竞猜";
+          break;
+          case "rbwar":
+          return "红黑大战";
           break;
       }
     },

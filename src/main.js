@@ -9,6 +9,13 @@ import "./assets/css/comm.css";
 import "./assets/icon/iconfont";
 //vue-socket 模块
 import VueSocketIO from "vue-socket.io";
+//点击复制模块
+import vcopy from "vue-clipboard2";
+Vue.use(vcopy);
+//?地址栏获取参数
+import { UrlSearch } from "../gj";
+let Request = new UrlSearch();
+Vue.prototype.$Request = Request;
 //轻提示插件
 import { Cell, CellGroup } from "vant";
 Vue.use(Cell).use(CellGroup);
@@ -16,12 +23,14 @@ import { PasswordInput, NumberKeyboard } from "vant";
 Vue.use(PasswordInput).use(NumberKeyboard);
 import { Field } from "vant";
 Vue.use(Field);
+import { DatetimePicker } from "vant";
+Vue.use(DatetimePicker);
 Vue.use(
   new VueSocketIO({
     // debug: true,
-    // // 服务器端地址
-    // connection: "localhost:88" 
-    connection: "23.88.142.75:88"
+    // // 服务器端地
+    // connection: "localhost:88"
+    connection: "http://23.88.142.15:88"
     // vuex: {},
   })
 );
