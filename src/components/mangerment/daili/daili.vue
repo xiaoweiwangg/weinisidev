@@ -2,7 +2,10 @@
   <div>
     <t-header :l="true" :t="'代 理 中 心'"></t-header>
     <div class="yknum">
-      <img src="https://images.imags-google.com/system/mobile/other/proxySlide.png" alt />
+      <img
+        src="https://images.imags-google.com/system/mobile/other/proxySlide.png"
+        alt
+      />
     </div>
     <div class="ykcont">
       <ul>
@@ -25,7 +28,7 @@
       </ul>
     </div>
   </div>
-</template> 
+</template>
 
 <script>
 import THeader from "../../home/cps/header/header";

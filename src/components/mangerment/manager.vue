@@ -3,7 +3,14 @@
     <t-header :t="'个 人 中 心'"></t-header>
     <div class="user">
       <div class="ui">
-        <div class="img"><img :src="'/image/'+userinfo.img" alt="" height="100" width="100"></div>
+        <div class="img">
+          <img
+            :src="'/image/' + userinfo.img"
+            alt=""
+            height="100"
+            width="100"
+          />
+        </div>
       </div>
       <div class="msg">
         <div class="name">
@@ -12,7 +19,9 @@
         </div>
         <div class="bl">
           <span class="sum">代&nbsp;&nbsp; 理:</span>
-          <span class="ye dl">&nbsp;&nbsp;{{ userinfo.level }}&nbsp;&nbsp;级</span>
+          <span class="ye dl"
+            >&nbsp;&nbsp;{{ userinfo.level }}&nbsp;&nbsp;级</span
+          >
         </div>
         <div class="bl">
           <span class="sum">余&nbsp;&nbsp; 额:</span>
@@ -73,17 +82,17 @@
       <div class="item">
         <i class="iconfont icon-daili1"></i>
         <router-link to="/daili">
-        <span class="contdet">代理中心</span>
-        <i class="iconfont icon-jiantou1"></i>
+          <span class="contdet">代理中心</span>
+          <i class="iconfont icon-jiantou1"></i>
         </router-link>
       </div>
     </div>
     <div class="mlist">
       <div class="item">
         <router-link to="/yingkui">
-        <i class="iconfont icon-yingkui"></i>
-        <span class="contdet">今日盈亏</span>
-        <i class="iconfont icon-jiantou1"></i>
+          <i class="iconfont icon-yingkui"></i>
+          <span class="contdet">今日盈亏</span>
+          <i class="iconfont icon-jiantou1"></i>
         </router-link>
       </div>
     </div>
@@ -91,22 +100,24 @@
     <div class="mlist">
       <div class="item">
         <router-link to="/how">
-        <i class="iconfont icon-zhinan"></i>
-        <span class="contdet">帮助指南</span>
-        <i class="iconfont icon-jiantou1"></i>
+          <i class="iconfont icon-zhinan"></i>
+          <span class="contdet">帮助指南</span>
+          <i class="iconfont icon-jiantou1"></i>
         </router-link>
       </div>
     </div>
     <div class="mlist">
       <div class="item">
         <router-link to="/guanyu">
-        <i class="iconfont icon-guanyu"></i>
-        <span class="contdet">关于我们</span>
-        <i class="iconfont icon-jiantou1"></i>
+          <i class="iconfont icon-guanyu"></i>
+          <span class="contdet">关于我们</span>
+          <i class="iconfont icon-jiantou1"></i>
         </router-link>
       </div>
     </div>
-    <van-button class="q" type="primary" size="large" color="red" @click="quit">退出登录</van-button>
+    <van-button class="q" type="primary" size="large" color="red" @click="quit"
+      >退出登录</van-button
+    >
   </div>
 </template>
 
@@ -142,9 +153,9 @@ export default {
     };
   },
   methods: {
-    quit(){
-    sessionStorage.setItem("islogoin","false")
-    this.$router.push("/logoin")
+    quit() {
+      sessionStorage.setItem("islogoin", "false");
+      this.$router.push("/logoin");
     },
     cash() {
       this.$router.push("/cash");
@@ -162,11 +173,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.q{
+.q {
   position: fixed;
   bottom: 60px;
-  left:0;
-  right:0;
+  left: 0;
+  right: 0;
 }
 .mlist {
   .item {
@@ -283,7 +294,7 @@ export default {
       font-size: 17px;
       padding-top: 7px;
     }
-    a{
+    a {
       width: 100%;
       display: flex;
       justify-content: space-between;

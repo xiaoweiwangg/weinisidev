@@ -39,7 +39,8 @@ export default new Router({
       component: () =>
         import(/* webpackChunkName: "about" */ "./components/pay/alipay.vue"),
       name: "alipay"
-    },{
+    },
+    {
       path: "/uniPay",
       component: () =>
         import(/* webpackChunkName: "about" */ "./components/pay/unipay.vue"),
@@ -70,22 +71,34 @@ export default new Router({
         import(/* webpackChunkName: "about" */ "./components/talk/talk.vue")
     },
     {
-      path: "/shuoming",
-      name:"shuoming",
+      path: "/guanli",
+      name:"guanli",
       component: () =>
-        import(/* webpackChunkName: "about" */ "./components/mangerment/daili/item/shuoming/shuoming.vue")
+        import(/* webpackChunkName: "about" */ "./components/mangerment/daili/item/xiaji/xiaji.vue")
+    },
+    {
+      path: "/shuoming",
+      name: "shuoming",
+      component: () =>
+        import(
+          /* webpackChunkName: "about" */ "./components/mangerment/daili/item/shuoming/shuoming.vue"
+        )
     },
     {
       path: "/how",
-      name:"howplay",
+      name: "howplay",
       component: () =>
-        import(/* webpackChunkName: "about" */ "./components/mangerment/how/how.vue")
+        import(
+          /* webpackChunkName: "about" */ "./components/mangerment/how/how.vue"
+        )
     },
     {
       path: "/guanyu",
-      name:"guanyu",
+      name: "guanyu",
       component: () =>
-        import(/* webpackChunkName: "about" */ "./components/mangerment/guanyu/guanyu.vue")
+        import(
+          /* webpackChunkName: "about" */ "./components/mangerment/guanyu/guanyu.vue"
+        )
     },
     {
       path: "/manager",
@@ -193,7 +206,7 @@ export default new Router({
       name: "yingkui",
       path: "/yingkui",
       component: () =>
-        import( 
+        import(
           /* webpackChunkName: "about" */ "./components/mangerment/yingkui/yingkui.vue"
         )
     },
@@ -201,7 +214,7 @@ export default new Router({
       name: "daili",
       path: "/daili",
       component: () =>
-        import( 
+        import(
           /* webpackChunkName: "about" */ "./components/mangerment/daili/daili.vue"
         )
     },
@@ -209,7 +222,7 @@ export default new Router({
       name: "code",
       path: "/code",
       component: () =>
-        import( 
+        import(
           /* webpackChunkName: "about" */ "./components/mangerment/daili/item/code/code.vue"
         )
     },
@@ -217,7 +230,7 @@ export default new Router({
       name: "baobiao",
       path: "/baobiao",
       component: () =>
-        import( 
+        import(
           /* webpackChunkName: "about" */ "./components/mangerment/daili/item/baobiao.vue"
         )
     },

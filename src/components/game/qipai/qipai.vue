@@ -4,10 +4,10 @@
     <!-- <div class="qipailist1">
       <router-link to="/niuniu"></router-link>
     </div> -->
-     <div class="qipailist2">
+    <div class="qipailist2">
       <router-link to="/rbwar"></router-link>
     </div>
-  <!-- <div class="qipailist3">
+    <!-- <div class="qipailist3">
       <router-link to="/longhu"></router-link>
     </div>
     <div class="qipailist5">
@@ -19,7 +19,7 @@
     <div class="qipailist6">
       <router-link to="/saibao"></router-link> 
     </div>  -->
-  <!--
+    <!--
        
     <van-popup v-model="show">
         <p>即将开放,敬请期待!</p>
@@ -29,44 +29,43 @@
 </template>
 
 <script>
-import $ from "jquery"
+import $ from "jquery";
 import THeader from "../../home/cps/header/header";
-import { setTimeout } from 'timers';
+import { setTimeout } from "timers";
 export default {
   components: {
     THeader
   },
-  data(){
-      return {
-          show:false
-      }
+  data() {
+    return {
+      show: false
+    };
   },
   name: "QiPai",
-  mounted(){
+  mounted() {
     createjs.Sound.registerSound("/rbwar/maopao.mp3", "maopao");
-$("#qipai a").on("click",function(){
-  createjs.Sound.play("maopao")
-})
-      setTimeout(() => {
-          // this.show=true
-      }, 500);
+    $("#qipai a").on("click", function() {
+      createjs.Sound.play("maopao");
+    });
+    setTimeout(() => {
+      // this.show=true
+    }, 500);
   }
 };
 </script>
 
 <style lang="scss" scoped>
-a{
+a {
   display: block;
   height: 133px;
   width: 100%;
 }
-p{
-    font-size: 20px;
-    padding: 5px 7px;
-
+p {
+  font-size: 20px;
+  padding: 5px 7px;
 }
 .bd {
-    overflow: auto;
+  overflow: auto;
   background: url(https://images.imags-google.com/game/gamebg.png);
   background-size: cover;
   // height: 100%;
@@ -76,7 +75,7 @@ p{
   // left: 0;
   // right: 0;
   height: 100%;
-  width:100%;
+  width: 100%;
   margin-bottom: 50px;
   .qipailist1 {
     height: 133px;
@@ -87,30 +86,30 @@ p{
     height: 133px;
     background: url(https://images.imags-google.com/game/game-list.png?1);
     background-size: 100% auto;
-    background-position:0 20%;
+    background-position: 0 20%;
   }
   .qipailist3 {
     height: 133px;
     background: url(https://images.imags-google.com/game/game-list.png?1);
     background-size: 100% auto;
-    background-position:0 40%;
+    background-position: 0 40%;
   }
   .qipailist4 {
     height: 133px;
     background: url(https://images.imags-google.com/game/game-list.png?1);
-    background-position:0 60%;
+    background-position: 0 60%;
     background-size: 100% auto;
   }
   .qipailist5 {
     height: 133px;
     background: url(https://images.imags-google.com/game/game-list.png?1);
-    background-position:0 80%;
+    background-position: 0 80%;
     background-size: 100% auto;
   }
   .qipailist6 {
     height: 133px;
     background: url(https://images.imags-google.com/game/game-list.png?1);
-    background-position:0 100%;
+    background-position: 0 100%;
     background-size: 100% auto;
   }
 }

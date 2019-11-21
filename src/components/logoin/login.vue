@@ -6,7 +6,13 @@
     </div>
     <div class="dl">
       <van-cell-group>
-        <van-field v-model="username" required clearable label="用户名" placeholder="请输入用户名" />
+        <van-field
+          v-model="username"
+          required
+          clearable
+          label="用户名"
+          placeholder="请输入用户名"
+        />
         <van-field
           v-model="password"
           type="password"
@@ -16,12 +22,9 @@
           required
         />
         <div class="sub">
-          <van-button
-            :loading="load"
-            @click="sub"
-            square
-            type="primary"
-          >登 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 录</van-button>
+          <van-button :loading="load" @click="sub" square type="primary"
+            >登 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 录</van-button
+          >
         </div>
       </van-cell-group>
       <div class="fog">
@@ -87,7 +90,7 @@ export default {
             background: "green"
           });
           setTimeout(() => {
-            this.$dialog 
+            this.$dialog
               .confirm({
                 title: "通告",
                 message:

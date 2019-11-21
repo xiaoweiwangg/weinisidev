@@ -12,15 +12,16 @@
           <th>金额</th>
         </tr>
         <tr v-for="(item, index) in currlist" :key="index">
-          <td>{{item.playgame|nm}}</td>
-          <td>{{item.playname}}</td>
-          <td>{{item.playdate}}</td>
-          <td>{{item.iszk|zj}}</td>
+          <td>{{ item.playgame | nm }}</td>
+          <td>{{ item.playname }}</td>
+          <td>{{ item.playdate }}</td>
+          <td>{{ item.iszk | zj }}</td>
           <td colspan="2">
             <van-button type="info" @click="showPopup(index)">详情</van-button>
           </td>
         </tr>
       </table>
+
       <van-pagination
         @change="ch(currentPage)"
         v-model="currentPage"
@@ -39,15 +40,16 @@
             <th>开奖号码</th>
           </tr>
           <tr>
-            <td>{{im.playmode|md}}</td>
-            <td>{{im.playratel}}倍</td>
-            <td>{{im.price}}元</td>
-            <td>{{im.kjnum}}</td>
+            <td>{{ im.playmode | md }}</td>
+            <td>{{ im.playratel }}倍</td>
+            <td>{{ im.price }}元</td>
+            <td>{{ im.kjnum }}</td>
           </tr>
         </table>
+
         <div class="pp">
           <p>购买详情</p>
-          {{im.buydet|det}}
+          {{ im.buydet | det }}
         </div>
       </div>
     </van-popup>
@@ -147,7 +149,7 @@ export default {
         case "niuniu":
           return "牛牛竞猜";
           break;
-          case "rbwar":
+        case "rbwar":
           return "红黑大战";
           break;
       }

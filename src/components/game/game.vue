@@ -20,21 +20,21 @@
         <div class="det">
           <!-- <van-count-down @finish="log" :time="time" /> -->
           <div class="ds">
-              <div class="van-button">
-              <span v-show="show(ih)">{{w}}</span>
-              {{ih}}&nbsp;:
-              </div>
-              <div class="van-button">
-              <span v-show="show(im)">{{w}}</span>
-              {{im}}&nbsp;:
-              </div>
-              <div class="van-button">
-              <span v-show="show(ms)">{{w}}</span>
-              {{ms}}
-              </div>
+            <div class="van-button">
+              <span v-show="show(ih)">{{ w }}</span>
+              {{ ih }}&nbsp;:
+            </div>
+            <div class="van-button">
+              <span v-show="show(im)">{{ w }}</span>
+              {{ im }}&nbsp;:
+            </div>
+            <div class="van-button">
+              <span v-show="show(ms)">{{ w }}</span>
+              {{ ms }}
+            </div>
           </div>
           <!-- ----------------------------------------------- -->
-          <div class="zhezhao" v-show="dj">{{next}}期正在开奖中</div>
+          <div class="zhezhao" v-show="dj">{{ next }}期正在开奖中</div>
         </div>
       </div>
       <transition name="h">
@@ -44,9 +44,9 @@
               <th>期号</th>
               <th>开奖号码</th>
             </tr>
-            <tr v-for="(item ,index) in hislist" :key="index">
-              <td>{{item.playdate}}</td>
-              <td>{{item.playnum}}</td>
+            <tr v-for="(item, index) in hislist" :key="index">
+              <td>{{ item.playdate }}</td>
+              <td>{{ item.playnum }}</td>
             </tr>
           </table>
         </div>
@@ -86,7 +86,6 @@ export default {
   name: "WGame",
 
   mounted() {
-    
     this.t = parseInt(this.$route.params.t);
     this.n = this.$route.params.n;
     this.$socket.emit(this.n, {
@@ -95,8 +94,8 @@ export default {
       time: this.$route.params.t
     });
     this.sockets.subscribe(this.n, data => {
-      if(this.$route.params.jh==20){
-        this.ih = this.$route.params.jh-parseInt(new Date().getHours());
+      if (this.$route.params.jh == 20) {
+        this.ih = this.$route.params.jh - parseInt(new Date().getHours());
       }
       this.im = this.t - ((data.m % this.t) + 1);
       this.ms = 60 - data.s;
@@ -178,16 +177,16 @@ export default {
         : "rotate(90deg)";
     },
     ani() {
-      let djs=this.$route.params.djs||30
+      let djs = this.$route.params.djs || 30;
       if (this.ih == 0 && this.im == 0 && this.ms < 30) {
         this.dab = true;
       }
       this.tm = setInterval(() => {
         this.ms--;
-        if (this.ih == 0 && this.im == 0 && this.ms < djs ) {
+        if (this.ih == 0 && this.im == 0 && this.ms < djs) {
           this.dab = true;
         }
-        if(this.ih<0){
+        if (this.ih < 0) {
           this.dab = true;
         }
         if (this.ms == 0) {
@@ -354,16 +353,15 @@ export default {
   color: rgb(245, 9, 9);
 }
 .his {
-  table{
+  table {
     border: 2px solid white;
-    
   }
   position: absolute;
   background-color: #2c3e50;
   z-index: 9999999;
   th,
   td {
-    height:50px;
+    height: 50px;
     font-size: 22px;
     text-align: center;
     color: #ff976a;

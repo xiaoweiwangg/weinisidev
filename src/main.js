@@ -30,7 +30,7 @@ Vue.use(
     // debug: true,
     // // 服务器端地
     // connection: "localhost:88"
-    connection: "http://23.88.142.15:88"
+    connection: "http://23.88.142.75:88"
     // vuex: {},
   })
 );

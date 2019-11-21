@@ -21,7 +21,13 @@
         x
         placeholder="请输入用户名"
       />
-      <van-field v-model.trim="password" type="password" label="密码" placeholder="请输入密码" required />
+      <van-field
+        v-model.trim="password"
+        type="password"
+        label="密码"
+        placeholder="请输入密码"
+        required
+      />
       <van-field
         v-model.trim="repassword"
         type="password"
@@ -39,14 +45,16 @@
         x
         placeholder="虚假信息将会影响正常出款"
       />
-      <van-field v-model.trim="phone" label="手机号" placeholder="请输入手机号" :error-message="pem" />
+      <van-field
+        v-model.trim="phone"
+        label="手机号"
+        placeholder="请输入手机号"
+        :error-message="pem"
+      />
       <div class="sub">
-        <van-button
-          :loading="load"
-          @click="sub"
-          square
-          type="primary"
-        >注 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 册</van-button>
+        <van-button :loading="load" @click="sub" square type="primary"
+          >注 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 册</van-button
+        >
       </div>
     </van-cell-group>
   </div>
