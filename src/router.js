@@ -178,22 +178,22 @@ export default new Router({
           /* webpackChunkName: "about" */ "./components/game/qipai/qipai.vue"
         )
     },
-    // {
-    //   name: "niuniu",
-    //   path: "/niuniu",
-    //   component: () =>
-    //     import(
-    //       /* webpackChunkName: "about" */ "./components/game/qipai/gamelist/niuniu.vue"
-    //     )
-    // },
-    // {
-    //   name: "saibao",
-    //   path: "/saibao",
-    //   component: () =>
-    //     import(
-    //       /* webpackChunkName: "about" */ "./components/game/qipai/gamelist/saibao.vue"
-    //     )
-    // },
+    {
+      name: "niuniu",
+      path: "/niuniu",
+      component: () =>
+        import(
+          /* webpackChunkName: "about" */ "./components/game/qipai/gamelist/niuniu.vue"
+        )
+    },
+    {
+      name: "saibao",
+      path: "/saibao",
+      component: () =>
+        import(
+          /* webpackChunkName: "about" */ "./components/game/qipai/gamelist/saibao.vue"
+        )
+    },
     {
       name: "rbwar",
       path: "/rbwar",
@@ -234,22 +234,22 @@ export default new Router({
           /* webpackChunkName: "about" */ "./components/mangerment/daili/item/baobiao.vue"
         )
     },
-    // {
-    //   name: "longhu",
-    //   path: "/longhu",
-    //   component: () =>
-    //     import(
-    //       /* webpackChunkName: "about" */ "./components/game/qipai/gamelist/longhu.vue"
-    //     )
-    // },
-    // {
-    //   name: "benchi",
-    //   path: "/benchi",
-    //   component: () =>
-    //     import(
-    //       /* webpackChunkName: "about" */ "./components/game/qipai/gamelist/benchi.vue"
-    //     )
-    // },
+    {
+      name: "longhu",
+      path: "/longhu",
+      component: () =>
+        import(
+          /* webpackChunkName: "about" */ "./components/game/qipai/gamelist/longhu.vue"
+        )
+    },
+    {
+      name: "benchi",
+      path: "/benchi",
+      component: () =>
+        import(
+          /* webpackChunkName: "about" */ "./components/game/qipai/gamelist/benchi.vue"
+        )
+    },
     {
       name: "pk10",
       path: "/wnspk10",

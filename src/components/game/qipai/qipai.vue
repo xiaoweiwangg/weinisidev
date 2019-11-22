@@ -1,30 +1,24 @@
 <template>
   <div class="bd" id="qipai">
     <t-header :l="true" :t="'棋 牌 大 厅'"></t-header>
-    <!-- <div class="qipailist1">
+   <div class="qipailist1">
       <router-link to="/niuniu"></router-link>
-    </div> -->
+    </div>
     <div class="qipailist2">
       <router-link to="/rbwar"></router-link>
     </div>
-    <!-- <div class="qipailist3">
+    <!--<div class="qipailist3">
       <router-link to="/longhu"></router-link>
-    </div>
+    </div>-->
     <div class="qipailist5">
       <router-link to="/benchi"></router-link>
     </div>
-    <div class="qipailist4">
+    <!--<div class="qipailist4">
       <router-link to="/baijiale"></router-link>
-    </div>
+    </div>-->
     <div class="qipailist6">
       <router-link to="/saibao"></router-link> 
-    </div>  -->
-    <!--
-       
-    <van-popup v-model="show">
-        <p>即将开放,敬请期待!</p>
-    </van-popup>
-     -->
+    </div>
   </div>
 </template>
 
