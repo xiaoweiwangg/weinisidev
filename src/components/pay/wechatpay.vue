@@ -128,6 +128,11 @@ export default {
       this.show = true;
     },
     send() {
+       this.$notify({
+                message: "重置申请已提交,系统将在1到5分钟后自动入账",
+                duration: 2000,
+                background: "#000"
+            })
       let msg = {
         cashnum: this.cashnum,
         type: this.titl,

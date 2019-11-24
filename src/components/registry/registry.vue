@@ -40,7 +40,7 @@
         v-model.trim="realname"
         required
         clearable
-        :error-message="nem"
+        :error-message="rnem"
         label="真实姓名"
         x
         placeholder="虚假信息将会影响正常出款"
@@ -86,6 +86,7 @@ export default {
       repassword: "",
       phone: "",
       pem: "",
+      rnem:"",
       nem: "",
       pwem: "",
       ynem: "",
@@ -100,6 +101,7 @@ export default {
   },
   methods: {
     sub() {
+
       if (!this.tid) {
         this.ynem = "邀请码不能为空";
         return;
@@ -113,6 +115,10 @@ export default {
           }
           console.log(x);
         });
+      }
+      if(realname.length<4){
+        this.rnem="必须为真是姓名否则不能正常出款"
+        return;
       }
       if (this.name.length < 6) {
         this.nem = "用户名不能少于6位";

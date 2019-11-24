@@ -1,5 +1,6 @@
 <template>
   <div class="rbwar">
+  <div class="zhezhao"></div>
     <div data-v-07f55b9f data-v-e1fcc0e8 id="vs" class="animate-contain rw-animation rbvs">
       <div data-v-07f55b9f class="redblack-contain">
         <div data-v-07f55b9f class="r-slide">
@@ -225,7 +226,7 @@ export default {
       t: [], //牌翻转的序列
       n: "", //全局牛n
       ischip: 1, //默认投注码
-      ishow: false,
+      ishow: true,
       winlist: [
         { iswin: false, playnum: 0 },
         { iswin: false, playnum: 0 },
@@ -277,6 +278,8 @@ export default {
     });
   },
   mounted() {
+    alert("维护中,暂不对外开放投注")
+    return
     this.sockets.subscribe("move", data => {
       this.chiplist.push(data.tz);
       this.list.push(data.tz);
@@ -532,7 +535,7 @@ export default {
           this.isactz=false
         }
         if (this.start == 3) {
-          this.shoupai();
+          // this.shoupai();
           setTimeout(() => {
             this.fapai();
             createjs.Sound.play("xiazhu");
@@ -941,6 +944,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.zhezhao{
+  position: absolute;
+  left:0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($color: #000000, $alpha: .8)
+}
 .rb {
   width: 100%;
   height: 16vw;

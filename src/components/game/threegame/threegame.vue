@@ -84,9 +84,7 @@ import { clearInterval } from "timers";
 import { log } from "util";
 export default {
   name: "TGame",
-
   mounted() {
-    
     this.t = parseInt(this.$route.params.t);
     this.n = this.$route.params.n;
     this.$socket.emit(this.n, {

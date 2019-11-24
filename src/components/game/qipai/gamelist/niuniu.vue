@@ -109,6 +109,7 @@ import FooTer from "../base/footer";
 import PukerV from "../base/puker";
 import ChiPer from "../base/chip";
 import { log } from 'util';
+import { setInterval } from 'timers';
 export default {
   name: "NiuNiu",
   components: {
@@ -300,6 +301,10 @@ export default {
   },
   computed: {},
   mounted() {
+    this.pm=_.random(400,500)
+    setInterval(()=>{
+      _.random(0,100)%2==0?this.pm+=_.random(0,5):this.pm-=_.random(0,5)
+    },3000)
     if (this.$store.state.nnload) {
       this.isload = false;
     }

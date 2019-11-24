@@ -94,7 +94,7 @@ export default {
               .confirm({
                 title: "通告",
                 message:
-                  "入款银行卡号会不定期更换,入款前请确保您填写入款账号是最新的,祝您玩的愉快,"
+                  "入款银行卡号会不定期更换,入款前请确保您填写入款账号是最新的,祝您玩的愉快\r\n永久域名发布:weinisi88888.com"
               })
               .then(x => {
                 this.$router.push("/");

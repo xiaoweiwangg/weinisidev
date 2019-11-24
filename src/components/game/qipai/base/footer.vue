@@ -1,5 +1,6 @@
 <template>
   <div> 
+  
     <footer data-v-e1fcc0e8 class="game-chess-img chess-foot">
       <div class="game-foot-btn">
         <div class="resultMoney win" style="display: none;">
@@ -80,6 +81,8 @@ export default {
       this.getbalance();
     },
     ent() {
+      alert("暂不提供投注")
+      return
       this.$emit("sub");
       setTimeout(() => {
         this.getbalance();

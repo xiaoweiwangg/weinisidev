@@ -76,7 +76,7 @@
             <span class="det">1天一期</span>
           </div>
         </router-link>
-        <div class="fengpan" v-show="false">
+        <div class="fengpan" v-show="threed">
           <i class="iconfont icon-sheweifengpan"></i>
         </div>
       </van-col>
@@ -92,7 +92,7 @@
             <span class="det">1天一期</span>
           </div>
         </router-link>
-        <div class="fengpan" v-show="false">
+        <div class="fengpan" v-show="threed">
           <i class="iconfont icon-sheweifengpan"></i>
         </div>
       </van-col>
@@ -123,7 +123,7 @@
           <!-- <i class="iconfont icon-sheweifengpan"></i> -->
         </div>
       </van-col>
-      <!-- <van-col span="8">
+      <van-col span="8">
         <router-link :to="{ name: 'lol', params: { n: 'ynssc', t: 20, jh:0,js: 20, jm: 2 } }">
           <div class="item">
             <span class="iconfont icon-logo-esport"></span>
@@ -131,12 +131,10 @@
             <span class="det">S9等各大联赛...</span>
           </div>
         </router-link>
-        <div class="fengpan" v-show="false">
+        <div class="fengpan" v-show="true">
           <i class="iconfont icon-sheweifengpan"></i>
         </div>
-      </van-col> -->
-    </van-row>
-    <van-row>
+      </van-col>
       <van-col span="8">
         <router-link :to="{ name: 'pk', params: { n: 'bjkcssc', t: 20, jh:0,js: 40, jm: 3 } }">
           <div class="item">
@@ -150,6 +148,21 @@
           <i class="iconfont icon-feng1"></i>
         </div>
       </van-col>
+      <van-col span="8">
+        <router-link :to="{ name: 'hongbao', params: { n: 'bjkcssc', t: 20, jh:0,js: 40, jm: 3 } }">
+          <div class="item">
+            <span class="iconfont icon-ai-hongbao"></span>
+            <span class="name">红包大战</span>
+            <span class="det">即时开奖,随时兑奖</span>
+          </div>
+        </router-link>
+        <div class="fengpan" v-show="false">
+          <i class="iconfont icon-sheweifengpan"></i>
+          <i class="iconfont icon-feng1"></i>
+        </div>
+      </van-col>
+    </van-row>
+    <van-row>
       
     </van-row>
   </div>
@@ -164,8 +177,18 @@ export default {
     [Row.name]: Row,
     [Col.name]: Col
   },
+  data(){
+    return {
+      threed:false
+    }
+  },
   mounted() {
-    
+    let h=(new Date()).getHours()
+    let m=(new Date()).getMinutes()
+    console.log(h,m)
+    if(h>=22){
+      this.threed=true
+    }
   }
 };
 </script>
@@ -216,6 +239,9 @@ export default {
   .icon-pk10 {
     color: rgb(243, 6, 6);
     // color:#ccc;
+  }
+  .icon-ai-hongbao{
+    color:red;
   }
   .icon-logo-esport {
     color: #e9bb4f;

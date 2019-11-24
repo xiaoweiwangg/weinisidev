@@ -143,6 +143,8 @@ export default {
   },
   computed: {},
   mounted() {
+        alert("维护中,暂不对外开放投注")
+  return
     this.sockets.subscribe("niuniu2", data => {
       this.playdate = parseInt(data.msg.playdate);
       this.puklist = JSON.parse(data.msg.playnum);

@@ -564,6 +564,8 @@ export default {
     },
     computed: {},
     mounted() {
+        alert("维护中,暂不对外开放投注")
+        return
         let tl = 0;
         setInterval(() => {
             tl++;

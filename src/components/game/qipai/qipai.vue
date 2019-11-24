@@ -1,23 +1,23 @@
 <template>
   <div class="bd" id="qipai">
     <t-header :l="true" :t="'棋 牌 大 厅'"></t-header>
-   <div class="qipailist1">
-      <router-link to="/niuniu"></router-link>
+   <div class="qipailist1" @click="ret">
+      <router-link to="/qipai"></router-link>
     </div>
-    <div class="qipailist2">
-      <router-link to="/rbwar"></router-link>
+    <div class="qipailist2" @click="ret">
+      <router-link to="/qipai"  ></router-link>
     </div>
     <!--<div class="qipailist3">
       <router-link to="/longhu"></router-link>
     </div>-->
-    <div class="qipailist5">
-      <router-link to="/benchi"></router-link>
+    <div class="qipailist5"  @click="ret">
+      <router-link to="/qipai" ></router-link>
     </div>
     <!--<div class="qipailist4">
       <router-link to="/baijiale"></router-link>
     </div>-->
-    <div class="qipailist6">
-      <router-link to="/saibao"></router-link> 
+    <div class="qipailist6" @click="ret">
+      <router-link to="/qipai" ></router-link> 
     </div>
   </div>
 </template>
@@ -34,6 +34,11 @@ export default {
     return {
       show: false
     };
+  },
+  methods:{
+     ret(){
+      alert("维护中")
+     }
   },
   name: "QiPai",
   mounted() {
